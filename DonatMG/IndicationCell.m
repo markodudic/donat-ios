@@ -17,12 +17,13 @@
 @synthesize active = _active;
 
 - (void)prepareForReuse {
-	// Just in case, if someone changes it
-	[self.titleLabel setFont:[UIFont fontWithName:@"Roboto-Regular" size:15.0f]];
-
 	self.imageView.image = nil;
 	self.titleLabel.text = @"";
 	self.active = NO;
+
+	// Just in case, if someone changes it
+	// BUG: this doesn't seem to work when called from here, moving it to MainViewController tableView: cellForRowAtIndexPath:
+//	[self.titleLabel setFont:[UIFont fontWithName:@"Roboto-Regular" size:15.0f]];
 }
 
 - (void)setActive:(BOOL)active {

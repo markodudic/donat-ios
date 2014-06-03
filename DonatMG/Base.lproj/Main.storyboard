@@ -56,7 +56,7 @@
                             <color key="backgroundColor" white="1" alpha="0.5" colorSpace="calibratedWhite"/>
                         </view>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="indicationCell" rowHeight="57" id="VEk-ZQ-zJ7" customClass="IndicationCell">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="indicationCell" rowHeight="57" id="VEk-ZQ-zJ7" customClass="IndicationCell">
                                 <rect key="frame" x="0.0" y="266" width="320" height="57"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="VEk-ZQ-zJ7" id="8CX-BD-p91">
@@ -97,11 +97,102 @@
                     <connections>
                         <outlet property="headerLabel" destination="244-8V-DDM" id="dz4-iA-ydq"/>
                         <outlet property="headerView" destination="O5V-wS-rXW" id="KCg-za-o3g"/>
+                        <segue destination="rO5-e0-FkL" kind="push" identifier="showIndication" id="RGA-LY-2TU"/>
+                        <segue destination="DpB-mG-RwS" kind="push" identifier="showCalendar" id="wVG-48-2N5"/>
+                        <segue destination="Rk3-Vs-kGb" kind="push" identifier="showSettings" id="sQS-Aa-FYA"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fzv-X3-TAO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="694" y="32"/>
+        </scene>
+        <!--Calendar View Controller-->
+        <scene sceneID="mIi-H9-anT">
+            <objects>
+                <viewController id="DpB-mG-RwS" customClass="CalendarViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Je3-sT-7e6"/>
+                        <viewControllerLayoutGuide type="bottom" id="eKJ-VW-86n"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Clu-OM-nlq">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="wRe-4u-pQ5"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="d97-Wo-GH1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1177" y="-388"/>
+        </scene>
+        <!--Settings View Controller-->
+        <scene sceneID="3wy-QZ-sOe">
+            <objects>
+                <viewController id="Rk3-Vs-kGb" customClass="SettingsViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="tAI-eF-X5a"/>
+                        <viewControllerLayoutGuide type="bottom" id="sbn-GE-A0S"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="pe9-rf-uaz">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qPb-xQ-efS">
+                                <rect key="frame" x="141" y="220" width="38" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Legal">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="4YX-we-oyZ" kind="push" identifier="showLegal" id="Wv6-YG-lRn"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="m1N-YR-zR8"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wuZ-co-HQU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1177" y="423"/>
+        </scene>
+        <!--Legal View Controller-->
+        <scene sceneID="EMn-ei-8I4">
+            <objects>
+                <viewController id="4YX-we-oyZ" customClass="LegalViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="If2-Ec-f6m"/>
+                        <viewControllerLayoutGuide type="bottom" id="khK-qF-opz"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Tat-ap-UJv">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="Cr2-w6-4tL"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="daC-O9-LLd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1641" y="747"/>
+        </scene>
+        <!--Indication View Controller-->
+        <scene sceneID="dTi-tu-fO6">
+            <objects>
+                <viewController id="rO5-e0-FkL" customClass="IndicationViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="xLn-qG-RXH"/>
+                        <viewControllerLayoutGuide type="bottom" id="ftM-MR-rdr"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="uYa-if-gst">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="71z-fP-s2E"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bPN-dX-F0j" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1641" y="32"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="b2T-Zx-Lew">
@@ -122,6 +213,7 @@
     <resources>
         <image name="icon_treatment.png" width="19" height="19"/>
     </resources>
+    <color key="tintColor" red="0.0078431372549019607" green="0.23137254901960785" blue="0.1803921568627451" alpha="1" colorSpace="calibratedRGB"/>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

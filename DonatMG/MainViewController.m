@@ -7,6 +7,7 @@
 //
 
 #import "MainViewController.h"
+#import "SettingsManager.h"
 #import "IndicationCell.h"
 
 @interface MainViewController ()
@@ -18,12 +19,12 @@
 @synthesize headerView = _headerView;
 @synthesize headerLabel = _headerLabel;
 
-- (void)settings {
-//	[self performSegueWithIdentifier:@"showSettings" sender:self];
+- (void)calendar {
+	[self performSegueWithIdentifier:@"showCalendar" sender:self];
 }
 
-- (void)calendar {
-//	[self performSegueWithIdentifier:@"showCalendar" sender:self];
+- (void)settings {
+	[self performSegueWithIdentifier:@"showSettings" sender:self];
 }
 
 - (void)viewDidLoad {
@@ -65,6 +66,8 @@
 	[super viewWillAppear:animated];
 	// hide the title while view controller is visible
 	self.title = @"";
+
+	[self.tableView reloadData];
 }
 
 #pragma mark - Table view data source
@@ -80,53 +83,69 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
 	IndicationCell *cell = [tableView dequeueReusableCellWithIdentifier:@"indicationCell" forIndexPath:indexPath];
 
-	// TODO: set the actual "active" value, this is just for testing
-	cell.active = (BOOL)rand() % 2;
-
-	switch (indexPath.item) {
+	// our indications start from 1
+	switch (indexPath.item + 1) {
 		case kZaprtost:
+			cell.tag = kZaprtost;
 			cell.imageView.image = [UIImage imageNamed:@"icon_zaprtost.png"];
 			cell.titleLabel.text = NSLocalizedString(@"zaprtost", nil);
 			break;
 		case kZgaga:
+			cell.tag = kZgaga;
 			cell.imageView.image = [UIImage imageNamed:@"icon_zgaga.png"];
 			cell.titleLabel.text = NSLocalizedString(@"zgaga", nil);
 			break;
 		case kMagnezij:
+			cell.tag = kMagnezij;
 			cell.imageView.image = [UIImage imageNamed:@"icon_mg.png"];
 			cell.titleLabel.text = NSLocalizedString(@"mg", nil);
 			break;
 		case kSladkorna:
+			cell.tag = kSladkorna;
 			cell.imageView.image = [UIImage imageNamed:@"icon_sladkorna.png"];
 			cell.titleLabel.text = NSLocalizedString(@"sladkorna", nil);
 			break;
 		case kSlinavka:
+			cell.tag = kSlinavka;
 			cell.imageView.image = [UIImage imageNamed:@"icon_slinavka.png"];
 			cell.titleLabel.text = NSLocalizedString(@"slinavka", nil);
 			break;
 		case kSecniKamni:
+			cell.tag = kSecniKamni;
 			cell.imageView.image = [UIImage imageNamed:@"icon_secni_kamni.png"];
 			cell.titleLabel.text = NSLocalizedString(@"secni_kamni", nil);
 			break;
 		case kDebelost:
+			cell.tag = kDebelost;
 			cell.imageView.image = [UIImage imageNamed:@"icon_debelost.png"];
 			cell.titleLabel.text = NSLocalizedString(@"debelost", nil);
 			break;
 		case kSrceOzilje:
+			cell.tag = kSrceOzilje;
 			cell.imageView.image = [UIImage imageNamed:@"icon_srce_ozilje.png"];
 			cell.titleLabel.text = NSLocalizedString(@"srce_ozilje", nil);
 			break;
 		case kStres:
+			cell.tag = kStres;
 			cell.imageView.image = [UIImage imageNamed:@"icon_stres.png"];
 			cell.titleLabel.text = NSLocalizedString(@"stres", nil);
 			break;
 		case kPocutje:
+			cell.tag = kPocutje;
 			cell.imageView.image = [UIImage imageNamed:@"icon_pocutje.png"];
 			cell.titleLabel.text = NSLocalizedString(@"pocutje", nil);
 			break;
 		default:
 			break;
 	}
+
+	cell.active = [[SettingsManager sharedManager] activeIndication] == cell.tag;
+
+	[cell.titleLabel setFont:[UIFont fontWithName:@"Roboto-Regular" size:15.0f]];
+
+	UIView * selectedBackgroundView = [[UIView alloc] initWithFrame:cell.frame];
+	[selectedBackgroundView setBackgroundColor:[UIColor colorWithRed:0.0f green:0.0f blue:0.0f alpha:0.2f]];
+	[cell setSelectedBackgroundView:selectedBackgroundView];
 
 	return cell;
 }
@@ -137,13 +156,17 @@
 	// This shouldn't be needed, as selection isn't used, but still...
 	[tableView deselectRowAtIndexPath:indexPath animated:YES];
 
+	IndicationCell *cell = (IndicationCell *)[tableView cellForRowAtIndexPath:indexPath];
+
 	// TODO: Add contollers
-	// [self performSegueWithIdentifier:@"showIndication" sender:[NSNumber numberWithInteger:indexPath.item]];
+	[self performSegueWithIdentifier:@"showIndication" sender:cell];
+
+	[[SettingsManager sharedManager] setActiveIndication:cell.tag];
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
 	// set the title so the "back" button will be shown
-	self.title = NSLocalizedString(@"seznamTitle", nil);
+	self.title = NSLocalizedString(@"mainTitle", nil);
 	if ([segue.identifier isEqualToString:@"showIndication"]) {
 		// TODO: Add contollers
 		//		IndicationViewController *indicationController = (IndicationViewController *)[segue destinationViewController];
