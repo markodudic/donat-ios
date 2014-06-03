@@ -1,0 +1,37 @@
+//
+//	Prefix header
+//
+//	The contents of this file are implicitly included at the beginning of every source file.
+//
+
+#import <Availability.h>
+
+#ifndef __IPHONE_7_0
+#warning "This project uses features only available in iOS SDK 7.0 and later."
+#endif
+
+#ifdef __OBJC__
+	#import <UIKit/UIKit.h>
+	#import <Foundation/Foundation.h>
+#endif
+
+#define IS_WIDESCREEN (fabs((double)[[UIScreen mainScreen] bounds].size.height-(double)568)<DBL_EPSILON)
+#define IS_IPHONE ([[[UIDevice currentDevice] model] isEqualToString:@"iPhone"])
+
+// TODO: change the following define back to the following: (doesn't work on the simulator)
+// #define IS_IPHONE_5 (IS_IPHONE && IS_WIDESCREEN)
+#define IS_IPHONE_5 (IS_WIDESCREEN)
+
+// Constants to be used for indications
+typedef NS_ENUM(NSUInteger, IndicationType) {
+    kZaprtost,
+    kZgaga,
+    kMagnezij,
+	kSladkorna,
+	kSlinavka,
+	kSecniKamni,
+	kDebelost,
+	kSrceOzilje,
+	kStres,
+	kPocutje
+};
