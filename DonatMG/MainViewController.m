@@ -9,6 +9,7 @@
 #import "MainViewController.h"
 #import "SettingsManager.h"
 #import "IndicationCell.h"
+#import "IndicationViewController.h"
 
 @interface MainViewController ()
 
@@ -158,19 +159,15 @@
 
 	IndicationCell *cell = (IndicationCell *)[tableView cellForRowAtIndexPath:indexPath];
 
-	// TODO: Add contollers
 	[self performSegueWithIdentifier:@"showIndication" sender:cell];
-
-	[[SettingsManager sharedManager] setActiveIndication:cell.tag];
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
 	// set the title so the "back" button will be shown
 	self.title = NSLocalizedString(@"mainTitle", nil);
 	if ([segue.identifier isEqualToString:@"showIndication"]) {
-		// TODO: Add contollers
-		//		IndicationViewController *indicationController = (IndicationViewController *)[segue destinationViewController];
-		//		indicationController.indicationType = [(NSNumber *)sender integerValue];
+		IndicationViewController *indicationController = (IndicationViewController *)[segue destinationViewController];
+		indicationController.indicationType = [(UITableViewCell *)sender tag];
 	}
 }
 

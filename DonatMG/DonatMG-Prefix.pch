@@ -13,6 +13,7 @@
 #ifdef __OBJC__
 	#import <UIKit/UIKit.h>
 	#import <Foundation/Foundation.h>
+	#import <QuartzCore/QuartzCore.h>
 #endif
 
 #define IS_WIDESCREEN (fabs((double)[[UIScreen mainScreen] bounds].size.height-(double)568)<DBL_EPSILON)
@@ -35,4 +36,14 @@ typedef NS_ENUM(NSUInteger, IndicationType) {
 	kSrceOzilje,
 	kStres,
 	kPocutje
+};
+
+// Constants for the language
+typedef NS_ENUM(NSUInteger, AppLanguage) {
+	kUnknown, // system default
+	kEnglish,
+	kSlovene,
+	kCroatian,
+	kRussian,
+	kItalian
 };

@@ -9,10 +9,12 @@
 #import "SettingsManager.h"
 
 #define kActiveIndicationKey @"activeIndication"
+#define kAppLanguageKey @"appLanguage"
 
 @implementation SettingsManager
 
-@synthesize  activeIndication = _activeIndication;
+@synthesize activeIndication = _activeIndication;
+@synthesize appLanguage = _appLanguage;
 
 #pragma mark Singleton Methods
 
@@ -30,6 +32,7 @@
 		NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
 
 		_activeIndication = [defaults integerForKey:kActiveIndicationKey];
+		_appLanguage = [defaults integerForKey:kAppLanguageKey];
 	}
 	return self;
 }
@@ -43,6 +46,18 @@
 	NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
 	[defaults setInteger:_activeIndication forKey:kActiveIndicationKey];
 	[defaults synchronize];
+}
+
+- (void)setAppLanguage:(NSUInteger)appLanguage {
+	_appLanguage = appLanguage;
+
+	NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+	[defaults setInteger:_appLanguage forKey:kAppLanguageKey];
+	[defaults synchronize];
+
+	// TODO: set the actual language for the app
+	// http://stackoverflow.com/questions/10259695/translating-ios-app-to-unsupported-non-standard-languages
+	// http://stackoverflow.com/questions/19262627/localization-in-ios-7-selects-the-language-settings-used-previously
 }
 
 @end

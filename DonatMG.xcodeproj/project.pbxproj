@@ -10,6 +10,11 @@
 		5113D453193DBDC300645C65 /* IndicationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5113D452193DBDC300645C65 /* IndicationCell.m */; };
 		5113D456193DC2E100645C65 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5113D454193DC2E100645C65 /* Localizable.strings */; };
 		5133F98D193E684E001E78D9 /* LegalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5133F98C193E684E001E78D9 /* LegalViewController.m */; };
+		5133F990193E6D64001E78D9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5133F98E193E6D64001E78D9 /* Main.storyboard */; };
+		5133F993193EC857001E78D9 /* NotificationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5133F992193EC857001E78D9 /* NotificationViewController.m */; };
+		5133F9B6193EE34D001E78D9 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5133F9B5193EE34D001E78D9 /* QuartzCore.framework */; };
+		5133F9B9193EEA6E001E78D9 /* big_button.png in Resources */ = {isa = PBXBuildFile; fileRef = 5133F9B7193EEA6E001E78D9 /* big_button.png */; };
+		5133F9BA193EEA6E001E78D9 /* big_button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5133F9B8193EEA6E001E78D9 /* big_button@2x.png */; };
 		5143EE45193DE197002F1DFB /* SettingsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5143EE44193DE197002F1DFB /* SettingsManager.m */; };
 		5143EE48193E29E9002F1DFB /* IndicationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5143EE47193E29E9002F1DFB /* IndicationViewController.m */; };
 		5143EE4B193E660C002F1DFB /* CalendarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5143EE4A193E660C002F1DFB /* CalendarViewController.m */; };
@@ -22,7 +27,6 @@
 		51D67937193DB573001C20DF /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 51D67935193DB573001C20DF /* InfoPlist.strings */; };
 		51D67939193DB573001C20DF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 51D67938193DB573001C20DF /* main.m */; };
 		51D6793D193DB573001C20DF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 51D6793C193DB573001C20DF /* AppDelegate.m */; };
-		51D67940193DB573001C20DF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 51D6793E193DB573001C20DF /* Main.storyboard */; };
 		51D67943193DB573001C20DF /* SplashViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 51D67942193DB573001C20DF /* SplashViewController.m */; };
 		51D67945193DB573001C20DF /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 51D67944193DB573001C20DF /* Images.xcassets */; };
 		51D6794C193DB573001C20DF /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 51D6794B193DB573001C20DF /* XCTest.framework */; };
@@ -103,9 +107,14 @@
 		5113D451193DBDC300645C65 /* IndicationCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IndicationCell.h; sourceTree = "<group>"; };
 		5113D452193DBDC300645C65 /* IndicationCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IndicationCell.m; sourceTree = "<group>"; };
 		5113D455193DC2E100645C65 /* sl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sl; path = sl.lproj/Localizable.strings; sourceTree = "<group>"; };
-		5113D457193DC30100645C65 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		5133F98B193E684E001E78D9 /* LegalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LegalViewController.h; sourceTree = "<group>"; };
 		5133F98C193E684E001E78D9 /* LegalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LegalViewController.m; sourceTree = "<group>"; };
+		5133F98F193E6D64001E78D9 /* sl */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = sl; path = sl.lproj/Main.storyboard; sourceTree = "<group>"; };
+		5133F991193EC857001E78D9 /* NotificationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotificationViewController.h; sourceTree = "<group>"; };
+		5133F992193EC857001E78D9 /* NotificationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotificationViewController.m; sourceTree = "<group>"; };
+		5133F9B5193EE34D001E78D9 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		5133F9B7193EEA6E001E78D9 /* big_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = big_button.png; sourceTree = "<group>"; };
+		5133F9B8193EEA6E001E78D9 /* big_button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "big_button@2x.png"; sourceTree = "<group>"; };
 		5143EE43193DE197002F1DFB /* SettingsManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsManager.h; sourceTree = "<group>"; };
 		5143EE44193DE197002F1DFB /* SettingsManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsManager.m; sourceTree = "<group>"; };
 		5143EE46193E29E9002F1DFB /* IndicationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IndicationViewController.h; sourceTree = "<group>"; };
@@ -125,7 +134,6 @@
 		51D6793A193DB573001C20DF /* DonatMG-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DonatMG-Prefix.pch"; sourceTree = "<group>"; };
 		51D6793B193DB573001C20DF /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		51D6793C193DB573001C20DF /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		51D6793F193DB573001C20DF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		51D67941193DB573001C20DF /* SplashViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SplashViewController.h; sourceTree = "<group>"; };
 		51D67942193DB573001C20DF /* SplashViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SplashViewController.m; sourceTree = "<group>"; };
 		51D67944193DB573001C20DF /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -133,7 +141,6 @@
 		51D6794B193DB573001C20DF /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		51D67953193DB573001C20DF /* DonatMGTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "DonatMGTests-Info.plist"; sourceTree = "<group>"; };
 		51D67957193DB573001C20DF /* DonatMGTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DonatMGTests.m; sourceTree = "<group>"; };
-		51D67961193DB58F001C20DF /* sl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sl; path = sl.lproj/Main.strings; sourceTree = "<group>"; };
 		51D67962193DB58F001C20DF /* sl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sl; path = sl.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		51D67963193DB58F001C20DF /* sl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sl; path = sl.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		51D67965193DB601001C20DF /* Roboto-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Light.ttf"; sourceTree = "<group>"; };
@@ -201,6 +208,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5133F9B6193EE34D001E78D9 /* QuartzCore.framework in Frameworks */,
 				51D6792F193DB573001C20DF /* CoreGraphics.framework in Frameworks */,
 				51D67931193DB573001C20DF /* UIKit.framework in Frameworks */,
 				51D6792D193DB573001C20DF /* Foundation.framework in Frameworks */,
@@ -242,6 +250,7 @@
 		51D6792B193DB573001C20DF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				5133F9B5193EE34D001E78D9 /* QuartzCore.framework */,
 				51D6792C193DB573001C20DF /* Foundation.framework */,
 				51D6792E193DB573001C20DF /* CoreGraphics.framework */,
 				51D67930193DB573001C20DF /* UIKit.framework */,
@@ -255,9 +264,9 @@
 			children = (
 				51D6793B193DB573001C20DF /* AppDelegate.h */,
 				51D6793C193DB573001C20DF /* AppDelegate.m */,
+				5133F98E193E6D64001E78D9 /* Main.storyboard */,
 				5143EE43193DE197002F1DFB /* SettingsManager.h */,
 				5143EE44193DE197002F1DFB /* SettingsManager.m */,
-				51D6793E193DB573001C20DF /* Main.storyboard */,
 				51D67941193DB573001C20DF /* SplashViewController.h */,
 				51D67942193DB573001C20DF /* SplashViewController.m */,
 				51D67986193DB8D1001C20DF /* MainViewController.h */,
@@ -272,6 +281,8 @@
 				5143EE4D193E6618002F1DFB /* SettingsViewController.m */,
 				5133F98B193E684E001E78D9 /* LegalViewController.h */,
 				5133F98C193E684E001E78D9 /* LegalViewController.m */,
+				5133F991193EC857001E78D9 /* NotificationViewController.h */,
+				5133F992193EC857001E78D9 /* NotificationViewController.m */,
 				51D67944193DB573001C20DF /* Images.xcassets */,
 				51D67933193DB573001C20DF /* Supporting Files */,
 			);
@@ -325,6 +336,8 @@
 			children = (
 				51D679B2193DBC4B001C20DF /* Icons */,
 				51D67989193DBC3A001C20DF /* Indications */,
+				5133F9B7193EEA6E001E78D9 /* big_button.png */,
+				5133F9B8193EEA6E001E78D9 /* big_button@2x.png */,
 				51D6796C193DB89B001C20DF /* back-4@2x.png */,
 				51D6796D193DB89B001C20DF /* back-5@2x.png */,
 				51D6796E193DB89B001C20DF /* calendar-active.png */,
@@ -498,15 +511,18 @@
 				51D679AC193DBC3A001C20DF /* icon_stres.png in Resources */,
 				51D679B0193DBC3A001C20DF /* icon_zgaga.png in Resources */,
 				51D679D3193DBC4B001C20DF /* icon_ure.png in Resources */,
+				5133F9B9193EEA6E001E78D9 /* big_button.png in Resources */,
 				51D679AA193DBC3A001C20DF /* icon_srce_ozilje.png in Resources */,
 				51D679D5193DBC4B001C20DF /* icon_veckrat_dnevno.png in Resources */,
 				51D67969193DB601001C20DF /* Roboto-Medium.ttf in Resources */,
 				51D679C7193DBC4B001C20DF /* icon_jezik.png in Resources */,
 				51D679A7193DBC3A001C20DF /* icon_sladkorna@2x.png in Resources */,
 				5113D456193DC2E100645C65 /* Localizable.strings in Resources */,
+				5133F9BA193EEA6E001E78D9 /* big_button@2x.png in Resources */,
 				51D679C9193DBC4B001C20DF /* icon_med_obroki.png in Resources */,
 				51D67983193DB89B001C20DF /* settings@2x.png in Resources */,
 				51D67945193DB573001C20DF /* Images.xcassets in Resources */,
+				5133F990193E6D64001E78D9 /* Main.storyboard in Resources */,
 				51D67937193DB573001C20DF /* InfoPlist.strings in Resources */,
 				51D67968193DB601001C20DF /* Roboto-Light.ttf in Resources */,
 				51D6797F193DB89B001C20DF /* moments-title@2x.png in Resources */,
@@ -528,7 +544,6 @@
 				51D679CC193DBC4B001C20DF /* icon_na_tesce@2x.png in Resources */,
 				51D679A0193DBC3A001C20DF /* icon_mg.png in Resources */,
 				51D679D4193DBC4B001C20DF /* icon_ure@2x.png in Resources */,
-				51D67940193DB573001C20DF /* Main.storyboard in Resources */,
 				51D679A3193DBC3A001C20DF /* icon_pocutje@2x.png in Resources */,
 				51D679D1193DBC4B001C20DF /* icon_pred_spanjem.png in Resources */,
 				51D679CE193DBC4B001C20DF /* icon_opoldne@2x.png in Resources */,
@@ -564,6 +579,7 @@
 				5143EE4E193E6618002F1DFB /* SettingsViewController.m in Sources */,
 				51D67939193DB573001C20DF /* main.m in Sources */,
 				5143EE4B193E660C002F1DFB /* CalendarViewController.m in Sources */,
+				5133F993193EC857001E78D9 /* NotificationViewController.m in Sources */,
 				5113D453193DBDC300645C65 /* IndicationCell.m in Sources */,
 				5143EE45193DE197002F1DFB /* SettingsManager.m in Sources */,
 				5133F98D193E684E001E78D9 /* LegalViewController.m in Sources */,
@@ -594,9 +610,16 @@
 			isa = PBXVariantGroup;
 			children = (
 				5113D455193DC2E100645C65 /* sl */,
-				5113D457193DC30100645C65 /* Base */,
 			);
 			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		5133F98E193E6D64001E78D9 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5133F98F193E6D64001E78D9 /* sl */,
+			);
+			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 		51D67935193DB573001C20DF /* InfoPlist.strings */ = {
@@ -605,15 +628,6 @@
 				51D67962193DB58F001C20DF /* sl */,
 			);
 			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		51D6793E193DB573001C20DF /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				51D6793F193DB573001C20DF /* Base */,
-				51D67961193DB58F001C20DF /* sl */,
-			);
-			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 		51D67954193DB573001C20DF /* InfoPlist.strings */ = {
