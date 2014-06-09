@@ -24,6 +24,8 @@
 // #define IS_IPHONE_5 (IS_IPHONE && IS_WIDESCREEN)
 #define IS_IPHONE_5 (IS_WIDESCREEN)
 
+#define kDefaultLocale @"hr"
+
 // Constants to be used for indications
 typedef NS_ENUM(NSUInteger, IndicationType) {
 	kUnknown,

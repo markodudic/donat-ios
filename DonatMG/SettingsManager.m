@@ -32,7 +32,7 @@
 		NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
 
 		_activeIndication = [defaults integerForKey:kActiveIndicationKey];
-		_appLanguage = [defaults integerForKey:kAppLanguageKey];
+		_appLanguage = [defaults stringForKey:kAppLanguageKey];
 	}
 	return self;
 }
@@ -48,11 +48,11 @@
 	[defaults synchronize];
 }
 
-- (void)setAppLanguage:(NSUInteger)appLanguage {
+- (void)setAppLanguage:(NSString *)appLanguage {
 	_appLanguage = appLanguage;
 
 	NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-	[defaults setInteger:_appLanguage forKey:kAppLanguageKey];
+	[defaults setObject:_appLanguage forKey:kAppLanguageKey];
 	[defaults synchronize];
 
 	// TODO: set the actual language for the app

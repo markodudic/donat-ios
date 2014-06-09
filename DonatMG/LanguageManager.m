@@ -7,6 +7,7 @@
 //
 
 #import "LanguageManager.h"
+#import "SettingsManager.h"
 
 @implementation LanguageManager
 
@@ -25,10 +26,8 @@
 	if (self = [super init]) {
 		self.i18nTable = [NSMutableDictionary dictionary];
 
-		NSArray *validLocalizations = [[NSBundle mainBundle] localizations];
-		[self setLocale:[validLocalizations objectAtIndex:0]];
-
-		NSLog(@"%s - %@", __FUNCTION__, validLocalizations);
+		NSString *setLanguage = [[SettingsManager sharedManager] appLanguage];
+		[self setLocale:setLanguage ? setLanguage : kDefaultLocale];
 	}
 	return self;
 }

@@ -11,7 +11,7 @@
 @interface SettingsManager : NSObject
 
 @property (nonatomic, assign) NSUInteger activeIndication;
-@property (nonatomic, assign) NSUInteger appLanguage;
+@property (nonatomic, retain) NSString *appLanguage;
 
 + (id)sharedManager;
 

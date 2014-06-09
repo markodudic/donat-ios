@@ -45,7 +45,7 @@
 
 	[self.headerLabel setFont:[UIFont fontWithName:@"Roboto-Light" size:14.0f]];
 
-	[self.headerLabel setText:___(@"main_description")];
+	[self.headerLabel setText:___(@"home_screen_title")];
 
 	CGSize maxSize = CGSizeMake(self.headerView.frame.size.width - 40.0f, MAXFLOAT);
 	CGRect labelRect = [self.headerLabel.text boundingRectWithSize:maxSize options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:self.headerLabel.font} context:nil];
@@ -91,52 +91,52 @@
 		case kZaprtost:
 			cell.tag = kZaprtost;
 			cell.imageView.image = [UIImage imageNamed:@"icon_zaprtost.png"];
-			cell.titleLabel.text = ___(@"zaprtost");
+			cell.titleLabel.text = ___(@"indication_1");
 			break;
 		case kZgaga:
 			cell.tag = kZgaga;
 			cell.imageView.image = [UIImage imageNamed:@"icon_zgaga.png"];
-			cell.titleLabel.text = ___(@"zgaga");
+			cell.titleLabel.text = ___(@"indication_2");
 			break;
 		case kMagnezij:
 			cell.tag = kMagnezij;
 			cell.imageView.image = [UIImage imageNamed:@"icon_mg.png"];
-			cell.titleLabel.text = ___(@"mg");
+			cell.titleLabel.text = ___(@"indication_3");
 			break;
 		case kSladkorna:
 			cell.tag = kSladkorna;
 			cell.imageView.image = [UIImage imageNamed:@"icon_sladkorna.png"];
-			cell.titleLabel.text = ___(@"sladkorna");
+			cell.titleLabel.text = ___(@"indication_4");
 			break;
 		case kSlinavka:
 			cell.tag = kSlinavka;
 			cell.imageView.image = [UIImage imageNamed:@"icon_slinavka.png"];
-			cell.titleLabel.text = ___(@"slinavka");
+			cell.titleLabel.text = ___(@"indication_5");
 			break;
 		case kSecniKamni:
 			cell.tag = kSecniKamni;
 			cell.imageView.image = [UIImage imageNamed:@"icon_secni_kamni.png"];
-			cell.titleLabel.text = ___(@"secni_kamni");
+			cell.titleLabel.text = ___(@"indication_6");
 			break;
 		case kDebelost:
 			cell.tag = kDebelost;
 			cell.imageView.image = [UIImage imageNamed:@"icon_debelost.png"];
-			cell.titleLabel.text = ___(@"debelost");
+			cell.titleLabel.text = ___(@"indication_7");
 			break;
 		case kSrceOzilje:
 			cell.tag = kSrceOzilje;
 			cell.imageView.image = [UIImage imageNamed:@"icon_srce_ozilje.png"];
-			cell.titleLabel.text = ___(@"srce_ozilje");
+			cell.titleLabel.text = ___(@"indication_8");
 			break;
 		case kStres:
 			cell.tag = kStres;
 			cell.imageView.image = [UIImage imageNamed:@"icon_stres.png"];
-			cell.titleLabel.text = ___(@"stres");
+			cell.titleLabel.text = ___(@"indication_9");
 			break;
 		case kPocutje:
 			cell.tag = kPocutje;
 			cell.imageView.image = [UIImage imageNamed:@"icon_pocutje.png"];
-			cell.titleLabel.text = ___(@"pocutje");
+			cell.titleLabel.text = ___(@"indication_10");
 			break;
 		default:
 			break;
@@ -166,7 +166,7 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
 	// set the title so the "back" button will be shown
-	self.title = ___(@"mainTitle");
+	self.title = ___(@"home_screen");
 	if ([segue.identifier isEqualToString:@"showIndication"]) {
 		IndicationViewController *indicationController = (IndicationViewController *)[segue destinationViewController];
 		indicationController.indicationType = [(UITableViewCell *)sender tag];

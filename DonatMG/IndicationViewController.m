@@ -19,7 +19,7 @@
 
 - (void)updateViewActivation {
 	_amActive = [[SettingsManager sharedManager] activeIndication] == _indicationType;
-	[self.bigButton setTitle:_amActive ? NSLocalizedString(@"deactivate_button", nil) : NSLocalizedString(@"activate_button", nil) forState:UIControlStateNormal];
+	[self.bigButton setTitle:_amActive ? ___(@"button_indication_stop") : ___(@"button_indication_start") forState:UIControlStateNormal];
 }
 
 - (void)viewDidLoad {
@@ -46,63 +46,63 @@
 	switch (_indicationType) {
 		case kZaprtost:
 			self.iconView.image = [UIImage imageNamed:@"icon_zaprtost.png"];
-			self.titleLabel.text = NSLocalizedString(@"zaprtost", nil);
-			self.descriptionLabel.text = NSLocalizedString(@"zaprtost_desc", nil);
-			self.durationLabel.text = NSLocalizedString(@"zaprtost_duration", nil);
+			self.titleLabel.text = ___(@"indication_1");
+			self.descriptionLabel.text = ___(@"indication_1_desc");
+			self.durationLabel.text = ___(@"indication_1_time");
 			break;
 		case kZgaga:
 			self.iconView.image = [UIImage imageNamed:@"icon_zgaga.png"];
-			self.titleLabel.text = NSLocalizedString(@"zgaga", nil);
-			self.descriptionLabel.text = NSLocalizedString(@"zgaga_desc", nil);
-			self.durationLabel.text = NSLocalizedString(@"zgaga_duration", nil);
+			self.titleLabel.text = ___(@"indication_2");
+			self.descriptionLabel.text = ___(@"indication_2_desc");
+			self.durationLabel.text = ___(@"indication_2_time");
 			break;
 		case kMagnezij:
 			self.iconView.image = [UIImage imageNamed:@"icon_mg.png"];
-			self.titleLabel.text = NSLocalizedString(@"mg", nil);
-			self.descriptionLabel.text = NSLocalizedString(@"mg_desc", nil);
-			self.durationLabel.text = NSLocalizedString(@"mg_duration", nil);
+			self.titleLabel.text = ___(@"indication_3");
+			self.descriptionLabel.text = ___(@"indication_3_desc");
+			self.durationLabel.text = ___(@"indication_3_time");
 			break;
 		case kSladkorna:
 			self.iconView.image = [UIImage imageNamed:@"icon_sladkorna.png"];
-			self.titleLabel.text = NSLocalizedString(@"sladkorna", nil);
-			self.descriptionLabel.text = NSLocalizedString(@"sladkorna_desc", nil);
-			self.durationLabel.text = NSLocalizedString(@"sladkorna_duration", nil);
+			self.titleLabel.text = ___(@"indication_4");
+			self.descriptionLabel.text = ___(@"indication_4_desc");
+			self.durationLabel.text = ___(@"indication_4_time");
 			break;
 		case kSlinavka:
 			self.iconView.image = [UIImage imageNamed:@"icon_slinavka.png"];
-			self.titleLabel.text = NSLocalizedString(@"slinavka", nil);
-			self.descriptionLabel.text = NSLocalizedString(@"slinavka_desc", nil);
-			self.durationLabel.text = NSLocalizedString(@"slinavka_duration", nil);
+			self.titleLabel.text = ___(@"indication_5");
+			self.descriptionLabel.text = ___(@"indication_5_desc");
+			self.durationLabel.text = ___(@"indication_5_time");
 			break;
 		case kSecniKamni:
 			self.iconView.image = [UIImage imageNamed:@"icon_secni_kamni.png"];
-			self.titleLabel.text = NSLocalizedString(@"secni_kamni", nil);
-			self.descriptionLabel.text = NSLocalizedString(@"secni_kamni_desc", nil);
-			self.durationLabel.text = NSLocalizedString(@"secni_kamni_duration", nil);
+			self.titleLabel.text = ___(@"indication_6");
+			self.descriptionLabel.text = ___(@"indication_6_desc");
+			self.durationLabel.text = ___(@"indication_6_time");
 			break;
 		case kDebelost:
 			self.iconView.image = [UIImage imageNamed:@"icon_debelost.png"];
-			self.titleLabel.text = NSLocalizedString(@"debelost", nil);
-			self.descriptionLabel.text = NSLocalizedString(@"debelost_desc", nil);
-			self.durationLabel.text = NSLocalizedString(@"debelost_duration", nil);
+			self.titleLabel.text = ___(@"indication_7");
+			self.descriptionLabel.text = ___(@"indication_7_desc");
+			self.durationLabel.text = ___(@"indication_7_time");
 			break;
 		case kSrceOzilje:
 			self.iconView.image = [UIImage imageNamed:@"icon_srce_ozilje.png"];
-			self.titleLabel.text = NSLocalizedString(@"srce_ozilje", nil);
-			self.descriptionLabel.text = NSLocalizedString(@"srce_ozilje_desc", nil);
-			self.durationLabel.text = NSLocalizedString(@"srce_ozilje_duration", nil);
+			self.titleLabel.text = ___(@"indication_8");
+			self.descriptionLabel.text = ___(@"indication_8_desc");
+			self.durationLabel.text = ___(@"indication_8_time");
 			break;
 		case kStres:
 			self.iconView.image = [UIImage imageNamed:@"icon_stres.png"];
-			self.titleLabel.text = NSLocalizedString(@"stres", nil);
-			self.descriptionLabel.text = NSLocalizedString(@"stres_desc", nil);
-			self.durationLabel.text = NSLocalizedString(@"stres_duration", nil);
+			self.titleLabel.text = ___(@"indication_9");
+			self.descriptionLabel.text = ___(@"indication_9_desc");
+			self.durationLabel.text = ___(@"indication_9_time");
 			break;
 		case kPocutje:
 			self.iconView.image = [UIImage imageNamed:@"icon_pocutje.png"];
-			self.titleLabel.text = NSLocalizedString(@"pocutje", nil);
-			self.descriptionLabel.text = NSLocalizedString(@"pocutje_desc", nil);
-			self.durationLabel.text = NSLocalizedString(@"pocutje_duration", nil);
+			self.titleLabel.text = ___(@"indication_10");
+			self.descriptionLabel.text = ___(@"indication_10_desc");
+			self.durationLabel.text = ___(@"indication_10_time");
 			break;
 		default:
 			// TODO: we have a problem
