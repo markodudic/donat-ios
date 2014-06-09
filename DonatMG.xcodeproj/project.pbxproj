@@ -19,6 +19,7 @@
 		5143EE48193E29E9002F1DFB /* IndicationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5143EE47193E29E9002F1DFB /* IndicationViewController.m */; };
 		5143EE4B193E660C002F1DFB /* CalendarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5143EE4A193E660C002F1DFB /* CalendarViewController.m */; };
 		5143EE4E193E6618002F1DFB /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5143EE4D193E6618002F1DFB /* SettingsViewController.m */; };
+		519DF32119457E94003FE52B /* LanguageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 519DF32019457E94003FE52B /* LanguageManager.m */; };
 		51D50688193DD25800A340B3 /* icon_treatment.png in Resources */ = {isa = PBXBuildFile; fileRef = 51D50686193DD25800A340B3 /* icon_treatment.png */; };
 		51D50689193DD25800A340B3 /* icon_treatment@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 51D50687193DD25800A340B3 /* icon_treatment@2x.png */; };
 		51D6792D193DB573001C20DF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 51D6792C193DB573001C20DF /* Foundation.framework */; };
@@ -123,6 +124,8 @@
 		5143EE4A193E660C002F1DFB /* CalendarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarViewController.m; sourceTree = "<group>"; };
 		5143EE4C193E6618002F1DFB /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
 		5143EE4D193E6618002F1DFB /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
+		519DF31F19457E94003FE52B /* LanguageManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LanguageManager.h; sourceTree = "<group>"; };
+		519DF32019457E94003FE52B /* LanguageManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LanguageManager.m; sourceTree = "<group>"; };
 		51D50686193DD25800A340B3 /* icon_treatment.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_treatment.png; sourceTree = "<group>"; };
 		51D50687193DD25800A340B3 /* icon_treatment@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_treatment@2x.png"; sourceTree = "<group>"; };
 		51D67929193DB573001C20DF /* DonatMG.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DonatMG.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -267,6 +270,8 @@
 				5133F98E193E6D64001E78D9 /* Main.storyboard */,
 				5143EE43193DE197002F1DFB /* SettingsManager.h */,
 				5143EE44193DE197002F1DFB /* SettingsManager.m */,
+				519DF31F19457E94003FE52B /* LanguageManager.h */,
+				519DF32019457E94003FE52B /* LanguageManager.m */,
 				51D67941193DB573001C20DF /* SplashViewController.h */,
 				51D67942193DB573001C20DF /* SplashViewController.m */,
 				51D67986193DB8D1001C20DF /* MainViewController.h */,
@@ -584,6 +589,7 @@
 				5143EE45193DE197002F1DFB /* SettingsManager.m in Sources */,
 				5133F98D193E684E001E78D9 /* LegalViewController.m in Sources */,
 				51D67988193DB8D1001C20DF /* MainViewController.m in Sources */,
+				519DF32119457E94003FE52B /* LanguageManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
