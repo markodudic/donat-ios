@@ -15,6 +15,7 @@
 	#import <Foundation/Foundation.h>
 	#import <QuartzCore/QuartzCore.h>
 	#import "LanguageManager.h"
+	#import "DesignSettings.h"
 #endif
 
 #define IS_WIDESCREEN (fabs((double)[[UIScreen mainScreen] bounds].size.height-(double)568)<DBL_EPSILON)

@@ -10,4 +10,6 @@
 
 @interface LegalViewController : UIViewController
 
+@property (nonatomic, strong) IBOutlet UIScrollView *scrollView;
+
 @end

@@ -127,6 +127,7 @@
 		51D2BE5D194586D9007DD8AE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		51D2BE5E194586E3007DD8AE /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/Localizable.strings; sourceTree = "<group>"; };
 		51D2BE5F194586EE007DD8AE /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
+		51D2BE601945D27D007DD8AE /* DesignSettings.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DesignSettings.h; sourceTree = "<group>"; };
 		51D50686193DD25800A340B3 /* icon_treatment.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_treatment.png; sourceTree = "<group>"; };
 		51D50687193DD25800A340B3 /* icon_treatment@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_treatment@2x.png"; sourceTree = "<group>"; };
 		51D67929193DB573001C20DF /* DonatMG.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DonatMG.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -302,6 +303,7 @@
 				51D67934193DB573001C20DF /* DonatMG-Info.plist */,
 				51D67938193DB573001C20DF /* main.m */,
 				51D6793A193DB573001C20DF /* DonatMG-Prefix.pch */,
+				51D2BE601945D27D007DD8AE /* DesignSettings.h */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";

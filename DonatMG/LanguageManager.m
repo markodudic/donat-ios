@@ -43,7 +43,6 @@
 }
 
 - (void)setLocale:(NSString *)lProjFile {
-	NSLog(@"%s - %@", __FUNCTION__, lProjFile);
 	NSString *path = [[NSBundle mainBundle] pathForResource:@"Localizable.strings" ofType:@"" inDirectory:[NSString stringWithFormat:@"%@.lproj",lProjFile]];
 	self.i18nTable = [NSDictionary dictionaryWithContentsOfFile:path];
 }

@@ -10,4 +10,8 @@
 
 @interface SettingsViewController : UIViewController
 
+@property (nonatomic, strong) IBOutlet UIScrollView *scrollView;
+
+@property (nonatomic, strong) UILabel *languageLabel;
+
 @end
