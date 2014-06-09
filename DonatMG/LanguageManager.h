@@ -10,6 +10,10 @@
 
 #define ___(key) [[LanguageManager sharedManager] localizedStringForKey:(key)]
 
+// CHECK: this should work (without this manager), but the default behaviour is ... iffy
+// and also, one can't override the default language this way
+//#define ___(key) NSLocalizedString(key,nil)
+
 #undef NSLocalizedString
 #define NSLocalizedString(key,value) [[LanguageManager sharedManager] localizedStringForKey:(key)]
 

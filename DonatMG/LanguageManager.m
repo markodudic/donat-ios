@@ -27,12 +27,23 @@
 		self.i18nTable = [NSMutableDictionary dictionary];
 
 		NSString *setLanguage = [[SettingsManager sharedManager] appLanguage];
-		[self setLocale:setLanguage ? setLanguage : kDefaultLocale];
+		if (!setLanguage) {
+			NSArray *supportedLanguages = [NSArray arrayWithObjects:@"en", @"hr", @"it", @"ru", nil];
+			NSArray *preferredLanguages = [NSLocale preferredLanguages];
+			for (NSString *language in preferredLanguages) {
+				if (!setLanguage) {
+					if ([supportedLanguages containsObject:language])
+						setLanguage = language;
+				}
+			}
+		}
+		[self setLocale:setLanguage ? setLanguage : kDefaultLanguage];
 	}
 	return self;
 }
 
 - (void)setLocale:(NSString *)lProjFile {
+	NSLog(@"%s - %@", __FUNCTION__, lProjFile);
 	NSString *path = [[NSBundle mainBundle] pathForResource:@"Localizable.strings" ofType:@"" inDirectory:[NSString stringWithFormat:@"%@.lproj",lProjFile]];
 	self.i18nTable = [NSDictionary dictionaryWithContentsOfFile:path];
 }
