@@ -100,6 +100,7 @@
                         <segue destination="DpB-mG-RwS" kind="push" identifier="showCalendar" id="wVG-48-2N5"/>
                         <segue destination="Rk3-Vs-kGb" kind="push" identifier="showSettings" id="sQS-Aa-FYA"/>
                         <segue destination="6L0-yf-03g" kind="push" identifier="showNotification" id="WZB-bU-NpH"/>
+                        <segue destination="4YX-we-oyZ" kind="push" identifier="testLegal" id="5VO-Tg-KDB"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fzv-X3-TAO" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -177,7 +178,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wuZ-co-HQU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1177" y="423"/>
+            <point key="canvasLocation" x="1035" y="783"/>
         </scene>
         <!--Legal View Controller-->
         <scene sceneID="EMn-ei-8I4">
@@ -191,23 +192,21 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fMN-Ke-aqb">
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vXd-jQ-jKe">
                                 <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                            </scrollView>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </webView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="fMN-Ke-aqb" firstAttribute="leading" secondItem="Tat-ap-UJv" secondAttribute="leading" id="0wf-KP-QJV"/>
-                            <constraint firstItem="fMN-Ke-aqb" firstAttribute="top" secondItem="If2-Ec-f6m" secondAttribute="bottom" id="Ccy-zE-4va"/>
-                            <constraint firstItem="khK-qF-opz" firstAttribute="top" secondItem="fMN-Ke-aqb" secondAttribute="bottom" id="cnf-jl-haE"/>
-                            <constraint firstAttribute="centerX" secondItem="fMN-Ke-aqb" secondAttribute="centerX" id="uao-Cg-1XH"/>
+                            <constraint firstAttribute="centerX" secondItem="vXd-jQ-jKe" secondAttribute="centerX" id="Wpb-9w-epj"/>
+                            <constraint firstItem="vXd-jQ-jKe" firstAttribute="top" secondItem="If2-Ec-f6m" secondAttribute="bottom" id="lp6-BI-Bjl"/>
+                            <constraint firstItem="khK-qF-opz" firstAttribute="top" secondItem="vXd-jQ-jKe" secondAttribute="bottom" id="vrt-ol-TFC"/>
+                            <constraint firstItem="vXd-jQ-jKe" firstAttribute="leading" secondItem="Tat-ap-UJv" secondAttribute="leading" id="xcO-Jm-fqc"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Cr2-w6-4tL"/>
-                    <connections>
-                        <outlet property="scrollView" destination="fMN-Ke-aqb" id="YW6-9H-lbK"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="daC-O9-LLd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -269,4 +268,7 @@
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
+    <inferredMetricsTieBreakers>
+        <segue reference="5VO-Tg-KDB"/>
+    </inferredMetricsTieBreakers>
 </document>

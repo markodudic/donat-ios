@@ -10,6 +10,6 @@
 
 @interface LegalViewController : UIViewController
 
-@property (nonatomic, strong) IBOutlet UIScrollView *scrollView;
+@property (nonatomic, strong) IBOutlet UIWebView *webView;
 
 @end

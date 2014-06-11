@@ -14,7 +14,7 @@
 
 @implementation LegalViewController
 
-@synthesize scrollView = _scrollView;
+@synthesize webView = _webView;
 
 - (void)viewDidLoad {
 	[super viewDidLoad];
