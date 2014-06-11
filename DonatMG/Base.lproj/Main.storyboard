@@ -192,21 +192,44 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vXd-jQ-jKe">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vUZ-fe-67l">
                                 <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                            </webView>
+                                <subviews>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="kwU-a3-vUo">
+                                        <rect key="frame" x="20" y="20" width="280" height="474"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="280" id="jG5-k8-sUb"/>
+                                            <constraint firstAttribute="height" constant="474" id="uIc-Zv-qUE"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="kwU-a3-vUo" firstAttribute="leading" secondItem="vUZ-fe-67l" secondAttribute="leading" constant="20" id="Ect-Tc-rKT"/>
+                                    <constraint firstAttribute="trailing" secondItem="kwU-a3-vUo" secondAttribute="trailing" constant="20" id="Ka7-2i-BAe"/>
+                                    <constraint firstAttribute="bottom" secondItem="kwU-a3-vUo" secondAttribute="bottom" constant="10" id="Pu2-iA-NcQ"/>
+                                    <constraint firstItem="kwU-a3-vUo" firstAttribute="top" secondItem="vUZ-fe-67l" secondAttribute="top" constant="20" id="bcb-rs-Pm9"/>
+                                </constraints>
+                            </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="centerX" secondItem="vXd-jQ-jKe" secondAttribute="centerX" id="Wpb-9w-epj"/>
-                            <constraint firstItem="vXd-jQ-jKe" firstAttribute="top" secondItem="If2-Ec-f6m" secondAttribute="bottom" id="lp6-BI-Bjl"/>
-                            <constraint firstItem="khK-qF-opz" firstAttribute="top" secondItem="vXd-jQ-jKe" secondAttribute="bottom" id="vrt-ol-TFC"/>
-                            <constraint firstItem="vXd-jQ-jKe" firstAttribute="leading" secondItem="Tat-ap-UJv" secondAttribute="leading" id="xcO-Jm-fqc"/>
+                            <constraint firstAttribute="centerX" secondItem="vUZ-fe-67l" secondAttribute="centerX" id="1uA-7R-CrG"/>
+                            <constraint firstItem="khK-qF-opz" firstAttribute="top" secondItem="vUZ-fe-67l" secondAttribute="bottom" id="Tgl-Hb-4um"/>
+                            <constraint firstItem="vUZ-fe-67l" firstAttribute="leading" secondItem="Tat-ap-UJv" secondAttribute="leading" id="msh-ag-xWj"/>
+                            <constraint firstItem="vUZ-fe-67l" firstAttribute="top" secondItem="If2-Ec-f6m" secondAttribute="bottom" id="saa-SY-bQv"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Cr2-w6-4tL"/>
+                    <connections>
+                        <outlet property="contentHeight" destination="uIc-Zv-qUE" id="8jC-eA-rgY"/>
+                        <outlet property="legalLabel" destination="kwU-a3-vUo" id="BKl-g9-0ZL"/>
+                        <outlet property="scrollView" destination="vUZ-fe-67l" id="16l-Ra-GZ5"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="daC-O9-LLd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

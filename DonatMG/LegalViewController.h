@@ -10,6 +10,8 @@
 
 @interface LegalViewController : UIViewController
 
-@property (nonatomic, strong) IBOutlet UIWebView *webView;
+@property (nonatomic, strong) IBOutlet UILabel *legalLabel;
+@property (nonatomic, strong) IBOutlet UIScrollView *scrollView;
+@property (nonatomic, strong) IBOutlet NSLayoutConstraint *contentHeight;
 
 @end

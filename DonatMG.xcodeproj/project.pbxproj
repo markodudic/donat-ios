@@ -21,6 +21,17 @@
 		5143EE4E193E6618002F1DFB /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5143EE4D193E6618002F1DFB /* SettingsViewController.m */; };
 		519DF32119457E94003FE52B /* LanguageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 519DF32019457E94003FE52B /* LanguageManager.m */; };
 		51D2BE63194700A7007DD8AE /* NotificationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 51D2BE62194700A6007DD8AE /* NotificationManager.m */; };
+		51D2C255194836E8007DD8AE /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 51D2C254194836E8007DD8AE /* CoreText.framework */; };
+		51D2C257194836F1007DD8AE /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 51D2C256194836F1007DD8AE /* MobileCoreServices.framework */; };
+		51D2C259194836FA007DD8AE /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 51D2C258194836FA007DD8AE /* ImageIO.framework */; };
+		51D2C25B19483704007DD8AE /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 51D2C25A19483704007DD8AE /* libxml2.dylib */; };
+		51D2C25C19483712007DD8AE /* libDTCoreText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 51D2C249194836B2007DD8AE /* libDTCoreText.a */; };
+		51D2C25F19483821007DD8AE /* DTCoreTextFontOverrides.plist in Resources */ = {isa = PBXBuildFile; fileRef = 51D2C25E19483821007DD8AE /* DTCoreTextFontOverrides.plist */; };
+		51D2C26619484350007DD8AE /* default.css in Resources */ = {isa = PBXBuildFile; fileRef = 51D2C26119484350007DD8AE /* default.css */; };
+		51D2C26719484350007DD8AE /* rules_en.html in Resources */ = {isa = PBXBuildFile; fileRef = 51D2C26219484350007DD8AE /* rules_en.html */; };
+		51D2C26819484350007DD8AE /* rules_hr.html in Resources */ = {isa = PBXBuildFile; fileRef = 51D2C26319484350007DD8AE /* rules_hr.html */; };
+		51D2C26919484350007DD8AE /* rules_it.html in Resources */ = {isa = PBXBuildFile; fileRef = 51D2C26419484350007DD8AE /* rules_it.html */; };
+		51D2C26A19484350007DD8AE /* rules_ru.html in Resources */ = {isa = PBXBuildFile; fileRef = 51D2C26519484350007DD8AE /* rules_ru.html */; };
 		51D50688193DD25800A340B3 /* icon_treatment.png in Resources */ = {isa = PBXBuildFile; fileRef = 51D50686193DD25800A340B3 /* icon_treatment.png */; };
 		51D50689193DD25800A340B3 /* icon_treatment@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 51D50687193DD25800A340B3 /* icon_treatment@2x.png */; };
 		51D6792D193DB573001C20DF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 51D6792C193DB573001C20DF /* Foundation.framework */; };
@@ -94,6 +105,62 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		51D2C244194836B2007DD8AE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 51D2C237194836B2007DD8AE /* DTCoreText.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 1D6058910D05DD3D006BFB54;
+			remoteInfo = DemoApp;
+		};
+		51D2C246194836B2007DD8AE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 51D2C237194836B2007DD8AE /* DTCoreText.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = A70F119B14863198009202BF;
+			remoteInfo = "Static Framework";
+		};
+		51D2C248194836B2007DD8AE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 51D2C237194836B2007DD8AE /* DTCoreText.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = A70F11DE148632CD009202BF;
+			remoteInfo = "Static Library";
+		};
+		51D2C24A194836B2007DD8AE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 51D2C237194836B2007DD8AE /* DTCoreText.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = A788CA681486456100E1AFD9;
+			remoteInfo = UnitTest;
+		};
+		51D2C24C194836B2007DD8AE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 51D2C237194836B2007DD8AE /* DTCoreText.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = A7949A5814CC456000A8CCDE;
+			remoteInfo = MacUnitTest;
+		};
+		51D2C24E194836B2007DD8AE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 51D2C237194836B2007DD8AE /* DTCoreText.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = A7F7EFCD1573603100F5A4D0;
+			remoteInfo = "Static Library (no DTFoundation)";
+		};
+		51D2C250194836B2007DD8AE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 51D2C237194836B2007DD8AE /* DTCoreText.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = E2262DC61638331500BFDAD7;
+			remoteInfo = "Mac Framework";
+		};
+		51D2C252194836B2007DD8AE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 51D2C237194836B2007DD8AE /* DTCoreText.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = A7A476BC180010F100459DFD;
+			remoteInfo = "BundleLoader Dummy";
+		};
 		51D6794F193DB573001C20DF /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 51D67921193DB573001C20DF /* Project object */;
@@ -131,6 +198,17 @@
 		51D2BE601945D27D007DD8AE /* DesignSettings.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DesignSettings.h; sourceTree = "<group>"; };
 		51D2BE61194700A6007DD8AE /* NotificationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotificationManager.h; sourceTree = "<group>"; };
 		51D2BE62194700A6007DD8AE /* NotificationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotificationManager.m; sourceTree = "<group>"; };
+		51D2C237194836B2007DD8AE /* DTCoreText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = DTCoreText.xcodeproj; path = Externals/DTCoreText/DTCoreText.xcodeproj; sourceTree = "<group>"; };
+		51D2C254194836E8007DD8AE /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
+		51D2C256194836F1007DD8AE /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		51D2C258194836FA007DD8AE /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
+		51D2C25A19483704007DD8AE /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
+		51D2C25E19483821007DD8AE /* DTCoreTextFontOverrides.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = DTCoreTextFontOverrides.plist; sourceTree = "<group>"; };
+		51D2C26119484350007DD8AE /* default.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = default.css; sourceTree = "<group>"; };
+		51D2C26219484350007DD8AE /* rules_en.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = rules_en.html; sourceTree = "<group>"; };
+		51D2C26319484350007DD8AE /* rules_hr.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = rules_hr.html; sourceTree = "<group>"; };
+		51D2C26419484350007DD8AE /* rules_it.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = rules_it.html; sourceTree = "<group>"; };
+		51D2C26519484350007DD8AE /* rules_ru.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = rules_ru.html; sourceTree = "<group>"; };
 		51D50686193DD25800A340B3 /* icon_treatment.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_treatment.png; sourceTree = "<group>"; };
 		51D50687193DD25800A340B3 /* icon_treatment@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_treatment@2x.png"; sourceTree = "<group>"; };
 		51D67929193DB573001C20DF /* DonatMG.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DonatMG.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -214,6 +292,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				51D2C25C19483712007DD8AE /* libDTCoreText.a in Frameworks */,
+				51D2C25B19483704007DD8AE /* libxml2.dylib in Frameworks */,
+				51D2C259194836FA007DD8AE /* ImageIO.framework in Frameworks */,
+				51D2C257194836F1007DD8AE /* MobileCoreServices.framework in Frameworks */,
+				51D2C255194836E8007DD8AE /* CoreText.framework in Frameworks */,
 				5133F9B6193EE34D001E78D9 /* QuartzCore.framework in Frameworks */,
 				51D6792F193DB573001C20DF /* CoreGraphics.framework in Frameworks */,
 				51D67931193DB573001C20DF /* UIKit.framework in Frameworks */,
@@ -234,9 +317,45 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		51D2BE6619483681007DD8AE /* Externals */ = {
+			isa = PBXGroup;
+			children = (
+				51D2C237194836B2007DD8AE /* DTCoreText.xcodeproj */,
+			);
+			name = Externals;
+			sourceTree = "<group>";
+		};
+		51D2C238194836B2007DD8AE /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				51D2C245194836B2007DD8AE /* RTDemoApp.app */,
+				51D2C247194836B2007DD8AE /* DTCoreText.framework */,
+				51D2C249194836B2007DD8AE /* libDTCoreText.a */,
+				51D2C24B194836B2007DD8AE /* UnitTest.octest */,
+				51D2C24D194836B2007DD8AE /* MacUnitTest.octest */,
+				51D2C24F194836B2007DD8AE /* libDTCoreText_no_DTFoundation.a */,
+				51D2C251194836B2007DD8AE /* DTCoreText.framework */,
+				51D2C253194836B2007DD8AE /* BundleLoaderDummy.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		51D2C26019484350007DD8AE /* Legal HTML */ = {
+			isa = PBXGroup;
+			children = (
+				51D2C26119484350007DD8AE /* default.css */,
+				51D2C26219484350007DD8AE /* rules_en.html */,
+				51D2C26319484350007DD8AE /* rules_hr.html */,
+				51D2C26419484350007DD8AE /* rules_it.html */,
+				51D2C26519484350007DD8AE /* rules_ru.html */,
+			);
+			path = "Legal HTML";
+			sourceTree = "<group>";
+		};
 		51D67920193DB573001C20DF = {
 			isa = PBXGroup;
 			children = (
+				51D2BE6619483681007DD8AE /* Externals */,
 				51D67932193DB573001C20DF /* DonatMG */,
 				51D67951193DB573001C20DF /* DonatMGTests */,
 				51D6792B193DB573001C20DF /* Frameworks */,
@@ -256,6 +375,10 @@
 		51D6792B193DB573001C20DF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				51D2C25A19483704007DD8AE /* libxml2.dylib */,
+				51D2C258194836FA007DD8AE /* ImageIO.framework */,
+				51D2C256194836F1007DD8AE /* MobileCoreServices.framework */,
+				51D2C254194836E8007DD8AE /* CoreText.framework */,
 				5133F9B5193EE34D001E78D9 /* QuartzCore.framework */,
 				51D6792C193DB573001C20DF /* Foundation.framework */,
 				51D6792E193DB573001C20DF /* CoreGraphics.framework */,
@@ -302,7 +425,9 @@
 		51D67933193DB573001C20DF /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				51D2C25E19483821007DD8AE /* DTCoreTextFontOverrides.plist */,
 				5113D454193DC2E100645C65 /* Localizable.strings */,
+				51D2C26019484350007DD8AE /* Legal HTML */,
 				51D6796B193DB89B001C20DF /* Images */,
 				51D67964193DB601001C20DF /* Fonts */,
 				51D67934193DB573001C20DF /* DonatMG-Info.plist */,
@@ -490,6 +615,12 @@
 			mainGroup = 51D67920193DB573001C20DF;
 			productRefGroup = 51D6792A193DB573001C20DF /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 51D2C238194836B2007DD8AE /* Products */;
+					ProjectRef = 51D2C237194836B2007DD8AE /* DTCoreText.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				51D67928193DB573001C20DF /* DonatMG */,
@@ -497,6 +628,65 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		51D2C245194836B2007DD8AE /* RTDemoApp.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = RTDemoApp.app;
+			remoteRef = 51D2C244194836B2007DD8AE /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		51D2C247194836B2007DD8AE /* DTCoreText.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = DTCoreText.framework;
+			remoteRef = 51D2C246194836B2007DD8AE /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		51D2C249194836B2007DD8AE /* libDTCoreText.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libDTCoreText.a;
+			remoteRef = 51D2C248194836B2007DD8AE /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		51D2C24B194836B2007DD8AE /* UnitTest.octest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = UnitTest.octest;
+			remoteRef = 51D2C24A194836B2007DD8AE /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		51D2C24D194836B2007DD8AE /* MacUnitTest.octest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = MacUnitTest.octest;
+			remoteRef = 51D2C24C194836B2007DD8AE /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		51D2C24F194836B2007DD8AE /* libDTCoreText_no_DTFoundation.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libDTCoreText_no_DTFoundation.a;
+			remoteRef = 51D2C24E194836B2007DD8AE /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		51D2C251194836B2007DD8AE /* DTCoreText.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = DTCoreText.framework;
+			remoteRef = 51D2C250194836B2007DD8AE /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		51D2C253194836B2007DD8AE /* BundleLoaderDummy.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = BundleLoaderDummy.app;
+			remoteRef = 51D2C252194836B2007DD8AE /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		51D67927193DB573001C20DF /* Resources */ = {
@@ -510,9 +700,11 @@
 				51D679D8193DBC4B001C20DF /* icon_zjutraj@2x.png in Resources */,
 				51D6797C193DB89B001C20DF /* calendar-active@2x.png in Resources */,
 				51D679CF193DBC4B001C20DF /* icon_pred_jedjo.png in Resources */,
+				51D2C25F19483821007DD8AE /* DTCoreTextFontOverrides.plist in Resources */,
 				51D679C8193DBC4B001C20DF /* icon_jezik@2x.png in Resources */,
 				51D6796A193DB601001C20DF /* Roboto-Regular.ttf in Resources */,
 				51D6799F193DBC3A001C20DF /* icon_debelost@2x.png in Resources */,
+				51D2C26919484350007DD8AE /* rules_it.html in Resources */,
 				51D679AD193DBC3A001C20DF /* icon_stres@2x.png in Resources */,
 				51D67980193DB89B001C20DF /* settings-active.png in Resources */,
 				51D679CA193DBC4B001C20DF /* icon_med_obroki@2x.png in Resources */,
@@ -543,6 +735,7 @@
 				51D679A1193DBC3A001C20DF /* icon_mg@2x.png in Resources */,
 				51D67985193DB89B001C20DF /* splash-5@2x.png in Resources */,
 				51D679D2193DBC4B001C20DF /* icon_pred_spanjem@2x.png in Resources */,
+				51D2C26719484350007DD8AE /* rules_en.html in Resources */,
 				51D6797A193DB89B001C20DF /* back-5@2x.png in Resources */,
 				51D679DA193DBC4B001C20DF /* icon_zvecer@2x.png in Resources */,
 				51D679CB193DBC4B001C20DF /* icon_na_tesce.png in Resources */,
@@ -551,9 +744,12 @@
 				51D50689193DD25800A340B3 /* icon_treatment@2x.png in Resources */,
 				51D679A5193DBC3A001C20DF /* icon_secni_kamni@2x.png in Resources */,
 				51D67979193DB89B001C20DF /* back-4@2x.png in Resources */,
+				51D2C26819484350007DD8AE /* rules_hr.html in Resources */,
+				51D2C26619484350007DD8AE /* default.css in Resources */,
 				51D67984193DB89B001C20DF /* splash-4@2x.png in Resources */,
 				51D679CC193DBC4B001C20DF /* icon_na_tesce@2x.png in Resources */,
 				51D679A0193DBC3A001C20DF /* icon_mg.png in Resources */,
+				51D2C26A19484350007DD8AE /* rules_ru.html in Resources */,
 				51D679D4193DBC4B001C20DF /* icon_ure@2x.png in Resources */,
 				51D679A3193DBC3A001C20DF /* icon_pocutje@2x.png in Resources */,
 				51D679D1193DBC4B001C20DF /* icon_pred_spanjem.png in Resources */,
@@ -719,7 +915,9 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "DonatMG/DonatMG-Prefix.pch";
 				INFOPLIST_FILE = "DonatMG/DonatMG-Info.plist";
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = "Externals/DTCoreText/Externals/DTFoundation/Core/** Externals/DTCoreText/Core/**";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -733,7 +931,9 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "DonatMG/DonatMG-Prefix.pch";
 				INFOPLIST_FILE = "DonatMG/DonatMG-Info.plist";
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = "Externals/DTCoreText/Externals/DTFoundation/Core/** Externals/DTCoreText/Core/**";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
