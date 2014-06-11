@@ -1,0 +1,3 @@
+[submodule "Externals/DTCoreText"]
+	path = Externals/DTCoreText
+	url = git@github.com:goranche/DTCoreText.git
