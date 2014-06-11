@@ -14,4 +14,8 @@
 
 @property (atomic, assign) IndicationType indicationType;
 
+@property (nonatomic, strong) IBOutlet UIImageView *iconView;
+@property (nonatomic, strong) IBOutlet UILabel *titleLabel;
+@property (nonatomic, strong) IBOutlet UILabel *descriptionLabel;
+
 @end
