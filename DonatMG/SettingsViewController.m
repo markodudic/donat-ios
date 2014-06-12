@@ -89,7 +89,7 @@
 	UIDatePicker *datePicker = [[UIDatePicker alloc] init];
 	datePicker.locale = [[NSLocale alloc] initWithLocaleIdentifier:[[LanguageManager sharedManager] currentLangId]];
 	datePicker.datePickerMode = UIDatePickerModeTime;
-	datePicker.minuteInterval = 5;
+	datePicker.minuteInterval = 1;
 
 	self.wakeField.inputView = datePicker;
 	self.breakfastField.inputView = datePicker;
