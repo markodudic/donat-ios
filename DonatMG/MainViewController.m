@@ -70,6 +70,8 @@
 	[self.headerLabel setFrame:labelRect];
 	[self.headerView addSubview:self.headerLabel];
 
+	[self.tableView setTableHeaderView:self.headerView];
+
 	// hide the title while view controller is visible
 	self.title = @"";
 
