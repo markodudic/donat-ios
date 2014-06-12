@@ -20,10 +20,15 @@
 @interface LanguageManager : NSObject
 
 @property (nonatomic, retain) NSMutableDictionary *i18nTable;
+@property (nonatomic, retain) NSArray *languages;
+@property (nonatomic, retain) NSString *currentLangId;
 
 + (id)sharedManager;
 
 - (NSString *)localizedStringForKey:(NSString *)key;
-- (void)setLocale:(NSString *)lProjFile;
+- (void)setLanguageId:(NSString *)langId;
+
+- (NSString *)idForLanguage:(NSString *)language;
+- (NSString *)languageForId:(NSString *)langId;
 
 @end

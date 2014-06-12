@@ -12,6 +12,8 @@
 @implementation LanguageManager
 
 @synthesize i18nTable = _i18nTable;
+@synthesize languages = _languages;
+@synthesize currentLangId = _currentLangId;
 
 + (id)sharedManager {
 	static LanguageManager *sharedLanguageManager = nil;
@@ -37,14 +39,18 @@
 				}
 			}
 		}
-		[self setLocale:setLanguage ? setLanguage : kDefaultLanguage];
+		[self setLanguageId:setLanguage ? setLanguage : kDefaultLanguage];
 	}
+
+	_languages = @[@"English", @"Italian", @"Russian", @"Croatian"];
+
 	return self;
 }
 
-- (void)setLocale:(NSString *)lProjFile {
-	NSString *path = [[NSBundle mainBundle] pathForResource:@"Localizable.strings" ofType:@"" inDirectory:[NSString stringWithFormat:@"%@.lproj",lProjFile]];
+- (void)setLanguageId:(NSString *)langId {
+	NSString *path = [[NSBundle mainBundle] pathForResource:@"Localizable.strings" ofType:@"" inDirectory:[NSString stringWithFormat:@"%@.lproj",langId]];
 	self.i18nTable = [NSDictionary dictionaryWithContentsOfFile:path];
+	self.currentLangId = langId;
 }
 
 - (NSString *)localizedStringForKey:(NSString *)key {
@@ -53,6 +59,32 @@
 		return key;
 	}
 	return possibleI18NString;
+}
+
+- (NSString *)idForLanguage:(NSString *)language {
+	if ([language isEqualToString:@"English"]) {
+		return @"en";
+	} else if ([language isEqualToString:@"Italian"]) {
+		return @"it";
+	} else if ([language isEqualToString:@"Russian"]) {
+		return @"ru";
+	} else if ([language isEqualToString:@"Croatian"]) {
+		return @"hr";
+	} else
+		return nil;
+}
+
+- (NSString *)languageForId:(NSString *)langId {
+	if ([langId isEqualToString:@"en"]) {
+		return @"English";
+	} else if ([langId isEqualToString:@"it"]) {
+		return @"Italian";
+	} else if ([langId isEqualToString:@"ru"]) {
+		return @"Russian";
+	} else if ([langId isEqualToString:@"hr"]) {
+		return @"Croatian";
+	} else
+		return nil;
 }
 
 @end

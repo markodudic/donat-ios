@@ -54,10 +54,6 @@
 	NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
 	[defaults setObject:_appLanguage forKey:kAppLanguageKey];
 	[defaults synchronize];
-
-	// TODO: set the actual language for the app
-	// http://stackoverflow.com/questions/10259695/translating-ios-app-to-unsupported-non-standard-languages
-	// http://stackoverflow.com/questions/19262627/localization-in-ios-7-selects-the-language-settings-used-previously
 }
 
 @end
