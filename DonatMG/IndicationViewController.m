@@ -23,6 +23,7 @@
 
 - (void)updateViewActivation {
 	_amActive = [[SettingsManager sharedManager] activeIndication] == _indicationType;
+	[self.bigButton setTitle:_amActive ? ___(@"button_indication_stop") : ___(@"button_indication_start") forState:UIControlStateNormal];
 }
 
 - (void)viewDidLoad {
@@ -33,6 +34,18 @@
 					 atIndex:0];
 
 	[self updateViewActivation];
+
+	UIFont *titlesFont = kTitlesFont;
+	UIFont *subtitlesFont = kSubtitlesFont;
+	UIFont *textFont = kTextFont;
+
+	[self.titleLabel setFont:titlesFont];
+	[self.bigButton.titleLabel setFont:titlesFont];
+	[self.drinkTitle setFont:subtitlesFont];
+	[self.durationTitle setFont:subtitlesFont];
+	[self.selectTitle setFont:subtitlesFont];
+	[self.descriptionLabel setFont:textFont];
+	[self.durationLabel setFont:textFont];
 
 	switch (_indicationType) {
 		case kZaprtost:
@@ -89,6 +102,39 @@
 			// TODO: we have a problem
 			break;
 	}
+}
+
+- (IBAction)drinkPressed:(UIButton *)sender {
+	CGRect frame = self.drinkPanel.frame;
+
+	CGFloat rotationAngle = frame.size.height > 45.0f ? M_PI : 0.0f;
+	CGFloat targetHeight = frame.size.height > 45.0f ? 40.0f : _storedDrinkPanelHeight;
+
+	[UIView animateWithDuration:0.33f animations:^{
+		self.drinkPanelHeight.constant = targetHeight;
+		self.drinkButton.transform = CGAffineTransformMakeRotation(rotationAngle);
+	}];
+}
+
+- (IBAction)durationPressed:(UIButton *)sender {
+	CGRect frame = self.durationPanel.frame;
+
+	CGFloat rotationAngle = frame.size.height > 45.0f ? M_PI : 0.0f;
+	CGFloat targetHeight = frame.size.height > 45.0f ? 40.0f : _storedDurationPanelHeight;
+
+	[UIView animateWithDuration:0.33f animations:^{
+		self.durationPanelHeight.constant = targetHeight;
+		self.durationButton.transform = CGAffineTransformMakeRotation(rotationAngle);
+	}];
+}
+
+- (IBAction)activationPressed:(UIButton *)sender {
+	if (_amActive) {
+		[[SettingsManager sharedManager] setActiveIndication:kUnknown];
+	} else {
+		[[SettingsManager sharedManager] setActiveIndication:self.indicationType];
+	}
+	[self updateViewActivation];
 }
 
 - (void)didReceiveMemoryWarning {

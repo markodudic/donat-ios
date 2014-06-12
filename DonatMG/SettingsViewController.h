@@ -9,7 +9,9 @@
 #import <UIKit/UIKit.h>
 
 @interface SettingsViewController : UIViewController <UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource> {
+
 	UITextField *_fieldBeingEdited;
+	BOOL _amEditingLanguage;
 }
 
 @property (nonatomic, strong) IBOutlet UIView *containerView;

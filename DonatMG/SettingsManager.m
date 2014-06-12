@@ -10,11 +10,13 @@
 
 #define kActiveIndicationKey @"activeIndication"
 #define kAppLanguageKey @"appLanguage"
+#define kNumberOfMeals @"numberOfMeals"
 
 @implementation SettingsManager
 
 @synthesize activeIndication = _activeIndication;
 @synthesize appLanguage = _appLanguage;
+@synthesize numberOfMeals = _numberOfMeals;
 
 #pragma mark Singleton Methods
 
@@ -33,6 +35,10 @@
 
 		_activeIndication = [defaults integerForKey:kActiveIndicationKey];
 		_appLanguage = [defaults stringForKey:kAppLanguageKey];
+
+		_numberOfMeals = [defaults integerForKey:kNumberOfMeals];
+		if (_numberOfMeals < 1)
+			_numberOfMeals = 3;
 	}
 	return self;
 }
@@ -53,6 +59,14 @@
 
 	NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
 	[defaults setObject:_appLanguage forKey:kAppLanguageKey];
+	[defaults synchronize];
+}
+
+- (void)setNumberOfMeals:(NSUInteger)numberOfMeals {
+	_numberOfMeals = numberOfMeals;
+
+	NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+	[defaults setInteger:_numberOfMeals forKey:kNumberOfMeals];
 	[defaults synchronize];
 }
 

@@ -13,6 +13,8 @@
 @property (nonatomic, assign) NSUInteger activeIndication;
 @property (nonatomic, retain) NSString *appLanguage;
 
+@property (nonatomic, assign) NSUInteger numberOfMeals;
+
 + (id)sharedManager;
 
 @end
