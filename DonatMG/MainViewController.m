@@ -171,7 +171,7 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
 	// set the title so the "back" button will be shown
-	self.title = ___(@"home_screen");
+	self.title = ___(@"settings_title");
 	if ([segue.identifier isEqualToString:@"showIndication"]) {
 		IndicationViewController *indicationController = (IndicationViewController *)[segue destinationViewController];
 		indicationController.indicationType = [(UITableViewCell *)sender tag];

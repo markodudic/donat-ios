@@ -35,6 +35,9 @@
 
 	[self updateViewActivation];
 
+	self.drinkButton.transform = CGAffineTransformMakeRotation(M_PI);
+	self.durationButton.transform = CGAffineTransformMakeRotation(M_PI);
+
 	UIFont *titlesFont = kTitlesFont;
 	UIFont *subtitlesFont = kSubtitlesFont;
 	UIFont *textFont = kTextFont;
@@ -102,13 +105,21 @@
 			// TODO: we have a problem
 			break;
 	}
+
+//	self.
+
+	_storedDrinkPanelHeight = self.drinkPanel.frame.size.height;
+	_storedDurationPanelHeight = self.durationPanel.frame.size.height;
+
+	[self drinkPressed:nil];
+	[self durationPressed:nil];
 }
 
 - (IBAction)drinkPressed:(UIButton *)sender {
 	CGRect frame = self.drinkPanel.frame;
 
-	CGFloat rotationAngle = frame.size.height > 45.0f ? M_PI : 0.0f;
-	CGFloat targetHeight = frame.size.height > 45.0f ? 40.0f : _storedDrinkPanelHeight;
+	CGFloat rotationAngle = frame.size.height > 50.0f ? M_PI : 0.0f;
+	CGFloat targetHeight = frame.size.height > 50.0f ? 43.0f : _storedDrinkPanelHeight;
 
 	[UIView animateWithDuration:0.33f animations:^{
 		self.drinkPanelHeight.constant = targetHeight;
@@ -119,8 +130,8 @@
 - (IBAction)durationPressed:(UIButton *)sender {
 	CGRect frame = self.durationPanel.frame;
 
-	CGFloat rotationAngle = frame.size.height > 45.0f ? M_PI : 0.0f;
-	CGFloat targetHeight = frame.size.height > 45.0f ? 40.0f : _storedDurationPanelHeight;
+	CGFloat rotationAngle = frame.size.height > 50.0f ? M_PI : 0.0f;
+	CGFloat targetHeight = frame.size.height > 50.0f ? 43.0f : _storedDurationPanelHeight;
 
 	[UIView animateWithDuration:0.33f animations:^{
 		self.durationPanelHeight.constant = targetHeight;

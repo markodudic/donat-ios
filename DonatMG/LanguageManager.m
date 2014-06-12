@@ -42,7 +42,7 @@
 		[self setLanguageId:setLanguage ? setLanguage : kDefaultLanguage];
 	}
 
-	_languages = @[@"English", @"Italian", @"Russian", @"Croatian"];
+	_languages = @[@"English", @"Italiano", @"Русский", @"Hrvatski"];
 
 	return self;
 }
@@ -64,11 +64,11 @@
 - (NSString *)idForLanguage:(NSString *)language {
 	if ([language isEqualToString:@"English"]) {
 		return @"en";
-	} else if ([language isEqualToString:@"Italian"]) {
+	} else if ([language isEqualToString:@"Italiano"]) {
 		return @"it";
-	} else if ([language isEqualToString:@"Russian"]) {
+	} else if ([language isEqualToString:@"Русский"]) {
 		return @"ru";
-	} else if ([language isEqualToString:@"Croatian"]) {
+	} else if ([language isEqualToString:@"Hrvatski"]) {
 		return @"hr";
 	} else
 		return nil;
@@ -78,11 +78,11 @@
 	if ([langId isEqualToString:@"en"]) {
 		return @"English";
 	} else if ([langId isEqualToString:@"it"]) {
-		return @"Italian";
+		return @"Italiano";
 	} else if ([langId isEqualToString:@"ru"]) {
-		return @"Russian";
+		return @"Русский";
 	} else if ([langId isEqualToString:@"hr"]) {
-		return @"Croatian";
+		return @"Hrvatski";
 	} else
 		return nil;
 }
