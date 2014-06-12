@@ -12,6 +12,9 @@
 
 	UITextField *_fieldBeingEdited;
 	BOOL _amEditingLanguage;
+
+	UIPickerView *_picker;
+	UIDatePicker *_datePicker;
 }
 
 @property (nonatomic, strong) IBOutlet UIView *containerView;

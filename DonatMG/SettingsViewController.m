@@ -80,22 +80,22 @@
 
 	[self setLanguageShown];
 
-	UIPickerView *picker = [[UIPickerView alloc] init];
-	picker.dataSource = self;
-	picker.delegate = self;
-	self.languageField.inputView = picker;
-	self.mealsField.inputView = picker;
+	_picker = [[UIPickerView alloc] init];
+	_picker.dataSource = self;
+	_picker.delegate = self;
+	self.languageField.inputView = _picker;
+	self.mealsField.inputView = _picker;
 
-	UIDatePicker *datePicker = [[UIDatePicker alloc] init];
-	datePicker.locale = [[NSLocale alloc] initWithLocaleIdentifier:[[LanguageManager sharedManager] currentLangId]];
-	datePicker.datePickerMode = UIDatePickerModeTime;
-	datePicker.minuteInterval = 1;
+	_datePicker = [[UIDatePicker alloc] init];
+	_datePicker.locale = [[NSLocale alloc] initWithLocaleIdentifier:[[LanguageManager sharedManager] currentLangId]];
+	_datePicker.datePickerMode = UIDatePickerModeTime;
+	_datePicker.minuteInterval = 1;
 
-	self.wakeField.inputView = datePicker;
-	self.breakfastField.inputView = datePicker;
-	self.lunchField.inputView = datePicker;
-	self.dinnerField.inputView = datePicker;
-	self.sleepField.inputView = datePicker;
+	self.wakeField.inputView = _datePicker;
+	self.breakfastField.inputView = _datePicker;
+	self.lunchField.inputView = _datePicker;
+	self.dinnerField.inputView = _datePicker;
+	self.sleepField.inputView = _datePicker;
 
 	self.mealsField.text = [NSString stringWithFormat:@"%lu", (unsigned long)[[SettingsManager sharedManager] numberOfMeals]];
 }
@@ -188,6 +188,24 @@
 
 	if (textField == self.languageField) {
 		_amEditingLanguage = YES;
+
+		NSString *langId = [[LanguageManager sharedManager] currentLangId];
+		NSInteger select = 0;
+
+		if ([langId isEqualToString:@"it"]) {
+			select = 1;
+		} else if ([langId isEqualToString:@"ru"]) {
+			select = 2;
+		} else if ([langId isEqualToString:@"hr"]) {
+			select = 3;
+		}
+
+		[_picker reloadAllComponents];
+		[_picker selectRow:select inComponent:0 animated:NO];
+	} else if (textField == self.mealsField) {
+		_amEditingLanguage = NO;
+		[_picker reloadAllComponents];
+		[_picker selectRow:[[SettingsManager sharedManager] numberOfMeals]-3 inComponent:0 animated:NO];
 	} else {
 		_amEditingLanguage = NO;
 
