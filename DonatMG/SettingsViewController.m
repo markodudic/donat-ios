@@ -265,6 +265,8 @@
 		[[SettingsManager sharedManager] setAppLanguage:localeId];
 
 		[self setLanguageStrings];
+
+		[self.navigationController popViewControllerAnimated:YES];
 	} else {
 		self.mealsField.text = [NSString stringWithFormat:@"%ld", row+3];
 		[self.mealsField resignFirstResponder];
