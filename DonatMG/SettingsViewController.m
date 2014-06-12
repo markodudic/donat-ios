@@ -221,14 +221,14 @@
 	if (_amEditingLanguage)
 		return [[LanguageManager sharedManager] languages].count;
 	else
-		return 5;
+		return 3;
 }
 
 - (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component {
 	if (_amEditingLanguage)
 		return [[LanguageManager sharedManager] languages][row];
 	else
-		return [NSString stringWithFormat:@"%ld", row+1];
+		return [NSString stringWithFormat:@"%ld", row+3];
 }
 
 #pragma mark -
@@ -248,10 +248,10 @@
 
 		[self setLanguageStrings];
 	} else {
-		self.mealsField.text = [NSString stringWithFormat:@"%ld", row+1];
+		self.mealsField.text = [NSString stringWithFormat:@"%ld", row+3];
 		[self.mealsField resignFirstResponder];
 
-		[[SettingsManager sharedManager] setNumberOfMeals:row+1];
+		[[SettingsManager sharedManager] setNumberOfMeals:row+3];
 	}
 }
 
