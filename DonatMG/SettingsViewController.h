@@ -15,6 +15,8 @@
 
 	UIPickerView *_picker;
 	UIDatePicker *_datePicker;
+
+	BOOL _shouldSave;
 }
 
 @property (nonatomic, strong) IBOutlet UIView *containerView;

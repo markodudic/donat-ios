@@ -26,7 +26,9 @@
 	[super viewDidLoad];
 
 	[self.view insertSubview:[[UIImageView alloc] initWithImage:[UIImage imageNamed:IS_IPHONE_5 ? @"splash-5.png" : @"splash-4.png"]] atIndex:0];
+}
 
+- (void)viewDidAppear:(BOOL)animated {
 	[self performSelector:@selector(showMainView) withObject:nil afterDelay:2.0f];
 }
 

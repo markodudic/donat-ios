@@ -13,6 +13,12 @@
 @property (nonatomic, assign) NSUInteger activeIndication;
 @property (nonatomic, retain) NSString *appLanguage;
 
+@property (nonatomic, retain) NSDateComponents *wakeTime;
+@property (nonatomic, retain) NSDateComponents *breakfastTime;
+@property (nonatomic, retain) NSDateComponents *lunchTime;
+@property (nonatomic, retain) NSDateComponents *dinnerTime;
+@property (nonatomic, retain) NSDateComponents *sleepingTime;
+
 @property (nonatomic, assign) NSUInteger numberOfMeals;
 
 + (id)sharedManager;

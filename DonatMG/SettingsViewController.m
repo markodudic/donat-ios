@@ -39,6 +39,10 @@
 	self.languageField.text = [langManager languageForId:langManager.currentLangId];
 }
 
+- (NSString *)timeToString:(NSDateComponents *)time {
+	return [NSString stringWithFormat:@"%2lu:%02lu", (unsigned long)time.hour, (unsigned long)time.minute, nil];
+}
+
 - (void)viewDidLoad {
 	[super viewDidLoad];
 
@@ -87,7 +91,8 @@
 	self.mealsField.inputView = _picker;
 
 	_datePicker = [[UIDatePicker alloc] init];
-	_datePicker.locale = [[NSLocale alloc] initWithLocaleIdentifier:[[LanguageManager sharedManager] currentLangId]];
+//	_datePicker.locale = [[NSLocale alloc] initWithLocaleIdentifier:[[LanguageManager sharedManager] currentLangId]];
+	_datePicker.locale = [[NSLocale alloc] initWithLocaleIdentifier:@"sl"];
 	_datePicker.datePickerMode = UIDatePickerModeTime;
 	_datePicker.minuteInterval = 1;
 
@@ -96,6 +101,12 @@
 	self.lunchField.inputView = _datePicker;
 	self.dinnerField.inputView = _datePicker;
 	self.sleepField.inputView = _datePicker;
+
+	self.wakeField.text = [self timeToString:[[SettingsManager sharedManager] wakeTime]];
+	self.breakfastField.text = [self timeToString:[[SettingsManager sharedManager] breakfastTime]];
+	self.lunchField.text = [self timeToString:[[SettingsManager sharedManager] lunchTime]];
+	self.dinnerField.text = [self timeToString:[[SettingsManager sharedManager] dinnerTime]];
+	self.sleepField.text = [self timeToString:[[SettingsManager sharedManager] sleepingTime]];
 
 	self.mealsField.text = [NSString stringWithFormat:@"%lu", (unsigned long)[[SettingsManager sharedManager] numberOfMeals]];
 }
@@ -169,15 +180,18 @@
 #pragma mark Editing responders
 
 - (void)cancelEdit:(UIBarButtonItem *)sender {
+	_shouldSave = NO;
 	[_fieldBeingEdited resignFirstResponder];
 }
 
 - (void)doneEditing:(UIBarButtonItem *)sender {
+	_shouldSave = YES;
 	[_fieldBeingEdited resignFirstResponder];
 }
 
 - (IBAction)savePressed:(UIButton *)sender {
 	// TODO: discuss, as it doesn't make sense, to have this here, because things are saved on the go (as defined in the HIG)
+	[self.navigationController popToRootViewControllerAnimated:YES];
 }
 
 #pragma mark -
@@ -219,12 +233,55 @@
 		[toolBar setItems:[NSArray arrayWithObjects:cancelBtn, flexibleItem, doneBtn, nil]];
 
 		textField.inputAccessoryView = toolBar;
+
+		NSDateComponents *dateComponents = nil;
+		if (textField == self.wakeField) {
+			dateComponents = [[SettingsManager sharedManager] wakeTime];
+		} else if (textField == self.breakfastField) {
+			dateComponents = [[SettingsManager sharedManager] breakfastTime];
+		} else if (textField == self.lunchField) {
+			dateComponents = [[SettingsManager sharedManager] lunchTime];
+		} else if (textField == self.dinnerField) {
+			dateComponents = [[SettingsManager sharedManager] dinnerTime];
+		} else if (textField == self.sleepField) {
+			dateComponents = [[SettingsManager sharedManager] sleepingTime];
+		}
+
+		NSDate * now = [[NSDate alloc] init];
+		NSCalendar *cal = [NSCalendar currentCalendar];
+		NSDateComponents *comps = [cal components:NSYearCalendarUnit|NSMonthCalendarUnit|NSDayCalendarUnit fromDate:now];
+		[comps setHour:dateComponents.hour];
+		[comps setMinute:dateComponents.minute];
+		NSDate *date = [cal dateFromComponents:comps];
+		[_datePicker setDate:date animated:NO];
 	}
 
 	return YES;
 }
 
 - (void)textFieldDidEndEditing:(UITextField *)textField {
+	if (_shouldSave) {
+		NSDate *date = [_datePicker date];
+		NSCalendar *cal = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+		NSDateComponents *components = [cal components:(NSHourCalendarUnit | NSMinuteCalendarUnit) fromDate:date];
+
+		if (textField == self.wakeField) {
+			[[SettingsManager sharedManager] setWakeTime:components];
+			self.wakeField.text = [self timeToString:[[SettingsManager sharedManager] wakeTime]];
+		} else if (textField == self.breakfastField) {
+			[[SettingsManager sharedManager] setBreakfastTime:components];
+			self.breakfastField.text = [self timeToString:[[SettingsManager sharedManager] breakfastTime]];
+		} else if (textField == self.lunchField) {
+			[[SettingsManager sharedManager] setLunchTime:components];
+			self.lunchField.text = [self timeToString:[[SettingsManager sharedManager] lunchTime]];
+		} else if (textField == self.dinnerField) {
+			[[SettingsManager sharedManager] setDinnerTime:components];
+			self.dinnerField.text = [self timeToString:[[SettingsManager sharedManager] dinnerTime]];
+		} else if (textField == self.sleepField) {
+			[[SettingsManager sharedManager] setSleepingTime:components];
+			self.sleepField.text = [self timeToString:[[SettingsManager sharedManager] sleepingTime]];
+		}
+	}
 	_fieldBeingEdited = nil;
 }
 
@@ -266,7 +323,7 @@
 
 		[self setLanguageStrings];
 
-		[self.navigationController popViewControllerAnimated:YES];
+		[self.navigationController popToRootViewControllerAnimated:YES];
 	} else {
 		self.mealsField.text = [NSString stringWithFormat:@"%ld", row+3];
 		[self.mealsField resignFirstResponder];
