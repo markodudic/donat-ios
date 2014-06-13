@@ -106,8 +106,6 @@
 			break;
 	}
 
-//	self.
-
 	_storedDrinkPanelHeight = self.drinkPanel.frame.size.height;
 	_storedDurationPanelHeight = self.durationPanel.frame.size.height;
 

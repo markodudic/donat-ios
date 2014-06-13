@@ -303,7 +303,7 @@
 	if (_amEditingLanguage)
 		return [[LanguageManager sharedManager] languages][row];
 	else
-		return [NSString stringWithFormat:@"%ld", row+3];
+		return [NSString stringWithFormat:@"%u", (unsigned int)row+3];
 }
 
 #pragma mark -
@@ -325,7 +325,7 @@
 
 		[self.navigationController popToRootViewControllerAnimated:YES];
 	} else {
-		self.mealsField.text = [NSString stringWithFormat:@"%ld", row+3];
+		self.mealsField.text = [NSString stringWithFormat:@"%u", (unsigned int)row+3];
 		[self.mealsField resignFirstResponder];
 
 		[[SettingsManager sharedManager] setNumberOfMeals:row+3];
