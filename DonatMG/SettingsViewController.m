@@ -91,7 +91,9 @@
 	self.mealsField.inputView = _picker;
 
 	_datePicker = [[UIDatePicker alloc] init];
-//	_datePicker.locale = [[NSLocale alloc] initWithLocaleIdentifier:[[LanguageManager sharedManager] currentLangId]];
+
+	//	TODO: set the LocalIdentifier to: (the display string should be changed as well)
+	//		[[LanguageManager sharedManager] currentLangId]
 	_datePicker.locale = [[NSLocale alloc] initWithLocaleIdentifier:@"sl"];
 	_datePicker.datePickerMode = UIDatePickerModeTime;
 	_datePicker.minuteInterval = 1;
