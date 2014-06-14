@@ -7,7 +7,6 @@
 //
 
 #import "LanguageManager.h"
-#import "SettingsManager.h"
 
 @implementation LanguageManager
 

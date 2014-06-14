@@ -7,7 +7,6 @@
 //
 
 #import "SettingsViewController.h"
-#import "SettingsManager.h"
 #import "LanguageManager.h"
 
 @interface SettingsViewController ()

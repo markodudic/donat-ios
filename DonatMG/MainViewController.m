@@ -7,7 +7,6 @@
 //
 
 #import "MainViewController.h"
-#import "SettingsManager.h"
 #import "IndicationCell.h"
 #import "IndicationViewController.h"
 
