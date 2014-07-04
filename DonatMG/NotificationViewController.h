@@ -10,8 +10,8 @@
 
 @interface NotificationViewController : UIViewController
 
-@property (nonatomic, retain) NSDictionary *userInfo;
+@property (nonatomic, retain) UILocalNotification *notification;
 
-@property (nonatomic, strong) IBOutlet UILabel *testLabel;
+@property (nonatomic, strong) IBOutlet UITextView *testText;
 
 @end

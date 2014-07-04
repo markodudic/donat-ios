@@ -23,13 +23,11 @@
 
 // TODO: remove this
 - (void)test {
-	DLog();
 	NSDictionary *testDictionary = [NSMutableDictionary dictionaryWithCapacity:1];
 	[testDictionary setValue:@"testNotification" forKey:@"name"];
 	UILocalNotification *testNotifation = [[UILocalNotification alloc] init];
 	testNotifation.fireDate = [NSDate dateWithTimeIntervalSinceNow:15];
 	testNotifation.alertBody = @"alertBody";
-	testNotifation.alertAction = @"alertAction";
 	testNotifation.userInfo = testDictionary;
 	[[UIApplication sharedApplication] scheduleLocalNotification:testNotifation];
 }
@@ -66,28 +64,37 @@
 
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didReceiveNotification:) name:kApplicationDidReceiveNotification object:nil];
 
-	NSDictionary *userInfo = [[SettingsManager sharedManager] notificationFired];
-	if (userInfo)
-		[self didReceiveNotification:userInfo];
+	UILocalNotification *notification = [[SettingsManager sharedManager] notificationFired];
+	if (notification)
+		[self fireNotification:notification];
 }
 
 - (void)viewDidUnload {
 	[[NSNotificationCenter defaultCenter] removeObserver:self name:kApplicationDidReceiveNotification object:nil];
 }
 
-- (void)didReceiveNotification:(NSDictionary *)userInfo {
-	// see http://stackoverflow.com/a/2777460/305149
-	DLog();
-//	if (self.isViewLoaded && self.view.window) {
-		NSLog(@"%s - do something", __FUNCTION__);
-		NSLog(@"%@", userInfo);
+- (void)fireNotification:(UILocalNotification *)notification {
+	// see http://stackoverflow.com/a/2777460/305149 for possible visibility issues
+	// in that case, this method should be wrapped in an if clause like this:
+	//	if (self.isViewLoaded && self.view.window) {
+	//  }
+	// although in that case I'm not sure how to actually handle the notification.
+	DLog(@"%@", notification);
 
-		NSString *storyboardName = @"Main";
-		UIStoryboard *storyboard = [UIStoryboard storyboardWithName:storyboardName bundle:nil];
-		NotificationViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"notificationViewController"];
-		vc.userInfo = userInfo;
-		[self.navigationController pushViewController:vc animated:YES];
-//	}
+	NSString *storyboardName = @"Main";
+	UIStoryboard *storyboard = [UIStoryboard storyboardWithName:storyboardName bundle:nil];
+	NotificationViewController *viewController = [storyboard instantiateViewControllerWithIdentifier:@"notificationViewController"];
+	viewController.notification = notification;
+	[self.navigationController pushViewController:viewController animated:YES];
+}
+
+- (void)didReceiveNotification:(NSNotification *)notification {
+	DLog(@"%@", notification);
+
+	NSDictionary *userInfo = notification.userInfo;
+	UILocalNotification *localNotification = [userInfo objectForKey:@"notification"];
+
+	[self fireNotification:localNotification];
 }
 
 - (void)didReceiveMemoryWarning {

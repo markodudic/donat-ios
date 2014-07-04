@@ -21,7 +21,7 @@
 
 @property (nonatomic, assign) NSUInteger numberOfMeals;
 
-@property (nonatomic, retain) NSDictionary *notificationFired;
+@property (nonatomic, retain) UILocalNotification *notificationFired;
 
 + (id)sharedManager;
 

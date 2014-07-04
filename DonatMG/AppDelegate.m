@@ -14,7 +14,6 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 
 	if ([launchOptions objectForKey:UIApplicationLaunchOptionsLocalNotificationKey]) {
-		DLog(@"%@", [launchOptions objectForKey:UIApplicationLaunchOptionsLocalNotificationKey]);
 		[[SettingsManager sharedManager] setNotificationFired:[launchOptions objectForKey:UIApplicationLaunchOptionsLocalNotificationKey]];
 	}
 
@@ -22,7 +21,7 @@
 }
 
 - (void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification {
-	[[NSNotificationCenter defaultCenter] postNotificationName:kApplicationDidReceiveNotification object:self userInfo:notification.userInfo];
+	[[NSNotificationCenter defaultCenter] postNotificationName:kApplicationDidReceiveNotification object:self userInfo:@{@"notification": notification}];
 }
 
 @end

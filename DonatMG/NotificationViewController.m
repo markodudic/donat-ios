@@ -7,6 +7,7 @@
 //
 
 #import "NotificationViewController.h"
+#import "SettingsManager.h"
 
 @interface NotificationViewController ()
 
@@ -14,12 +15,12 @@
 
 @implementation NotificationViewController
 
-@synthesize userInfo = _userInfo;
-@synthesize testLabel = _testLabel;
+@synthesize notification = _notification;
+@synthesize testText = _testText;
 
 - (void)viewDidLoad {
 	[super viewDidLoad];
-	self.testLabel.text = [_userInfo description];
+	self.testText.text = [_notification description];
 }
 
 - (void)didReceiveMemoryWarning {
