@@ -207,7 +207,7 @@
 }
 
 - (IBAction)savePressed:(UIButton *)sender {
-	[self.navigationController popToRootViewControllerAnimated:YES];
+	[self.navigationController popViewControllerAnimated:YES];
 }
 
 #pragma mark -
