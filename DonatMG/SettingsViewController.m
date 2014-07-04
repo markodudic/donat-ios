@@ -48,7 +48,6 @@
 }
 
 - (void)settings {
-	DLog();
 }
 
 - (void)viewDidLoad {

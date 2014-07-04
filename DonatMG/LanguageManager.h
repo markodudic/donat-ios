@@ -32,4 +32,7 @@
 - (NSString *)idForLanguage:(NSString *)language;
 - (NSString *)languageForId:(NSString *)langId;
 
+- (NSString *)stringForMonth:(unsigned short)month;
+- (NSString *)stringForDay:(unsigned short)day;
+
 @end

@@ -87,4 +87,55 @@
 		return nil;
 }
 
+- (NSString *)stringForMonth:(unsigned short)month {
+	switch (month) {
+		case 1:
+			return ___(@"month_1");
+			break;
+		case 2:
+			return ___(@"month_2");
+			break;
+		case 3:
+			return ___(@"month_3");
+			break;
+		case 4:
+			return ___(@"month_4");
+			break;
+		case 5:
+			return ___(@"month_5");
+			break;
+		case 6:
+			return ___(@"month_6");
+			break;
+		case 7:
+			return ___(@"month_7");
+			break;
+		case 8:
+			return ___(@"month_8");
+			break;
+		case 9:
+			return ___(@"month_9");
+			break;
+		case 10:
+			return ___(@"month_10");
+			break;
+		case 11:
+			return ___(@"month_11");
+			break;
+		case 12:
+			return ___(@"month_12");
+			break;
+		default:
+			return nil;
+			break;
+	}
+}
+
+- (NSString *)stringForDay:(unsigned short)day {
+	if (day > 7)
+		return nil;
+
+	return [___(@"days_localized") substringWithRange:NSMakeRange(day - 1, 1)];
+}
+
 @end
