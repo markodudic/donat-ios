@@ -14,8 +14,12 @@
 
 @implementation NotificationViewController
 
+@synthesize userInfo = _userInfo;
+@synthesize testLabel = _testLabel;
+
 - (void)viewDidLoad {
 	[super viewDidLoad];
+	self.testLabel.text = [_userInfo description];
 }
 
 - (void)didReceiveMemoryWarning {

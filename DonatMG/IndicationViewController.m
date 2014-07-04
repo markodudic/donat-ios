@@ -25,6 +25,7 @@
 @synthesize headerLabel = _headerLabel;
 @synthesize drinkPanel = _drinkPanel;
 @synthesize drinkButton = _drinkButton;
+@synthesize drinkTableContainer = _drinkTableContainer;
 @synthesize durationPanel = _durationPanel;
 @synthesize durationButton = _durationButton;
 @synthesize durationLabel = _durationLabel;
@@ -85,6 +86,14 @@
 		animationBlock();
 }
 
+- (void)calendar {
+	[self performSegueWithIdentifier:@"showCalendar" sender:self];
+}
+
+- (void)settings {
+	[self performSegueWithIdentifier:@"showSettings" sender:self];
+}
+
 - (void)viewDidLoad {
 	[super viewDidLoad];
 
@@ -129,59 +138,84 @@
 			self.headerIcon.image = [UIImage imageNamed:@"icon_zaprtost.png"];
 			self.headerTitle.text = ___(@"indication_1");
 			self.headerLabel.text = ___(@"indication_1_desc");
+			self.durationLabel.text = ___(@"indication_1_time");
 			break;
 		case kZgaga:
 			self.headerIcon.image = [UIImage imageNamed:@"icon_zgaga.png"];
 			self.headerTitle.text = ___(@"indication_2");
 			self.headerLabel.text = ___(@"indication_2_desc");
+			self.durationLabel.text = ___(@"indication_2_time");
 			break;
 		case kMagnezij:
 			self.headerIcon.image = [UIImage imageNamed:@"icon_mg.png"];
 			self.headerTitle.text = ___(@"indication_3");
 			self.headerLabel.text = ___(@"indication_3_desc");
+			self.durationLabel.text = ___(@"indication_3_time");
 			break;
 		case kSladkorna:
 			self.headerIcon.image = [UIImage imageNamed:@"icon_sladkorna.png"];
 			self.headerTitle.text = ___(@"indication_4");
 			self.headerLabel.text = ___(@"indication_4_desc");
+			self.durationLabel.text = ___(@"indication_4_time");
 			break;
 		case kSlinavka:
 			self.headerIcon.image = [UIImage imageNamed:@"icon_slinavka.png"];
 			self.headerTitle.text = ___(@"indication_5");
 			self.headerLabel.text = ___(@"indication_5_desc");
+			self.durationLabel.text = ___(@"indication_5_time");
 			break;
 		case kSecniKamni:
 			self.headerIcon.image = [UIImage imageNamed:@"icon_secni_kamni.png"];
 			self.headerTitle.text = ___(@"indication_6");
 			self.headerLabel.text = ___(@"indication_6_desc");
+			self.durationLabel.text = ___(@"indication_6_time");
 			break;
 		case kDebelost:
 			self.headerIcon.image = [UIImage imageNamed:@"icon_debelost.png"];
 			self.headerTitle.text = ___(@"indication_7");
 			self.headerLabel.text = ___(@"indication_7_desc");
+			self.durationLabel.text = ___(@"indication_7_time");
 			break;
 		case kSrceOzilje:
 			self.headerIcon.image = [UIImage imageNamed:@"icon_srce_ozilje.png"];
 			self.headerTitle.text = ___(@"indication_8");
 			self.headerLabel.text = ___(@"indication_8_desc");
+			self.durationLabel.text = ___(@"indication_8_time");
 			break;
 		case kStres:
 			self.headerIcon.image = [UIImage imageNamed:@"icon_stres.png"];
 			self.headerTitle.text = ___(@"indication_9");
 			self.headerLabel.text = ___(@"indication_9_desc");
+			self.durationLabel.text = ___(@"indication_9_time");
 			break;
 		case kPocutje:
 			self.headerIcon.image = [UIImage imageNamed:@"icon_pocutje.png"];
 			self.headerTitle.text = ___(@"indication_10");
 			self.headerLabel.text = ___(@"indication_10_desc");
+			self.durationLabel.text = ___(@"indication_10_time");
 			break;
 		default:
 			break;
 	}
 
+
 	CGRect headerLabelFrame = [self.headerLabel.text boundingRectWithSize:CGSizeMake(self.headerLabel.frame.size.width, 1000.0f) options:NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading attributes:@{NSFontAttributeName:self.headerLabel.font} context:nil];
 
 	_desiredHeaderHeight = self.headerLabel.frame.origin.y + headerLabelFrame.size.height + 20.0f;
+
+
+	CGRect durationLabelFrame = [self.durationLabel.text boundingRectWithSize:CGSizeMake(self.durationLabel.frame.size.width, 1000.0f) options:NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading attributes:@{NSFontAttributeName:self.headerLabel.font} context:nil];
+
+	_desiredDurationHeight = self.durationLabel.frame.origin.y + durationLabelFrame.size.height + 20.0f;
+
+
+	UIBarButtonItem *calendarItem = [[UIBarButtonItem alloc] initWithImage:[[UIImage imageNamed:@"calendar.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] style:UIBarButtonItemStylePlain target:self action:@selector(calendar)];
+
+	UIBarButtonItem *settingsItem = [[UIBarButtonItem alloc] initWithImage:[[UIImage imageNamed:@"settings.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] style:UIBarButtonItemStylePlain target:self action:@selector(settings)];
+
+	NSArray *buttonsArray = @[settingsItem, calendarItem];
+	self.navigationItem.rightBarButtonItems = buttonsArray;
+
 
 	NSDate *today = [NSDate date];
 	NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];

@@ -29,8 +29,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Notification" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="vrB-3f-sVS">
-                                <rect key="frame" x="116" y="158" width="88" height="21"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Notification" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="vrB-3f-sVS">
+                                <rect key="frame" x="20" y="88" width="285" height="233"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="highlightedColor"/>
@@ -39,17 +39,20 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="mkR-yd-FQg"/>
+                    <connections>
+                        <outlet property="testLabel" destination="vrB-3f-sVS" id="toS-vQ-FfS"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ev1-ef-wQM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1589" y="-709"/>
+            <point key="canvasLocation" x="2331" y="-333"/>
         </scene>
         <!--Calendar View Controller-->
         <scene sceneID="Yg4-uk-fVb">
             <objects>
                 <viewController id="m2W-nZ-ERo" customClass="CalendarViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="PTM-lZ-dM8">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="650"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Calendar" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="BAi-Bk-WZs">
@@ -62,10 +65,13 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="QZy-cV-WG1"/>
+                    <connections>
+                        <segue destination="VsN-8R-FLY" kind="push" identifier="showSettings" id="L2U-zs-QIA"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2Nj-Ff-z5o" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2233" y="-709"/>
+            <point key="canvasLocation" x="1879" y="215"/>
         </scene>
         <!--Main View Controller - Root View Controller-->
         <scene sceneID="kOL-K0-Mgi">
@@ -227,6 +233,11 @@
                                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <view contentMode="scaleToFill" id="7t6-n3-GLn">
+                                                <rect key="frame" x="20" y="47" width="280" height="53"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="calibratedRGB"/>
+                                            </view>
                                         </subviews>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.10000000000000001" colorSpace="calibratedRGB"/>
                                     </view>
@@ -342,6 +353,7 @@
                         <outlet property="dayButton" destination="hbM-WB-eDC" id="0Dl-qE-YnT"/>
                         <outlet property="drinkButton" destination="yYA-eq-x3J" id="4Ff-Fl-8t5"/>
                         <outlet property="drinkPanel" destination="JdC-nK-Y8G" id="h63-2r-n8a"/>
+                        <outlet property="drinkTableContainer" destination="7t6-n3-GLn" id="afd-CH-4kw"/>
                         <outlet property="drinkTitle" destination="UHC-8r-2Vh" id="OSb-QT-lV5"/>
                         <outlet property="durationButton" destination="7y1-za-7Sh" id="N6N-AY-J5C"/>
                         <outlet property="durationLabel" destination="KMp-pF-iCr" id="TuD-ff-pi0"/>
@@ -357,22 +369,24 @@
                         <outlet property="startPanel" destination="Wc5-c3-n93" id="kCn-hz-27U"/>
                         <outlet property="startTitle" destination="BeA-YH-KCy" id="OhQ-Cx-Nhd"/>
                         <outlet property="yearButton" destination="CwU-CE-yfb" id="BuI-sU-Hhj"/>
+                        <segue destination="m2W-nZ-ERo" kind="push" identifier="showCalendar" id="tvK-0p-GBK"/>
+                        <segue destination="VsN-8R-FLY" kind="push" identifier="showSettings" id="hDt-6S-wAu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UTz-fZ-hWG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2233" y="25"/>
+            <point key="canvasLocation" x="2745" y="286"/>
         </scene>
         <!--Legal View Controller-->
         <scene sceneID="Svi-Eg-I1B">
             <objects>
                 <viewController id="xjP-fi-gQ9" customClass="LegalViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="YgP-D2-S4X">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="650"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="aos-hl-b4N">
-                                <rect key="frame" x="0.0" y="63" width="320" height="600"/>
+                                <rect key="frame" x="0.0" y="63" width="320" height="650"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="wJj-UJ-97P">
@@ -402,18 +416,18 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CeA-MR-z09" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2233" y="716"/>
+            <point key="canvasLocation" x="2653" y="1106"/>
         </scene>
         <!--Settings View Controller-->
         <scene sceneID="1rH-jK-pmN">
             <objects>
                 <viewController id="VsN-8R-FLY" customClass="SettingsViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="9FA-yr-i2y">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="650"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="CR0-FI-j9I">
-                                <rect key="frame" x="0.0" y="64" width="320" height="543"/>
+                                <rect key="frame" x="0.0" y="64" width="320" height="593"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" id="2pH-j9-uft" userLabel="Red Line">
@@ -422,7 +436,7 @@
                                         <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     </view>
                                     <view contentMode="scaleToFill" id="JIQ-0I-d29">
-                                        <rect key="frame" x="20" y="10" width="280" height="491"/>
+                                        <rect key="frame" x="20" y="19.5" width="280" height="491"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_jezik.png" id="r5X-HJ-YHy">
@@ -739,7 +753,6 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="v1P-tG-nVk"/>
-                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="320" height="600"/>
                     <connections>
                         <outlet property="breakfastField" destination="nDF-vJ-1Q7" id="CfR-ph-Xol"/>
@@ -761,11 +774,12 @@
                         <outlet property="wakeField" destination="QfN-oJ-kIF" id="agU-M7-7WF"/>
                         <outlet property="wakeLabel" destination="Gsf-Ua-8wQ" id="yWt-wk-6Jp"/>
                         <segue destination="xjP-fi-gQ9" kind="push" identifier="showLegal" id="YX8-dM-hd4"/>
+                        <segue destination="m2W-nZ-ERo" kind="push" identifier="showCalendar" id="PsI-q0-fXA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="a2b-yI-BN8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1589" y="716"/>
+            <point key="canvasLocation" x="1879" y="978"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="SnJ-Fr-uVm">
@@ -799,4 +813,8 @@
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
+    <inferredMetricsTieBreakers>
+        <segue reference="tvK-0p-GBK"/>
+        <segue reference="hDt-6S-wAu"/>
+    </inferredMetricsTieBreakers>
 </document>

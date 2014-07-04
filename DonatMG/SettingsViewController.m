@@ -43,6 +43,14 @@
 	return [NSString stringWithFormat:@"%2lu:%02lu", (unsigned long)time.hour, (unsigned long)time.minute, nil];
 }
 
+- (void)calendar {
+	[self performSegueWithIdentifier:@"showCalendar" sender:self];
+}
+
+- (void)settings {
+	DLog();
+}
+
 - (void)viewDidLoad {
 	[super viewDidLoad];
 
@@ -111,6 +119,14 @@
 	self.sleepField.text = [self timeToString:[[SettingsManager sharedManager] sleepingTime]];
 
 	self.mealsField.text = [NSString stringWithFormat:@"%lu", (unsigned long)[[SettingsManager sharedManager] numberOfMeals]];
+
+	UIBarButtonItem *calendarItem = [[UIBarButtonItem alloc] initWithImage:[[UIImage imageNamed:@"calendar.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] style:UIBarButtonItemStylePlain target:self action:@selector(calendar)];
+
+	UIBarButtonItem *settingsItem = [[UIBarButtonItem alloc] initWithImage:[[UIImage imageNamed:@"settings-active.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] style:UIBarButtonItemStylePlain target:self action:@selector(settings)];
+	settingsItem.enabled = NO;
+
+	NSArray *buttonsArray = @[settingsItem, calendarItem];
+	self.navigationItem.rightBarButtonItems = buttonsArray;
 }
 
 - (IBAction)langaugeClick:(id)sender {

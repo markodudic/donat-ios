@@ -10,6 +10,7 @@
 #import "SettingsManager.h"
 #import "IndicationCell.h"
 #import "IndicationViewController.h"
+#import "NotificationViewController.h"
 
 @interface MainViewController ()
 
@@ -83,7 +84,8 @@
 
 		NSString *storyboardName = @"Main";
 		UIStoryboard *storyboard = [UIStoryboard storyboardWithName:storyboardName bundle:nil];
-		UIViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"notificationViewController"];
+		NotificationViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"notificationViewController"];
+		vc.userInfo = userInfo;
 		[self.navigationController pushViewController:vc animated:YES];
 //	}
 }

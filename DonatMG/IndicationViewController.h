@@ -34,6 +34,7 @@
 @property (nonatomic, strong) IBOutlet UIView *drinkPanel;
 @property (nonatomic, strong) IBOutlet UIButton *drinkButton;
 @property (nonatomic, strong) IBOutlet UILabel *drinkTitle;
+@property (nonatomic, strong) IBOutlet UIView *drinkTableContainer;
 
 @property (nonatomic, strong) IBOutlet UIView *durationPanel;
 @property (nonatomic, strong) IBOutlet UIButton *durationButton;
