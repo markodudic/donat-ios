@@ -99,7 +99,7 @@
 
 	_justShowInfo = NO;
 
-	_openHeader = YES;
+	_openHeader = NO;
 	_openDrink = NO;
 	_openDuration = NO;
 
