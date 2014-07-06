@@ -56,10 +56,12 @@
 	[self updateTitle];
 
 	NSUInteger firstDay = [self firstWeekdayInMonth] - 1;
+	BOOL curMonth = _currentDate.year == _monthShown.year && _currentDate.month == _monthShown.month;
 
 	for (int i = 0; i < [_fields count]; i++) {
 		int day = i - firstDay;
 		CalendarFieldView *tempView = [_fields objectAtIndex:i];
+		tempView.today = curMonth && day == _currentDate.day;
 		if (day > 0 && day < 32) {
 			tempView.day = i - firstDay;
 		} else
@@ -79,10 +81,9 @@
 
 			CalendarFieldView *tempView = [[CalendarFieldView alloc] initWithFrame:frame];
 			tempView.delegate = self;
-
-			// TODO: replace following code with something a bit more usefull
-			tempView.today = rand() % 2 == 0;
-			tempView.hasDrunk = rand() % 2 == 0;
+			tempView.day = 0;
+			tempView.today = NO;
+			tempView.hasDrunk = NO;
 
 			[_containerView addSubview:tempView];
 
@@ -133,6 +134,7 @@
 	NSDate *today = [NSDate date];
 	NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
 	_monthShown = [gregorian components:(NSYearCalendarUnit | NSMonthCalendarUnit) fromDate:today];
+	_currentDate = [gregorian components:(NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit) fromDate:today];
 
 	[self prepareFields];
 

@@ -12,6 +12,7 @@
 
 @interface CalendarViewController : UIViewController <CalendarFieldView> {
 	NSDateComponents *_monthShown;
+	NSDateComponents *_currentDate;
 	NSArray *_fields;
 }
 
