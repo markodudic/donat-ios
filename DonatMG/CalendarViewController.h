@@ -12,6 +12,7 @@
 
 @interface CalendarViewController : UIViewController <CalendarFieldView> {
 	NSDateComponents *_monthShown;
+	NSArray *_fields;
 }
 
 @property (nonatomic, strong) IBOutlet UIButton *leftButton;

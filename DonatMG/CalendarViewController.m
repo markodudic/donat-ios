@@ -29,6 +29,18 @@
 
 @synthesize containerView = _containerView;
 
+- (NSUInteger)firstWeekdayInMonth {
+	NSDateComponents *firstDay = [_monthShown copy];
+	firstDay.day = 1;
+	NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+	NSDate *firstDate = [gregorian dateFromComponents:firstDay];
+	NSDateComponents *calcDay = [gregorian components:NSWeekdayCalendarUnit fromDate:firstDate];
+	if ([calcDay weekday] == 1)
+		return 6;
+	else
+		return [calcDay weekday] - 2;
+}
+
 - (void)calendar {
 }
 
@@ -43,7 +55,22 @@
 - (void)updateCalendar {
 	[self updateTitle];
 
+	NSUInteger firstDay = [self firstWeekdayInMonth] - 1;
+
+	for (int i = 0; i < [_fields count]; i++) {
+		int day = i - firstDay;
+		CalendarFieldView *tempView = [_fields objectAtIndex:i];
+		if (day > 0 && day < 32) {
+			tempView.day = i - firstDay;
+		} else
+			tempView.day = 0;
+	}
+}
+
+- (void)prepareFields {
 	CGFloat top = IS_IPHONE_5 ? 19.0f : 20.0f;
+
+	NSMutableArray *tempFields = [[NSMutableArray alloc] initWithCapacity:35];
 
 	for (unsigned int y = 0; y < 5; y++) {
 		CGFloat left = 18.0f;
@@ -53,17 +80,20 @@
 			CalendarFieldView *tempView = [[CalendarFieldView alloc] initWithFrame:frame];
 			tempView.delegate = self;
 
-			// TODO: replace following code with something usefull
+			// TODO: replace following code with something a bit more usefull
 			tempView.today = rand() % 2 == 0;
 			tempView.hasDrunk = rand() % 2 == 0;
-			tempView.day = 1 + rand() % 31;
 
 			[_containerView addSubview:tempView];
+
+			[tempFields addObject:tempView];
 
 			left += 41.0f;
 		}
 		top += IS_IPHONE_5 ? 76.0f : 58.0;
 	}
+
+	_fields = tempFields;
 }
 
 - (void)viewDidLoad {
@@ -103,6 +133,8 @@
 	NSDate *today = [NSDate date];
 	NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
 	_monthShown = [gregorian components:(NSYearCalendarUnit | NSMonthCalendarUnit) fromDate:today];
+
+	[self prepareFields];
 
 	[self updateCalendar];
 }
@@ -162,7 +194,16 @@
 #pragma mark - CalendarFieldView
 
 - (void)dayWasClicked:(NSUInteger)day {
-	DLog(@"%d", day);
+	NSDateComponents *components = [[NSDateComponents alloc] init];
+	[components setDay:day];
+	[components setMonth:_monthShown.month];
+	[components setYear:_monthShown.year];
+	NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+	NSDate *clickedDate = [gregorian dateFromComponents:components];
+
+	DLog(@"%@", [NSDateFormatter localizedStringFromDate:clickedDate
+											   dateStyle:NSDateFormatterShortStyle
+											   timeStyle:NSDateFormatterFullStyle]);
 }
 
 @end
