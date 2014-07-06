@@ -8,7 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface CalendarViewController : UIViewController {
+#import "CalendarFieldView.h"
+
+@interface CalendarViewController : UIViewController <CalendarFieldView> {
 	NSDateComponents *_monthShown;
 }
 
@@ -25,5 +27,7 @@
 @property (nonatomic, strong) IBOutlet UILabel *sundayLabel;
 
 @property (nonatomic, strong) IBOutlet UIView *containerView;
+
+- (void)dayWasClicked:(NSUInteger)day;
 
 @end

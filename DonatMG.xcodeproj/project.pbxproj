@@ -114,6 +114,9 @@
 		5115E8AA1960311C00A8CD07 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5115E88C1960311C00A8CD07 /* UIKit.framework */; };
 		5115E8B21960311C00A8CD07 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5115E8B01960311C00A8CD07 /* InfoPlist.strings */; };
 		5115E8B41960311C00A8CD07 /* DonatMGTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5115E8B31960311C00A8CD07 /* DonatMGTests.m */; };
+		51914C8319693B9100EDED15 /* CalendarFieldView.m in Sources */ = {isa = PBXBuildFile; fileRef = 51914C8219693B9100EDED15 /* CalendarFieldView.m */; };
+		51914C8F196942EE00EDED15 /* ikona-danes.png in Resources */ = {isa = PBXBuildFile; fileRef = 51914C8D196942EE00EDED15 /* ikona-danes.png */; };
+		51914C90196942EE00EDED15 /* ikona-danes@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 51914C8E196942EE00EDED15 /* ikona-danes@2x.png */; };
 		51B9AFD51963E9AC009080E2 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 51B9AFD41963E9AC009080E2 /* MainViewController.m */; };
 		51B9B0211965CFB9009080E2 /* IndicationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 51B9B0201965CFB9009080E2 /* IndicationCell.m */; };
 		51B9B02E196624C7009080E2 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 51B9B02C196624C7009080E2 /* Localizable.strings */; };
@@ -306,6 +309,10 @@
 		5115E8AF1960311C00A8CD07 /* DonatMGTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "DonatMGTests-Info.plist"; sourceTree = "<group>"; };
 		5115E8B11960311C00A8CD07 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		5115E8B31960311C00A8CD07 /* DonatMGTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DonatMGTests.m; sourceTree = "<group>"; };
+		51914C8119693B9100EDED15 /* CalendarFieldView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalendarFieldView.h; sourceTree = "<group>"; };
+		51914C8219693B9100EDED15 /* CalendarFieldView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarFieldView.m; sourceTree = "<group>"; };
+		51914C8D196942EE00EDED15 /* ikona-danes.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ikona-danes.png"; sourceTree = "<group>"; };
+		51914C8E196942EE00EDED15 /* ikona-danes@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ikona-danes@2x.png"; sourceTree = "<group>"; };
 		51B9AFD01963E820009080E2 /* DesignSettings.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DesignSettings.h; sourceTree = "<group>"; };
 		51B9AFD31963E9AC009080E2 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
 		51B9AFD41963E9AC009080E2 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
@@ -406,6 +413,8 @@
 		5101D0A519607C570030B6BB /* Icons */ = {
 			isa = PBXGroup;
 			children = (
+				51914C8D196942EE00EDED15 /* ikona-danes.png */,
+				51914C8E196942EE00EDED15 /* ikona-danes@2x.png */,
 				5101D0A619607C570030B6BB /* bg_datuma.png */,
 				5101D0A719607C570030B6BB /* bg_datuma@2x.png */,
 				5101D0A819607C570030B6BB /* icon_jezik.png */,
@@ -549,6 +558,8 @@
 				5115E89E1960311C00A8CD07 /* DonatViewController.m */,
 				5101D13A19607C910030B6BB /* SplashViewController.h */,
 				5101D13B19607C910030B6BB /* SplashViewController.m */,
+				51914C8119693B9100EDED15 /* CalendarFieldView.h */,
+				51914C8219693B9100EDED15 /* CalendarFieldView.m */,
 				51B9B01F1965CFB9009080E2 /* IndicationCell.h */,
 				51B9B0201965CFB9009080E2 /* IndicationCell.m */,
 				5115E8A01960311C00A8CD07 /* Images.xcassets */,
@@ -761,6 +772,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5101D10319607C570030B6BB /* icon_treatment@2x.png in Resources */,
+				51914C90196942EE00EDED15 /* ikona-danes@2x.png in Resources */,
 				5101D10519607C570030B6BB /* icon_ure@2x.png in Resources */,
 				5101D0ED19607C570030B6BB /* back-5@2x.png in Resources */,
 				5101D13119607C570030B6BB /* icon_zgaga@2x.png in Resources */,
@@ -788,6 +800,7 @@
 				5101D10919607C570030B6BB /* icon_zjutraj@2x.png in Resources */,
 				5101D11B19607C570030B6BB /* ikona-puscica_levo@2x.png in Resources */,
 				5101D0FD19607C570030B6BB /* icon_opoldne@2x.png in Resources */,
+				51914C8F196942EE00EDED15 /* ikona-danes.png in Resources */,
 				5101D0F519607C570030B6BB /* bg_datuma@2x.png in Resources */,
 				5101D12519607C570030B6BB /* icon_secni_kamni@2x.png in Resources */,
 				5101D0FA19607C570030B6BB /* icon_na_tesce.png in Resources */,
@@ -869,6 +882,7 @@
 				5115E89F1960311C00A8CD07 /* DonatViewController.m in Sources */,
 				51D5E7E41966483000B7C3AF /* IndicationViewController.m in Sources */,
 				5115E8991960311C00A8CD07 /* AppDelegate.m in Sources */,
+				51914C8319693B9100EDED15 /* CalendarFieldView.m in Sources */,
 				5113AA481963E5DE001E37F6 /* SettingsManager.m in Sources */,
 				51B9AFD51963E9AC009080E2 /* MainViewController.m in Sources */,
 				51D5E7D81966482000B7C3AF /* CalendarViewController.m in Sources */,

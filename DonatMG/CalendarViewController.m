@@ -50,8 +50,13 @@
 		for (unsigned int x = 0; x < 7; x++) {
 			CGRect frame = CGRectMake(left, top, 38.0f, IS_IPHONE_5 ? 73.0f : 55.0f);
 
-			UIView *tempView = [[UIView alloc] initWithFrame:frame];
-			tempView.backgroundColor = [UIColor colorWithWhite:1.0f alpha:0.5f];
+			CalendarFieldView *tempView = [[CalendarFieldView alloc] initWithFrame:frame];
+			tempView.delegate = self;
+
+			// TODO: replace following code with something usefull
+			tempView.today = rand() % 2 == 0;
+			tempView.hasDrunk = rand() % 2 == 0;
+			tempView.day = 1 + rand() % 31;
 
 			[_containerView addSubview:tempView];
 
@@ -152,6 +157,12 @@
 		[_monthShown setYear:_monthShown.year + 1];
 	}
 	[self updateCalendar];
+}
+
+#pragma mark - CalendarFieldView
+
+- (void)dayWasClicked:(NSUInteger)day {
+	DLog(@"%d", day);
 }
 
 @end
