@@ -25,5 +25,7 @@
 @property (nonatomic, assign) BOOL today;
 @property (nonatomic, assign) NSUInteger day;
 @property (nonatomic, assign) BOOL hasDrunk;
+@property (nonatomic, assign) BOOL shouldDrink;
+@property (nonatomic, assign) BOOL currentMonth;
 
 @end

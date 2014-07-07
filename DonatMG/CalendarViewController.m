@@ -38,9 +38,9 @@
 	NSDate *firstDate = [gregorian dateFromComponents:firstDay];
 	NSDateComponents *calcDay = [gregorian components:NSWeekdayCalendarUnit fromDate:firstDate];
 	if ([calcDay weekday] == 1)
-		return 6;
+		return 7;
 	else
-		return [calcDay weekday] - 2;
+		return [calcDay weekday] - 1;
 }
 
 - (void)calendar {
@@ -57,17 +57,45 @@
 - (void)updateCalendar {
 	[self updateTitle];
 
-	NSUInteger firstDay = [self firstWeekdayInMonth] - 1;
+	NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+	NSDateComponents *dateComponents = [[NSDateComponents alloc] init];
+
+	[dateComponents setMonth:_monthShown.month];
+	NSRange range = [gregorian rangeOfUnit:NSDayCalendarUnit inUnit:NSMonthCalendarUnit forDate:[gregorian dateFromComponents:dateComponents]];
+
+	NSInteger numberOfDays = range.length;
+
+	if (dateComponents.month > 1) {
+		dateComponents.month = dateComponents.month - 1;
+	} else {
+		dateComponents.month = 12;
+		dateComponents.year = dateComponents.year - 1;
+	}
+
+	range = [gregorian rangeOfUnit:NSDayCalendarUnit inUnit:NSMonthCalendarUnit forDate:[gregorian dateFromComponents:dateComponents]];
+
+	NSInteger numberOfPreviousDays = range.length;
+
+	NSInteger firstDay = [self firstWeekdayInMonth] - 2;
 	BOOL curMonth = _currentDate.year == _monthShown.year && _currentDate.month == _monthShown.month;
 
+	NSInteger dayNextMonth = 1;
+
 	for (int i = 0; i < [_fields count]; i++) {
-		unsigned long day = i - firstDay;
+		long day = i - firstDay;
 		CalendarFieldView *tempView = [_fields objectAtIndex:i];
 		tempView.today = curMonth && day == _currentDate.day;
-		if (day > 0 && day < 32) {
+		if (day > 0 && day < numberOfDays + 1) {
 			tempView.day = i - firstDay;
-		} else
-			tempView.day = 0;
+			tempView.currentMonth = YES;
+		} else {
+			if (i < 20) {  // crude? yeah, but it works...
+				tempView.day = numberOfPreviousDays - firstDay + i;
+			} else {
+				tempView.day = dayNextMonth++;
+			}
+			tempView.currentMonth = NO;
+		}
 	}
 }
 
@@ -76,10 +104,10 @@
 
 	NSMutableArray *tempFields = [[NSMutableArray alloc] initWithCapacity:35];
 
-	for (unsigned int y = 0; y < 5; y++) {
+	for (unsigned int y = 0; y < 6; y++) {
 		CGFloat left = 18.0f;
 		for (unsigned int x = 0; x < 7; x++) {
-			CGRect frame = CGRectMake(left, top, 38.0f, IS_IPHONE_5 ? 73.0f : 55.0f);
+			CGRect frame = CGRectMake(left, top, 38.0f, IS_IPHONE_5 ? 60.0f : 45.0f);
 
 			CalendarFieldView *tempView = [[CalendarFieldView alloc] initWithFrame:frame];
 			tempView.delegate = self;
@@ -93,7 +121,7 @@
 
 			left += 41.0f;
 		}
-		top += IS_IPHONE_5 ? 76.0f : 58.0;
+		top += IS_IPHONE_5 ? 63.0f : 48.0;
 	}
 
 	_fields = tempFields;

@@ -8,6 +8,7 @@
 
 #import "IndicationViewController.h"
 #import "SettingsManager.h"
+#import "TreatmentManager.h"
 
 @interface IndicationViewController ()
 
@@ -48,8 +49,9 @@
 	NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
 	NSDateComponents *dateComponents = [gregorian components:(NSYearCalendarUnit | NSMonthCalendarUnit |  NSDayCalendarUnit) fromDate:_startDate];
 
-	[self.dayButton setTitle:[NSString stringWithFormat:@"%2lu", (unsigned long)dateComponents.day] forState:UIControlStateNormal];
-	[self.monthButton setTitle:[NSString stringWithFormat:@"%02lu", (unsigned long)dateComponents.month] forState:UIControlStateNormal];
+	[self.dayButton setTitle:[NSString stringWithFormat:@"%lu", (unsigned long)dateComponents.day] forState:UIControlStateNormal];
+	NSString *monthIdentifier = [NSString stringWithFormat:@"month_%lu_short", (unsigned long)dateComponents.month];
+	[self.monthButton setTitle:___(monthIdentifier) forState:UIControlStateNormal];
 	[self.yearButton setTitle:[NSString stringWithFormat:@"%04lu", (unsigned long)dateComponents.year] forState:UIControlStateNormal];
 }
 
@@ -99,6 +101,14 @@
 		animationBlock();
 }
 
+- (CGFloat)prepareMethodTable {
+	NSArray *tableRows = [[TreatmentManager sharedManager] stringsForIndication:_indicationType];
+	DLog(@"%@", tableRows);
+
+	CGRect panelFrame = _drinkTableContainer.frame;
+	return panelFrame.origin.y + panelFrame.size.height + 20.0f;
+}
+
 - (void)calendar {
 	[self performSegueWithIdentifier:@"showCalendar" sender:self];
 }
@@ -113,10 +123,6 @@
 	_openHeader = NO;
 	_openDrink = NO;
 	_openDuration = NO;
-
-	// TODO: Calculate the actual heights
-	_desiredDrinkHeight = 100.0f;
-	_desiredDurationHeight = 150.0f;
 
 	[self.view insertSubview:[[UIImageView alloc] initWithImage:
 							  [UIImage imageNamed:IS_IPHONE_5 ? @"back-5.png" : @"back-4.png"]]
@@ -220,6 +226,9 @@
 	_desiredDurationHeight = self.durationLabel.frame.origin.y + durationLabelFrame.size.height + 20.0f;
 
 
+	_desiredDrinkHeight = [self prepareMethodTable];
+
+
 	UIBarButtonItem *calendarItem = [[UIBarButtonItem alloc] initWithImage:[[UIImage imageNamed:@"calendar.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] style:UIBarButtonItemStylePlain target:self action:@selector(calendar)];
 
 	UIBarButtonItem *settingsItem = [[UIBarButtonItem alloc] initWithImage:[[UIImage imageNamed:@"settings.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] style:UIBarButtonItemStylePlain target:self action:@selector(settings)];
@@ -234,7 +243,7 @@
 	[self updateDateShown];
 
 	_datePicker = [[UIDatePicker alloc] init];
-	_datePicker.locale = [[NSLocale alloc] initWithLocaleIdentifier:@"sl"];
+	_datePicker.locale = [[NSLocale alloc] initWithLocaleIdentifier:[[LanguageManager sharedManager] currentLangId]];
 	_datePicker.datePickerMode = UIDatePickerModeDate;
 
 	[_datePicker setDate:_startDate animated:NO];

@@ -14,6 +14,8 @@
 @synthesize today = _today;
 @synthesize day = _day;
 @synthesize hasDrunk = _hasDrunk;
+@synthesize shouldDrink = _shouldDrink;
+@synthesize currentMonth = _currentMonth;
 
 - (void)buttonClicked:(id)button {
 	if (_day > 0 && _day < 32)
@@ -79,6 +81,15 @@
 		[_numberButton setTitle:[NSString stringWithFormat:@"%lu", (unsigned long)_day] forState:UIControlStateNormal];
 	else
 		[_numberButton setTitle:@"" forState:UIControlStateNormal];
+}
+
+- (void)setShouldDrink:(BOOL)shouldDrink {
+	_shouldDrink = shouldDrink;
+}
+
+- (void)setCurrentMonth:(BOOL)currentMonth {
+	_currentMonth = currentMonth;
+	_numberButton.alpha = _currentMonth ? 1.0f : 0.3f;
 }
 
 @end
