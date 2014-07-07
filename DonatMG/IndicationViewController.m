@@ -96,7 +96,6 @@
 }
 
 - (void)viewDidLoad {
-	DLog();
 	[super viewDidLoad];
 
 	_openHeader = NO;
@@ -224,7 +223,6 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated {
-	DLog();
 	[self calculateViews:NO];
 }
 
