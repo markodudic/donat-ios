@@ -59,7 +59,7 @@
 	BOOL curMonth = _currentDate.year == _monthShown.year && _currentDate.month == _monthShown.month;
 
 	for (int i = 0; i < [_fields count]; i++) {
-		int day = i - firstDay;
+		unsigned long day = i - firstDay;
 		CalendarFieldView *tempView = [_fields objectAtIndex:i];
 		tempView.today = curMonth && day == _currentDate.day;
 		if (day > 0 && day < 32) {

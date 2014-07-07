@@ -76,7 +76,7 @@
 - (void)setDay:(NSUInteger)day {
 	_day = day;
 	if (_day > 0 && _day < 32)
-		[_numberButton setTitle:[NSString stringWithFormat:@"%d", _day] forState:UIControlStateNormal];
+		[_numberButton setTitle:[NSString stringWithFormat:@"%lu", (unsigned long)_day] forState:UIControlStateNormal];
 	else
 		[_numberButton setTitle:@"" forState:UIControlStateNormal];
 }
