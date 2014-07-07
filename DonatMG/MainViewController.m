@@ -79,7 +79,6 @@
 	//	if (self.isViewLoaded && self.view.window) {
 	//  }
 	// although in that case I'm not sure how to actually handle the notification.
-	DLog(@"%@", notification);
 
 	UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
 	NotificationViewController *viewController = [storyboard instantiateViewControllerWithIdentifier:@"notificationViewController"];
@@ -88,8 +87,6 @@
 }
 
 - (void)didReceiveNotification:(NSNotification *)notification {
-	DLog(@"%@", notification);
-
 	NSDictionary *userInfo = notification.userInfo;
 	UILocalNotification *localNotification = [userInfo objectForKey:@"notification"];
 

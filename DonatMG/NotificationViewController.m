@@ -16,11 +16,13 @@
 @implementation NotificationViewController
 
 @synthesize notification = _notification;
-@synthesize testText = _testText;
 
 - (void)viewDidLoad {
 	[super viewDidLoad];
-	self.testText.text = [_notification description];
+
+	[self.view insertSubview:[[UIImageView alloc] initWithImage:
+							  [UIImage imageNamed:IS_IPHONE_5 ? @"back-5.png" : @"back-4.png"]]
+					 atIndex:0];
 }
 
 - (void)didReceiveMemoryWarning {

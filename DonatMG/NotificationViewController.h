@@ -12,6 +12,4 @@
 
 @property (nonatomic, retain) UILocalNotification *notification;
 
-@property (nonatomic, strong) IBOutlet UITextView *testText;
-
 @end
