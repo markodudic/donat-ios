@@ -96,9 +96,8 @@
 }
 
 - (void)viewDidLoad {
+	DLog();
 	[super viewDidLoad];
-
-	_justShowInfo = NO;
 
 	_openHeader = NO;
 	_openDrink = NO;
@@ -225,6 +224,7 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated {
+	DLog();
 	[self calculateViews:NO];
 }
 
