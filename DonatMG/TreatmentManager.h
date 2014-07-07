@@ -13,5 +13,6 @@
 + (id)sharedManager;
 
 - (NSUInteger)numberOfInstructionsForIndication:(IndicationType)indication;
+- (NSArray *)stringsForIndication:(IndicationType)indication;
 
 @end
