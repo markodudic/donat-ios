@@ -25,6 +25,8 @@
 // TODO: This is a fugly hack... change!
 @property (nonatomic, strong) IBOutlet UITextField *dummyField;
 
+@property (nonatomic, retain) NSDate *startDate;
+
 @property (atomic, assign) IndicationType indicationType;
 @property (atomic, assign) BOOL justShowInfo;
 

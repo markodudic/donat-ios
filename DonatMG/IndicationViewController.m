@@ -17,6 +17,8 @@
 
 @synthesize dummyField = _dummyField;
 
+@synthesize startDate = _startDate;
+
 @synthesize indicationType = _indicationType;
 @synthesize justShowInfo = _justShowInfo;
 
@@ -42,10 +44,18 @@
 	[self.bigButton setTitle:_amActive ? ___(@"button_indication_stop") : ___(@"button_indication_start") forState:UIControlStateNormal];
 }
 
-- (void)setStartDate:(NSDateComponents *)date {
-	[self.dayButton setTitle:[NSString stringWithFormat:@"%2lu", (unsigned long)date.day] forState:UIControlStateNormal];
-	[self.monthButton setTitle:[NSString stringWithFormat:@"%02lu", (unsigned long)date.month] forState:UIControlStateNormal];
-	[self.yearButton setTitle:[NSString stringWithFormat:@"%04lu", (unsigned long)date.year] forState:UIControlStateNormal];
+- (void)updateDateShown {
+	NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+	NSDateComponents *dateComponents = [gregorian components:(NSYearCalendarUnit | NSMonthCalendarUnit |  NSDayCalendarUnit) fromDate:_startDate];
+
+	[self.dayButton setTitle:[NSString stringWithFormat:@"%2lu", (unsigned long)dateComponents.day] forState:UIControlStateNormal];
+	[self.monthButton setTitle:[NSString stringWithFormat:@"%02lu", (unsigned long)dateComponents.month] forState:UIControlStateNormal];
+	[self.yearButton setTitle:[NSString stringWithFormat:@"%04lu", (unsigned long)dateComponents.year] forState:UIControlStateNormal];
+}
+
+- (void)setStartDate:(NSDate *)startDate {
+	_startDate = startDate;
+	[self updateDateShown];
 }
 
 - (void)calculateViews:(BOOL)animated {
@@ -218,17 +228,17 @@
 	self.navigationItem.rightBarButtonItems = buttonsArray;
 
 
-	NSDate *today = [NSDate date];
+	_startDate = [NSDate date];
 	NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
-	NSDateComponents *dateComponents = [gregorian components:(NSYearCalendarUnit | NSMonthCalendarUnit |  NSDayCalendarUnit) fromDate:today];
-	[self setStartDate:dateComponents];
+	NSDateComponents *dateComponents = [gregorian components:(NSYearCalendarUnit | NSMonthCalendarUnit |  NSDayCalendarUnit) fromDate:_startDate];
+	[self updateDateShown];
 
 	_datePicker = [[UIDatePicker alloc] init];
 	_datePicker.locale = [[NSLocale alloc] initWithLocaleIdentifier:@"sl"];
 	_datePicker.datePickerMode = UIDatePickerModeDate;
 
-	[_datePicker setDate:today animated:NO];
-	[_datePicker setMinimumDate:today];
+	[_datePicker setDate:_startDate animated:NO];
+	[_datePicker setMinimumDate:_startDate];
 
 	[dateComponents setYear:dateComponents.year + 1];
 	[_datePicker setMaximumDate:[gregorian dateFromComponents:dateComponents]];
@@ -287,8 +297,8 @@
 }
 
 - (void)doneEditing:(UIBarButtonItem *)sender {
-	DLog();
 	[self.dummyField resignFirstResponder];
+	self.startDate = _datePicker.date;
 }
 
 #pragma mark -
@@ -306,7 +316,7 @@
 
 	textField.inputAccessoryView = toolBar;
 
-	[_datePicker setDate:[NSDate date] animated:NO];
+	[_datePicker setDate:_startDate animated:NO];
 
 	return YES;
 }
