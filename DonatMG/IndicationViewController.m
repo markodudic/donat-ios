@@ -248,6 +248,9 @@
 }
 
 - (IBAction)activationPressed:(UIButton *)sender {
+	if (_justShowInfo)
+		return;
+
 	if (_amActive) {
 		[[SettingsManager sharedManager] setActiveIndication:kUnknown];
 	} else {
@@ -257,8 +260,10 @@
 }
 
 - (IBAction)datePressed:(UIButton *)sender {
+	if (_justShowInfo)
+		return;
+
 	DLog();
-	
 }
 
 - (void)didReceiveMemoryWarning {
