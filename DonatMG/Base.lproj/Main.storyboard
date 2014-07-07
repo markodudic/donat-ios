@@ -26,11 +26,96 @@
             <objects>
                 <viewController storyboardIdentifier="notificationViewController" id="hre-Sj-v7g" customClass="NotificationViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="pbR-G9-n6w">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="cel-QB-fmg">
+                                <rect key="frame" x="142" y="74" width="37" height="37"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            </imageView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="DST-mI-oHO">
+                                <rect key="frame" x="20" y="119" width="280" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0078431372549019607" green="0.23137254901960785" blue="0.1803921568627451" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="yWT-SH-S0Y">
+                                <rect key="frame" x="20" y="148" width="280" height="24"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                <color key="textColor" red="0.0078431372549019607" green="0.23137254901960785" blue="0.1803921568627451" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_jezik.png" id="U6E-x9-Vzw">
+                                <rect key="frame" x="110" y="180" width="100" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="GKu-Bk-eJG">
+                                <rect key="frame" x="20" y="238" width="280" height="24"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0078431372549019607" green="0.23137254901960785" blue="0.1803921568627451" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="kGt-lC-6Fa">
+                                <rect key="frame" x="34" y="410" width="252" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button" backgroundImage="big_button.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="closeClicked:" destination="hre-Sj-v7g" eventType="touchUpInside" id="nhv-JY-4kY"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_opoldne.png" id="AfY-cY-mpZ">
+                                <rect key="frame" x="147" y="350" width="27" height="27"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_zvecer.png" id="SDV-Uk-Y8F">
+                                <rect key="frame" x="241" y="350" width="27" height="27"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_zjutraj.png" id="fs6-CR-dPd">
+                                <rect key="frame" x="53" y="350" width="27" height="27"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="L1g-PW-8UQ">
+                                <rect key="frame" x="20" y="385" width="92" height="17"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="aNb-1l-REM">
+                                <rect key="frame" x="114" y="385" width="92" height="17"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="8Ha-1d-hdG">
+                                <rect key="frame" x="208" y="385" width="92" height="17"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="mkR-yd-FQg"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
+                    <connections>
+                        <outlet property="closeButton" destination="kGt-lC-6Fa" id="2Pc-ak-ofl"/>
+                        <outlet property="dateLabel" destination="yWT-SH-S0Y" id="VJf-Yj-MHS"/>
+                        <outlet property="eveningIcon" destination="SDV-Uk-Y8F" id="BWB-AG-oi5"/>
+                        <outlet property="eveningLabel" destination="8Ha-1d-hdG" id="bal-13-huu"/>
+                        <outlet property="indicationIcon" destination="cel-QB-fmg" id="5qo-q2-8Iy"/>
+                        <outlet property="indicationLabel" destination="DST-mI-oHO" id="1Vd-sb-Sg5"/>
+                        <outlet property="morningIcon" destination="fs6-CR-dPd" id="HFL-zB-6mm"/>
+                        <outlet property="morningLabel" destination="L1g-PW-8UQ" id="pCh-C2-pb3"/>
+                        <outlet property="noonIcon" destination="AfY-cY-mpZ" id="6c5-Xu-OUj"/>
+                        <outlet property="noonLabel" destination="aNb-1l-REM" id="lLu-N7-FHu"/>
+                        <outlet property="timeOfDayLabel" destination="GKu-Bk-eJG" id="qJH-ia-qVo"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ev1-ef-wQM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -903,8 +988,11 @@
         <image name="bg_datuma.png" width="241" height="49"/>
         <image name="big_button.png" width="252" height="50"/>
         <image name="icon_jezik.png" width="30" height="26"/>
+        <image name="icon_opoldne.png" width="27" height="27"/>
         <image name="icon_treatment.png" width="19" height="19"/>
         <image name="icon_ure.png" width="26" height="33"/>
+        <image name="icon_zjutraj.png" width="27" height="27"/>
+        <image name="icon_zvecer.png" width="27" height="27"/>
         <image name="ikona-puscica_desno.png" width="9" height="15"/>
         <image name="ikona-puscica_dol.png" width="16" height="10"/>
         <image name="ikona-puscica_dol_obroba.png" width="34" height="34"/>
@@ -918,7 +1006,7 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="hDt-6S-wAu"/>
         <segue reference="tvK-0p-GBK"/>
+        <segue reference="hDt-6S-wAu"/>
     </inferredMetricsTieBreakers>
 </document>
