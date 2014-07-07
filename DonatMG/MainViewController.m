@@ -80,6 +80,9 @@
 	//  }
 	// although in that case I'm not sure how to actually handle the notification.
 
+	// set the title so the "back" button will be shown
+	self.title = ___(@"settings_title");
+
 	UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
 	NotificationViewController *viewController = [storyboard instantiateViewControllerWithIdentifier:@"notificationViewController"];
 	viewController.notification = notification;

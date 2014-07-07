@@ -43,9 +43,9 @@
 // Constants to be used for indications
 typedef NS_ENUM(NSUInteger, IndicationType) {
 	kUnknown,
-    kZaprtost,
-    kZgaga,
-    kMagnezij,
+	kZaprtost,
+	kZgaga,
+	kMagnezij,
 	kSladkorna,
 	kSlinavka,
 	kSecniKamni,

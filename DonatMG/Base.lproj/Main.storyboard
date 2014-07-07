@@ -47,8 +47,8 @@
                                 <color key="textColor" red="0.0078431372549019607" green="0.23137254901960785" blue="0.1803921568627451" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_jezik.png" id="U6E-x9-Vzw">
-                                <rect key="frame" x="110" y="180" width="100" height="50"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ikona-alarm.png" id="U6E-x9-Vzw">
+                                <rect key="frame" x="109" y="180" width="103" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="GKu-Bk-eJG">
@@ -993,6 +993,7 @@
         <image name="icon_ure.png" width="26" height="33"/>
         <image name="icon_zjutraj.png" width="27" height="27"/>
         <image name="icon_zvecer.png" width="27" height="27"/>
+        <image name="ikona-alarm.png" width="103" height="50"/>
         <image name="ikona-puscica_desno.png" width="9" height="15"/>
         <image name="ikona-puscica_dol.png" width="16" height="10"/>
         <image name="ikona-puscica_dol_obroba.png" width="34" height="34"/>

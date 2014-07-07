@@ -115,6 +115,8 @@
 		5115E8B21960311C00A8CD07 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5115E8B01960311C00A8CD07 /* InfoPlist.strings */; };
 		5115E8B41960311C00A8CD07 /* DonatMGTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5115E8B31960311C00A8CD07 /* DonatMGTests.m */; };
 		517176CA196A759B005422B9 /* TreatmentManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 517176C9196A759B005422B9 /* TreatmentManager.m */; };
+		517176D8196ACEB6005422B9 /* ikona-alarm.png in Resources */ = {isa = PBXBuildFile; fileRef = 517176D6196ACEB6005422B9 /* ikona-alarm.png */; };
+		517176D9196ACEB6005422B9 /* ikona-alarm@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 517176D7196ACEB6005422B9 /* ikona-alarm@2x.png */; };
 		51914C8319693B9100EDED15 /* CalendarFieldView.m in Sources */ = {isa = PBXBuildFile; fileRef = 51914C8219693B9100EDED15 /* CalendarFieldView.m */; };
 		51914C8F196942EE00EDED15 /* ikona-danes.png in Resources */ = {isa = PBXBuildFile; fileRef = 51914C8D196942EE00EDED15 /* ikona-danes.png */; };
 		51914C90196942EE00EDED15 /* ikona-danes@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 51914C8E196942EE00EDED15 /* ikona-danes@2x.png */; };
@@ -312,6 +314,8 @@
 		5115E8B31960311C00A8CD07 /* DonatMGTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DonatMGTests.m; sourceTree = "<group>"; };
 		517176C8196A759B005422B9 /* TreatmentManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TreatmentManager.h; sourceTree = "<group>"; };
 		517176C9196A759B005422B9 /* TreatmentManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TreatmentManager.m; sourceTree = "<group>"; };
+		517176D6196ACEB6005422B9 /* ikona-alarm.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ikona-alarm.png"; sourceTree = "<group>"; };
+		517176D7196ACEB6005422B9 /* ikona-alarm@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ikona-alarm@2x.png"; sourceTree = "<group>"; };
 		51914C8119693B9100EDED15 /* CalendarFieldView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalendarFieldView.h; sourceTree = "<group>"; };
 		51914C8219693B9100EDED15 /* CalendarFieldView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarFieldView.m; sourceTree = "<group>"; };
 		51914C8D196942EE00EDED15 /* ikona-danes.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ikona-danes.png"; sourceTree = "<group>"; };
@@ -392,6 +396,8 @@
 		5101D09C19607C570030B6BB /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				517176D6196ACEB6005422B9 /* ikona-alarm.png */,
+				517176D7196ACEB6005422B9 /* ikona-alarm@2x.png */,
 				5101D09D19607C570030B6BB /* back-4@2x.png */,
 				5101D09E19607C570030B6BB /* back-5@2x.png */,
 				5101D09F19607C570030B6BB /* big_button.png */,
@@ -800,6 +806,7 @@
 				5101D0FC19607C570030B6BB /* icon_opoldne.png in Resources */,
 				5115E8A11960311C00A8CD07 /* Images.xcassets in Resources */,
 				5101D10819607C570030B6BB /* icon_zjutraj.png in Resources */,
+				517176D8196ACEB6005422B9 /* ikona-alarm.png in Resources */,
 				5101D11D19607C570030B6BB /* ikona-zapri@2x.png in Resources */,
 				5101D11119607C570030B6BB /* ikona-puscica_dol@2x.png in Resources */,
 				5101D10919607C570030B6BB /* icon_zjutraj@2x.png in Resources */,
@@ -866,6 +873,7 @@
 				5101D13319607C570030B6BB /* settings-active.png in Resources */,
 				5101D12D19607C570030B6BB /* icon_stres@2x.png in Resources */,
 				5101D09919607C2A0030B6BB /* rules_hr.html in Resources */,
+				517176D9196ACEB6005422B9 /* ikona-alarm@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
