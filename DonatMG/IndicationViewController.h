@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface IndicationViewController : UIViewController {
+@interface IndicationViewController : UIViewController <UITextFieldDelegate> {
 	BOOL _amActive;
 
 	BOOL _openHeader;
@@ -18,7 +18,12 @@
 	CGFloat _desiredHeaderHeight;
 	CGFloat _desiredDrinkHeight;
 	CGFloat _desiredDurationHeight;
+
+	UIDatePicker *_datePicker;
 }
+
+// TODO: This is a fugly hack... change!
+@property (nonatomic, strong) IBOutlet UITextField *dummyField;
 
 @property (atomic, assign) IndicationType indicationType;
 @property (atomic, assign) BOOL justShowInfo;

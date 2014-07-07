@@ -15,6 +15,8 @@
 
 @implementation IndicationViewController
 
+@synthesize dummyField = _dummyField;
+
 @synthesize indicationType = _indicationType;
 @synthesize justShowInfo = _justShowInfo;
 
@@ -220,6 +222,16 @@
 	NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
 	NSDateComponents *dateComponents = [gregorian components:(NSYearCalendarUnit | NSMonthCalendarUnit |  NSDayCalendarUnit) fromDate:today];
 	[self setStartDate:dateComponents];
+
+	_datePicker = [[UIDatePicker alloc] init];
+	_datePicker.locale = [[NSLocale alloc] initWithLocaleIdentifier:@"sl"];
+	_datePicker.datePickerMode = UIDatePickerModeDate;
+
+	NSDate *now = [NSDate date];
+	[_datePicker setDate:now animated:NO];
+	[_datePicker setMinimumDate:now];
+
+	self.dummyField.inputView = _datePicker;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -261,11 +273,40 @@
 	if (_justShowInfo)
 		return;
 
-	DLog();
+	[self.dummyField becomeFirstResponder];
 }
 
 - (void)didReceiveMemoryWarning {
 	[super didReceiveMemoryWarning];
+}
+
+- (void)cancelEdit:(UIBarButtonItem *)sender {
+	[self.dummyField resignFirstResponder];
+}
+
+- (void)doneEditing:(UIBarButtonItem *)sender {
+	DLog();
+	[self.dummyField resignFirstResponder];
+}
+
+#pragma mark -
+#pragma mark TextField Delegate
+
+- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField {
+	UIToolbar *toolBar = [[UIToolbar alloc] initWithFrame:CGRectMake(0.0f, 0.0f, self.view.bounds.size.width, 44.0f)];
+	toolBar.barStyle = UIBarStyleDefault;
+	toolBar.tintColor = [UIColor darkGrayColor];
+
+	UIBarButtonItem *flexibleItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
+	UIBarButtonItem *cancelBtn = [[UIBarButtonItem alloc] initWithImage:[[UIImage imageNamed:@"ikona-zapri.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] style:UIBarButtonItemStylePlain target:self action:@selector(cancelEdit:)];
+	UIBarButtonItem *doneBtn = [[UIBarButtonItem alloc] initWithImage:[[UIImage imageNamed:@"ikona-puscica_dol.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] style:UIBarButtonItemStylePlain target:self action:@selector(doneEditing:)];
+	[toolBar setItems:[NSArray arrayWithObjects:cancelBtn, flexibleItem, doneBtn, nil]];
+
+	textField.inputAccessoryView = toolBar;
+
+	[_datePicker setDate:[NSDate date] animated:NO];
+
+	return YES;
 }
 
 @end
