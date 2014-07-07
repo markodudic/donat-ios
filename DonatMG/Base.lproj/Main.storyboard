@@ -265,7 +265,7 @@
         <!--Indication View Controller-->
         <scene sceneID="NNK-l3-5wI">
             <objects>
-                <viewController id="Eb5-P2-PqY" customClass="IndicationViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="indicationViewController" id="Eb5-P2-PqY" customClass="IndicationViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="nZE-CM-7pc">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="650"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -921,7 +921,7 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
+        <segue reference="hDt-6S-wAu"/>
         <segue reference="tvK-0p-GBK"/>
-        <segue reference="L2U-zs-QIA"/>
     </inferredMetricsTieBreakers>
 </document>

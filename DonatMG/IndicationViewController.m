@@ -63,6 +63,7 @@
 	if (!_justShowInfo) {
 		contentSize.height += startFrame.size.height;
 	}
+	_startPanel.hidden = _justShowInfo;
 
 	void (^animationBlock)(void) = ^{
 		self.headerPanel.frame = headerFrame;
@@ -221,6 +222,10 @@
 	NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
 	NSDateComponents *dateComponents = [gregorian components:(NSYearCalendarUnit | NSMonthCalendarUnit |  NSDayCalendarUnit) fromDate:today];
 	[self setStartDate:dateComponents];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+	[self calculateViews:NO];
 }
 
 - (void)viewWillLayoutSubviews {

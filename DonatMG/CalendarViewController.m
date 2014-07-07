@@ -9,6 +9,8 @@
 #import "CalendarViewController.h"
 #import "LanguageManager.h"
 
+#import "IndicationViewController.h"
+
 @interface CalendarViewController ()
 
 @end
@@ -206,6 +208,12 @@
 	DLog(@"%@", [NSDateFormatter localizedStringFromDate:clickedDate
 											   dateStyle:NSDateFormatterShortStyle
 											   timeStyle:NSDateFormatterFullStyle]);
+
+	UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+	IndicationViewController *viewController = [storyboard instantiateViewControllerWithIdentifier:@"indicationViewController"];
+	viewController.indicationType = kMagnezij;
+	[self.navigationController pushViewController:viewController animated:YES];
+	viewController.justShowInfo = YES;
 }
 
 @end

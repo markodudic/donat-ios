@@ -81,8 +81,7 @@
 	// although in that case I'm not sure how to actually handle the notification.
 	DLog(@"%@", notification);
 
-	NSString *storyboardName = @"Main";
-	UIStoryboard *storyboard = [UIStoryboard storyboardWithName:storyboardName bundle:nil];
+	UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
 	NotificationViewController *viewController = [storyboard instantiateViewControllerWithIdentifier:@"notificationViewController"];
 	viewController.notification = notification;
 	[self.navigationController pushViewController:viewController animated:YES];
