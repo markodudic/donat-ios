@@ -227,9 +227,11 @@
 	_datePicker.locale = [[NSLocale alloc] initWithLocaleIdentifier:@"sl"];
 	_datePicker.datePickerMode = UIDatePickerModeDate;
 
-	NSDate *now = [NSDate date];
-	[_datePicker setDate:now animated:NO];
-	[_datePicker setMinimumDate:now];
+	[_datePicker setDate:today animated:NO];
+	[_datePicker setMinimumDate:today];
+
+	[dateComponents setYear:dateComponents.year + 1];
+	[_datePicker setMaximumDate:[gregorian dateFromComponents:dateComponents]];
 
 	self.dummyField.inputView = _datePicker;
 }
