@@ -9,6 +9,7 @@
 #import "SettingsManager.h"
 
 #define kActiveIndicationKey @"activeIndication"
+#define kIndicationActivationKey @"indicationActivation"
 #define kAppLanguageKey @"appLanguage"
 #define kWakeTime @"wakeTime"
 #define kBreakfastTime @"breakfastTime"
@@ -26,6 +27,7 @@
 @implementation SettingsManager
 
 @synthesize activeIndication = _activeIndication;
+@synthesize indicationActivation = _indicationActivation;
 @synthesize appLanguage = _appLanguage;
 @synthesize wakeTime = _wakeTime;
 @synthesize breakfastTime = _breakfastTime;
@@ -67,6 +69,13 @@
 		_notificationFired = nil;
 
 		_activeIndication = [defaults integerForKey:kActiveIndicationKey];
+
+		NSDate *tempDate = [defaults objectForKey:kIndicationActivationKey];
+		if (tempDate)
+			_indicationActivation = tempDate;
+		else
+			_indicationActivation = [NSDate date];
+
 		_appLanguage = [defaults stringForKey:kAppLanguageKey];
 
 		NSData *tempData = nil;
@@ -118,6 +127,14 @@
 
 	NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
 	[defaults setInteger:_activeIndication forKey:kActiveIndicationKey];
+	[defaults synchronize];
+}
+
+- (void)setIndicationActivation:(NSDate *)indicationActivation {
+	_indicationActivation = indicationActivation;
+
+	NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+	[defaults setObject:_indicationActivation forKey:kIndicationActivationKey];
 	[defaults synchronize];
 }
 

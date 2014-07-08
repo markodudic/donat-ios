@@ -297,7 +297,7 @@
 	self.navigationItem.rightBarButtonItems = buttonsArray;
 
 
-	_startDate = [NSDate date];
+	_startDate = _amActive ? [[SettingsManager sharedManager] indicationActivation] : [NSDate date];
 	NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
 	NSDateComponents *dateComponents = [gregorian components:(NSYearCalendarUnit | NSMonthCalendarUnit |  NSDayCalendarUnit) fromDate:_startDate];
 	[self updateDateShown];
@@ -344,8 +344,12 @@
 
 	if (_amActive) {
 		[[SettingsManager sharedManager] setActiveIndication:kUnknown];
+		[[SettingsManager sharedManager] setIndicationActivation:[NSDate date]];
+		_startDate = [NSDate date];
+		[self updateDateShown];
 	} else {
 		[[SettingsManager sharedManager] setActiveIndication:self.indicationType];
+		[[SettingsManager sharedManager] setIndicationActivation:_startDate];
 		UIAlertView *message = [[UIAlertView alloc] initWithTitle:___(@"confirmation_title")
 														  message:___(@"confirmation_desc")
 														 delegate:self

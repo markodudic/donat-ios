@@ -11,6 +11,7 @@
 @interface SettingsManager : NSObject
 
 @property (nonatomic, assign) NSUInteger activeIndication;
+@property (nonatomic, retain) NSDate *indicationActivation;
 @property (nonatomic, retain) NSString *appLanguage;
 
 @property (nonatomic, retain) NSDateComponents *wakeTime;
