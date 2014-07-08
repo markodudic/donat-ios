@@ -286,6 +286,13 @@
 		[[SettingsManager sharedManager] setActiveIndication:kUnknown];
 	} else {
 		[[SettingsManager sharedManager] setActiveIndication:self.indicationType];
+		UIAlertView *message = [[UIAlertView alloc] initWithTitle:___(@"confirmation_title")
+														  message:___(@"confirmation_desc")
+														 delegate:self
+												cancelButtonTitle:___(@"confirmation_back")
+												otherButtonTitles:nil];
+
+		[message show];
 	}
 	[self updateViewActivation];
 }
@@ -328,6 +335,12 @@
 	[_datePicker setDate:_startDate animated:NO];
 
 	return YES;
+}
+
+#pragma mark - UIAlertViewDelegate methods
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+	[self.navigationController popViewControllerAnimated:YES];
 }
 
 @end

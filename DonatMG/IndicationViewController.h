@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface IndicationViewController : UIViewController <UITextFieldDelegate> {
+@interface IndicationViewController : UIViewController <UITextFieldDelegate, UIAlertViewDelegate> {
 	BOOL _amActive;
 
 	BOOL _openHeader;
