@@ -134,7 +134,7 @@
 
 	NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
 	NSDateComponents *dateComponents = [gregorian components:NSDayCalendarUnit | NSMonthCalendarUnit fromDate:[NSDate date]];
-	_dateLabel.text = [NSString stringWithFormat:@"%d. %@", dateComponents.day, [[LanguageManager sharedManager] stringForMonth:dateComponents.month]];
+	_dateLabel.text = [NSString stringWithFormat:@"%ld. %@", (long)dateComponents.day, [[LanguageManager sharedManager] stringForMonth:dateComponents.month]];
 
 	switch (_timeOfDay) {
 		case 1:
