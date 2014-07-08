@@ -30,4 +30,10 @@
 #define kSelectionBorderColor [UIColor colorWithRed:0.7773f green:0.8555f blue:0.8594f alpha:1.0f]
 #define kSelectionBorderWidth 5.0f
 
+#define kIndicationMethodRowColor1 [UIColor colorWithWhite:0.0f alpha:0.2f]
+#define kIndicationMethodRowColor2 [UIColor colorWithWhite:1.0f alpha:0.5f]
+
+#define kIndicationMethodTextFont [UIFont fontWithName:@"Roboto-Light" size:11.0f]
+#define kIndicationMethodHeaderFont [UIFont fontWithName:@"Roboto-Regular" size:11.0f]
+
 #endif

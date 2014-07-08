@@ -103,9 +103,27 @@
 
 - (CGFloat)prepareMethodTable {
 	NSArray *tableRows = [[TreatmentManager sharedManager] stringsForIndication:_indicationType];
-	DLog(@"%@", tableRows);
 
+	BOOL oddRow = YES;
 	CGRect panelFrame = _drinkTableContainer.frame;
+
+	CGFloat top = 0.0f;
+	for (NSArray *row in tableRows) {
+		// TODO: Calculate actual max height for this row!!
+		CGFloat rowHeight = 21.0f;
+
+		UILabel *tempLabel = [[UILabel alloc] initWithFrame:CGRectMake(0.0f, top, panelFrame.size.width, rowHeight)];
+
+		[tempLabel setFont:kIndicationMethodTextFont];
+		[tempLabel setText:@"Test text, just a placeholder"];
+
+		tempLabel.backgroundColor = oddRow ? kIndicationMethodRowColor1 : kIndicationMethodRowColor2;
+		[_drinkTableContainer addSubview:tempLabel];
+
+		top += rowHeight + 1.0f;
+		oddRow = !oddRow;
+	}
+
 	return panelFrame.origin.y + panelFrame.size.height + 20.0f;
 }
 
