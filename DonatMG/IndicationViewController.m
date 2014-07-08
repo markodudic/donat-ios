@@ -105,7 +105,7 @@
 
 - (CGFloat)calculateHeightForText:(NSString *)text withFont:(UIFont *)font andWidth:(CGFloat)width {
 	CGRect neededFrame = [text boundingRectWithSize:CGSizeMake(width, 1000.0f) options:NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading attributes:@{NSFontAttributeName:font} context:nil];
-	return neededFrame.size.height;
+	return neededFrame.size.height + 4.0f;
 }
 
 - (CGFloat)prepareMethodTable {
