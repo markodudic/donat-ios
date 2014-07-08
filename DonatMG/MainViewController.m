@@ -47,14 +47,15 @@
 	self.tableView.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:IS_IPHONE_5 ? @"back-5.png" : @"back-4.png"]];
 
 	// TODO: remove this and testItem from the NSArray later on
-	UIBarButtonItem *testItem = [[UIBarButtonItem alloc] initWithImage:[[UIImage imageNamed:@"icon_opoldne.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] style:UIBarButtonItemStylePlain target:self action:@selector(test)];
+//	UIBarButtonItem *testItem = [[UIBarButtonItem alloc] initWithImage:[[UIImage imageNamed:@"icon_opoldne.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] style:UIBarButtonItemStylePlain target:self action:@selector(test)];
 	// till here
 
 	UIBarButtonItem *calendarItem = [[UIBarButtonItem alloc] initWithImage:[[UIImage imageNamed:@"calendar.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] style:UIBarButtonItemStylePlain target:self action:@selector(calendar)];
 
 	UIBarButtonItem *settingsItem = [[UIBarButtonItem alloc] initWithImage:[[UIImage imageNamed:@"settings.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] style:UIBarButtonItemStylePlain target:self action:@selector(settings)];
 
-	NSArray *buttonsArray = @[settingsItem, calendarItem, testItem];
+//	NSArray *buttonsArray = @[settingsItem, calendarItem, testItem];
+	NSArray *buttonsArray = @[settingsItem, calendarItem];
 	self.navigationItem.rightBarButtonItems = buttonsArray;
 
 	UIImage *image = [[UIImage imageNamed:@"moments-title.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];

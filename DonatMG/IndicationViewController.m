@@ -347,6 +347,7 @@
 		[[SettingsManager sharedManager] setIndicationActivation:[NSDate date]];
 		_startDate = [NSDate date];
 		[self updateDateShown];
+		[self.navigationController popViewControllerAnimated:YES];
 	} else {
 		[[SettingsManager sharedManager] setActiveIndication:self.indicationType];
 		[[SettingsManager sharedManager] setIndicationActivation:_startDate];
