@@ -126,6 +126,9 @@
 			}
 			tempView.currentMonth = NO;
 		}
+
+		tempView.indicationType = [[TreatmentManager sharedManager] indicationForDate:tempView.date];
+		tempView.shouldDrink = tempView.indicationType != kUnknown;
 	}
 }
 
@@ -143,7 +146,7 @@
 			tempView.delegate = self;
 			tempView.day = 0;
 			tempView.today = NO;
-			tempView.hasDrunk = NO;
+			tempView.shouldDrink = NO;
 
 			[_containerView addSubview:tempView];
 
@@ -258,11 +261,13 @@
 - (void)dateWasClicked:(NSDate *)date {
 	IndicationType indicationType = [[TreatmentManager sharedManager] indicationForDate:date];
 
-	UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-	IndicationViewController *viewController = [storyboard instantiateViewControllerWithIdentifier:@"indicationViewController"];
-	viewController.justShowInfo = YES;
-	viewController.indicationType = indicationType;
-	[self.navigationController pushViewController:viewController animated:YES];
+	if (indicationType != kUnknown) {
+		UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+		IndicationViewController *viewController = [storyboard instantiateViewControllerWithIdentifier:@"indicationViewController"];
+		viewController.justShowInfo = YES;
+		viewController.indicationType = indicationType;
+		[self.navigationController pushViewController:viewController animated:YES];
+	}
 }
 
 @end

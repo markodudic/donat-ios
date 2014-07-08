@@ -14,7 +14,7 @@
 @synthesize today = _today;
 @synthesize day = _day;
 @synthesize date = _date;
-@synthesize hasDrunk = _hasDrunk;
+@synthesize indicationType = _indicationType;
 @synthesize shouldDrink = _shouldDrink;
 @synthesize currentMonth = _currentMonth;
 
@@ -27,8 +27,8 @@
 	self = [super initWithFrame:frame];
 	if (self) {
 		_today = NO;
-		_hasDrunk = NO;
 		_day = 0;
+		_date = [NSDate date];
 
 		self.backgroundColor = [UIColor colorWithWhite:1.0f alpha:0.5f];
 
@@ -66,14 +66,15 @@
 	return self;
 }
 
+- (void)updateDrinkIcon {
+	_glassIcon.hidden = !_shouldDrink;
+	if ([[NSDate date] compare:_date] == NSOrderedAscending)
+		_glassIcon.alpha = 0.5f;
+}
+
 - (void)setToday:(BOOL)today {
 	_today = today;
 	_todayIcon.hidden = !_today;
-}
-
-- (void)setHasDrunk:(BOOL)hasDrunk {
-	_hasDrunk = hasDrunk;
-	_glassIcon.hidden = !_hasDrunk;
 }
 
 - (void)setDay:(NSUInteger)day {
@@ -86,6 +87,12 @@
 
 - (void)setShouldDrink:(BOOL)shouldDrink {
 	_shouldDrink = shouldDrink;
+	[self updateDrinkIcon];
+}
+
+- (void)setDate:(NSDate *)date {
+	_date = date;
+	[self updateDrinkIcon];
 }
 
 - (void)setCurrentMonth:(BOOL)currentMonth {

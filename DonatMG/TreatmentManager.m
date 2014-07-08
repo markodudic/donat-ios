@@ -178,7 +178,10 @@
 }
 
 - (IndicationType)indicationForDate:(NSDate *)date {
-	return kUnknown;
+	int j = [date timeIntervalSince1970];
+	int days=(int)((double)j/(3600.0*24.00));
+
+	return days % 11;
 }
 
 @end
