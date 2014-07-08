@@ -25,6 +25,38 @@
 	[self.view insertSubview:[[UIImageView alloc] initWithImage:
 							  [UIImage imageNamed:IS_IPHONE_5 ? @"back-5.png" : @"back-4.png"]]
 					 atIndex:0];
+
+	[_morningLabel setFont:kNotificationLabelText];
+	[_noonLabel setFont:kNotificationLabelText];
+	[_eveningLabel setFont:kNotificationLabelText];
+
+	[_dateLabel setFont:kNotificationIndicationTest];
+	[_timeOfDayLabel setFont:kNotificationIndicationTest];
+
+	UIColor *backgroundColor = kNotificationTextBackground;
+	UIEdgeInsets edgeInsets = UIEdgeInsetsMake(2.0f, 5.0f, 2.0f, 5.0f);
+
+	_labelUpLeft = [[InsetLabel alloc] initWithFrame:CGRectMake(0.0f, 0.0f, 70.0f, 30.0f)];
+	_labelUpLeft.backgroundColor = backgroundColor;
+	[_labelUpLeft setFont:kNotificationText];
+	_labelUpLeft.edgeInsets = edgeInsets;
+	_labelUpLeft.textAlignment = NSTextAlignmentCenter;
+	[_containerView addSubview:_labelUpLeft];
+
+	_labelUpRight = [[InsetLabel alloc] initWithFrame:CGRectMake(74.0f, 0.0f, 206.0f, 30.0f)];
+	_labelUpRight.backgroundColor = backgroundColor;
+	[_labelUpRight setFont:kNotificationText];
+	_labelUpRight.edgeInsets = edgeInsets;
+	_labelUpRight.textAlignment = NSTextAlignmentCenter;
+	[_containerView addSubview:_labelUpRight];
+
+	_labelDown = [[InsetLabel alloc] initWithFrame:CGRectMake(0.0f, 34.0f, 280.0f, 30.0f)];
+	_labelDown.backgroundColor = backgroundColor;
+	[_labelDown setFont:kNotificationText];
+	_labelDown.edgeInsets = edgeInsets;
+	_labelDown.textAlignment = NSTextAlignmentCenter;
+	[_containerView addSubview:_labelDown];
+
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -41,8 +73,13 @@
 		_timeOfDay = 0;
 
 	NSString *amountString = [_notification.userInfo objectForKey:@"amount"];
+	_labelUpLeft.text = amountString;
+
 	NSString *temperatureString = [_notification.userInfo objectForKey:@"temperature"];
+	_labelUpRight.text = temperatureString;
+
 	NSString *speedString = [_notification.userInfo objectForKey:@"speed"];
+	_labelDown.text = speedString;
 
 	switch (_indication) {
 		case kZaprtost:

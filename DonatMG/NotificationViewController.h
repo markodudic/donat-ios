@@ -7,10 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "InsetLabel.h"
 
 @interface NotificationViewController : UIViewController {
 	NSUInteger _indication;
 	NSUInteger _timeOfDay;
+
+	InsetLabel *_labelUpLeft;
+	InsetLabel *_labelUpRight;
+	InsetLabel *_labelDown;
 }
 
 @property (nonatomic, retain) UILocalNotification *notification;
@@ -26,5 +31,7 @@
 @property (nonatomic, strong) IBOutlet UIImageView *eveningIcon;
 @property (nonatomic, strong) IBOutlet UILabel *eveningLabel;
 @property (nonatomic, strong) IBOutlet UIButton *closeButton;
+
+@property (nonatomic, strong) IBOutlet UIView *containerView;
 
 @end
