@@ -128,8 +128,8 @@
 
 		// TODO: Calculate actual max height for this row!!
 		CGFloat height1 = [self calculateHeightForText:string1 withFont:kIndicationMethodHeaderFont andWidth:width1 - edgeInsets.left - edgeInsets.right];
-		CGFloat height2 = [self calculateHeightForText:string1 withFont:kIndicationMethodHeaderFont andWidth:width2 - edgeInsets.left - edgeInsets.right];
-		CGFloat height3 = [self calculateHeightForText:string1 withFont:kIndicationMethodHeaderFont andWidth:width3 - edgeInsets.left - edgeInsets.right];
+		CGFloat height2 = [self calculateHeightForText:string2 withFont:kIndicationMethodHeaderFont andWidth:width2 - edgeInsets.left - edgeInsets.right];
+		CGFloat height3 = [self calculateHeightForText:string3 withFont:kIndicationMethodHeaderFont andWidth:width3 - edgeInsets.left - edgeInsets.right];
 
 		CGFloat rowHeight = MAX(height1, MAX(height2, height3));
 
