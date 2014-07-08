@@ -10,6 +10,8 @@
 #import "SettingsManager.h"
 #import "TreatmentManager.h"
 
+#import "InsetLabel.h"
+
 @interface IndicationViewController ()
 
 @end
@@ -101,28 +103,68 @@
 		animationBlock();
 }
 
+- (CGFloat)calculateHeightForText:(NSString *)text withFont:(UIFont *)font andWidth:(CGFloat)width {
+	CGRect neededFrame = [text boundingRectWithSize:CGSizeMake(width, 1000.0f) options:NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading attributes:@{NSFontAttributeName:font} context:nil];
+	return neededFrame.size.height;
+}
+
 - (CGFloat)prepareMethodTable {
 	NSArray *tableRows = [[TreatmentManager sharedManager] stringsForIndication:_indicationType];
+
+	UIEdgeInsets edgeInsets = UIEdgeInsetsMake(2.0f, 5.0f, 2.0f, 5.0f);
+
+	CGFloat width1 = 112.0f;
+	CGFloat width2 = 83.0f;
+	CGFloat width3 = 83.0f;
 
 	BOOL oddRow = YES;
 	CGRect panelFrame = _drinkTableContainer.frame;
 
 	CGFloat top = 0.0f;
 	for (NSArray *row in tableRows) {
+		NSString *string1 = row[0];
+		NSString *string2 = row[1];
+		NSString *string3 = row[2];
+
 		// TODO: Calculate actual max height for this row!!
-		CGFloat rowHeight = 21.0f;
+		CGFloat height1 = [self calculateHeightForText:string1 withFont:kIndicationMethodHeaderFont andWidth:width1 - edgeInsets.left - edgeInsets.right];
+		CGFloat height2 = [self calculateHeightForText:string1 withFont:kIndicationMethodHeaderFont andWidth:width2 - edgeInsets.left - edgeInsets.right];
+		CGFloat height3 = [self calculateHeightForText:string1 withFont:kIndicationMethodHeaderFont andWidth:width3 - edgeInsets.left - edgeInsets.right];
 
-		UILabel *tempLabel = [[UILabel alloc] initWithFrame:CGRectMake(0.0f, top, panelFrame.size.width, rowHeight)];
+		CGFloat rowHeight = MAX(height1, MAX(height2, height3));
 
-		[tempLabel setFont:kIndicationMethodTextFont];
-		[tempLabel setText:@"Test text, just a placeholder"];
+		InsetLabel *headLabel = [[InsetLabel alloc] initWithFrame:CGRectMake(0.0f, top, width1, rowHeight)];
+		headLabel.edgeInsets = edgeInsets;
+		headLabel.lineBreakMode = NSLineBreakByWordWrapping;
+		headLabel.numberOfLines = 0;
+		[headLabel setFont:kIndicationMethodHeaderFont];
+		[headLabel setText:string1];
+		headLabel.backgroundColor = oddRow ? kIndicationMethodRowColor1 : kIndicationMethodRowColor2;
+		[_drinkTableContainer addSubview:headLabel];
 
-		tempLabel.backgroundColor = oddRow ? kIndicationMethodRowColor1 : kIndicationMethodRowColor2;
-		[_drinkTableContainer addSubview:tempLabel];
+		InsetLabel *textLabel1 = [[InsetLabel alloc] initWithFrame:CGRectMake(width1 + 1.0f, top, width2, rowHeight)];
+		textLabel1.edgeInsets = edgeInsets;
+		textLabel1.lineBreakMode = NSLineBreakByWordWrapping;
+		textLabel1.numberOfLines = 0;
+		[textLabel1 setFont:kIndicationMethodTextFont];
+		[textLabel1 setText:string2];
+		textLabel1.backgroundColor = oddRow ? kIndicationMethodRowColor1 : kIndicationMethodRowColor2;
+		[_drinkTableContainer addSubview:textLabel1];
+
+		InsetLabel *textLabel2 = [[InsetLabel alloc] initWithFrame:CGRectMake(width1 + width2 + 2.0f, top, width3, rowHeight)];
+		textLabel2.edgeInsets = edgeInsets;
+		textLabel2.lineBreakMode = NSLineBreakByWordWrapping;
+		textLabel2.numberOfLines = 0;
+		[textLabel2 setFont:kIndicationMethodTextFont];
+		[textLabel2 setText:string3];
+		textLabel2.backgroundColor = oddRow ? kIndicationMethodRowColor1 : kIndicationMethodRowColor2;
+		[_drinkTableContainer addSubview:textLabel2];
 
 		top += rowHeight + 1.0f;
 		oddRow = !oddRow;
 	}
+
+	panelFrame.size.height = top - 1.0f;
 
 	return panelFrame.origin.y + panelFrame.size.height + 20.0f;
 }

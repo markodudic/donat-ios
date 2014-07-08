@@ -117,6 +117,7 @@
 		517176CA196A759B005422B9 /* TreatmentManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 517176C9196A759B005422B9 /* TreatmentManager.m */; };
 		517176D8196ACEB6005422B9 /* ikona-alarm.png in Resources */ = {isa = PBXBuildFile; fileRef = 517176D6196ACEB6005422B9 /* ikona-alarm.png */; };
 		517176D9196ACEB6005422B9 /* ikona-alarm@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 517176D7196ACEB6005422B9 /* ikona-alarm@2x.png */; };
+		517176E5196BD6A1005422B9 /* InsetLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 517176E4196BD6A1005422B9 /* InsetLabel.m */; };
 		51914C8319693B9100EDED15 /* CalendarFieldView.m in Sources */ = {isa = PBXBuildFile; fileRef = 51914C8219693B9100EDED15 /* CalendarFieldView.m */; };
 		51914C8F196942EE00EDED15 /* ikona-danes.png in Resources */ = {isa = PBXBuildFile; fileRef = 51914C8D196942EE00EDED15 /* ikona-danes.png */; };
 		51914C90196942EE00EDED15 /* ikona-danes@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 51914C8E196942EE00EDED15 /* ikona-danes@2x.png */; };
@@ -316,6 +317,8 @@
 		517176C9196A759B005422B9 /* TreatmentManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TreatmentManager.m; sourceTree = "<group>"; };
 		517176D6196ACEB6005422B9 /* ikona-alarm.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ikona-alarm.png"; sourceTree = "<group>"; };
 		517176D7196ACEB6005422B9 /* ikona-alarm@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ikona-alarm@2x.png"; sourceTree = "<group>"; };
+		517176E3196BD6A1005422B9 /* InsetLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InsetLabel.h; sourceTree = "<group>"; };
+		517176E4196BD6A1005422B9 /* InsetLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InsetLabel.m; sourceTree = "<group>"; };
 		51914C8119693B9100EDED15 /* CalendarFieldView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalendarFieldView.h; sourceTree = "<group>"; };
 		51914C8219693B9100EDED15 /* CalendarFieldView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarFieldView.m; sourceTree = "<group>"; };
 		51914C8D196942EE00EDED15 /* ikona-danes.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ikona-danes.png"; sourceTree = "<group>"; };
@@ -573,6 +576,8 @@
 				51914C8219693B9100EDED15 /* CalendarFieldView.m */,
 				51B9B01F1965CFB9009080E2 /* IndicationCell.h */,
 				51B9B0201965CFB9009080E2 /* IndicationCell.m */,
+				517176E3196BD6A1005422B9 /* InsetLabel.h */,
+				517176E4196BD6A1005422B9 /* InsetLabel.m */,
 				5115E8A01960311C00A8CD07 /* Images.xcassets */,
 				5115E88F1960311C00A8CD07 /* Supporting Files */,
 			);
@@ -902,6 +907,7 @@
 				5115E8951960311C00A8CD07 /* main.m in Sources */,
 				51B9B06919662BAF009080E2 /* LegalViewController.m in Sources */,
 				5113AA401963E3E2001E37F6 /* NotificationViewController.m in Sources */,
+				517176E5196BD6A1005422B9 /* InsetLabel.m in Sources */,
 				517176CA196A759B005422B9 /* TreatmentManager.m in Sources */,
 				5101D13C19607C910030B6BB /* SplashViewController.m in Sources */,
 				51B9B06619662B5A009080E2 /* SettingsViewController.m in Sources */,
