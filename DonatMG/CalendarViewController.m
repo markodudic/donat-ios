@@ -8,7 +8,7 @@
 
 #import "CalendarViewController.h"
 #import "LanguageManager.h"
-
+#import "TreatmentManager.h"
 #import "IndicationViewController.h"
 
 @interface CalendarViewController ()
@@ -256,22 +256,13 @@
 #pragma mark - CalendarFieldView
 
 - (void)dateWasClicked:(NSDate *)date {
-//	NSDateComponents *components = [[NSDateComponents alloc] init];
-//	[components setDay:day];
-//	[components setMonth:_monthShown.month];
-//	[components setYear:_monthShown.year];
-//	NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
-//	NSDate *clickedDate = [gregorian dateFromComponents:components];
-
-	DLog(@"%@", [NSDateFormatter localizedStringFromDate:date
-											   dateStyle:NSDateFormatterShortStyle
-											   timeStyle:NSDateFormatterFullStyle]);
+	IndicationType indicationType = [[TreatmentManager sharedManager] indicationForDate:date];
 
 	UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
 	IndicationViewController *viewController = [storyboard instantiateViewControllerWithIdentifier:@"indicationViewController"];
-	viewController.indicationType = kMagnezij;
-	[self.navigationController pushViewController:viewController animated:YES];
 	viewController.justShowInfo = YES;
+	viewController.indicationType = indicationType;
+	[self.navigationController pushViewController:viewController animated:YES];
 }
 
 @end

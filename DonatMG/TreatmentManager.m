@@ -177,4 +177,8 @@
 	}
 }
 
+- (IndicationType)indicationForDate:(NSDate *)date {
+	return kUnknown;
+}
+
 @end

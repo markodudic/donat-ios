@@ -15,4 +15,6 @@
 - (NSUInteger)numberOfInstructionsForIndication:(IndicationType)indication;
 - (NSArray *)stringsForIndication:(IndicationType)indication;
 
+- (IndicationType)indicationForDate:(NSDate *)date;
+
 @end
