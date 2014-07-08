@@ -79,6 +79,30 @@
 	NSInteger firstDay = [self firstWeekdayInMonth] - 2;
 	BOOL curMonth = _currentDate.year == _monthShown.year && _currentDate.month == _monthShown.month;
 
+	NSUInteger prevYear = _monthShown.year;
+	NSUInteger nextYear = _monthShown.year;
+	NSUInteger prevMonth = _monthShown.month - 1;
+	NSUInteger nextMonth = _monthShown.month + 1;
+	if (prevMonth == 0) {
+		prevMonth = 12;
+		prevYear -= 1;
+	}
+	if (nextMonth > 12) {
+		nextMonth = 1;
+		nextYear += 1;
+	}
+	NSDateComponents *prevComponents = [[NSDateComponents alloc] init];
+	[prevComponents setYear:prevYear];
+	[prevComponents setMonth:prevMonth];
+
+	NSDateComponents *nextComponents = [[NSDateComponents alloc] init];
+	[nextComponents setYear:nextYear];
+	[nextComponents setMonth:nextMonth];
+
+	NSDateComponents *currComponents = [[NSDateComponents alloc] init];
+	[currComponents setYear:_monthShown.year];
+	[currComponents setMonth:_monthShown.month];
+
 	NSInteger dayNextMonth = 1;
 
 	for (int i = 0; i < [_fields count]; i++) {
@@ -88,11 +112,17 @@
 		if (day > 0 && day < numberOfDays + 1) {
 			tempView.day = i - firstDay;
 			tempView.currentMonth = YES;
+			[currComponents setDay:tempView.day];
+			tempView.date = [gregorian dateFromComponents:currComponents];
 		} else {
 			if (i < 20) {  // crude? yeah, but it works...
 				tempView.day = numberOfPreviousDays - firstDay + i;
+				[prevComponents setDay:tempView.day];
+				tempView.date = [gregorian dateFromComponents:prevComponents];
 			} else {
 				tempView.day = dayNextMonth++;
+				[nextComponents setDay:tempView.day];
+				tempView.date = [gregorian dateFromComponents:nextComponents];
 			}
 			tempView.currentMonth = NO;
 		}
@@ -225,15 +255,15 @@
 
 #pragma mark - CalendarFieldView
 
-- (void)dayWasClicked:(NSUInteger)day {
-	NSDateComponents *components = [[NSDateComponents alloc] init];
-	[components setDay:day];
-	[components setMonth:_monthShown.month];
-	[components setYear:_monthShown.year];
-	NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
-	NSDate *clickedDate = [gregorian dateFromComponents:components];
+- (void)dateWasClicked:(NSDate *)date {
+//	NSDateComponents *components = [[NSDateComponents alloc] init];
+//	[components setDay:day];
+//	[components setMonth:_monthShown.month];
+//	[components setYear:_monthShown.year];
+//	NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+//	NSDate *clickedDate = [gregorian dateFromComponents:components];
 
-	DLog(@"%@", [NSDateFormatter localizedStringFromDate:clickedDate
+	DLog(@"%@", [NSDateFormatter localizedStringFromDate:date
 											   dateStyle:NSDateFormatterShortStyle
 											   timeStyle:NSDateFormatterFullStyle]);
 

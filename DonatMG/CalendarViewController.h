@@ -30,6 +30,6 @@
 
 @property (nonatomic, strong) IBOutlet UIView *containerView;
 
-- (void)dayWasClicked:(NSUInteger)day;
+- (void)dateWasClicked:(NSDate *)date;
 
 @end

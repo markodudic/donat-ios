@@ -13,13 +13,14 @@
 @synthesize delegate = _delegate;
 @synthesize today = _today;
 @synthesize day = _day;
+@synthesize date = _date;
 @synthesize hasDrunk = _hasDrunk;
 @synthesize shouldDrink = _shouldDrink;
 @synthesize currentMonth = _currentMonth;
 
 - (void)buttonClicked:(id)button {
 	if (_day > 0 && _day < 32)
-		[_delegate dayWasClicked:_day];
+		[_delegate dateWasClicked:_date];
 }
 
 - (id)initWithFrame:(CGRect)frame {

@@ -10,7 +10,7 @@
 
 @protocol CalendarFieldView <NSObject>
 
-- (void)dayWasClicked:(NSUInteger)day;
+- (void)dateWasClicked:(NSDate *)date;
 
 @end
 
@@ -24,6 +24,7 @@
 
 @property (nonatomic, assign) BOOL today;
 @property (nonatomic, assign) NSUInteger day;
+@property (nonatomic, retain) NSDate *date;
 @property (nonatomic, assign) BOOL hasDrunk;
 @property (nonatomic, assign) BOOL shouldDrink;
 @property (nonatomic, assign) BOOL currentMonth;
