@@ -8,10 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
-@interface NotificationViewController : UIViewController
+@interface NotificationViewController : UIViewController {
+	NSUInteger _indication;
+	NSUInteger _timeOfDay;
+}
 
 @property (nonatomic, retain) UILocalNotification *notification;
-@property (nonatomic, assign) IndicationType indicationType;
 
 @property (nonatomic, strong) IBOutlet UIImageView *indicationIcon;
 @property (nonatomic, strong) IBOutlet UILabel *indicationLabel;

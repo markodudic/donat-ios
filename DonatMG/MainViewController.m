@@ -24,9 +24,15 @@
 // TODO: remove this
 - (void)test {
 	NSDictionary *testDictionary = [NSMutableDictionary dictionaryWithCapacity:1];
-	[testDictionary setValue:@"testNotification" forKey:@"name"];
+
+	[testDictionary setValue:[NSNumber numberWithUnsignedInteger:kStres] forKey:@"indication"];
+	[testDictionary setValue:[NSNumber numberWithUnsignedChar:2] forKey:@"timeOfDay"];
+	[testDictionary setValue:@"3-5dcl" forKey:@"amount"];
+	[testDictionary setValue:@"lukewarm" forKey:@"temperature"];
+	[testDictionary setValue:@"slow" forKey:@"speed"];
+
 	UILocalNotification *testNotifation = [[UILocalNotification alloc] init];
-	testNotifation.fireDate = [NSDate dateWithTimeIntervalSinceNow:15];
+	testNotifation.fireDate = [NSDate dateWithTimeIntervalSinceNow:5];
 	testNotifation.alertBody = @"alertBody";
 	testNotifation.userInfo = testDictionary;
 	[[UIApplication sharedApplication] scheduleLocalNotification:testNotifation];
@@ -47,15 +53,14 @@
 	self.tableView.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:IS_IPHONE_5 ? @"back-5.png" : @"back-4.png"]];
 
 	// TODO: remove this and testItem from the NSArray later on
-//	UIBarButtonItem *testItem = [[UIBarButtonItem alloc] initWithImage:[[UIImage imageNamed:@"icon_opoldne.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] style:UIBarButtonItemStylePlain target:self action:@selector(test)];
+	UIBarButtonItem *testItem = [[UIBarButtonItem alloc] initWithImage:[[UIImage imageNamed:@"icon_opoldne.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] style:UIBarButtonItemStylePlain target:self action:@selector(test)];
 	// till here
 
 	UIBarButtonItem *calendarItem = [[UIBarButtonItem alloc] initWithImage:[[UIImage imageNamed:@"calendar.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] style:UIBarButtonItemStylePlain target:self action:@selector(calendar)];
 
 	UIBarButtonItem *settingsItem = [[UIBarButtonItem alloc] initWithImage:[[UIImage imageNamed:@"settings.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] style:UIBarButtonItemStylePlain target:self action:@selector(settings)];
 
-//	NSArray *buttonsArray = @[settingsItem, calendarItem, testItem];
-	NSArray *buttonsArray = @[settingsItem, calendarItem];
+	NSArray *buttonsArray = @[settingsItem, calendarItem, testItem];
 	self.navigationItem.rightBarButtonItems = buttonsArray;
 
 	UIImage *image = [[UIImage imageNamed:@"moments-title.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];

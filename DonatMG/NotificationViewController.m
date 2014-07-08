@@ -9,6 +9,8 @@
 #import "NotificationViewController.h"
 #import "SettingsManager.h"
 
+#define alphaValue 0.3f
+
 @interface NotificationViewController ()
 
 @end
@@ -16,7 +18,6 @@
 @implementation NotificationViewController
 
 @synthesize notification = _notification;
-@synthesize indicationType = _indicationType;
 
 - (void)viewDidLoad {
 	[super viewDidLoad];
@@ -24,8 +25,100 @@
 	[self.view insertSubview:[[UIImageView alloc] initWithImage:
 							  [UIImage imageNamed:IS_IPHONE_5 ? @"back-5.png" : @"back-4.png"]]
 					 atIndex:0];
+}
 
-	[self.closeButton setTitle:___(@"close") forState:UIControlStateNormal];
+- (void)viewWillAppear:(BOOL)animated {
+	NSNumber *tempNumber = [_notification.userInfo objectForKey:@"indication"];
+	if (tempNumber)
+		_indication = [tempNumber unsignedIntegerValue];
+	else
+		_indication = kUnknown;
+
+	tempNumber = [_notification.userInfo objectForKey:@"timeOfDay"];
+	if (tempNumber)
+		_timeOfDay = [tempNumber unsignedIntegerValue];
+	else
+		_timeOfDay = 0;
+
+	NSString *amountString = [_notification.userInfo objectForKey:@"amount"];
+	NSString *temperatureString = [_notification.userInfo objectForKey:@"temperature"];
+	NSString *speedString = [_notification.userInfo objectForKey:@"speed"];
+
+	switch (_indication) {
+		case kZaprtost:
+			_indicationIcon.image = [UIImage imageNamed:@"icon_zaprtost.png"];
+			_indicationLabel.text = ___(@"indication_1");
+			break;
+		case kZgaga:
+			_indicationIcon.image = [UIImage imageNamed:@"icon_zgaga.png"];
+			_indicationLabel.text = ___(@"indication_2");
+			break;
+		case kMagnezij:
+			_indicationIcon.image = [UIImage imageNamed:@"icon_mg.png"];
+			_indicationLabel.text = ___(@"indication_3");
+			break;
+		case kSladkorna:
+			_indicationIcon.image = [UIImage imageNamed:@"icon_sladkorna.png"];
+			_indicationLabel.text = ___(@"indication_4");
+			break;
+		case kSlinavka:
+			_indicationIcon.image = [UIImage imageNamed:@"icon_slinavka.png"];
+			_indicationLabel.text = ___(@"indication_5");
+			break;
+		case kSecniKamni:
+			_indicationIcon.image = [UIImage imageNamed:@"icon_secni_kamni.png"];
+			_indicationLabel.text = ___(@"indication_6");
+			break;
+		case kDebelost:
+			_indicationIcon.image = [UIImage imageNamed:@"icon_debelost.png"];
+			_indicationLabel.text = ___(@"indication_7");
+			break;
+		case kSrceOzilje:
+			_indicationIcon.image = [UIImage imageNamed:@"icon_srce_ozilje.png"];
+			_indicationLabel.text = ___(@"indication_8");
+			break;
+		case kStres:
+			_indicationIcon.image = [UIImage imageNamed:@"icon_stres.png"];
+			_indicationLabel.text = ___(@"indication_9");
+			break;
+		case kPocutje:
+			_indicationIcon.image = [UIImage imageNamed:@"icon_pocutje.png"];
+			_indicationLabel.text = ___(@"indication_10");
+			break;
+		default:
+			break;
+	}
+
+	[_closeButton setTitle:___(@"close") forState:UIControlStateNormal];
+
+	[_morningLabel setText:[___(@"time_zjutraj") lowercaseString]];
+	[_noonLabel setText:[___(@"time_opoldne") lowercaseString]];
+	[_eveningLabel setText:[___(@"time_zvecer") lowercaseString]];
+
+	NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+	NSDateComponents *dateComponents = [gregorian components:NSDayCalendarUnit | NSMonthCalendarUnit fromDate:[NSDate date]];
+	_dateLabel.text = [NSString stringWithFormat:@"%d. %@", dateComponents.day, [[LanguageManager sharedManager] stringForMonth:dateComponents.month]];
+
+	switch (_timeOfDay) {
+		case 1:
+			_timeOfDayLabel.text = ___(@"time_zjutraj");
+			break;
+		case 2:
+			_timeOfDayLabel.text = ___(@"time_opoldne");
+			_morningIcon.alpha = alphaValue;
+			_morningLabel.alpha = alphaValue;
+			break;
+		case 3:
+			_timeOfDayLabel.text = ___(@"time_zvecer");
+			_morningIcon.alpha = alphaValue;
+			_morningLabel.alpha = alphaValue;
+			_noonIcon.alpha = alphaValue;
+			_noonLabel.alpha = alphaValue;
+			break;
+		default:
+			_timeOfDayLabel.text = @"";
+			break;
+	}
 }
 
 - (void)didReceiveMemoryWarning {
