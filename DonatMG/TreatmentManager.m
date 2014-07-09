@@ -64,6 +64,14 @@
 		dateToAdd = [dateToAdd dateByAddingTimeInterval:-(2*60*60*24)];
 	}
 
+	// lets create some in the future as well (from today), just for good measure
+	dateToAdd = today;
+	for (NSUInteger count = 0; count < 5; count++) {
+		[_calendarEntriesHistory addObject:[CalendarHistoryEntry entryWithDate:dateToAdd andIndicationType:kMagnezij]];
+		// go to day after
+		dateToAdd = [dateToAdd dateByAddingTimeInterval:60*60*24];
+	}
+
 	// write the history file, so the next run will read it instead of generating again
 	[self writeOutHistory];
 #endif
