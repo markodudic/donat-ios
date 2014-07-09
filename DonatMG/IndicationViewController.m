@@ -43,7 +43,7 @@
 @synthesize bigButton = _bigButton;
 
 - (void)updateViewActivation {
-	_amActive = [[SettingsManager sharedManager] activeIndication] == _indicationType;
+	_amActive = [[TreatmentManager sharedManager] activeIndication] == _indicationType;
 	[self.bigButton setTitle:_amActive ? ___(@"button_indication_stop") : ___(@"button_indication_start") forState:UIControlStateNormal];
 }
 
@@ -132,7 +132,6 @@
 		NSString *string2 = row[1];
 		NSString *string3 = row[2];
 
-		// TODO: Calculate actual max height for this row!!
 		CGFloat height1 = [self calculateHeightForText:string1 withFont:kIndicationMethodHeaderFont andWidth:width1 - edgeInsets.left - edgeInsets.right];
 		CGFloat height2 = [self calculateHeightForText:string2 withFont:kIndicationMethodHeaderFont andWidth:width2 - edgeInsets.left - edgeInsets.right];
 		CGFloat height3 = [self calculateHeightForText:string3 withFont:kIndicationMethodHeaderFont andWidth:width3 - edgeInsets.left - edgeInsets.right];
@@ -305,7 +304,7 @@
 	if (_historyItem) {
 		_startDate = _historyItem.startDate;
 	} else {
-		_startDate = _amActive ? [[SettingsManager sharedManager] indicationActivation] : [NSDate date];
+		_startDate = _amActive ? [[TreatmentManager sharedManager] indicationActivation] : [NSDate date];
 	}
 	NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
 	NSDateComponents *dateComponents = [gregorian components:(NSYearCalendarUnit | NSMonthCalendarUnit |  NSDayCalendarUnit) fromDate:_startDate];
@@ -352,14 +351,12 @@
 		return;
 
 	if (_amActive) {
-		[[SettingsManager sharedManager] setActiveIndication:kUnknown];
-		[[SettingsManager sharedManager] setIndicationActivation:[NSDate date]];
+		[[TreatmentManager sharedManager] cancelActiveTreatment];
 		_startDate = [NSDate date];
 		[self updateDateShown];
 		[self.navigationController popViewControllerAnimated:YES];
 	} else {
-		[[SettingsManager sharedManager] setActiveIndication:self.indicationType];
-		[[SettingsManager sharedManager] setIndicationActivation:_startDate];
+		[[TreatmentManager sharedManager] startTreatmentForIndication:self.indicationType fromDate:_startDate];
 		UIAlertView *message = [[UIAlertView alloc] initWithTitle:___(@"confirmation_title")
 														  message:___(@"confirmation_desc")
 														 delegate:self

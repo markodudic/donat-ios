@@ -13,12 +13,20 @@
 	NSMutableArray *_calendarEntriesHistory;
 }
 
+@property (nonatomic, readonly) NSUInteger activeIndication;
+@property (nonatomic, readonly) NSDate *indicationActivation;
+
 + (id)sharedManager;
+
++ (NSString *)descriptionForIndication:(IndicationType)indication;
 
 - (NSUInteger)numberOfInstructionsForIndication:(IndicationType)indication;
 - (NSArray *)stringsForIndication:(IndicationType)indication;
 
 - (IndicationType)indicationForDate:(NSDate *)date;
 - (CalendarHistoryEntry *)historyItemForDate:(NSDate *)date;
+
+- (void)startTreatmentForIndication:(IndicationType)indication fromDate:(NSDate *)date;
+- (void)cancelActiveTreatment;
 
 @end

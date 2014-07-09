@@ -8,6 +8,7 @@
 
 #import "MainViewController.h"
 #import "SettingsManager.h"
+#import "TreatmentManager.h"
 #import "IndicationCell.h"
 #import "IndicationViewController.h"
 #import "NotificationViewController.h"
@@ -202,7 +203,7 @@
 			break;
 	}
 
-	cell.active = [[SettingsManager sharedManager] activeIndication] == cell.tag;
+	cell.active = [[TreatmentManager sharedManager] activeIndication] == cell.tag;
 
 	[cell.titleLabel setFont:[UIFont fontWithName:@"Roboto-Regular" size:15.0f]];
 

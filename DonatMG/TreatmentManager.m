@@ -11,7 +11,48 @@
 
 @implementation TreatmentManager
 
+@synthesize activeIndication = _activeIndication;
+@synthesize indicationActivation = _indicationActivation;
+
 #define kHistoryArchiveKey @"history"
+
++ (NSString *)descriptionForIndication:(IndicationType)indication {
+	switch (indication) {
+		case kZaprtost:
+			return @"kZaprtost";
+			break;
+		case kZgaga:
+			return @"kZgaga";
+			break;
+		case kMagnezij:
+			return @"kMagnezij";
+			break;
+		case kSladkorna:
+			return @"kSladkorna";
+			break;
+		case kSlinavka:
+			return @"kSlinavka";
+			break;
+		case kSecniKamni:
+			return @"kSecniKamni";
+			break;
+		case kDebelost:
+			return @"kDebelost";
+			break;
+		case kSrceOzilje:
+			return @"kSrceOzilje";
+			break;
+		case kStres:
+			return @"kStres";
+			break;
+		case kPocutje:
+			return @"kPocutje";
+			break;
+		default:
+			return @"";
+			break;
+	}
+}
 
 #pragma mark Singleton Methods
 
@@ -66,6 +107,7 @@
 
 	// lets create some in the future as well (from yesterday), just for good measure
 	dateToAdd = [today dateByAddingTimeInterval:-(60*60*24)];
+
 	[[SettingsManager sharedManager] setIndicationActivation:dateToAdd];
 	[[SettingsManager sharedManager] setActiveIndication:kMagnezij];
 	for (NSUInteger count = 0; count < 5; count++) {
@@ -265,6 +307,24 @@
 		}
 	}
 	return nil;
+}
+
+- (void)startTreatmentForIndication:(IndicationType)indication fromDate:(NSDate *)date {
+	DLog(@"Should start treatment for %@ from date %@", [TreatmentManager descriptionForIndication:indication], [NSDateFormatter localizedStringFromDate:date dateStyle:NSDateFormatterShortStyle timeStyle:NSDateFormatterFullStyle]);
+	[[SettingsManager sharedManager] setActiveIndication:indication];
+	[[SettingsManager sharedManager] setIndicationActivation:date];
+
+	_activeIndication = indication;
+	_indicationActivation = date;
+}
+
+- (void)cancelActiveTreatment {
+	DLog(@"Should cancel treatment here");
+	[[SettingsManager sharedManager] setActiveIndication:kUnknown];
+	[[SettingsManager sharedManager] setIndicationActivation:[NSDate date]];
+
+	_activeIndication = kUnknown;
+	_indicationActivation = [NSDate date];
 }
 
 @end
