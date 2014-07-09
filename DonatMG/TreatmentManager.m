@@ -11,8 +11,8 @@
 
 @implementation TreatmentManager
 
-@synthesize activeIndication = _activeIndication;
-@synthesize indicationActivation = _indicationActivation;
+@synthesize activeIndication;
+@synthesize indicationActivation;
 
 #define kHistoryArchiveKey @"history"
 
@@ -63,6 +63,14 @@
 		sharedTreatmentManager = [[self alloc] init];
 	});
 	return sharedTreatmentManager;
+}
+
+- (NSUInteger)activeIndication {
+	return [[SettingsManager sharedManager] activeIndication];
+}
+
+- (NSDate *)indicationActivation {
+	return [[SettingsManager sharedManager] indicationActivation];
 }
 
 - (NSString *)applicationDocumentsDirectory {
@@ -311,20 +319,37 @@
 
 - (void)startTreatmentForIndication:(IndicationType)indication fromDate:(NSDate *)date {
 	DLog(@"Should start treatment for %@ from date %@", [TreatmentManager descriptionForIndication:indication], [NSDateFormatter localizedStringFromDate:date dateStyle:NSDateFormatterShortStyle timeStyle:NSDateFormatterFullStyle]);
+
+	[self cancelActiveTreatment];
+
 	[[SettingsManager sharedManager] setActiveIndication:indication];
 	[[SettingsManager sharedManager] setIndicationActivation:date];
-
-	_activeIndication = indication;
-	_indicationActivation = date;
 }
 
 - (void)cancelActiveTreatment {
-	DLog(@"Should cancel treatment here");
+	if (self.activeIndication != kUnknown) {
+
+		// we need today without the time
+		NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+		NSDateComponents *todayComponents = [gregorian components:NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit fromDate:[NSDate date]];
+		NSDate *today = [gregorian dateFromComponents:todayComponents];
+
+		NSMutableArray *removeItems = [[NSMutableArray alloc] init];
+
+		for (CalendarHistoryEntry *entry in _calendarEntriesHistory) {
+			if ([today compare:entry.date] != NSOrderedDescending) {
+				[removeItems addObject:entry];
+			}
+		}
+
+		for (CalendarHistoryEntry *entry in removeItems)
+			[_calendarEntriesHistory removeObject:entry];
+
+		[self writeOutHistory];
+	}
+
 	[[SettingsManager sharedManager] setActiveIndication:kUnknown];
 	[[SettingsManager sharedManager] setIndicationActivation:[NSDate date]];
-
-	_activeIndication = kUnknown;
-	_indicationActivation = [NSDate date];
 }
 
 @end

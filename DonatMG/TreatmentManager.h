@@ -13,8 +13,8 @@
 	NSMutableArray *_calendarEntriesHistory;
 }
 
-@property (nonatomic, readonly) NSUInteger activeIndication;
-@property (nonatomic, readonly) NSDate *indicationActivation;
+@property (nonatomic, readonly, getter = activeIndication) NSUInteger activeIndication;
+@property (nonatomic, readonly, getter = indicationActivation) NSDate *indicationActivation;
 
 + (id)sharedManager;
 
