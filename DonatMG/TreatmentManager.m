@@ -389,15 +389,145 @@
 	}
 }
 
+- (NSDate *)noonTime {
+	NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+	NSDateComponents *timeComponents = [[NSDateComponents alloc] init];
+	[timeComponents setHour:12];
+	[timeComponents setMinute:00];
+	return [gregorian dateFromComponents:timeComponents];
+}
+
+- (NSDate *)combineDate:(NSDate *)date withTime:(NSDate *)time {
+	NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+	NSDateComponents *dateComponents = [gregorian components:NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit fromDate:date];
+	NSDateComponents *timeComponents = [gregorian components:NSHourCalendarUnit | NSMinuteCalendarUnit fromDate:time];
+	[dateComponents setHour:timeComponents.hour];
+	[dateComponents setMinute:timeComponents.minute];
+	return [gregorian dateFromComponents:dateComponents];
+}
+
+- (NSDate *)combineDate:(NSDate *)date withTimeComponents:(NSDateComponents *)time {
+	NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+	NSDateComponents *dateComponents = [gregorian components:NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit fromDate:date];
+	[dateComponents setHour:time.hour];
+	[dateComponents setMinute:time.minute];
+	return [gregorian dateFromComponents:dateComponents];
+}
+
+- (NSDictionary *)createUserInfoForIndication:(IndicationType)indication withStrings:(NSArray *)strings andTimeOfDay:(NSInteger)time {
+	NSMutableDictionary *result = [[NSMutableDictionary alloc] init];
+
+	[result setValue:[NSNumber numberWithUnsignedInteger:indication] forKey:@"indication"];
+	[result setValue:[NSNumber numberWithUnsignedChar:time] forKey:@"timeOfDay"];
+	[result setValue:strings[0] forKey:@"amount"];
+	[result setValue:strings[1] forKey:@"temperature"];
+	[result setValue:strings[2] forKey:@"speed"];
+
+	return result;
+}
+
+- (void)setNotificationAtTime:(NSDate *)time withBody:(NSString *)body andUserInfo:(NSDictionary *)userInfo {
+	if ([[NSDate date] compare:time] == NSOrderedAscending) {
+		UILocalNotification *testNotifation = [[UILocalNotification alloc] init];
+		testNotifation.fireDate = time;
+		testNotifation.alertBody = body;
+		testNotifation.userInfo = userInfo;
+		[[UIApplication sharedApplication] scheduleLocalNotification:testNotifation];
+	}
+}
+
+- (void)setNotificationPredZajtrkomForDate:(NSDate *)date withStrings:(NSArray *)strings andIndication:(IndicationType)indication {
+	NSDate *notificationTime = [[self combineDate:date withTimeComponents:[[SettingsManager sharedManager] breakfastTime]] dateByAddingTimeInterval:(-5*60)];
+
+	[self setNotificationAtTime:notificationTime withBody:@"pred zajtrkom" andUserInfo:[self createUserInfoForIndication:indication withStrings:strings andTimeOfDay:1]];
+}
+
+- (void)setNotificationPredKosilomForDate:(NSDate *)date withStrings:(NSArray *)strings andIndication:(IndicationType)indication {
+	NSDate *notificationTime = [[self combineDate:date withTimeComponents:[[SettingsManager sharedManager] lunchTime]] dateByAddingTimeInterval:(-5*60)];
+
+	[self setNotificationAtTime:notificationTime withBody:@"pred kosilom" andUserInfo:[self createUserInfoForIndication:indication withStrings:strings andTimeOfDay:2]];
+}
+
+- (void)setNotificationPredVecerjoForDate:(NSDate *)date withStrings:(NSArray *)strings andIndication:(IndicationType)indication {
+	NSDate *notificationTime = [[self combineDate:date withTimeComponents:[[SettingsManager sharedManager] dinnerTime]] dateByAddingTimeInterval:(-5*60)];
+
+	[self setNotificationAtTime:notificationTime withBody:@"pred vecerjo" andUserInfo:[self createUserInfoForIndication:indication withStrings:strings andTimeOfDay:3]];
+}
+
+- (void)setNotificationPredSpanjemForDate:(NSDate *)date withStrings:(NSArray *)strings andIndication:(IndicationType)indication {
+	NSDate *notificationTime = [[self combineDate:date withTimeComponents:[[SettingsManager sharedManager] sleepingTime]] dateByAddingTimeInterval:(-5*60)];
+
+	[self setNotificationAtTime:notificationTime withBody:@"pred spanjem" andUserInfo:[self createUserInfoForIndication:indication withStrings:strings andTimeOfDay:3]];
+}
+
+- (void)setNotificationPredPoldneForDate:(NSDate *)date withStrings:(NSArray *)strings andIndication:(IndicationType)indication {
+	NSDate *notificationTime = [[self combineDate:date withTime:[self noonTime]] dateByAddingTimeInterval:(-5*60)];
+
+	[self setNotificationAtTime:notificationTime withBody:@"pred poldne" andUserInfo:[self createUserInfoForIndication:indication withStrings:strings andTimeOfDay:2]];
+}
+
+- (void)setNotificationsForDate:(NSDate *)date andIndication:(IndicationType)indication {
+	NSArray *strings = [self stringsForIndication:indication];
+
+	switch (indication) {
+		case kZaprtost:
+			[self setNotificationPredZajtrkomForDate:date withStrings:strings[0] andIndication:indication];
+			[self setNotificationPredSpanjemForDate:date withStrings:strings[1] andIndication:indication];
+			break;
+		case kZgaga:
+			// TODO: ??
+			break;
+		case kMagnezij:
+			[self setNotificationPredZajtrkomForDate:date withStrings:strings[0] andIndication:indication];
+			[self setNotificationPredPoldneForDate:date withStrings:strings[1] andIndication:indication];
+			[self setNotificationPredVecerjoForDate:date withStrings:strings[2] andIndication:indication];
+			break;
+		case kSladkorna:
+			[self setNotificationPredZajtrkomForDate:date withStrings:strings[0] andIndication:indication];
+			[self setNotificationPredKosilomForDate:date withStrings:strings[1] andIndication:indication];
+			[self setNotificationPredVecerjoForDate:date withStrings:strings[2] andIndication:indication];
+			break;
+		case kSlinavka:
+			[self setNotificationPredZajtrkomForDate:date withStrings:strings[0] andIndication:indication];
+			[self setNotificationPredKosilomForDate:date withStrings:strings[1] andIndication:indication];
+			[self setNotificationPredVecerjoForDate:date withStrings:strings[2] andIndication:indication];
+			break;
+		case kSecniKamni:
+			[self setNotificationPredZajtrkomForDate:date withStrings:strings[0] andIndication:indication];
+			[self setNotificationPredKosilomForDate:date withStrings:strings[1] andIndication:indication];
+			[self setNotificationPredVecerjoForDate:date withStrings:strings[2] andIndication:indication];
+			[self setNotificationPredSpanjemForDate:date withStrings:strings[3] andIndication:indication];
+			break;
+		case kDebelost:
+			[self setNotificationPredZajtrkomForDate:date withStrings:strings[0] andIndication:indication];
+			[self setNotificationPredKosilomForDate:date withStrings:strings[1] andIndication:indication];
+			[self setNotificationPredVecerjoForDate:date withStrings:strings[2] andIndication:indication];
+			break;
+		case kSrceOzilje:
+			// TODO: ??
+			break;
+		case kStres:
+			[self setNotificationPredZajtrkomForDate:date withStrings:strings[0] andIndication:indication];
+			[self setNotificationPredSpanjemForDate:date withStrings:strings[1] andIndication:indication];
+			break;
+		case kPocutje:
+			[self setNotificationPredZajtrkomForDate:date withStrings:strings[0] andIndication:indication];
+			[self setNotificationPredKosilomForDate:date withStrings:strings[1] andIndication:indication];
+			[self setNotificationPredVecerjoForDate:date withStrings:strings[2] andIndication:indication];
+			break;
+		default:
+			break;
+	}
+}
+
 - (void)startTreatmentForIndication:(IndicationType)indication fromDate:(NSDate *)date {
 	[self cancelActiveTreatment];
 
 	NSArray *daysToDrink = [self drinkingDatesForIndication:indication fromDate:date andTillDate:[date dateByAddingTimeInterval:(60*60*24*365)]];
 
-	// TODO: set the actual notifications
-
 	for (NSDate *entryDate in daysToDrink) {
 		[_calendarEntriesHistory addObject:[CalendarHistoryEntry entryWithDate:entryDate startDate:date andIndicationType:indication]];
+		[self setNotificationsForDate:entryDate andIndication:indication];
 	}
 	[self writeOutHistory];
 
