@@ -330,7 +330,7 @@
 	NSDateComponents *todayComponents = [gregorian components:NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit fromDate:startDate];
 	NSDate *date = [gregorian dateFromComponents:todayComponents];
 
-	while ([date compare:endDate] == NSOrderedDescending) {
+	while ([date compare:endDate] == NSOrderedAscending) {
 		if (drink < drinkDays) {
 			[results addObject:date];
 			drink++;
