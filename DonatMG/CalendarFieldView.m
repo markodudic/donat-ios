@@ -66,15 +66,16 @@
 	return self;
 }
 
-- (void)updateDrinkIcon {
+- (void)updateIcons {
 	_glassIcon.hidden = !_shouldDrink;
+	_todayIcon.hidden = !(_shouldDrink && _today);
 	_glassIcon.alpha = [[NSDate date] compare:_date] == NSOrderedAscending ? 1.0f : 0.5f;
 	self.backgroundColor = _shouldDrink ? kCalendarFieldColorGray : kCalendarFieldColorWhite;
 }
 
 - (void)setToday:(BOOL)today {
 	_today = today;
-	_todayIcon.hidden = !_today;
+	[self updateIcons];
 }
 
 - (void)setDay:(NSUInteger)day {
@@ -87,12 +88,12 @@
 
 - (void)setShouldDrink:(BOOL)shouldDrink {
 	_shouldDrink = shouldDrink;
-	[self updateDrinkIcon];
+	[self updateIcons];
 }
 
 - (void)setDate:(NSDate *)date {
 	_date = date;
-	[self updateDrinkIcon];
+	[self updateIcons];
 }
 
 - (void)setCurrentMonth:(BOOL)currentMonth {
