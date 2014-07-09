@@ -569,4 +569,13 @@
 	[[SettingsManager sharedManager] setIndicationActivation:[NSDate date]];
 }
 
+- (void)recalculateTreatment {
+	if (self.activeIndication != kUnknown) {
+		IndicationType indication = self.activeIndication;
+		NSDate *activation = self.indicationActivation;
+
+		[self startTreatmentForIndication:indication fromDate:activation];
+	}
+}
+
 @end

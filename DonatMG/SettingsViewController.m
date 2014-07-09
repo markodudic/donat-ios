@@ -8,6 +8,7 @@
 
 #import "SettingsViewController.h"
 #import "SettingsManager.h"
+#import "TreatmentManager.h"
 
 @interface SettingsViewController ()
 
@@ -284,18 +285,23 @@
 		if (textField == self.wakeField) {
 			[[SettingsManager sharedManager] setWakeTime:components];
 			self.wakeField.text = [self timeToString:[[SettingsManager sharedManager] wakeTime]];
+			[[TreatmentManager sharedManager] recalculateTreatment];
 		} else if (textField == self.breakfastField) {
 			[[SettingsManager sharedManager] setBreakfastTime:components];
 			self.breakfastField.text = [self timeToString:[[SettingsManager sharedManager] breakfastTime]];
+			[[TreatmentManager sharedManager] recalculateTreatment];
 		} else if (textField == self.lunchField) {
 			[[SettingsManager sharedManager] setLunchTime:components];
 			self.lunchField.text = [self timeToString:[[SettingsManager sharedManager] lunchTime]];
+			[[TreatmentManager sharedManager] recalculateTreatment];
 		} else if (textField == self.dinnerField) {
 			[[SettingsManager sharedManager] setDinnerTime:components];
 			self.dinnerField.text = [self timeToString:[[SettingsManager sharedManager] dinnerTime]];
+			[[TreatmentManager sharedManager] recalculateTreatment];
 		} else if (textField == self.sleepField) {
 			[[SettingsManager sharedManager] setSleepingTime:components];
 			self.sleepField.text = [self timeToString:[[SettingsManager sharedManager] sleepingTime]];
+			[[TreatmentManager sharedManager] recalculateTreatment];
 		}
 	}
 	_fieldBeingEdited = nil;
@@ -345,6 +351,8 @@
 		[self.mealsField resignFirstResponder];
 
 		[[SettingsManager sharedManager] setNumberOfMeals:row+3];
+
+		[[TreatmentManager sharedManager] recalculateTreatment];
 	}
 }
 

@@ -28,5 +28,6 @@
 
 - (void)startTreatmentForIndication:(IndicationType)indication fromDate:(NSDate *)date;
 - (void)cancelActiveTreatment;
+- (void)recalculateTreatment;
 
 @end
