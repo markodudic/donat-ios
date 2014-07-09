@@ -68,7 +68,7 @@
 
 - (void)updateDrinkIcon {
 	_glassIcon.hidden = !_shouldDrink;
-	_glassIcon.alpha = [[NSDate date] compare:_date] == NSOrderedAscending ? 0.5f : 1.0f;
+	_glassIcon.alpha = [[NSDate date] compare:_date] == NSOrderedAscending ? 1.0f : 0.5f;
 }
 
 - (void)setToday:(BOOL)today {
