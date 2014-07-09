@@ -7,6 +7,7 @@
 //
 
 #import "TreatmentManager.h"
+#import "SettingsManager.h"
 #import "CalendarHistoryEntry.h"
 
 @implementation TreatmentManager
@@ -52,8 +53,8 @@
 	NSDateComponents *todayComponents = [gregorian components:NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit fromDate:[NSDate date]];
 	NSDate *today = [gregorian dateFromComponents:todayComponents];
 
-	// We start 2 days ago
-	NSDate *dateToAdd = [today dateByAddingTimeInterval:-(2*60*60*24)];
+	// We start 4 days ago
+	NSDate *dateToAdd = [today dateByAddingTimeInterval:-(4*60*60*24)];
 	for (NSUInteger indication = kPocutje; indication > kUnknown; indication--) {
 		for (NSUInteger count = 0; count < 3; count++) {
 			[_calendarEntriesHistory addObject:[CalendarHistoryEntry entryWithDate:dateToAdd andIndicationType:indication]];
@@ -64,8 +65,10 @@
 		dateToAdd = [dateToAdd dateByAddingTimeInterval:-(2*60*60*24)];
 	}
 
-	// lets create some in the future as well (from today), just for good measure
-	dateToAdd = today;
+	// lets create some in the future as well (from yesterday), just for good measure
+	dateToAdd = [today dateByAddingTimeInterval:-(60*60*24)];
+	[[SettingsManager sharedManager] setIndicationActivation:dateToAdd];
+	[[SettingsManager sharedManager] setActiveIndication:kMagnezij];
 	for (NSUInteger count = 0; count < 5; count++) {
 		[_calendarEntriesHistory addObject:[CalendarHistoryEntry entryWithDate:dateToAdd andIndicationType:kMagnezij]];
 		// go to day after
