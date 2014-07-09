@@ -30,7 +30,7 @@
 		_day = 0;
 		_date = [NSDate date];
 
-		self.backgroundColor = [UIColor colorWithWhite:1.0f alpha:0.5f];
+		self.backgroundColor = kCalendarFieldColorWhite;
 
 		_glassIcon = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"ikona-kozarec.png"]];
 		_todayIcon = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"ikona-danes.png"]];
@@ -69,6 +69,7 @@
 - (void)updateDrinkIcon {
 	_glassIcon.hidden = !_shouldDrink;
 	_glassIcon.alpha = [[NSDate date] compare:_date] == NSOrderedAscending ? 1.0f : 0.5f;
+	self.backgroundColor = _shouldDrink ? kCalendarFieldColorGray : kCalendarFieldColorWhite;
 }
 
 - (void)setToday:(BOOL)today {

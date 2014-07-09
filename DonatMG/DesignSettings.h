@@ -27,6 +27,9 @@
 #define kCalendarDaysFont [UIFont fontWithName:@"Roboto-Light" size:20.0f]
 #define kCalendarNumbersFont [UIFont fontWithName:@"Roboto-Light" size:22.0f]
 
+#define kCalendarFieldColorGray [UIColor colorWithWhite:0.6f alpha:0.2f]
+#define kCalendarFieldColorWhite [UIColor colorWithWhite:1.0f alpha:0.5f]
+
 #define kSelectionBorderColor [UIColor colorWithRed:0.7773f green:0.8555f blue:0.8594f alpha:1.0f]
 #define kSelectionBorderWidth 5.0f
 
