@@ -11,6 +11,7 @@
 @implementation CalendarHistoryEntry
 
 @synthesize date = _date;
+@synthesize startDate = _startDate;
 @synthesize indicationType = _indicationType;
 
 - (id)init {
@@ -21,13 +22,14 @@
 	return self;
 }
 
-+ (id)entryWithDate:(NSDate *)date andIndicationType:(IndicationType)indicationType {
-	return [[CalendarHistoryEntry alloc] initWithDate:date andIndicationType:indicationType];
++ (id)entryWithDate:(NSDate *)date startDate:(NSDate *)startDate andIndicationType:(IndicationType)indicationType {
+	return [[CalendarHistoryEntry alloc] initWithDate:date startDate:startDate andIndicationType:indicationType];
 }
 
-- (id)initWithDate:(NSDate *)date andIndicationType:(IndicationType)indicationType {
+- (id)initWithDate:(NSDate *)date startDate:(NSDate *)startDate andIndicationType:(IndicationType)indicationType {
 	if (self = [super init]) {
 		_date = date;
+		_startDate = startDate;
 		_indicationType = indicationType;
 	}
 	return self;
@@ -36,6 +38,7 @@
 - (id)initWithCoder:(NSCoder *)aDecoder {
 	if (self = [super init]) {
 		_date = [aDecoder decodeObjectForKey:@"date"];
+		_startDate = [aDecoder decodeObjectForKey:@"startDate"];
 		_indicationType = [aDecoder decodeIntegerForKey:@"indication"];
 	}
 	return self;
@@ -43,6 +46,7 @@
 
 - (void)encodeWithCoder:(NSCoder *)aCoder {
 	[aCoder encodeObject:_date forKey:@"date"];
+	[aCoder encodeObject:_startDate forKey:@"startDate"];
 	[aCoder encodeInteger:_indicationType forKey:@"indication"];
 }
 

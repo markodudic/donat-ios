@@ -8,7 +8,6 @@
 
 #import "TreatmentManager.h"
 #import "SettingsManager.h"
-#import "CalendarHistoryEntry.h"
 
 @implementation TreatmentManager
 
@@ -57,7 +56,7 @@
 	NSDate *dateToAdd = [today dateByAddingTimeInterval:-(4*60*60*24)];
 	for (NSUInteger indication = kPocutje; indication > kUnknown; indication--) {
 		for (NSUInteger count = 0; count < 3; count++) {
-			[_calendarEntriesHistory addObject:[CalendarHistoryEntry entryWithDate:dateToAdd andIndicationType:indication]];
+			[_calendarEntriesHistory addObject:[CalendarHistoryEntry entryWithDate:dateToAdd startDate:dateToAdd andIndicationType:indication]];
 			// go to day before
 			dateToAdd = [dateToAdd dateByAddingTimeInterval:-(60*60*24)];
 		}
@@ -70,7 +69,7 @@
 	[[SettingsManager sharedManager] setIndicationActivation:dateToAdd];
 	[[SettingsManager sharedManager] setActiveIndication:kMagnezij];
 	for (NSUInteger count = 0; count < 5; count++) {
-		[_calendarEntriesHistory addObject:[CalendarHistoryEntry entryWithDate:dateToAdd andIndicationType:kMagnezij]];
+		[_calendarEntriesHistory addObject:[CalendarHistoryEntry entryWithDate:dateToAdd startDate:dateToAdd andIndicationType:kMagnezij]];
 		// go to day after
 		dateToAdd = [dateToAdd dateByAddingTimeInterval:60*60*24];
 	}
@@ -251,13 +250,21 @@
 }
 
 - (IndicationType)indicationForDate:(NSDate *)date {
+	CalendarHistoryEntry *entry = [self historyItemForDate:date];
+	if (entry)
+		return entry.indicationType;
+	else
+		return kUnknown;
+}
+
+- (CalendarHistoryEntry *)historyItemForDate:(NSDate *)date {
 //	DLog(@"Searching for %@", [NSDateFormatter localizedStringFromDate:date dateStyle:NSDateFormatterShortStyle timeStyle:NSDateFormatterFullStyle]);
 	for (CalendarHistoryEntry *entry in _calendarEntriesHistory) {
 		if ([date compare:entry.date] == NSOrderedSame) {
-			return entry.indicationType;
+			return entry;
 		}
 	}
-	return kUnknown;
+	return nil;
 }
 
 @end

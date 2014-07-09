@@ -62,6 +62,11 @@
 	[self updateDateShown];
 }
 
+- (void)setHistoryItem:(CalendarHistoryEntry *)historyItem {
+	_historyItem = historyItem;
+	[self updateDateShown];
+}
+
 - (void)calculateViews:(BOOL)animated {
 	CGFloat headerAngle = _openHeader ? M_PI : 0.0f;
 	CGFloat drinkAngle = _openDrink ? M_PI : 0.0f;
@@ -76,10 +81,11 @@
 	CGSize contentSize = CGSizeMake(320.0f, durationFrame.origin.y + durationFrame.size.height);
 
 	CGRect startFrame = CGRectMake(.0f, contentSize.height, 320.0f, self.startPanel.frame.size.height);
-	if (!_justShowInfo) {
+//	if (!_justShowInfo) {
 		contentSize.height += startFrame.size.height;
-	}
-	_startPanel.hidden = _justShowInfo;
+//	}
+//	_startPanel.hidden = _justShowInfo;
+	_bigButton.enabled = !_justShowInfo;
 
 	void (^animationBlock)(void) = ^{
 		self.headerPanel.frame = headerFrame;
@@ -92,7 +98,7 @@
 		self.durationButton.transform = CGAffineTransformMakeRotation(durationAngle);
 
 		self.startPanel.frame = startFrame;
-		self.startPanel.hidden = _justShowInfo;
+//		self.startPanel.hidden = _justShowInfo;
 
 		self.scrollView.contentSize = contentSize;
 	};
@@ -296,8 +302,11 @@
 	NSArray *buttonsArray = @[settingsItem, calendarItem];
 	self.navigationItem.rightBarButtonItems = buttonsArray;
 
-
-	_startDate = _amActive ? [[SettingsManager sharedManager] indicationActivation] : [NSDate date];
+	if (_historyItem) {
+		_startDate = _historyItem.startDate;
+	} else {
+		_startDate = _amActive ? [[SettingsManager sharedManager] indicationActivation] : [NSDate date];
+	}
 	NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
 	NSDateComponents *dateComponents = [gregorian components:(NSYearCalendarUnit | NSMonthCalendarUnit |  NSDayCalendarUnit) fromDate:_startDate];
 	[self updateDateShown];

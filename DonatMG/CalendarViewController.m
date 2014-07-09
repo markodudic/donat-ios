@@ -259,13 +259,16 @@
 #pragma mark - CalendarFieldView
 
 - (void)dateWasClicked:(NSDate *)date {
-	IndicationType indicationType = [[TreatmentManager sharedManager] indicationForDate:date];
+	CalendarHistoryEntry *historyEntry = [[TreatmentManager sharedManager] historyItemForDate:date];
 
-	if (indicationType != kUnknown) {
+	if (historyEntry.indicationType != kUnknown) {
 		UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
 		IndicationViewController *viewController = [storyboard instantiateViewControllerWithIdentifier:@"indicationViewController"];
 		viewController.justShowInfo = YES;
-		viewController.indicationType = indicationType;
+		viewController.indicationType = historyEntry.indicationType;
+		viewController.startDate = historyEntry.startDate;
+		// FUGLY
+		viewController.historyItem = historyEntry;
 		[self.navigationController pushViewController:viewController animated:YES];
 	}
 }

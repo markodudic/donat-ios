@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CalendarHistoryEntry.h"
 
 @interface IndicationViewController : UIViewController <UITextFieldDelegate, UIAlertViewDelegate> {
 	BOOL _amActive;
@@ -26,6 +27,7 @@
 @property (nonatomic, strong) IBOutlet UITextField *dummyField;
 
 @property (nonatomic, retain) NSDate *startDate;
+@property (nonatomic, retain) CalendarHistoryEntry *historyItem;
 
 @property (atomic, assign) IndicationType indicationType;
 @property (atomic, assign) BOOL justShowInfo;

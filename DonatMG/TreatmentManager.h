@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "CalendarHistoryEntry.h"
 
 @interface TreatmentManager : NSObject {
 	NSMutableArray *_calendarEntriesHistory;
@@ -18,5 +19,6 @@
 - (NSArray *)stringsForIndication:(IndicationType)indication;
 
 - (IndicationType)indicationForDate:(NSDate *)date;
+- (CalendarHistoryEntry *)historyItemForDate:(NSDate *)date;
 
 @end
