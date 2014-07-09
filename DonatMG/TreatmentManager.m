@@ -348,6 +348,8 @@
 		[self writeOutHistory];
 	}
 
+	[[UIApplication sharedApplication] cancelAllLocalNotifications];
+
 	[[SettingsManager sharedManager] setActiveIndication:kUnknown];
 	[[SettingsManager sharedManager] setIndicationActivation:[NSDate date]];
 }
