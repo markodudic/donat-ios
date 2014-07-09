@@ -525,9 +525,15 @@
 
 	NSArray *daysToDrink = [self drinkingDatesForIndication:indication fromDate:date andTillDate:[date dateByAddingTimeInterval:(60*60*24*365)]];
 
+	NSUInteger count = 0;
+
 	for (NSDate *entryDate in daysToDrink) {
 		[_calendarEntriesHistory addObject:[CalendarHistoryEntry entryWithDate:entryDate startDate:date andIndicationType:indication]];
 		[self setNotificationsForDate:entryDate andIndication:indication];
+
+		// for now set notifications for 10 days, good for testing, needs to be removed
+		if (count++ > 10)
+			break;
 	}
 	[self writeOutHistory];
 
