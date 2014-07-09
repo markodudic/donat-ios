@@ -118,6 +118,7 @@
 		517176D8196ACEB6005422B9 /* ikona-alarm.png in Resources */ = {isa = PBXBuildFile; fileRef = 517176D6196ACEB6005422B9 /* ikona-alarm.png */; };
 		517176D9196ACEB6005422B9 /* ikona-alarm@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 517176D7196ACEB6005422B9 /* ikona-alarm@2x.png */; };
 		517176E5196BD6A1005422B9 /* InsetLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 517176E4196BD6A1005422B9 /* InsetLabel.m */; };
+		517176EC196C3535005422B9 /* CalendarHistoryEntry.m in Sources */ = {isa = PBXBuildFile; fileRef = 517176EB196C3535005422B9 /* CalendarHistoryEntry.m */; };
 		51914C8319693B9100EDED15 /* CalendarFieldView.m in Sources */ = {isa = PBXBuildFile; fileRef = 51914C8219693B9100EDED15 /* CalendarFieldView.m */; };
 		51914C8F196942EE00EDED15 /* ikona-danes.png in Resources */ = {isa = PBXBuildFile; fileRef = 51914C8D196942EE00EDED15 /* ikona-danes.png */; };
 		51914C90196942EE00EDED15 /* ikona-danes@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 51914C8E196942EE00EDED15 /* ikona-danes@2x.png */; };
@@ -319,6 +320,8 @@
 		517176D7196ACEB6005422B9 /* ikona-alarm@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ikona-alarm@2x.png"; sourceTree = "<group>"; };
 		517176E3196BD6A1005422B9 /* InsetLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InsetLabel.h; sourceTree = "<group>"; };
 		517176E4196BD6A1005422B9 /* InsetLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InsetLabel.m; sourceTree = "<group>"; };
+		517176EA196C3535005422B9 /* CalendarHistoryEntry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalendarHistoryEntry.h; sourceTree = "<group>"; };
+		517176EB196C3535005422B9 /* CalendarHistoryEntry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarHistoryEntry.m; sourceTree = "<group>"; };
 		51914C8119693B9100EDED15 /* CalendarFieldView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalendarFieldView.h; sourceTree = "<group>"; };
 		51914C8219693B9100EDED15 /* CalendarFieldView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarFieldView.m; sourceTree = "<group>"; };
 		51914C8D196942EE00EDED15 /* ikona-danes.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ikona-danes.png"; sourceTree = "<group>"; };
@@ -578,6 +581,8 @@
 				51B9B0201965CFB9009080E2 /* IndicationCell.m */,
 				517176E3196BD6A1005422B9 /* InsetLabel.h */,
 				517176E4196BD6A1005422B9 /* InsetLabel.m */,
+				517176EA196C3535005422B9 /* CalendarHistoryEntry.h */,
+				517176EB196C3535005422B9 /* CalendarHistoryEntry.m */,
 				5115E8A01960311C00A8CD07 /* Images.xcassets */,
 				5115E88F1960311C00A8CD07 /* Supporting Files */,
 			);
@@ -898,6 +903,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5115E89F1960311C00A8CD07 /* DonatViewController.m in Sources */,
+				517176EC196C3535005422B9 /* CalendarHistoryEntry.m in Sources */,
 				51D5E7E41966483000B7C3AF /* IndicationViewController.m in Sources */,
 				5115E8991960311C00A8CD07 /* AppDelegate.m in Sources */,
 				51914C8319693B9100EDED15 /* CalendarFieldView.m in Sources */,

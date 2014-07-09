@@ -39,6 +39,8 @@
 
 #define kApplicationDidReceiveNotification @"kApplicationDidReceiveNotification"
 
+#define kApplicationDataFilename @"DonatMGCalendar.data"
+
 
 // Constants to be used for indications
 typedef NS_ENUM(NSUInteger, IndicationType) {

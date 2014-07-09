@@ -8,7 +8,9 @@
 
 #import <Foundation/Foundation.h>
 
-@interface TreatmentManager : NSObject
+@interface TreatmentManager : NSObject {
+	NSMutableArray *_calendarEntriesHistory;
+}
 
 + (id)sharedManager;
 

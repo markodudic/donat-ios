@@ -7,8 +7,11 @@
 //
 
 #import "TreatmentManager.h"
+#import "CalendarHistoryEntry.h"
 
 @implementation TreatmentManager
+
+#define kHistoryArchiveKey @"history"
 
 #pragma mark Singleton Methods
 
@@ -21,8 +24,67 @@
 	return sharedTreatmentManager;
 }
 
+- (NSString *)applicationDocumentsDirectory {
+	NSURL *docDir = [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
+	return docDir.path;
+}
+
+- (NSString *)datafilePath {
+	return [[self applicationDocumentsDirectory] stringByAppendingPathComponent:kApplicationDataFilename];
+}
+
+- (void)writeOutHistory {
+	NSMutableData *data = [[NSMutableData alloc] init];
+	NSKeyedArchiver *archiver = [[NSKeyedArchiver alloc] initForWritingWithMutableData:data];
+	[archiver encodeObject:_calendarEntriesHistory forKey:kHistoryArchiveKey];
+	[archiver finishEncoding];
+	[data writeToFile:[self datafilePath] atomically:YES];
+}
+
+- (void)createDummyData {
+#if DEBUG == 1
+	DLog(@"Creating dummy data");
+
+	_calendarEntriesHistory = [[NSMutableArray alloc] init];
+
+	// we need today without the time
+	NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+	NSDateComponents *todayComponents = [gregorian components:NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit fromDate:[NSDate date]];
+	NSDate *today = [gregorian dateFromComponents:todayComponents];
+
+	// We start 2 days ago
+	NSDate *dateToAdd = [today dateByAddingTimeInterval:-(2*60*60*24)];
+	for (NSUInteger indication = kPocutje; indication > kUnknown; indication--) {
+		for (NSUInteger count = 0; count < 3; count++) {
+			[_calendarEntriesHistory addObject:[CalendarHistoryEntry entryWithDate:dateToAdd andIndicationType:indication]];
+			// go to day before
+			dateToAdd = [dateToAdd dateByAddingTimeInterval:-(60*60*24)];
+		}
+		// skip 2 days
+		dateToAdd = [dateToAdd dateByAddingTimeInterval:-(2*60*60*24)];
+	}
+
+	// write the history file, so the next run will read it instead of generating again
+	[self writeOutHistory];
+#endif
+}
+
 - (id)init {
 	if (self = [super init]) {
+		if ([[NSFileManager defaultManager] fileExistsAtPath:[self datafilePath]]) {
+			NSData *data = [[NSData alloc] initWithContentsOfFile:[self datafilePath]];
+			NSKeyedUnarchiver *unarchiver = [[NSKeyedUnarchiver alloc] initForReadingWithData:data];
+			NSArray *historyData = [unarchiver decodeObjectForKey:kHistoryArchiveKey];
+			[unarchiver finishDecoding];
+
+			if (historyData) {
+				_calendarEntriesHistory = [[NSMutableArray alloc] initWithArray:historyData];
+			} else {
+				[self createDummyData];
+			}
+		} else {
+			[self createDummyData];
+		}
 	}
 	return self;
 }
@@ -178,10 +240,13 @@
 }
 
 - (IndicationType)indicationForDate:(NSDate *)date {
-	int j = [date timeIntervalSince1970];
-	int days=(int)((double)j/(3600.0*24.00));
-
-	return days % 11;
+//	DLog(@"Searching for %@", [NSDateFormatter localizedStringFromDate:date dateStyle:NSDateFormatterShortStyle timeStyle:NSDateFormatterFullStyle]);
+	for (CalendarHistoryEntry *entry in _calendarEntriesHistory) {
+		if ([date compare:entry.date] == NSOrderedSame) {
+			return entry.indicationType;
+		}
+	}
+	return kUnknown;
 }
 
 @end
