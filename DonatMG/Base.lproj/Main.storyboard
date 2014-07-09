@@ -121,6 +121,8 @@
                         <outlet property="noonIcon" destination="AfY-cY-mpZ" id="6c5-Xu-OUj"/>
                         <outlet property="noonLabel" destination="aNb-1l-REM" id="lLu-N7-FHu"/>
                         <outlet property="timeOfDayLabel" destination="GKu-Bk-eJG" id="qJH-ia-qVo"/>
+                        <segue destination="m2W-nZ-ERo" kind="push" identifier="showCalendar" id="5l1-cL-Ryt"/>
+                        <segue destination="VsN-8R-FLY" kind="push" identifier="showSettings" id="FZF-wh-7ZT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ev1-ef-wQM" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -132,7 +134,7 @@
             <objects>
                 <viewController id="m2W-nZ-ERo" customClass="CalendarViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="PTM-lZ-dM8">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="650"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" id="oYV-MD-5Pf">
@@ -222,7 +224,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" id="QS9-SW-eWp">
-                                <rect key="frame" x="0.0" y="153" width="320" height="497"/>
+                                <rect key="frame" x="0.0" y="153" width="320" height="327"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" id="6S9-z0-D8A">
@@ -575,11 +577,11 @@
             <objects>
                 <viewController id="xjP-fi-gQ9" customClass="LegalViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="YgP-D2-S4X">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="650"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="aos-hl-b4N">
-                                <rect key="frame" x="0.0" y="63" width="320" height="650"/>
+                                <rect key="frame" x="0.0" y="63" width="320" height="480"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="wJj-UJ-97P">
@@ -616,11 +618,11 @@
             <objects>
                 <viewController id="VsN-8R-FLY" customClass="SettingsViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="9FA-yr-i2y">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="650"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="CR0-FI-j9I">
-                                <rect key="frame" x="0.0" y="64" width="320" height="593"/>
+                                <rect key="frame" x="0.0" y="64" width="320" height="423"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" id="2pH-j9-uft" userLabel="Red Line">
@@ -629,7 +631,7 @@
                                         <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     </view>
                                     <view contentMode="scaleToFill" id="JIQ-0I-d29">
-                                        <rect key="frame" x="20" y="19.5" width="280" height="491"/>
+                                        <rect key="frame" x="20" y="-13" width="280" height="491"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_jezik.png" id="r5X-HJ-YHy">
@@ -1013,7 +1015,7 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="tvK-0p-GBK"/>
-        <segue reference="hDt-6S-wAu"/>
+        <segue reference="5l1-cL-Ryt"/>
+        <segue reference="FZF-wh-7ZT"/>
     </inferredMetricsTieBreakers>
 </document>

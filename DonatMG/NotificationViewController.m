@@ -19,6 +19,14 @@
 
 @synthesize notification = _notification;
 
+- (void)calendar {
+	[self performSegueWithIdentifier:@"showCalendar" sender:self];
+}
+
+- (void)settings {
+	[self performSegueWithIdentifier:@"showSettings" sender:self];
+}
+
 - (void)viewDidLoad {
 	[super viewDidLoad];
 
@@ -57,6 +65,12 @@
 	_labelDown.textAlignment = NSTextAlignmentCenter;
 	[_containerView addSubview:_labelDown];
 
+	UIBarButtonItem *calendarItem = [[UIBarButtonItem alloc] initWithImage:[[UIImage imageNamed:@"calendar.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] style:UIBarButtonItemStylePlain target:self action:@selector(calendar)];
+
+	UIBarButtonItem *settingsItem = [[UIBarButtonItem alloc] initWithImage:[[UIImage imageNamed:@"settings.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] style:UIBarButtonItemStylePlain target:self action:@selector(settings)];
+
+	NSArray *buttonsArray = @[settingsItem, calendarItem];
+	self.navigationItem.rightBarButtonItems = buttonsArray;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
