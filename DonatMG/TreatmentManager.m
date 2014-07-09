@@ -501,7 +501,7 @@
 		case kDebelost:
 			[self setNotificationPredZajtrkomForDate:date withStrings:strings[0] andIndication:indication];
 			[self setNotificationPredKosilomForDate:date withStrings:strings[1] andIndication:indication];
-			[self setNotificationPredVecerjoForDate:date withStrings:strings[2] andIndication:indication];
+			[self setNotificationPredVecerjoForDate:date withStrings:strings[1] andIndication:indication];
 			break;
 		case kSrceOzilje:
 			// TODO: ??
@@ -512,8 +512,8 @@
 			break;
 		case kPocutje:
 			[self setNotificationPredZajtrkomForDate:date withStrings:strings[0] andIndication:indication];
-			[self setNotificationPredKosilomForDate:date withStrings:strings[1] andIndication:indication];
-			[self setNotificationPredVecerjoForDate:date withStrings:strings[2] andIndication:indication];
+			[self setNotificationPredKosilomForDate:date withStrings:strings[0] andIndication:indication];
+			[self setNotificationPredVecerjoForDate:date withStrings:strings[0] andIndication:indication];
 			break;
 		default:
 			break;
@@ -529,12 +529,12 @@
 
 	for (NSDate *entryDate in daysToDrink) {
 		[_calendarEntriesHistory addObject:[CalendarHistoryEntry entryWithDate:entryDate startDate:date andIndicationType:indication]];
-		[self setNotificationsForDate:entryDate andIndication:indication];
 
 		// for now set notifications for 10 days, good for testing, needs to be removed
-		if (count++ > 10)
-			break;
+		if (count++ < 11)
+			[self setNotificationsForDate:entryDate andIndication:indication];
 	}
+
 	[self writeOutHistory];
 
 	[[SettingsManager sharedManager] setActiveIndication:indication];
