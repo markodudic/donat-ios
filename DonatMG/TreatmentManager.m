@@ -317,10 +317,89 @@
 	return nil;
 }
 
-- (void)startTreatmentForIndication:(IndicationType)indication fromDate:(NSDate *)date {
-	DLog(@"Should start treatment for %@ from date %@", [TreatmentManager descriptionForIndication:indication], [NSDateFormatter localizedStringFromDate:date dateStyle:NSDateFormatterShortStyle timeStyle:NSDateFormatterFullStyle]);
+- (NSArray *)calculateDrinkingDaysFromDate:(NSDate *)startDate tillDate:(NSDate *)endDate withDrinkDays:(NSInteger)drinkDays pauseDays:(NSInteger)pauseDays andCycles:(NSInteger)cycles {
 
+	NSMutableArray *results = [[NSMutableArray alloc] init];
+
+	NSInteger drink = 0;
+	NSInteger pause = 1;
+	NSInteger cycle = 1;
+
+	// we need the date without the time
+	NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+	NSDateComponents *todayComponents = [gregorian components:NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit fromDate:startDate];
+	NSDate *date = [gregorian dateFromComponents:todayComponents];
+
+	while ([date compare:endDate] == NSOrderedDescending) {
+		if (drink < drinkDays) {
+			[results addObject:date];
+			drink++;
+		} else {
+			if (pause < pauseDays) {
+				pause++;
+			} else {
+				if (cycle == cycles)
+					break;
+				cycle++;
+				pause = 1;
+				drink = 0;
+			}
+		}
+		date = [date dateByAddingTimeInterval:(60*60*24)];
+	}
+
+	return results;
+}
+
+- (NSArray *)simpleDateTraversalFromDate:(NSDate *)startDate tillDate:(NSDate *)endDate {
+	// we need the date without the time
+	NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+	NSDateComponents *todayComponents = [gregorian components:NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit fromDate:startDate];
+	NSDate *date = [gregorian dateFromComponents:todayComponents];
+
+	NSMutableArray *results = [[NSMutableArray alloc] init];
+
+	while ([date compare:endDate] == NSOrderedAscending) {
+		[results addObject:date];
+		date = [date dateByAddingTimeInterval:(60*60*24)];
+	}
+
+	return results;
+}
+
+- (NSArray *)drinkingDatesForIndication:(IndicationType)indication fromDate:(NSDate *)startDate andTillDate:(NSDate *)endDate {
+
+	switch (indication) {
+		case kZaprtost:
+		case kSladkorna:
+			return [self calculateDrinkingDaysFromDate:startDate tillDate:endDate withDrinkDays:5 pauseDays:2 andCycles:-1];
+			break;
+		case kSlinavka:
+			return [self calculateDrinkingDaysFromDate:startDate tillDate:endDate withDrinkDays:42 pauseDays:21 andCycles:3];
+			break;
+		case kDebelost:
+			return [self calculateDrinkingDaysFromDate:startDate tillDate:endDate withDrinkDays:90 pauseDays:30 andCycles:3];
+			break;
+		case kSrceOzilje:
+		case kStres:
+			return [self calculateDrinkingDaysFromDate:startDate tillDate:endDate withDrinkDays:60 pauseDays:30 andCycles:3];
+		default: // kZgaga kMagnezij kSecniKamni kPocutje
+			return [self simpleDateTraversalFromDate:startDate tillDate:endDate];
+			break;
+	}
+}
+
+- (void)startTreatmentForIndication:(IndicationType)indication fromDate:(NSDate *)date {
 	[self cancelActiveTreatment];
+
+	NSArray *daysToDrink = [self drinkingDatesForIndication:indication fromDate:date andTillDate:[date dateByAddingTimeInterval:(60*60*24*365)]];
+
+	// TODO: set the actual notifications
+
+	for (NSDate *entryDate in daysToDrink) {
+		[_calendarEntriesHistory addObject:[CalendarHistoryEntry entryWithDate:entryDate startDate:date andIndicationType:indication]];
+	}
+	[self writeOutHistory];
 
 	[[SettingsManager sharedManager] setActiveIndication:indication];
 	[[SettingsManager sharedManager] setIndicationActivation:date];
