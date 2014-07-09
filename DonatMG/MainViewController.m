@@ -28,8 +28,8 @@
 	[testDictionary setValue:[NSNumber numberWithUnsignedInteger:kStres] forKey:@"indication"];
 	[testDictionary setValue:[NSNumber numberWithUnsignedChar:2] forKey:@"timeOfDay"];
 	[testDictionary setValue:@"3-5 dcl" forKey:@"amount"];
-	[testDictionary setValue:@"lukewarm" forKey:@"temperature"];
-	[testDictionary setValue:@"slow" forKey:@"speed"];
+	[testDictionary setValue:@"20 °C" forKey:@"temperature"];
+	[testDictionary setValue:@"Slowly" forKey:@"speed"];
 
 	UILocalNotification *testNotifation = [[UILocalNotification alloc] init];
 	testNotifation.fireDate = [NSDate dateWithTimeIntervalSinceNow:5];
