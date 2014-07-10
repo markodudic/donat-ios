@@ -131,6 +131,8 @@
 
 - (id)init {
 	if (self = [super init]) {
+		_calendarEntriesHistory = [[NSMutableArray alloc] init];
+
 		if ([[NSFileManager defaultManager] fileExistsAtPath:[self datafilePath]]) {
 			NSData *data = [[NSData alloc] initWithContentsOfFile:[self datafilePath]];
 			NSKeyedUnarchiver *unarchiver = [[NSKeyedUnarchiver alloc] initForReadingWithData:data];
