@@ -655,7 +655,52 @@
 }
 
 - (void)setNotificationsForZgagaWithStrings:(NSArray *)strings onDate:(NSDate *)date {
-	// TODO
+	// Večkrat dnevno - posameznikov dan se razdeli na 4 dele, za vsak del reminder
+	NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+	NSDate *wakeTime = [gregorian dateFromComponents:[[SettingsManager sharedManager] wakeTime]];
+	NSDate *sleepTime = [gregorian dateFromComponents:[[SettingsManager sharedManager] sleepingTime]];
+
+	NSDate *start = [self combineDate:date withTime:wakeTime];
+	NSDate *end = [self combineDate:date withTime:sleepTime];
+
+	NSTimeInterval secondsbetween = [end timeIntervalSinceDate:start];
+	NSTimeInterval period = secondsbetween / 3;
+
+	NSDate *first = [start dateByAddingTimeInterval:period];
+	NSDate *second = [first dateByAddingTimeInterval:period];
+
+	[self setNotificationAtTime:start withBody:___(@"drinking_veckrat_dnevno") andUserInfo:[self createUserInfoForIndication:kSrceOzilje withStrings:strings actionString:___(@"drinking_veckrat_dnevno") andTimeOfDay:1]];
+	[self setNotificationAtTime:first withBody:___(@"drinking_veckrat_dnevno") andUserInfo:[self createUserInfoForIndication:kSrceOzilje withStrings:strings actionString:___(@"drinking_veckrat_dnevno") andTimeOfDay:1]];
+	[self setNotificationAtTime:second withBody:___(@"drinking_veckrat_dnevno") andUserInfo:[self createUserInfoForIndication:kSrceOzilje withStrings:strings actionString:___(@"drinking_veckrat_dnevno") andTimeOfDay:1]];
+	[self setNotificationAtTime:end withBody:___(@"drinking_veckrat_dnevno") andUserInfo:[self createUserInfoForIndication:kSrceOzilje withStrings:strings actionString:___(@"drinking_veckrat_dnevno") andTimeOfDay:1]];
+
+	// 20 min pred jedjo - 25 min pred vsakim obrokom
+
+	// pred zajtrkom
+	NSDate *notificationTime = [[self combineDate:date withTimeComponents:[[SettingsManager sharedManager] breakfastTime]] dateByAddingTimeInterval:(-25*60)];
+	[self setNotificationAtTime:notificationTime withBody:___(@"drinking_pred_jedjo") andUserInfo:[self createUserInfoForIndication:kZgaga withStrings:strings actionString:___(@"drinking_pred_jedjo") andTimeOfDay:2]];
+
+	//pred kosilom
+	notificationTime = [[self combineDate:date withTimeComponents:[[SettingsManager sharedManager] lunchTime]] dateByAddingTimeInterval:(-25*60)];
+	[self setNotificationAtTime:notificationTime withBody:___(@"drinking_pred_jedjo") andUserInfo:[self createUserInfoForIndication:kZgaga withStrings:strings actionString:___(@"drinking_pred_jedjo") andTimeOfDay:2]];
+
+	// pred vecerjo
+	notificationTime = [[self combineDate:date withTimeComponents:[[SettingsManager sharedManager] dinnerTime]] dateByAddingTimeInterval:(-25*60)];
+	[self setNotificationAtTime:notificationTime withBody:___(@"drinking_pred_jedjo") andUserInfo:[self createUserInfoForIndication:kZgaga withStrings:strings actionString:___(@"drinking_pred_jedjo") andTimeOfDay:2]];
+
+	// Med obroki in 1-2 uri po jedi - 1:30h po obroku
+
+	// po zajtrku
+	notificationTime = [[self combineDate:date withTimeComponents:[[SettingsManager sharedManager] breakfastTime]] dateByAddingTimeInterval:(90*60)];
+	[self setNotificationAtTime:notificationTime withBody:___(@"drinking_med_obroki") andUserInfo:[self createUserInfoForIndication:kZgaga withStrings:strings actionString:___(@"drinking_med_obroki") andTimeOfDay:3]];
+
+	// po kosilu
+	notificationTime = [[self combineDate:date withTimeComponents:[[SettingsManager sharedManager] lunchTime]] dateByAddingTimeInterval:(90*60)];
+	[self setNotificationAtTime:notificationTime withBody:___(@"drinking_med_obroki") andUserInfo:[self createUserInfoForIndication:kZgaga withStrings:strings actionString:___(@"drinking_med_obroki") andTimeOfDay:3]];
+
+	// po vecerji
+	notificationTime = [[self combineDate:date withTimeComponents:[[SettingsManager sharedManager] dinnerTime]] dateByAddingTimeInterval:(90*60)];
+	[self setNotificationAtTime:notificationTime withBody:___(@"drinking_med_obroki") andUserInfo:[self createUserInfoForIndication:kZgaga withStrings:strings actionString:___(@"drinking_med_obroki") andTimeOfDay:3]];
 }
 
 - (void)setNotificationsForSrceOziljeWithStrings:(NSArray *)strings onDate:(NSDate *)date {
