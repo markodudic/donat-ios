@@ -605,7 +605,7 @@
 	return [gregorian dateFromComponents:dateComponents];
 }
 
-- (NSDictionary *)createUserInfoForIndication:(IndicationType)indication withStrings:(NSArray *)strings andTimeOfDay:(NSInteger)time {
+- (NSDictionary *)createUserInfoForIndication:(IndicationType)indication withStrings:(NSArray *)strings actionString:(NSString *)actionString andTimeOfDay:(NSInteger)time {
 	NSMutableDictionary *result = [[NSMutableDictionary alloc] init];
 
 	[result setValue:[NSNumber numberWithUnsignedInteger:indication] forKey:@"indication"];
@@ -613,6 +613,7 @@
 	[result setValue:strings[2] forKey:@"amount"];
 	[result setValue:strings[1] forKey:@"temperature"];
 	[result setValue:strings[3] forKey:@"speed"];
+	[result setValue:actionString forKey:@"actionString"];
 
 	return result;
 }
@@ -630,31 +631,31 @@
 - (void)setNotificationPredZajtrkomForDate:(NSDate *)date withStrings:(NSArray *)strings timeOfDay:(NSInteger)time andIndication:(IndicationType)indication {
 	NSDate *notificationTime = [[self combineDate:date withTimeComponents:[[SettingsManager sharedManager] breakfastTime]] dateByAddingTimeInterval:(-5*60)];
 
-	[self setNotificationAtTime:notificationTime withBody:___(@"drinking_na_tesce") andUserInfo:[self createUserInfoForIndication:indication withStrings:strings andTimeOfDay:time]];
+	[self setNotificationAtTime:notificationTime withBody:___(@"drinking_na_tesce") andUserInfo:[self createUserInfoForIndication:indication withStrings:strings actionString:___(@"drinking_na_tesce") andTimeOfDay:time]];
 }
 
 - (void)setNotificationPredKosilomForDate:(NSDate *)date withStrings:(NSArray *)strings timeOfDay:(NSInteger)time andIndication:(IndicationType)indication {
 	NSDate *notificationTime = [[self combineDate:date withTimeComponents:[[SettingsManager sharedManager] lunchTime]] dateByAddingTimeInterval:(-5*60)];
 
-	[self setNotificationAtTime:notificationTime withBody:___(@"drinking_pred_kosilom") andUserInfo:[self createUserInfoForIndication:indication withStrings:strings andTimeOfDay:time]];
+	[self setNotificationAtTime:notificationTime withBody:___(@"drinking_pred_kosilom") andUserInfo:[self createUserInfoForIndication:indication withStrings:strings actionString:___(@"drinking_pred_kosilom") andTimeOfDay:time]];
 }
 
 - (void)setNotificationPredVecerjoForDate:(NSDate *)date withStrings:(NSArray *)strings timeOfDay:(NSInteger)time andIndication:(IndicationType)indication {
 	NSDate *notificationTime = [[self combineDate:date withTimeComponents:[[SettingsManager sharedManager] dinnerTime]] dateByAddingTimeInterval:(-5*60)];
 
-	[self setNotificationAtTime:notificationTime withBody:___(@"drinking_pred_vecerjo") andUserInfo:[self createUserInfoForIndication:indication withStrings:strings andTimeOfDay:time]];
+	[self setNotificationAtTime:notificationTime withBody:___(@"drinking_pred_vecerjo") andUserInfo:[self createUserInfoForIndication:indication withStrings:strings actionString:___(@"drinking_pred_vecerjo") andTimeOfDay:time]];
 }
 
 - (void)setNotificationPredSpanjemForDate:(NSDate *)date withStrings:(NSArray *)strings timeOfDay:(NSInteger)time andIndication:(IndicationType)indication {
 	NSDate *notificationTime = [[self combineDate:date withTimeComponents:[[SettingsManager sharedManager] sleepingTime]] dateByAddingTimeInterval:(-5*60)];
 
-	[self setNotificationAtTime:notificationTime withBody:___(@"drinking_pred_spanjem") andUserInfo:[self createUserInfoForIndication:indication withStrings:strings andTimeOfDay:time]];
+	[self setNotificationAtTime:notificationTime withBody:___(@"drinking_pred_spanjem") andUserInfo:[self createUserInfoForIndication:indication withStrings:strings actionString:___(@"drinking_pred_spanjem") andTimeOfDay:time]];
 }
 
 - (void)setNotificationOpoldneForDate:(NSDate *)date withStrings:(NSArray *)strings timeOfDay:(NSInteger)time andIndication:(IndicationType)indication {
 	NSDate *notificationTime = [[self combineDate:date withTime:[self noonTime]] dateByAddingTimeInterval:(-5*60)];
 
-	[self setNotificationAtTime:notificationTime withBody:___(@"drinking_opoldne") andUserInfo:[self createUserInfoForIndication:indication withStrings:strings andTimeOfDay:time]];
+	[self setNotificationAtTime:notificationTime withBody:___(@"drinking_opoldne") andUserInfo:[self createUserInfoForIndication:indication withStrings:strings actionString:___(@"drinking_opoldne") andTimeOfDay:time]];
 }
 
 - (void)setNotificationsForDate:(NSDate *)date andIndication:(IndicationType)indication {

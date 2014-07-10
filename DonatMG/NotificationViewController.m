@@ -91,6 +91,9 @@
 	NSString *speedString = [_notification.userInfo objectForKey:@"speed"];
 	_labelDown.text = speedString;
 
+	NSString *timeOfDayString = [_notification.userInfo objectForKey:@"actionString"];
+	_timeOfDayLabel.text = timeOfDayString;
+
 	switch (_indication) {
 		case kZaprtost:
 			_indicationIcon.image = [UIImage imageNamed:@"icon_zaprtost.png"];
