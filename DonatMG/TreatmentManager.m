@@ -323,6 +323,85 @@
 	}
 }
 
+- (NSArray *)notificationIconsForIndication:(IndicationType)indication {
+	switch (indication) {
+		case kZaprtost:
+			return @[
+					 [NSNumber numberWithUnsignedInteger:todNaTesce],
+					 [NSNumber numberWithUnsignedInteger:todPredSpanjem]
+					 ];
+			break;
+		case kZgaga:
+			return @[
+					 [NSNumber numberWithUnsignedInteger:todVeckratDnevno],
+					 [NSNumber numberWithUnsignedInteger:todVeckratDnevno],
+					 [NSNumber numberWithUnsignedInteger:todVeckratDnevno],
+					 [NSNumber numberWithUnsignedInteger:todVeckratDnevno]
+					 ];
+			break;
+		case kMagnezij:
+			return @[
+					 [NSNumber numberWithUnsignedInteger:todNaTesce],
+					 [NSNumber numberWithUnsignedInteger:todOpoldne],
+					 [NSNumber numberWithUnsignedInteger:todPredVecerjo]
+					 ];
+			break;
+		case kSladkorna:
+			return @[
+					 [NSNumber numberWithUnsignedInteger:todNaTesce],
+					 [NSNumber numberWithUnsignedInteger:todPredKosilom],
+					 [NSNumber numberWithUnsignedInteger:todPredVecerjo]
+					 ];
+			break;
+		case kSlinavka:
+			return @[
+					 [NSNumber numberWithUnsignedInteger:todNaTesce],
+					 [NSNumber numberWithUnsignedInteger:todPredKosilom],
+					 [NSNumber numberWithUnsignedInteger:todPredVecerjo]
+					 ];
+			break;
+		case kSecniKamni:
+			return @[
+					 [NSNumber numberWithUnsignedInteger:todNaTesce],
+					 [NSNumber numberWithUnsignedInteger:todPredKosilom],
+					 [NSNumber numberWithUnsignedInteger:todPredVecerjo],
+					 [NSNumber numberWithUnsignedInteger:todPredSpanjem]
+					 ];
+			break;
+		case kDebelost:
+			return @[
+					 [NSNumber numberWithUnsignedInteger:todNaTesce],
+					 [NSNumber numberWithUnsignedInteger:todPredKosilom],
+					 [NSNumber numberWithUnsignedInteger:todPredVecerjo]
+					 ];
+			break;
+		case kSrceOzilje:
+			return @[
+					 [NSNumber numberWithUnsignedInteger:todVeckratDnevno],
+					 [NSNumber numberWithUnsignedInteger:todVeckratDnevno],
+					 [NSNumber numberWithUnsignedInteger:todVeckratDnevno],
+					 [NSNumber numberWithUnsignedInteger:todVeckratDnevno]
+					 ];
+			break;
+		case kStres:
+			return @[
+					 [NSNumber numberWithUnsignedInteger:todNaTesce],
+					 [NSNumber numberWithUnsignedInteger:todPredSpanjem]
+					 ];
+			break;
+		case kPocutje:
+			return @[
+					 [NSNumber numberWithUnsignedInteger:todPredJedjo],
+					 [NSNumber numberWithUnsignedInteger:todPredJedjo],
+					 [NSNumber numberWithUnsignedInteger:todPredJedjo]
+					 ];
+			break;
+		default:
+			return nil;
+			break;
+	}
+}
+
 - (IndicationType)indicationForDate:(NSDate *)date {
 	CalendarHistoryEntry *entry = [self historyItemForDate:date];
 	if (entry)
@@ -339,6 +418,94 @@
 		}
 	}
 	return nil;
+}
+
+- (NSString *)imageForTimeOfDay:(TimeOfDayType)timeOfDay {
+	switch (timeOfDay) {
+		case todMedObroki:
+			return @"icon_med_obroki.png";
+			break;
+		case todNaTesce:
+			return @"icon_na_tesce.png";
+			break;
+		case todOpoldne:
+			return @"icon_opoldne.png";
+			break;
+		case todPredJedjo:
+			return @"icon_pred_jedjo.png";
+			break;
+		case todPredSpanjem:
+			return @"icon_pred_spanjem.png";
+			break;
+		case todVeckratDnevno:
+			return @"icon_veckrat_dnevno.png";
+			break;
+		case todZvecer:
+			return @"icon_zvecer.png";
+			break;
+		case tod20minutPred:
+			return @"icon_pred_jedjo.png";
+			break;
+		case todPredKosilom:
+			return @"icon_pred_jedjo.png";
+			break;
+		case todPredVecerjo:
+			return @"icon_pred_jedjo.png";
+			break;
+		case todObcutekLakote:
+			return @"icon_ure.png";
+			break;
+		case tod34kratDnevno:
+			return @"icon_ure.png";
+			break;
+		default:
+			return nil;
+			break;
+	}
+}
+
+- (NSString *)textForTimeOfDay:(TimeOfDayType)timeOfDay {
+	switch (timeOfDay) {
+		case todMedObroki:
+			return ___(@"drinking_med_obroki");
+			break;
+		case todNaTesce:
+			return ___(@"drinking_na_tesce");
+			break;
+		case todOpoldne:
+			return ___(@"drinking_opoldne");
+			break;
+		case todPredJedjo:
+			return ___(@"drinking_pred_jedjo");
+			break;
+		case todPredSpanjem:
+			return ___(@"drinking_pred_spanjem");
+			break;
+		case todVeckratDnevno:
+			return ___(@"drinking_veckrat_dnevno");
+			break;
+		case todZvecer:
+			return ___(@"drinking_zvecer");
+			break;
+		case tod20minutPred:
+			return ___(@"drinking_20_min_pred");
+			break;
+		case todPredKosilom:
+			return ___(@"drinking_pred_kosilom");
+			break;
+		case todPredVecerjo:
+			return ___(@"drinking_pred_vecerjo");
+			break;
+		case todObcutekLakote:
+			return ___(@"drinking_obcutek_lakote");
+			break;
+		case tod34kratDnevno:
+			return ___(@"drinking_3_4_dnevno");
+			break;
+		default:
+			return nil;
+			break;
+	}
 }
 
 - (NSArray *)calculateDrinkingDaysFromDate:(NSDate *)startDate tillDate:(NSDate *)endDate withDrinkDays:(NSInteger)drinkDays pauseDays:(NSInteger)pauseDays andCycles:(NSInteger)cycles {
@@ -460,34 +627,34 @@
 	}
 }
 
-- (void)setNotificationPredZajtrkomForDate:(NSDate *)date withStrings:(NSArray *)strings andIndication:(IndicationType)indication {
+- (void)setNotificationPredZajtrkomForDate:(NSDate *)date withStrings:(NSArray *)strings timeOfDay:(NSInteger)time andIndication:(IndicationType)indication {
 	NSDate *notificationTime = [[self combineDate:date withTimeComponents:[[SettingsManager sharedManager] breakfastTime]] dateByAddingTimeInterval:(-5*60)];
 
-	[self setNotificationAtTime:notificationTime withBody:@"pred zajtrkom" andUserInfo:[self createUserInfoForIndication:indication withStrings:strings andTimeOfDay:1]];
+	[self setNotificationAtTime:notificationTime withBody:@"pred zajtrkom" andUserInfo:[self createUserInfoForIndication:indication withStrings:strings andTimeOfDay:time]];
 }
 
-- (void)setNotificationPredKosilomForDate:(NSDate *)date withStrings:(NSArray *)strings andIndication:(IndicationType)indication {
+- (void)setNotificationPredKosilomForDate:(NSDate *)date withStrings:(NSArray *)strings timeOfDay:(NSInteger)time andIndication:(IndicationType)indication {
 	NSDate *notificationTime = [[self combineDate:date withTimeComponents:[[SettingsManager sharedManager] lunchTime]] dateByAddingTimeInterval:(-5*60)];
 
-	[self setNotificationAtTime:notificationTime withBody:@"pred kosilom" andUserInfo:[self createUserInfoForIndication:indication withStrings:strings andTimeOfDay:2]];
+	[self setNotificationAtTime:notificationTime withBody:@"pred kosilom" andUserInfo:[self createUserInfoForIndication:indication withStrings:strings andTimeOfDay:time]];
 }
 
-- (void)setNotificationPredVecerjoForDate:(NSDate *)date withStrings:(NSArray *)strings andIndication:(IndicationType)indication {
+- (void)setNotificationPredVecerjoForDate:(NSDate *)date withStrings:(NSArray *)strings timeOfDay:(NSInteger)time andIndication:(IndicationType)indication {
 	NSDate *notificationTime = [[self combineDate:date withTimeComponents:[[SettingsManager sharedManager] dinnerTime]] dateByAddingTimeInterval:(-5*60)];
 
-	[self setNotificationAtTime:notificationTime withBody:@"pred vecerjo" andUserInfo:[self createUserInfoForIndication:indication withStrings:strings andTimeOfDay:3]];
+	[self setNotificationAtTime:notificationTime withBody:@"pred vecerjo" andUserInfo:[self createUserInfoForIndication:indication withStrings:strings andTimeOfDay:time]];
 }
 
-- (void)setNotificationPredSpanjemForDate:(NSDate *)date withStrings:(NSArray *)strings andIndication:(IndicationType)indication {
+- (void)setNotificationPredSpanjemForDate:(NSDate *)date withStrings:(NSArray *)strings timeOfDay:(NSInteger)time andIndication:(IndicationType)indication {
 	NSDate *notificationTime = [[self combineDate:date withTimeComponents:[[SettingsManager sharedManager] sleepingTime]] dateByAddingTimeInterval:(-5*60)];
 
-	[self setNotificationAtTime:notificationTime withBody:@"pred spanjem" andUserInfo:[self createUserInfoForIndication:indication withStrings:strings andTimeOfDay:3]];
+	[self setNotificationAtTime:notificationTime withBody:@"pred spanjem" andUserInfo:[self createUserInfoForIndication:indication withStrings:strings andTimeOfDay:time]];
 }
 
-- (void)setNotificationPredPoldneForDate:(NSDate *)date withStrings:(NSArray *)strings andIndication:(IndicationType)indication {
+- (void)setNotificationPredPoldneForDate:(NSDate *)date withStrings:(NSArray *)strings timeOfDay:(NSInteger)time andIndication:(IndicationType)indication {
 	NSDate *notificationTime = [[self combineDate:date withTime:[self noonTime]] dateByAddingTimeInterval:(-5*60)];
 
-	[self setNotificationAtTime:notificationTime withBody:@"pred poldne" andUserInfo:[self createUserInfoForIndication:indication withStrings:strings andTimeOfDay:2]];
+	[self setNotificationAtTime:notificationTime withBody:@"pred poldne" andUserInfo:[self createUserInfoForIndication:indication withStrings:strings andTimeOfDay:time]];
 }
 
 - (void)setNotificationsForDate:(NSDate *)date andIndication:(IndicationType)indication {
@@ -495,49 +662,49 @@
 
 	switch (indication) {
 		case kZaprtost:
-			[self setNotificationPredZajtrkomForDate:date withStrings:strings[0] andIndication:indication];
-			[self setNotificationPredSpanjemForDate:date withStrings:strings[1] andIndication:indication];
+			[self setNotificationPredZajtrkomForDate:date withStrings:strings[0] timeOfDay:1 andIndication:indication];
+			[self setNotificationPredSpanjemForDate:date withStrings:strings[1] timeOfDay:2 andIndication:indication];
 			break;
 		case kZgaga:
 			// TODO: ??
 			break;
 		case kMagnezij:
-			[self setNotificationPredZajtrkomForDate:date withStrings:strings[0] andIndication:indication];
-			[self setNotificationPredPoldneForDate:date withStrings:strings[1] andIndication:indication];
-			[self setNotificationPredVecerjoForDate:date withStrings:strings[2] andIndication:indication];
+			[self setNotificationPredZajtrkomForDate:date withStrings:strings[0] timeOfDay:1 andIndication:indication];
+			[self setNotificationPredPoldneForDate:date withStrings:strings[1] timeOfDay:2 andIndication:indication];
+			[self setNotificationPredVecerjoForDate:date withStrings:strings[2] timeOfDay:3 andIndication:indication];
 			break;
 		case kSladkorna:
-			[self setNotificationPredZajtrkomForDate:date withStrings:strings[0] andIndication:indication];
-			[self setNotificationPredKosilomForDate:date withStrings:strings[1] andIndication:indication];
-			[self setNotificationPredVecerjoForDate:date withStrings:strings[2] andIndication:indication];
+			[self setNotificationPredZajtrkomForDate:date withStrings:strings[0] timeOfDay:1 andIndication:indication];
+			[self setNotificationPredKosilomForDate:date withStrings:strings[1] timeOfDay:2 andIndication:indication];
+			[self setNotificationPredVecerjoForDate:date withStrings:strings[2] timeOfDay:3 andIndication:indication];
 			break;
 		case kSlinavka:
-			[self setNotificationPredZajtrkomForDate:date withStrings:strings[0] andIndication:indication];
-			[self setNotificationPredKosilomForDate:date withStrings:strings[1] andIndication:indication];
-			[self setNotificationPredVecerjoForDate:date withStrings:strings[2] andIndication:indication];
+			[self setNotificationPredZajtrkomForDate:date withStrings:strings[0] timeOfDay:1 andIndication:indication];
+			[self setNotificationPredKosilomForDate:date withStrings:strings[1] timeOfDay:2 andIndication:indication];
+			[self setNotificationPredVecerjoForDate:date withStrings:strings[2] timeOfDay:3 andIndication:indication];
 			break;
 		case kSecniKamni:
-			[self setNotificationPredZajtrkomForDate:date withStrings:strings[0] andIndication:indication];
-			[self setNotificationPredKosilomForDate:date withStrings:strings[1] andIndication:indication];
-			[self setNotificationPredVecerjoForDate:date withStrings:strings[2] andIndication:indication];
-			[self setNotificationPredSpanjemForDate:date withStrings:strings[3] andIndication:indication];
+			[self setNotificationPredZajtrkomForDate:date withStrings:strings[0] timeOfDay:1 andIndication:indication];
+			[self setNotificationPredKosilomForDate:date withStrings:strings[1] timeOfDay:2 andIndication:indication];
+			[self setNotificationPredVecerjoForDate:date withStrings:strings[2] timeOfDay:3 andIndication:indication];
+			[self setNotificationPredSpanjemForDate:date withStrings:strings[3] timeOfDay:4 andIndication:indication];
 			break;
 		case kDebelost:
-			[self setNotificationPredZajtrkomForDate:date withStrings:strings[0] andIndication:indication];
-			[self setNotificationPredKosilomForDate:date withStrings:strings[1] andIndication:indication];
-			[self setNotificationPredVecerjoForDate:date withStrings:strings[1] andIndication:indication];
+			[self setNotificationPredZajtrkomForDate:date withStrings:strings[0] timeOfDay:1 andIndication:indication];
+			[self setNotificationPredKosilomForDate:date withStrings:strings[1] timeOfDay:2 andIndication:indication];
+			[self setNotificationPredVecerjoForDate:date withStrings:strings[1] timeOfDay:3 andIndication:indication];
 			break;
 		case kSrceOzilje:
 			// TODO: ??
 			break;
 		case kStres:
-			[self setNotificationPredZajtrkomForDate:date withStrings:strings[0] andIndication:indication];
-			[self setNotificationPredSpanjemForDate:date withStrings:strings[1] andIndication:indication];
+			[self setNotificationPredZajtrkomForDate:date withStrings:strings[0] timeOfDay:1 andIndication:indication];
+			[self setNotificationPredSpanjemForDate:date withStrings:strings[1] timeOfDay:2 andIndication:indication];
 			break;
 		case kPocutje:
-			[self setNotificationPredZajtrkomForDate:date withStrings:strings[0] andIndication:indication];
-			[self setNotificationPredKosilomForDate:date withStrings:strings[0] andIndication:indication];
-			[self setNotificationPredVecerjoForDate:date withStrings:strings[0] andIndication:indication];
+			[self setNotificationPredZajtrkomForDate:date withStrings:strings[0] timeOfDay:1 andIndication:indication];
+			[self setNotificationPredKosilomForDate:date withStrings:strings[0] timeOfDay:2 andIndication:indication];
+			[self setNotificationPredVecerjoForDate:date withStrings:strings[0] timeOfDay:3 andIndication:indication];
 			break;
 		default:
 			break;
@@ -555,6 +722,7 @@
 		[_calendarEntriesHistory addObject:[CalendarHistoryEntry entryWithDate:entryDate startDate:date andIndicationType:indication]];
 
 		// for now set notifications for 10 days, good for testing, needs to be removed
+		// TODO: can't set too many notifications, FIXME
 		if (count++ < 11)
 			[self setNotificationsForDate:entryDate andIndication:indication];
 	}

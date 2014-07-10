@@ -56,3 +56,19 @@ typedef NS_ENUM(NSUInteger, IndicationType) {
 	kStres,
 	kPocutje
 };
+
+typedef NS_ENUM(NSUInteger, TimeOfDayType) {
+	todNeznan,
+	todMedObroki,
+	todNaTesce,
+	todOpoldne,
+	todPredJedjo,
+	todPredSpanjem,
+	todVeckratDnevno,
+	todZvecer,
+	tod20minutPred,
+	todPredKosilom,
+	todPredVecerjo,
+	todObcutekLakote,
+	tod34kratDnevno
+};

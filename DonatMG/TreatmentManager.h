@@ -22,6 +22,7 @@
 
 - (NSUInteger)numberOfInstructionsForIndication:(IndicationType)indication;
 - (NSArray *)stringsForIndication:(IndicationType)indication;
+- (NSArray *)notificationIconsForIndication:(IndicationType)indication;
 
 - (IndicationType)indicationForDate:(NSDate *)date;
 - (CalendarHistoryEntry *)historyItemForDate:(NSDate *)date;
@@ -29,5 +30,8 @@
 - (void)startTreatmentForIndication:(IndicationType)indication fromDate:(NSDate *)date;
 - (void)cancelActiveTreatment;
 - (void)recalculateTreatment;
+
+- (NSString *)imageForTimeOfDay:(TimeOfDayType)timeOfDay;
+- (NSString *)textForTimeOfDay:(TimeOfDayType)timeOfDay;
 
 @end
