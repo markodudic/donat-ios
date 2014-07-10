@@ -614,11 +614,15 @@
 	return result;
 }
 
+- (NSString *)createBodyStringWithAction:(NSString *)body andUserinfo:(NSDictionary *)info {
+	return [NSString stringWithFormat:@"%@ %@ %@ %@", body, [info objectForKey:@"temperature"], [info objectForKey:@"amount"], [info objectForKey:@"speed"]];
+}
+
 - (void)setNotificationAtTime:(NSDate *)time withBody:(NSString *)body andUserInfo:(NSDictionary *)userInfo {
 	if ([[NSDate date] compare:time] == NSOrderedAscending) {
 		UILocalNotification *testNotifation = [[UILocalNotification alloc] init];
 		testNotifation.fireDate = time;
-		testNotifation.alertBody = body;
+		testNotifation.alertBody = [self createBodyStringWithAction:body andUserinfo:userInfo];
 		testNotifation.userInfo = userInfo;
 		[[UIApplication sharedApplication] scheduleLocalNotification:testNotifation];
 	}
