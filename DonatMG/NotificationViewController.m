@@ -8,6 +8,7 @@
 
 #import "NotificationViewController.h"
 #import "SettingsManager.h"
+#import "TreatmentManager.h"
 
 #define alphaValue 0.3f
 
@@ -145,7 +146,93 @@
 	NSDateComponents *dateComponents = [gregorian components:NSDayCalendarUnit | NSMonthCalendarUnit fromDate:[NSDate date]];
 	_dateLabel.text = [NSString stringWithFormat:@"%ld. %@", (long)dateComponents.day, [[LanguageManager sharedManager] stringForMonth:dateComponents.month]];
 
-	// TODO: Draw the icons and labels here...
+	NSArray *iconsToShow = [[TreatmentManager sharedManager] notificationIconsForIndication:_indication];
+	NSUInteger numberOfIcons = iconsToShow.count;
+
+	NSArray *iconLefts;
+	NSArray *labelLefts;
+	NSArray *labelWidths;
+
+	switch (numberOfIcons) {
+		case 3:
+			iconLefts = @[
+						  [NSNumber numberWithFloat:50.0f],
+						  [NSNumber numberWithFloat:147.0f],
+						  [NSNumber numberWithFloat:243.0f]
+						  ];
+			labelLefts = @[
+						   [NSNumber numberWithFloat:20.0f],
+						   [NSNumber numberWithFloat:117.0f],
+						   [NSNumber numberWithFloat:213.0f]
+						   ];
+			labelWidths = @[
+							[NSNumber numberWithFloat:87.0f],
+							[NSNumber numberWithFloat:86.0f],
+							[NSNumber numberWithFloat:87.0f]
+							];
+			break;
+		case 4:
+			iconLefts = @[
+						  [NSNumber numberWithFloat:38.0f],
+						  [NSNumber numberWithFloat:110.5f],
+						  [NSNumber numberWithFloat:182.5f],
+						  [NSNumber numberWithFloat:255.0f]
+						  ];
+			labelLefts = @[
+						   [NSNumber numberWithFloat:20.0f],
+						   [NSNumber numberWithFloat:93.0f],
+						   [NSNumber numberWithFloat:165.0f],
+						   [NSNumber numberWithFloat:237.0f]
+						   ];
+			labelWidths = @[
+							[NSNumber numberWithFloat:63.0f],
+							[NSNumber numberWithFloat:62.0f],
+							[NSNumber numberWithFloat:62.0f],
+							[NSNumber numberWithFloat:63.0f]
+							];
+			break;
+		default:
+			// Just in case
+			numberOfIcons = 2;
+			iconLefts = @[
+						  [NSNumber numberWithFloat:74.0f],
+						  [NSNumber numberWithFloat:219.0f],
+						  ];
+			labelLefts = @[
+						   [NSNumber numberWithFloat:20.0f],
+						   [NSNumber numberWithFloat:165.0f]
+						   ];
+			labelWidths = @[
+							[NSNumber numberWithFloat:135.0f],
+							[NSNumber numberWithFloat:135.0f]
+							];
+			break;
+	}
+
+	for (NSUInteger count = 0; count < numberOfIcons; count++) {
+		TimeOfDayType tod = [iconsToShow[count] unsignedIntegerValue];
+
+		UIImageView *icon = [[UIImageView alloc] initWithImage:[UIImage imageNamed:[[TreatmentManager sharedManager] imageForTimeOfDay:tod]]];
+
+		CGRect frame = icon.frame;
+		frame.origin = CGPointMake([iconLefts[count] floatValue], 350.0f);
+		icon.frame = frame;
+
+		if (count < _timeOfDay)
+			icon.alpha = alphaValue;
+
+		[self.view addSubview:icon];
+
+		frame = CGRectMake([labelLefts[count] floatValue], 385.0f, [labelWidths[count] floatValue], 17.0f);
+		UILabel *label = [[UILabel alloc] initWithFrame:frame];
+		[label setFont:kNotificationLabelText];
+		[label setText:[[TreatmentManager sharedManager] textForTimeOfDay:tod]];
+
+		if (count < _timeOfDay)
+			label.alpha = alphaValue;
+
+		[self.view addSubview:label];
+	}
 }
 
 - (void)didReceiveMemoryWarning {
