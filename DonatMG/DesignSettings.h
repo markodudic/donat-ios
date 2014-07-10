@@ -40,7 +40,7 @@
 #define kIndicationMethodHeaderFont [UIFont fontWithName:@"Roboto-Regular" size:11.0f]
 
 #define kNotificationLabelText [UIFont fontWithName:@"Roboto-Light" size:14.0f]
-#define kNotificationIndicationTest [UIFont fontWithName:@"Roboto-Regular" size:24.0f]
+#define kNotificationIndicationTest [UIFont fontWithName:@"Roboto-Regular" size:21.0f]
 #define kNotificationText [UIFont fontWithName:@"Roboto-Light" size:18.0f]
 
 #define kNotificationTextBackground [UIColor colorWithWhite:1.0f alpha:0.5f]

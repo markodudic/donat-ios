@@ -34,10 +34,6 @@
 							  [UIImage imageNamed:IS_IPHONE_5 ? @"back-5.png" : @"back-4.png"]]
 					 atIndex:0];
 
-	[_morningLabel setFont:kNotificationLabelText];
-	[_noonLabel setFont:kNotificationLabelText];
-	[_eveningLabel setFont:kNotificationLabelText];
-
 	[_dateLabel setFont:kNotificationIndicationTest];
 	[_timeOfDayLabel setFont:kNotificationIndicationTest];
 
@@ -142,34 +138,11 @@
 
 	[_closeButton setTitle:___(@"close") forState:UIControlStateNormal];
 
-	[_morningLabel setText:[___(@"time_zjutraj") lowercaseString]];
-	[_noonLabel setText:[___(@"time_opoldne") lowercaseString]];
-	[_eveningLabel setText:[___(@"time_zvecer") lowercaseString]];
-
 	NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
 	NSDateComponents *dateComponents = [gregorian components:NSDayCalendarUnit | NSMonthCalendarUnit fromDate:[NSDate date]];
 	_dateLabel.text = [NSString stringWithFormat:@"%ld. %@", (long)dateComponents.day, [[LanguageManager sharedManager] stringForMonth:dateComponents.month]];
 
-	switch (_timeOfDay) {
-		case 1:
-			_timeOfDayLabel.text = ___(@"time_zjutraj");
-			break;
-		case 2:
-			_timeOfDayLabel.text = ___(@"time_opoldne");
-			_morningIcon.alpha = alphaValue;
-			_morningLabel.alpha = alphaValue;
-			break;
-		case 3:
-			_timeOfDayLabel.text = ___(@"time_zvecer");
-			_morningIcon.alpha = alphaValue;
-			_morningLabel.alpha = alphaValue;
-			_noonIcon.alpha = alphaValue;
-			_noonLabel.alpha = alphaValue;
-			break;
-		default:
-			_timeOfDayLabel.text = @"";
-			break;
-	}
+	// TODO: Draw the icons and labels here...
 }
 
 - (void)didReceiveMemoryWarning {

@@ -630,31 +630,31 @@
 - (void)setNotificationPredZajtrkomForDate:(NSDate *)date withStrings:(NSArray *)strings timeOfDay:(NSInteger)time andIndication:(IndicationType)indication {
 	NSDate *notificationTime = [[self combineDate:date withTimeComponents:[[SettingsManager sharedManager] breakfastTime]] dateByAddingTimeInterval:(-5*60)];
 
-	[self setNotificationAtTime:notificationTime withBody:@"pred zajtrkom" andUserInfo:[self createUserInfoForIndication:indication withStrings:strings andTimeOfDay:time]];
+	[self setNotificationAtTime:notificationTime withBody:___(@"drinking_na_tesce") andUserInfo:[self createUserInfoForIndication:indication withStrings:strings andTimeOfDay:time]];
 }
 
 - (void)setNotificationPredKosilomForDate:(NSDate *)date withStrings:(NSArray *)strings timeOfDay:(NSInteger)time andIndication:(IndicationType)indication {
 	NSDate *notificationTime = [[self combineDate:date withTimeComponents:[[SettingsManager sharedManager] lunchTime]] dateByAddingTimeInterval:(-5*60)];
 
-	[self setNotificationAtTime:notificationTime withBody:@"pred kosilom" andUserInfo:[self createUserInfoForIndication:indication withStrings:strings andTimeOfDay:time]];
+	[self setNotificationAtTime:notificationTime withBody:___(@"drinking_pred_kosilom") andUserInfo:[self createUserInfoForIndication:indication withStrings:strings andTimeOfDay:time]];
 }
 
 - (void)setNotificationPredVecerjoForDate:(NSDate *)date withStrings:(NSArray *)strings timeOfDay:(NSInteger)time andIndication:(IndicationType)indication {
 	NSDate *notificationTime = [[self combineDate:date withTimeComponents:[[SettingsManager sharedManager] dinnerTime]] dateByAddingTimeInterval:(-5*60)];
 
-	[self setNotificationAtTime:notificationTime withBody:@"pred vecerjo" andUserInfo:[self createUserInfoForIndication:indication withStrings:strings andTimeOfDay:time]];
+	[self setNotificationAtTime:notificationTime withBody:___(@"drinking_pred_vecerjo") andUserInfo:[self createUserInfoForIndication:indication withStrings:strings andTimeOfDay:time]];
 }
 
 - (void)setNotificationPredSpanjemForDate:(NSDate *)date withStrings:(NSArray *)strings timeOfDay:(NSInteger)time andIndication:(IndicationType)indication {
 	NSDate *notificationTime = [[self combineDate:date withTimeComponents:[[SettingsManager sharedManager] sleepingTime]] dateByAddingTimeInterval:(-5*60)];
 
-	[self setNotificationAtTime:notificationTime withBody:@"pred spanjem" andUserInfo:[self createUserInfoForIndication:indication withStrings:strings andTimeOfDay:time]];
+	[self setNotificationAtTime:notificationTime withBody:___(@"drinking_pred_spanjem") andUserInfo:[self createUserInfoForIndication:indication withStrings:strings andTimeOfDay:time]];
 }
 
-- (void)setNotificationPredPoldneForDate:(NSDate *)date withStrings:(NSArray *)strings timeOfDay:(NSInteger)time andIndication:(IndicationType)indication {
+- (void)setNotificationOpoldneForDate:(NSDate *)date withStrings:(NSArray *)strings timeOfDay:(NSInteger)time andIndication:(IndicationType)indication {
 	NSDate *notificationTime = [[self combineDate:date withTime:[self noonTime]] dateByAddingTimeInterval:(-5*60)];
 
-	[self setNotificationAtTime:notificationTime withBody:@"pred poldne" andUserInfo:[self createUserInfoForIndication:indication withStrings:strings andTimeOfDay:time]];
+	[self setNotificationAtTime:notificationTime withBody:___(@"drinking_opoldne") andUserInfo:[self createUserInfoForIndication:indication withStrings:strings andTimeOfDay:time]];
 }
 
 - (void)setNotificationsForDate:(NSDate *)date andIndication:(IndicationType)indication {
@@ -670,7 +670,7 @@
 			break;
 		case kMagnezij:
 			[self setNotificationPredZajtrkomForDate:date withStrings:strings[0] timeOfDay:1 andIndication:indication];
-			[self setNotificationPredPoldneForDate:date withStrings:strings[1] timeOfDay:2 andIndication:indication];
+			[self setNotificationOpoldneForDate:date withStrings:strings[1] timeOfDay:2 andIndication:indication];
 			[self setNotificationPredVecerjoForDate:date withStrings:strings[2] timeOfDay:3 andIndication:indication];
 			break;
 		case kSladkorna:

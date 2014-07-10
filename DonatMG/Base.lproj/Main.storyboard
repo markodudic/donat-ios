@@ -40,6 +40,10 @@
                                 <color key="textColor" red="0.0078431372549019607" green="0.23137254901960785" blue="0.1803921568627451" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ikona-alarm.png" id="U6E-x9-Vzw">
+                                <rect key="frame" x="109" y="182" width="103" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="yWT-SH-S0Y">
                                 <rect key="frame" x="20" y="148" width="280" height="28"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -47,10 +51,6 @@
                                 <color key="textColor" red="0.0078431372549019607" green="0.23137254901960785" blue="0.1803921568627451" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ikona-alarm.png" id="U6E-x9-Vzw">
-                                <rect key="frame" x="109" y="182" width="103" height="50"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="GKu-Bk-eJG">
                                 <rect key="frame" x="20" y="240" width="280" height="24"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -68,36 +68,6 @@
                                     <action selector="closeClicked:" destination="hre-Sj-v7g" eventType="touchUpInside" id="nhv-JY-4kY"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_opoldne.png" id="AfY-cY-mpZ">
-                                <rect key="frame" x="147" y="350" width="27" height="27"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_zvecer.png" id="SDV-Uk-Y8F">
-                                <rect key="frame" x="241" y="350" width="27" height="27"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_zjutraj.png" id="fs6-CR-dPd">
-                                <rect key="frame" x="53" y="350" width="27" height="27"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="L1g-PW-8UQ">
-                                <rect key="frame" x="20" y="385" width="92" height="17"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="aNb-1l-REM">
-                                <rect key="frame" x="114" y="385" width="92" height="17"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="8Ha-1d-hdG">
-                                <rect key="frame" x="208" y="385" width="92" height="17"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <view contentMode="scaleToFill" id="6kW-2A-t5B">
                                 <rect key="frame" x="20" y="272" width="280" height="70"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -112,14 +82,8 @@
                         <outlet property="closeButton" destination="kGt-lC-6Fa" id="2Pc-ak-ofl"/>
                         <outlet property="containerView" destination="6kW-2A-t5B" id="z9B-hZ-kWV"/>
                         <outlet property="dateLabel" destination="yWT-SH-S0Y" id="VJf-Yj-MHS"/>
-                        <outlet property="eveningIcon" destination="SDV-Uk-Y8F" id="BWB-AG-oi5"/>
-                        <outlet property="eveningLabel" destination="8Ha-1d-hdG" id="bal-13-huu"/>
                         <outlet property="indicationIcon" destination="cel-QB-fmg" id="5qo-q2-8Iy"/>
                         <outlet property="indicationLabel" destination="DST-mI-oHO" id="1Vd-sb-Sg5"/>
-                        <outlet property="morningIcon" destination="fs6-CR-dPd" id="HFL-zB-6mm"/>
-                        <outlet property="morningLabel" destination="L1g-PW-8UQ" id="pCh-C2-pb3"/>
-                        <outlet property="noonIcon" destination="AfY-cY-mpZ" id="6c5-Xu-OUj"/>
-                        <outlet property="noonLabel" destination="aNb-1l-REM" id="lLu-N7-FHu"/>
                         <outlet property="timeOfDayLabel" destination="GKu-Bk-eJG" id="qJH-ia-qVo"/>
                         <segue destination="m2W-nZ-ERo" kind="push" identifier="showCalendar" id="5l1-cL-Ryt"/>
                         <segue destination="VsN-8R-FLY" kind="push" identifier="showSettings" id="FZF-wh-7ZT"/>
@@ -996,11 +960,8 @@
         <image name="bg_datuma.png" width="241" height="49"/>
         <image name="big_button.png" width="252" height="50"/>
         <image name="icon_jezik.png" width="30" height="26"/>
-        <image name="icon_opoldne.png" width="27" height="27"/>
         <image name="icon_treatment.png" width="19" height="19"/>
         <image name="icon_ure.png" width="26" height="33"/>
-        <image name="icon_zjutraj.png" width="27" height="27"/>
-        <image name="icon_zvecer.png" width="27" height="27"/>
         <image name="ikona-alarm.png" width="103" height="50"/>
         <image name="ikona-puscica_desno.png" width="9" height="15"/>
         <image name="ikona-puscica_dol.png" width="16" height="10"/>
