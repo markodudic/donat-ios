@@ -218,7 +218,7 @@
 		frame.origin = CGPointMake([iconLefts[count] floatValue], 350.0f);
 		icon.frame = frame;
 
-		if (count < _timeOfDay)
+		if (count < _timeOfDay - 1)
 			icon.alpha = alphaValue;
 
 		[self.view addSubview:icon];
@@ -228,7 +228,7 @@
 		[label setFont:kNotificationLabelText];
 		[label setText:[[TreatmentManager sharedManager] textForTimeOfDay:tod]];
 
-		if (count < _timeOfDay)
+		if (count < _timeOfDay - 1)
 			label.alpha = alphaValue;
 
 		[self.view addSubview:label];
