@@ -129,8 +129,8 @@
 	CGFloat top = 0.0f;
 	for (NSArray *row in tableRows) {
 		NSString *string1 = row[0];
-		NSString *string2 = row[1];
-		NSString *string3 = row[2];
+		NSString *string2 = [NSString stringWithFormat:@"%@ %@", row[1], row[2]];
+		NSString *string3 = row[3];
 
 		CGFloat height1 = [self calculateHeightForText:string1 withFont:kIndicationMethodHeaderFont andWidth:width1 - edgeInsets.left - edgeInsets.right];
 		CGFloat height2 = [self calculateHeightForText:string2 withFont:kIndicationMethodHeaderFont andWidth:width2 - edgeInsets.left - edgeInsets.right];
