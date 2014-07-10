@@ -334,9 +334,8 @@
 		case kZgaga:
 			return @[
 					 [NSNumber numberWithUnsignedInteger:todVeckratDnevno],
-					 [NSNumber numberWithUnsignedInteger:todVeckratDnevno],
-					 [NSNumber numberWithUnsignedInteger:todVeckratDnevno],
-					 [NSNumber numberWithUnsignedInteger:todVeckratDnevno]
+					 [NSNumber numberWithUnsignedInteger:tod20minutPred],
+					 [NSNumber numberWithUnsignedInteger:todMedObroki]
 					 ];
 			break;
 		case kMagnezij:
@@ -378,8 +377,6 @@
 		case kSrceOzilje:
 			return @[
 					 [NSNumber numberWithUnsignedInteger:todVeckratDnevno],
-					 [NSNumber numberWithUnsignedInteger:todVeckratDnevno],
-					 [NSNumber numberWithUnsignedInteger:todVeckratDnevno],
 					 [NSNumber numberWithUnsignedInteger:todVeckratDnevno]
 					 ];
 			break;
@@ -391,7 +388,6 @@
 			break;
 		case kPocutje:
 			return @[
-					 [NSNumber numberWithUnsignedInteger:todPredJedjo],
 					 [NSNumber numberWithUnsignedInteger:todPredJedjo],
 					 [NSNumber numberWithUnsignedInteger:todPredJedjo]
 					 ];
@@ -676,10 +672,10 @@
 	NSDate *first = [start dateByAddingTimeInterval:period];
 	NSDate *second = [first dateByAddingTimeInterval:period];
 
-	[self setNotificationAtTime:start withBody:___(@"drinking_veckrat_dnevno") andUserInfo:[self createUserInfoForIndication:kZgaga withStrings:strings actionString:___(@"drinking_veckrat_dnevno") andTimeOfDay:1]];
-	[self setNotificationAtTime:first withBody:___(@"drinking_veckrat_dnevno") andUserInfo:[self createUserInfoForIndication:kZgaga withStrings:strings actionString:___(@"drinking_veckrat_dnevno") andTimeOfDay:2]];
-	[self setNotificationAtTime:second withBody:___(@"drinking_veckrat_dnevno") andUserInfo:[self createUserInfoForIndication:kZgaga withStrings:strings actionString:___(@"drinking_veckrat_dnevno") andTimeOfDay:3]];
-	[self setNotificationAtTime:end withBody:___(@"drinking_veckrat_dnevno") andUserInfo:[self createUserInfoForIndication:kZgaga withStrings:strings actionString:___(@"drinking_veckrat_dnevno") andTimeOfDay:4]];
+	[self setNotificationAtTime:start withBody:___(@"drinking_veckrat_dnevno") andUserInfo:[self createUserInfoForIndication:kSrceOzilje withStrings:strings actionString:___(@"drinking_veckrat_dnevno") andTimeOfDay:1]];
+	[self setNotificationAtTime:first withBody:___(@"drinking_veckrat_dnevno") andUserInfo:[self createUserInfoForIndication:kSrceOzilje withStrings:strings actionString:___(@"drinking_veckrat_dnevno") andTimeOfDay:1]];
+	[self setNotificationAtTime:second withBody:___(@"drinking_veckrat_dnevno") andUserInfo:[self createUserInfoForIndication:kSrceOzilje withStrings:strings actionString:___(@"drinking_veckrat_dnevno") andTimeOfDay:1]];
+	[self setNotificationAtTime:end withBody:___(@"drinking_veckrat_dnevno") andUserInfo:[self createUserInfoForIndication:kSrceOzilje withStrings:strings actionString:___(@"drinking_veckrat_dnevno") andTimeOfDay:1]];
 }
 
 - (void)setNotificationsForDate:(NSDate *)date andIndication:(IndicationType)indication {
