@@ -658,6 +658,27 @@
 	[self setNotificationAtTime:notificationTime withBody:___(@"drinking_opoldne") andUserInfo:[self createUserInfoForIndication:indication withStrings:strings actionString:___(@"drinking_opoldne") andTimeOfDay:time]];
 }
 
+- (void)setNotificationsForZgagaWithStrings:(NSArray *)strings {
+	// TODO
+}
+
+- (void)setNotificationsForSrceOziljeWithStrings:(NSArray *)strings {
+	NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+	NSDate *start = [gregorian dateFromComponents:[[SettingsManager sharedManager] wakeTime]];
+	NSDate *end = [gregorian dateFromComponents:[[SettingsManager sharedManager] sleepingTime]];
+
+	NSTimeInterval secondsbetween = [end timeIntervalSinceDate:start];
+	NSTimeInterval period = secondsbetween / 3;
+
+	NSDate *first = [start dateByAddingTimeInterval:period];
+	NSDate *second = [first dateByAddingTimeInterval:period];
+
+	[self setNotificationAtTime:start withBody:___(@"drinking_veckrat_dnevno") andUserInfo:[self createUserInfoForIndication:kZgaga withStrings:strings actionString:___(@"drinking_veckrat_dnevno") andTimeOfDay:1]];
+	[self setNotificationAtTime:first withBody:___(@"drinking_veckrat_dnevno") andUserInfo:[self createUserInfoForIndication:kZgaga withStrings:strings actionString:___(@"drinking_veckrat_dnevno") andTimeOfDay:2]];
+	[self setNotificationAtTime:second withBody:___(@"drinking_veckrat_dnevno") andUserInfo:[self createUserInfoForIndication:kZgaga withStrings:strings actionString:___(@"drinking_veckrat_dnevno") andTimeOfDay:3]];
+	[self setNotificationAtTime:end withBody:___(@"drinking_veckrat_dnevno") andUserInfo:[self createUserInfoForIndication:kZgaga withStrings:strings actionString:___(@"drinking_veckrat_dnevno") andTimeOfDay:4]];
+}
+
 - (void)setNotificationsForDate:(NSDate *)date andIndication:(IndicationType)indication {
 	NSArray *strings = [self stringsForIndication:indication];
 
@@ -667,7 +688,7 @@
 			[self setNotificationPredSpanjemForDate:date withStrings:strings[1] timeOfDay:2 andIndication:indication];
 			break;
 		case kZgaga:
-			// TODO: ??
+			[self setNotificationsForZgagaWithStrings:strings[0]];
 			break;
 		case kMagnezij:
 			[self setNotificationPredZajtrkomForDate:date withStrings:strings[0] timeOfDay:1 andIndication:indication];
@@ -696,7 +717,7 @@
 			[self setNotificationPredVecerjoForDate:date withStrings:strings[1] timeOfDay:3 andIndication:indication];
 			break;
 		case kSrceOzilje:
-			// TODO: ??
+			[self setNotificationsForSrceOziljeWithStrings:strings[0]];
 			break;
 		case kStres:
 			[self setNotificationPredZajtrkomForDate:date withStrings:strings[0] timeOfDay:1 andIndication:indication];
