@@ -658,14 +658,17 @@
 	[self setNotificationAtTime:notificationTime withBody:___(@"drinking_opoldne") andUserInfo:[self createUserInfoForIndication:indication withStrings:strings actionString:___(@"drinking_opoldne") andTimeOfDay:time]];
 }
 
-- (void)setNotificationsForZgagaWithStrings:(NSArray *)strings {
+- (void)setNotificationsForZgagaWithStrings:(NSArray *)strings onDate:(NSDate *)date {
 	// TODO
 }
 
-- (void)setNotificationsForSrceOziljeWithStrings:(NSArray *)strings {
+- (void)setNotificationsForSrceOziljeWithStrings:(NSArray *)strings onDate:(NSDate *)date {
 	NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
-	NSDate *start = [gregorian dateFromComponents:[[SettingsManager sharedManager] wakeTime]];
-	NSDate *end = [gregorian dateFromComponents:[[SettingsManager sharedManager] sleepingTime]];
+	NSDate *wakeTime = [gregorian dateFromComponents:[[SettingsManager sharedManager] wakeTime]];
+	NSDate *sleepTime = [gregorian dateFromComponents:[[SettingsManager sharedManager] sleepingTime]];
+
+	NSDate *start = [self combineDate:date withTime:wakeTime];
+	NSDate *end = [self combineDate:date withTime:sleepTime];
 
 	NSTimeInterval secondsbetween = [end timeIntervalSinceDate:start];
 	NSTimeInterval period = secondsbetween / 3;
@@ -688,7 +691,7 @@
 			[self setNotificationPredSpanjemForDate:date withStrings:strings[1] timeOfDay:2 andIndication:indication];
 			break;
 		case kZgaga:
-			[self setNotificationsForZgagaWithStrings:strings[0]];
+			[self setNotificationsForZgagaWithStrings:strings[0] onDate:date];
 			break;
 		case kMagnezij:
 			[self setNotificationPredZajtrkomForDate:date withStrings:strings[0] timeOfDay:1 andIndication:indication];
@@ -717,7 +720,7 @@
 			[self setNotificationPredVecerjoForDate:date withStrings:strings[1] timeOfDay:3 andIndication:indication];
 			break;
 		case kSrceOzilje:
-			[self setNotificationsForSrceOziljeWithStrings:strings[0]];
+			[self setNotificationsForSrceOziljeWithStrings:strings[0] onDate:date];
 			break;
 		case kStres:
 			[self setNotificationPredZajtrkomForDate:date withStrings:strings[0] timeOfDay:1 andIndication:indication];
