@@ -683,7 +683,7 @@
 	// 20 min pred jedjo - 25 min pred vsakim obrokom
 
 	// pred zajtrkom
-	NSDate *notificationTime = [[self combineDate:date withTimeComponents:[[SettingsManager sharedManager] breakfastTime]] dateByAddingTimeInterval:(-25*60)];
+	NSDate *notificationTime = [[self combineDate:date withTimeComponents:[[SettingsManager sharedManager] breakfastTime]] dateByAddingTimeInterval:(-30*60)];
 	[self setNotificationAtTime:notificationTime withBody:___(@"drinking_pred_jedjo") andUserInfo:[self createUserInfoForIndication:kZgaga withStrings:strings actionString:___(@"drinking_pred_jedjo") andTimeOfDay:2]];
 
 	//pred kosilom
