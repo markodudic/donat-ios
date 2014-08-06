@@ -128,6 +128,10 @@
 		51B9B06619662B5A009080E2 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 51B9B06519662B5A009080E2 /* SettingsViewController.m */; };
 		51B9B06919662BAF009080E2 /* LegalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 51B9B06819662BAF009080E2 /* LegalViewController.m */; };
 		51B9B06A19662C31009080E2 /* libDTCoreText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 51B9B04E19662801009080E2 /* libDTCoreText.a */; };
+		51C1290A1992960F00E18149 /* Appirater.m in Sources */ = {isa = PBXBuildFile; fileRef = 51C129091992960F00E18149 /* Appirater.m */; };
+		51C1290D199296B400E18149 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 51C1290C199296B400E18149 /* CFNetwork.framework */; };
+		51C1290F199296BF00E18149 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 51C1290E199296BF00E18149 /* SystemConfiguration.framework */; };
+		51C12911199296CF00E18149 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 51C12910199296CF00E18149 /* StoreKit.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		51D5E7D81966482000B7C3AF /* CalendarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 51D5E7D71966482000B7C3AF /* CalendarViewController.m */; };
 		51D5E7E41966483000B7C3AF /* IndicationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 51D5E7E31966483000B7C3AF /* IndicationViewController.m */; };
 /* End PBXBuildFile section */
@@ -341,6 +345,12 @@
 		51B9B06519662B5A009080E2 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
 		51B9B06719662BAF009080E2 /* LegalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LegalViewController.h; sourceTree = "<group>"; };
 		51B9B06819662BAF009080E2 /* LegalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LegalViewController.m; sourceTree = "<group>"; };
+		51C129081992960F00E18149 /* Appirater.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Appirater.h; sourceTree = "<group>"; };
+		51C129091992960F00E18149 /* Appirater.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Appirater.m; sourceTree = "<group>"; };
+		51C1290B1992962100E18149 /* AppiraterDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppiraterDelegate.h; sourceTree = "<group>"; };
+		51C1290C199296B400E18149 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		51C1290E199296BF00E18149 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		51C12910199296CF00E18149 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		51D5E7D61966482000B7C3AF /* CalendarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalendarViewController.h; sourceTree = "<group>"; };
 		51D5E7D71966482000B7C3AF /* CalendarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarViewController.m; sourceTree = "<group>"; };
 		51D5E7E21966483000B7C3AF /* IndicationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IndicationViewController.h; sourceTree = "<group>"; };
@@ -352,6 +362,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				51C12911199296CF00E18149 /* StoreKit.framework in Frameworks */,
+				51C1290F199296BF00E18149 /* SystemConfiguration.framework in Frameworks */,
+				51C1290D199296B400E18149 /* CFNetwork.framework in Frameworks */,
 				51B9B06A19662C31009080E2 /* libDTCoreText.a in Frameworks */,
 				5101D089196070950030B6BB /* libxml2.dylib in Frameworks */,
 				5101D0871960708C0030B6BB /* ImageIO.framework in Frameworks */,
@@ -545,6 +558,9 @@
 		5115E8871960311C00A8CD07 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				51C12910199296CF00E18149 /* StoreKit.framework */,
+				51C1290E199296BF00E18149 /* SystemConfiguration.framework */,
+				51C1290C199296B400E18149 /* CFNetwork.framework */,
 				5101D088196070950030B6BB /* libxml2.dylib */,
 				5101D0861960708C0030B6BB /* ImageIO.framework */,
 				5101D084196070850030B6BB /* MobileCoreServices.framework */,
@@ -565,6 +581,9 @@
 				5101D13919607C6F0030B6BB /* View Controllers */,
 				5115E8971960311C00A8CD07 /* AppDelegate.h */,
 				5115E8981960311C00A8CD07 /* AppDelegate.m */,
+				51C129081992960F00E18149 /* Appirater.h */,
+				51C129091992960F00E18149 /* Appirater.m */,
+				51C1290B1992962100E18149 /* AppiraterDelegate.h */,
 				5113AA461963E5DE001E37F6 /* SettingsManager.h */,
 				5113AA471963E5DE001E37F6 /* SettingsManager.m */,
 				517176C8196A759B005422B9 /* TreatmentManager.h */,
@@ -902,6 +921,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				51C1290A1992960F00E18149 /* Appirater.m in Sources */,
 				5115E89F1960311C00A8CD07 /* DonatViewController.m in Sources */,
 				517176EC196C3535005422B9 /* CalendarHistoryEntry.m in Sources */,
 				51D5E7E41966483000B7C3AF /* IndicationViewController.m in Sources */,

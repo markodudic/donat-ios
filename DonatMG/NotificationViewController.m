@@ -9,6 +9,7 @@
 #import "NotificationViewController.h"
 #import "SettingsManager.h"
 #import "TreatmentManager.h"
+#import "Appirater.h"
 
 #define alphaValue 0.3f
 
@@ -233,6 +234,14 @@
 
 		[self.view addSubview:label];
 	}
+}
+
+- (void)rateSignificantEvent {
+	[Appirater userDidSignificantEvent:YES];
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+	[self performSelector:@selector(rateSignificantEvent) withObject:nil afterDelay:5.0f];
 }
 
 - (void)didReceiveMemoryWarning {

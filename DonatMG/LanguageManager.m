@@ -8,6 +8,7 @@
 
 #import "LanguageManager.h"
 #import "SettingsManager.h"
+#import "Appirater.h"
 
 @implementation LanguageManager
 
@@ -26,6 +27,7 @@
 
 - (id)init {
 	if (self = [super init]) {
+		DLog(@"%s - entry", __FUNCTION__);
 		self.i18nTable = [NSMutableDictionary dictionary];
 
 		NSString *setLanguage = [[SettingsManager sharedManager] appLanguage];
@@ -40,6 +42,7 @@
 			}
 		}
 		[self setLanguageId:setLanguage ? setLanguage : kDefaultLanguage];
+		DLog(@"%s - exit", __FUNCTION__);
 	}
 
 	_languages = @[@"English", @"Italiano", @"Русский", @"Hrvatski"];
