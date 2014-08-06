@@ -287,6 +287,7 @@
 
 
 	CGRect durationLabelFrame = [self.durationLabel.text boundingRectWithSize:CGSizeMake(self.durationLabel.frame.size.width, 1000.0f) options:NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading attributes:@{NSFontAttributeName:self.headerLabel.font} context:nil];
+	[self.durationLabel setFrame:CGRectMake(self.durationLabel.frame.origin.x, self.durationLabel.frame.origin.y, durationLabelFrame.size.width, durationLabelFrame.size.height)];
 
 	_desiredDurationHeight = self.durationLabel.frame.origin.y + durationLabelFrame.size.height + 20.0f;
 
