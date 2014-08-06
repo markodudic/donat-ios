@@ -693,7 +693,7 @@
 				ORGANIZATIONNAME = renderspace.si;
 				TargetAttributes = {
 					5115E8841960311C00A8CD07 = {
-						DevelopmentTeam = 7D2YX4HL57;
+						DevelopmentTeam = D7U357QS8D;
 					};
 					5115E8A51960311C00A8CD07 = {
 						TestTargetID = 5115E8841960311C00A8CD07;
