@@ -17,6 +17,12 @@
 
 	[LanguageManager sharedManager];
 
+	[Appirater setCustomAlertTitle:___(@"rate_title")];
+	[Appirater setCustomAlertMessage:___(@"rate_message")];
+	[Appirater setCustomAlertCancelButtonTitle:___(@"rate_cancel")];
+	[Appirater setCustomAlertRateButtonTitle:___(@"rate_ratenow")];
+	[Appirater setCustomAlertRateLaterButtonTitle:___(@"rate_later")];
+
 	// TODO: Change this to actual App ID when deploying!!!
 	[Appirater setAppId:@"441050540"];
 	[Appirater setDaysUntilPrompt:0];

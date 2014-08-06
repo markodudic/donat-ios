@@ -112,19 +112,11 @@
 
 	[super viewWillAppear:animated];
 
-	DLog(@"here");
-
-	DLog(@"1");
 	[Appirater setCustomAlertTitle:___(@"rate_title")];
-	DLog(@"1");
 	[Appirater setCustomAlertMessage:___(@"rate_message")];
-	DLog(@"1");
 	[Appirater setCustomAlertCancelButtonTitle:___(@"rate_cancel")];
-	DLog(@"1");
 	[Appirater setCustomAlertRateButtonTitle:___(@"rate_ratenow")];
-	DLog(@"1");
 	[Appirater setCustomAlertRateLaterButtonTitle:___(@"rate_later")];
-	DLog(@"1");
 }
 
 #pragma mark - Table view data source
