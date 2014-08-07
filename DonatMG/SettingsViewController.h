@@ -24,6 +24,7 @@
 @property (nonatomic, strong) IBOutlet UITextField *languageField;
 
 @property (nonatomic, strong) IBOutlet UIButton *saveButton;
+@property (nonatomic, strong) IBOutlet UIButton *rateButton;
 @property (nonatomic, strong) IBOutlet UIButton *legalButton;
 @property (nonatomic, strong) IBOutlet UILabel *legalLabel;
 

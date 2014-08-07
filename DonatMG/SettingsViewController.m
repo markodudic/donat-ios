@@ -9,6 +9,7 @@
 #import "SettingsViewController.h"
 #import "SettingsManager.h"
 #import "TreatmentManager.h"
+#import "Appirater.h"
 
 @interface SettingsViewController ()
 
@@ -20,6 +21,7 @@
 @synthesize containerView = _containerView;
 @synthesize languageField = _languageField;
 @synthesize saveButton = _saveButton;
+@synthesize rateButton = _rateButton;
 @synthesize legalButton = _legalButton;
 @synthesize legalLabel = _legalLabel;
 @synthesize wakeLabel = _wakeLabel;
@@ -63,6 +65,7 @@
 	self.saveButton.titleLabel.font = kSettingsButtonFont;
 	self.legalLabel.font = kLegalFont;
 	self.legalButton.titleLabel.font = kBoldTextFont;
+	self.rateButton.titleLabel.font = kBoldTextFont;
 
 	self.wakeLabel.font = kSettingsLabelFont;
 	self.breakfastLabel.font = kSettingsLabelFont;
@@ -148,6 +151,7 @@
 	self.legalLabel.text = ___(@"licence");
 	[self.saveButton setTitle:___(@"save") forState:UIControlStateNormal];
 	[self.legalButton setTitle:___(@"terms_of_use") forState:UIControlStateNormal];
+	[self.rateButton setTitle:___(@"rate_title") forState:UIControlStateNormal];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -160,6 +164,10 @@
 
 - (IBAction)legalPressed:(id)sender {
 	[self performSegueWithIdentifier:@"showLegal" sender:self];
+}
+
+- (IBAction)ratePressed:(id)sender {
+	[Appirater rateApp];
 }
 
 - (IBAction)settingPressed:(UIButton *)sender {
@@ -330,6 +338,7 @@
 
 #pragma mark -
 #pragma mark PickerView Delegate
+
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
 	if (_amEditingLanguage) {
 		NSString *language = [[LanguageManager sharedManager] languages][row];
