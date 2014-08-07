@@ -160,12 +160,12 @@
 		case kPocutje:
 			return 1;
 			break;
+		case kZgaga:
 		case kZaprtost:
 		case kDebelost:
 		case kStres:
 			return 2;
 			break;
-		case kZgaga:
 		case kMagnezij:
 		case kSladkorna:
 		case kSlinavka:
@@ -196,10 +196,6 @@
 			break;
 		case kZgaga:
 			return @[
-					 @[___(@"drinking_veckrat_dnevno"),
-					   ___(@"temperature_sobna"),
-					   [NSString stringWithFormat:@"1 %@", ___(@"volume_suffix")],
-					   ___(@"speed_pocasi")],
 					 @[___(@"drinking_20_min_pred"),
 					   ___(@"temperature_sobna"),
 					   [NSString stringWithFormat:@"1 %@", ___(@"volume_suffix")],
@@ -335,7 +331,6 @@
 			break;
 		case kZgaga:
 			return @[
-					 [NSNumber numberWithUnsignedInteger:todVeckratDnevno],
 					 [NSNumber numberWithUnsignedInteger:tod20minutPred],
 					 [NSNumber numberWithUnsignedInteger:todMedObroki]
 					 ];
@@ -661,25 +656,6 @@
 }
 
 - (void)setNotificationsForZgagaWithStrings:(NSArray *)strings onDate:(NSDate *)date {
-	// Večkrat dnevno - posameznikov dan se razdeli na 4 dele, za vsak del reminder
-	NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
-	NSDate *wakeTime = [gregorian dateFromComponents:[[SettingsManager sharedManager] wakeTime]];
-	NSDate *sleepTime = [gregorian dateFromComponents:[[SettingsManager sharedManager] sleepingTime]];
-
-	NSDate *start = [self combineDate:date withTime:wakeTime];
-	NSDate *end = [self combineDate:date withTime:sleepTime];
-
-	NSTimeInterval secondsbetween = [end timeIntervalSinceDate:start];
-	NSTimeInterval period = secondsbetween / 3;
-
-	NSDate *first = [start dateByAddingTimeInterval:period];
-	NSDate *second = [first dateByAddingTimeInterval:period];
-
-	[self setNotificationAtTime:start withBody:___(@"drinking_veckrat_dnevno") andUserInfo:[self createUserInfoForIndication:kSrceOzilje withStrings:strings actionString:___(@"drinking_veckrat_dnevno") andTimeOfDay:1]];
-	[self setNotificationAtTime:first withBody:___(@"drinking_veckrat_dnevno") andUserInfo:[self createUserInfoForIndication:kSrceOzilje withStrings:strings actionString:___(@"drinking_veckrat_dnevno") andTimeOfDay:1]];
-	[self setNotificationAtTime:second withBody:___(@"drinking_veckrat_dnevno") andUserInfo:[self createUserInfoForIndication:kSrceOzilje withStrings:strings actionString:___(@"drinking_veckrat_dnevno") andTimeOfDay:1]];
-	[self setNotificationAtTime:end withBody:___(@"drinking_veckrat_dnevno") andUserInfo:[self createUserInfoForIndication:kSrceOzilje withStrings:strings actionString:___(@"drinking_veckrat_dnevno") andTimeOfDay:1]];
-
 	// 20 min pred jedjo - 25 min pred vsakim obrokom
 
 	// pred zajtrkom
