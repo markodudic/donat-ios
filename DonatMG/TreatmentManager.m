@@ -621,6 +621,7 @@
 		testNotifation.fireDate = time;
 		testNotifation.alertBody = [self createBodyStringWithAction:body andUserinfo:userInfo];
 		testNotifation.userInfo = userInfo;
+		testNotifation.applicationIconBadgeNumber = 1;
 		[[UIApplication sharedApplication] scheduleLocalNotification:testNotifation];
 	}
 }
@@ -764,21 +765,15 @@
 
 	NSArray *daysToDrink = [self drinkingDatesForIndication:indication fromDate:date andTillDate:[date dateByAddingTimeInterval:(60*60*24*365)]];
 
-	NSUInteger count = 0;
-
-	for (NSDate *entryDate in daysToDrink) {
+	for (NSDate *entryDate in daysToDrink)
 		[_calendarEntriesHistory addObject:[CalendarHistoryEntry entryWithDate:entryDate startDate:date andIndicationType:indication]];
-
-		// for now set notifications for 10 days, good for testing, needs to be removed
-		// TODO: can't set too many notifications, FIXME
-		if (count++ < 11)
-			[self setNotificationsForDate:entryDate andIndication:indication];
-	}
 
 	[self writeOutHistory];
 
 	[[SettingsManager sharedManager] setActiveIndication:indication];
 	[[SettingsManager sharedManager] setIndicationActivation:date];
+
+	[self checkForUnsetNotifications];
 }
 
 - (void)cancelActiveTreatment {
@@ -815,6 +810,25 @@
 		NSDate *activation = self.indicationActivation;
 
 		[self startTreatmentForIndication:indication fromDate:activation];
+	}
+}
+
+#pragma mark - Local Notification handling
+
+- (void)checkForUnsetNotifications {
+	// No need to do anything if no indication is active
+	if (self.activeIndication == kUnknown)
+		return;
+
+	// Check for the minimum number of active notifications
+	if ([[[UIApplication sharedApplication] scheduledLocalNotifications] count] > kMinNumberOfNotifications)
+		return;
+
+	for (CalendarHistoryEntry *entry in _calendarEntriesHistory) {
+		NSTimeInterval timeInterval = [entry.date timeIntervalSinceNow];
+		if (timeInterval > 0 && timeInterval < kSetNotificationsForDays * 86400) {
+			[self setNotificationsForDate:entry.date andIndication:entry.indicationType];
+		}
 	}
 }
 

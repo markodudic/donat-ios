@@ -13,11 +13,13 @@
 @synthesize date = _date;
 @synthesize startDate = _startDate;
 @synthesize indicationType = _indicationType;
+@synthesize notificationsSet = _notificationsSet;
 
 - (id)init {
 	if (self = [super init]) {
 		_date = [NSDate date];
 		_indicationType = kUnknown;
+		_notificationsSet = NO;
 	}
 	return self;
 }
@@ -31,6 +33,7 @@
 		_date = date;
 		_startDate = startDate;
 		_indicationType = indicationType;
+		_notificationsSet = NO;
 	}
 	return self;
 }
@@ -40,6 +43,7 @@
 		_date = [aDecoder decodeObjectForKey:@"date"];
 		_startDate = [aDecoder decodeObjectForKey:@"startDate"];
 		_indicationType = [aDecoder decodeIntegerForKey:@"indication"];
+		_notificationsSet = [aDecoder decodeBoolForKey:@"notificationsSet"];
 	}
 	return self;
 }
@@ -48,6 +52,7 @@
 	[aCoder encodeObject:_date forKey:@"date"];
 	[aCoder encodeObject:_startDate forKey:@"startDate"];
 	[aCoder encodeInteger:_indicationType forKey:@"indication"];
+	[aCoder encodeBool:_notificationsSet forKey:@"notificationsSet"];
 }
 
 @end

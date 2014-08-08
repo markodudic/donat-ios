@@ -7,6 +7,7 @@
 //
 
 #import "SplashViewController.h"
+#import "TreatmentManager.h"
 
 @interface SplashViewController ()
 
@@ -30,6 +31,8 @@
 
 - (void)viewDidAppear:(BOOL)animated {
 	[self performSelector:@selector(showMainView) withObject:nil afterDelay:2.0f];
+
+	[[TreatmentManager sharedManager] checkForUnsetNotifications];
 }
 
 - (void)didReceiveMemoryWarning {

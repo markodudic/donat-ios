@@ -34,4 +34,6 @@
 - (NSString *)imageForTimeOfDay:(TimeOfDayType)timeOfDay;
 - (NSString *)textForTimeOfDay:(TimeOfDayType)timeOfDay;
 
+- (void)checkForUnsetNotifications;
+
 @end

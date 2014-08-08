@@ -13,6 +13,7 @@
 @property (nonatomic, retain) NSDate *date;
 @property (nonatomic, retain) NSDate *startDate;
 @property (nonatomic, assign) IndicationType indicationType;
+@property (nonatomic, assign) BOOL notificationsSet;
 
 + (id)entryWithDate:(NSDate *)date startDate:(NSDate *)startDate andIndicationType:(IndicationType)indicationType;
 - (id)initWithDate:(NSDate *)date startDate:(NSDate *)startDate andIndicationType:(IndicationType)indicationType;

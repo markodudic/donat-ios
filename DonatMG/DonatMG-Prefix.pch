@@ -42,6 +42,14 @@
 #define kApplicationDataFilename @"DonatMGCalendar.data"
 
 
+// this defines the "minimum" number of notifications that have to be set
+// if the number falls below this, new ones will be added
+#define kMinNumberOfNotifications 10
+
+// this defines for how many days new notifications are set
+#define kSetNotificationsForDays 7
+
+
 // Constants to be used for indications
 typedef NS_ENUM(NSUInteger, IndicationType) {
 	kUnknown,

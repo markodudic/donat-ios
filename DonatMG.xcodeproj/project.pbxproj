@@ -531,6 +531,8 @@
 				51D5E7D71966482000B7C3AF /* CalendarViewController.m */,
 				51D5E7E21966483000B7C3AF /* IndicationViewController.h */,
 				51D5E7E31966483000B7C3AF /* IndicationViewController.m */,
+				5101D13A19607C910030B6BB /* SplashViewController.h */,
+				5101D13B19607C910030B6BB /* SplashViewController.m */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -592,8 +594,6 @@
 				5113AA441963E51D001E37F6 /* LanguageManager.m */,
 				5115E89D1960311C00A8CD07 /* DonatViewController.h */,
 				5115E89E1960311C00A8CD07 /* DonatViewController.m */,
-				5101D13A19607C910030B6BB /* SplashViewController.h */,
-				5101D13B19607C910030B6BB /* SplashViewController.m */,
 				51914C8119693B9100EDED15 /* CalendarFieldView.h */,
 				51914C8219693B9100EDED15 /* CalendarFieldView.m */,
 				51B9B01F1965CFB9009080E2 /* IndicationCell.h */,
