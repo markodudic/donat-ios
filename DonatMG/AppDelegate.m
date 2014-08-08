@@ -27,7 +27,7 @@
 
 	// TODO: Change this to actual App ID when deploying!!!
 	[Appirater setAppId:@"441050540"];
-	[Appirater setDaysUntilPrompt:7];
+	[Appirater setDaysUntilPrompt:0];
 	[Appirater setUsesUntilPrompt:0];
 	[Appirater setSignificantEventsUntilPrompt:3];
 	[Appirater setTimeBeforeReminding:2];
