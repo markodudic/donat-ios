@@ -617,6 +617,7 @@
 
 - (void)setNotificationAtTime:(NSDate *)time withBody:(NSString *)body andUserInfo:(NSDictionary *)userInfo {
 	if ([[NSDate date] compare:time] == NSOrderedAscending) {
+		DLog(@"Setting notification for time %@", [NSDateFormatter localizedStringFromDate:[NSDate date] dateStyle:NSDateFormatterShortStyle timeStyle:NSDateFormatterFullStyle]);
 		UILocalNotification *testNotifation = [[UILocalNotification alloc] init];
 		testNotifation.fireDate = time;
 		testNotifation.alertBody = [self createBodyStringWithAction:body andUserinfo:userInfo];
@@ -826,10 +827,13 @@
 
 	for (CalendarHistoryEntry *entry in _calendarEntriesHistory) {
 		NSTimeInterval timeInterval = [entry.date timeIntervalSinceNow];
-		if (timeInterval > 0 && timeInterval < kSetNotificationsForDays * 86400) {
+		if (timeInterval > 0 && timeInterval < kSetNotificationsForDays * 86400 && !entry.notificationsSet) {
 			[self setNotificationsForDate:entry.date andIndication:entry.indicationType];
+			entry.notificationsSet = YES;
 		}
 	}
+
+	[self writeOutHistory];
 }
 
 @end
