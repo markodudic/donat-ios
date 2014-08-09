@@ -623,6 +623,7 @@
 		testNotifation.alertBody = [self createBodyStringWithAction:body andUserinfo:userInfo];
 		testNotifation.userInfo = userInfo;
 		testNotifation.applicationIconBadgeNumber = 1;
+		testNotifation.soundName = UILocalNotificationDefaultSoundName;
 		[[UIApplication sharedApplication] scheduleLocalNotification:testNotifation];
 	}
 }
