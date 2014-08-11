@@ -36,6 +36,19 @@ static NSCalendar *implicitCalendar = nil;
 	[self setDefaultCalendarIdentifier:NSGregorianCalendar];
 }
 
++ (NSDate *)todayWithoutTime {
+	return [[NSDate date] dateWithoutTime];
+}
+
+- (NSDate *)dateWithoutTime {
+	return [self dateWithoutTimeFromDate:self];
+}
+
+- (NSDate *)dateWithoutTimeFromDate:(NSDate *)date {
+	NSDateComponents *components = [implicitCalendar components:NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit fromDate:date];
+	return [implicitCalendar dateFromComponents:components];
+}
+
 - (NSInteger)year{
 	return [self componentForDate:self type:DTDateComponentYear calendar:nil];
 }

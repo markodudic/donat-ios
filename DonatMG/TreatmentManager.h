@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "NSDate+DateTools.h"
 #import "CalendarHistoryEntry.h"
 
 @interface TreatmentManager : NSObject {

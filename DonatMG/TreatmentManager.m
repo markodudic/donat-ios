@@ -97,9 +97,7 @@
 	_calendarEntriesHistory = [[NSMutableArray alloc] init];
 
 	// we need today without the time
-	NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
-	NSDateComponents *todayComponents = [gregorian components:NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit fromDate:[NSDate date]];
-	NSDate *today = [gregorian dateFromComponents:todayComponents];
+	NSDate *today = [NSDate todayWithoutTime];
 
 	// We start 4 days ago
 	NSDate *dateToAdd = [today dateByAddingTimeInterval:-(4*60*60*24)];
@@ -510,9 +508,7 @@
 	NSInteger cycle = 1;
 
 	// we need the date without the time
-	NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
-	NSDateComponents *todayComponents = [gregorian components:NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit fromDate:startDate];
-	NSDate *date = [gregorian dateFromComponents:todayComponents];
+	NSDate *date = [startDate dateWithoutTime];
 
 	while ([date compare:endDate] == NSOrderedAscending) {
 		if (drink < drinkDays) {
@@ -537,9 +533,7 @@
 
 - (NSArray *)simpleDateTraversalFromDate:(NSDate *)startDate tillDate:(NSDate *)endDate {
 	// we need the date without the time
-	NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
-	NSDateComponents *todayComponents = [gregorian components:NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit fromDate:startDate];
-	NSDate *date = [gregorian dateFromComponents:todayComponents];
+	NSDate *date = [startDate dateWithoutTime];
 
 	NSMutableArray *results = [[NSMutableArray alloc] init];
 
@@ -782,9 +776,7 @@
 	if (self.activeIndication != kUnknown) {
 
 		// we need today without the time
-		NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
-		NSDateComponents *todayComponents = [gregorian components:NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit fromDate:[NSDate date]];
-		NSDate *today = [gregorian dateFromComponents:todayComponents];
+		NSDate *today = [NSDate todayWithoutTime];
 
 		NSMutableArray *removeItems = [[NSMutableArray alloc] init];
 

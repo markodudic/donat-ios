@@ -10,13 +10,13 @@
 
 @interface NSDate (DateTools)
 
-#pragma mark - Date Components Without Calendar
++ (NSDate *)todayWithoutTime;
+- (NSDate *)dateWithoutTime;
+- (NSDate *)dateWithoutTimeFromDate:(NSDate *)date;
 
 - (NSInteger)year;
 - (NSInteger)month;
 - (NSInteger)day;
-
-#pragma mark - Helpers
 
 + (NSString *)defaultCalendarIdentifier;
 + (void)setDefaultCalendarIdentifier:(NSString *)identifier;
