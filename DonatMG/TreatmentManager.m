@@ -178,16 +178,30 @@
 	}
 }
 
+// Pass 0 (or less than first) as second parameter and only the first will be used
+- (NSString *)volumeStringFrom:(NSInteger)first toNumber:(NSInteger)second {
+	if ([[[LanguageManager sharedManager] currentLangId] isEqual:@"ru"]) {
+		first *= 100;
+		second *= 100;
+	}
+	if (second > first)
+		return [NSString stringWithFormat:@"%d-%d %@", (int)first, (int)second, ___(@"volume_suffix")];
+	else
+		return [NSString stringWithFormat:@"%d %@", (int)first, ___(@"volume_suffix")];
+}
+
 - (NSArray *)stringsForIndication:(IndicationType)indication {
 	switch (indication) {
 		case kZaprtost:
 			return @[
 					 @[___(@"drinking_na_tesce"),
-					   [NSString stringWithFormat:@"3-8 %@", ___(@"volume_suffix")],
+					   [self volumeStringFrom:3 toNumber:8],
+//					   [NSString stringWithFormat:@"3-8 %@", ___(@"volume_suffix")],
 					   ___(@"temperature_toplo"),
 					   ___(@"speed_hitro")],
 					 @[___(@"drinking_pred_spanjem-1"),
-					   [NSString stringWithFormat:@"2 %@", ___(@"volume_suffix")],
+					   [self volumeStringFrom:2 toNumber:0],
+//					   [NSString stringWithFormat:@"2 %@", ___(@"volume_suffix")],
 					   ___(@"temperature_mlacno"),
 					   ___(@"speed_razmeroma_hitro")]
                      ];
@@ -195,11 +209,13 @@
 		case kZgaga:
 			return @[
 					 @[___(@"drinking_20_min_pred"),
-					   [NSString stringWithFormat:@"1 %@", ___(@"volume_suffix")],
+					   [self volumeStringFrom:1 toNumber:0],
+//					   [NSString stringWithFormat:@"1 %@", ___(@"volume_suffix")],
 					   ___(@"temperature_sobna"),
 					   ___(@"speed_pocasi")],
 					 @[___(@"drinking_med_obroki"),
-					   [NSString stringWithFormat:@"1 %@", ___(@"volume_suffix")],
+					   [self volumeStringFrom:1 toNumber:0],
+//					   [NSString stringWithFormat:@"1 %@", ___(@"volume_suffix")],
 					   ___(@"temperature_sobna"),
 					   ___(@"speed_pocasi")]
 					 ];
@@ -207,15 +223,18 @@
 		case kMagnezij:
 			return @[
 					 @[___(@"drinking_na_tesce"),
-					   [NSString stringWithFormat:@"2 %@", ___(@"volume_suffix")],
+					   [self volumeStringFrom:2 toNumber:0],
+//					   [NSString stringWithFormat:@"2 %@", ___(@"volume_suffix")],
 					   ___(@"temperature_hladno"),
 					   ___(@"speed_pocasi")],
 					 @[___(@"drinking_opoldne"),
-					   [NSString stringWithFormat:@"1 %@", ___(@"volume_suffix")],
+					   [self volumeStringFrom:1 toNumber:0],
+//					   [NSString stringWithFormat:@"1 %@", ___(@"volume_suffix")],
 					   ___(@"temperature_hladno"),
 					   ___(@"speed_pocasi")],
 					 @[___(@"drinking_zvecer"),
-					   [NSString stringWithFormat:@"1 %@", ___(@"volume_suffix")],
+					   [self volumeStringFrom:1 toNumber:0],
+//					   [NSString stringWithFormat:@"1 %@", ___(@"volume_suffix")],
 					   ___(@"temperature_hladno"),
 					   ___(@"speed_pocasi")]
 					 ];
@@ -223,15 +242,18 @@
 		case kSladkorna:
 			return @[
 					 @[___(@"drinking_na_tesce"),
-					   [NSString stringWithFormat:@"3 %@", ___(@"volume_suffix")],
+					   [self volumeStringFrom:3 toNumber:0],
+//					   [NSString stringWithFormat:@"3 %@", ___(@"volume_suffix")],
 					   ___(@"temperature_toplo"),
 					   ___(@"speed_razmeroma_hitro")],
 					 @[___(@"drinking_pred_kosilom"),
-					   [NSString stringWithFormat:@"1 %@", ___(@"volume_suffix")],
+					   [self volumeStringFrom:1 toNumber:0],
+//					   [NSString stringWithFormat:@"1 %@", ___(@"volume_suffix")],
 					   ___(@"temperature_hladno"),
 					   ___(@"speed_pocasi")],
 					 @[___(@"drinking_pred_vecerjo"),
-					   [NSString stringWithFormat:@"1 %@", ___(@"volume_suffix")],
+					   [self volumeStringFrom:1 toNumber:0],
+//					   [NSString stringWithFormat:@"1 %@", ___(@"volume_suffix")],
 					   ___(@"temperature_hladno"),
 					   ___(@"speed_pocasi")]
 					 ];
@@ -239,15 +261,18 @@
 		case kSlinavka:
 			return @[
 					 @[___(@"drinking_na_tesce"),
-					   [NSString stringWithFormat:@"3-5 %@", ___(@"volume_suffix")],
+					   [self volumeStringFrom:3 toNumber:5],
+//					   [NSString stringWithFormat:@"3-5 %@", ___(@"volume_suffix")],
 					   ___(@"temperature_mlacno"),
 					   ___(@"speed_pocasi")],
 					 @[___(@"drinking_pred_kosilom"),
-					   [NSString stringWithFormat:@"2 %@", ___(@"volume_suffix")],
+					   [self volumeStringFrom:2 toNumber:0],
+//					   [NSString stringWithFormat:@"2 %@", ___(@"volume_suffix")],
 					   ___(@"temperature_toplo"),
 					   ___(@"speed_pocasi")],
 					 @[___(@"drinking_pred_vecerjo"),
-					   [NSString stringWithFormat:@"2 %@", ___(@"volume_suffix")],
+					   [self volumeStringFrom:2 toNumber:0],
+//					   [NSString stringWithFormat:@"2 %@", ___(@"volume_suffix")],
 					   ___(@"temperature_mlacno"),
 					   ___(@"speed_pocasi")]
 					 ];
@@ -256,19 +281,23 @@
 			return @[
 					 // TODO: The first speed is not defined in the PDF
 					 @[___(@"drinking_na_tesce"),
-					   [NSString stringWithFormat:@"2 %@", ___(@"volume_suffix")],
+					   [self volumeStringFrom:2 toNumber:0],
+//					   [NSString stringWithFormat:@"2 %@", ___(@"volume_suffix")],
 					   ___(@"temperature_mlacno"),
 					   ___(@"speed_pocasi")],
 					 @[___(@"drinking_pred_kosilom"),
-					   [NSString stringWithFormat:@"2 %@", ___(@"volume_suffix")],
+					   [self volumeStringFrom:2 toNumber:0],
+//					   [NSString stringWithFormat:@"2 %@", ___(@"volume_suffix")],
 					   ___(@"temperature_mlacno"),
 					   ___(@"speed_pocasi")],
 					 @[___(@"drinking_pred_vecerjo"),
-					   [NSString stringWithFormat:@"2 %@", ___(@"volume_suffix")],
+					   [self volumeStringFrom:2 toNumber:0],
+//					   [NSString stringWithFormat:@"2 %@", ___(@"volume_suffix")],
 					   ___(@"temperature_mlacno"),
 					   ___(@"speed_pocasi")],
 					 @[___(@"drinking_pred_spanjem-6"),
-					   [NSString stringWithFormat:@"2 %@", ___(@"volume_suffix")],
+					   [self volumeStringFrom:2 toNumber:0],
+//					   [NSString stringWithFormat:@"2 %@", ___(@"volume_suffix")],
 					   ___(@"temperature_mlacno"),
 					   ___(@"speed_pocasi")]
 					 ];
@@ -276,11 +305,13 @@
 		case kDebelost:
 			return @[
 					 @[___(@"drinking_na_tesce"),
-					   [NSString stringWithFormat:@"3-5 %@", ___(@"volume_suffix")],
+					   [self volumeStringFrom:3 toNumber:5],
+//					   [NSString stringWithFormat:@"3-5 %@", ___(@"volume_suffix")],
 					   ___(@"temperature_toplo"),
 					   ___(@"speed_hitro")],
 					 @[___(@"drinking_obcutek_lakote"),
-					   [NSString stringWithFormat:@"1 %@",___(@"volume_suffix")],
+					   [self volumeStringFrom:1 toNumber:0],
+//					   [NSString stringWithFormat:@"1 %@",___(@"volume_suffix")],
 					   ___(@"temperature_hladno"),
 					   ___(@"speed_pocasi")]
 					 ];
@@ -288,7 +319,8 @@
 		case kSrceOzilje:
 			return @[
 					 @[___(@"drinking_3_4_dnevno"),
-					   [NSString stringWithFormat:@"1 %@", ___(@"volume_suffix")],
+					   [self volumeStringFrom:1 toNumber:0],
+//					   [NSString stringWithFormat:@"1 %@", ___(@"volume_suffix")],
 					   ___(@"temperature_sobna"),
 					   ___(@"speed_pocasi")]
 					 ];
@@ -296,11 +328,13 @@
 		case kStres:
 			return @[
 					 @[___(@"drinking_na_tesce"),
-					   [NSString stringWithFormat:@"3 %@", ___(@"volume_suffix")],
+					   [self volumeStringFrom:3 toNumber:0],
+//					   [NSString stringWithFormat:@"3 %@", ___(@"volume_suffix")],
 					   ___(@"temperature_hladno"),
 					   ___(@"speed_pocasi")],
 					 @[___(@"drinking_pred_spanjem"),
-					   [NSString stringWithFormat:@"1-2 %@", ___(@"volume_suffix")],
+					   [self volumeStringFrom:1 toNumber:2],
+//					   [NSString stringWithFormat:@"1-2 %@", ___(@"volume_suffix")],
 					   ___(@"temperature_hladno"),
 					   ___(@"speed_pocasi")]
 					 ];
@@ -308,7 +342,8 @@
 		case kPocutje:
 			return @[
 					 @[___(@"drinking_pred_jedjo"),
-					   [NSString stringWithFormat:@"1-2 %@", ___(@"volume_suffix")],
+					   [self volumeStringFrom:1 toNumber:2],
+//					   [NSString stringWithFormat:@"1-2 %@", ___(@"volume_suffix")],
 					   ___(@"temperature_hladno"),
 					   ___(@"speed_pocasi")]
 					 ];
