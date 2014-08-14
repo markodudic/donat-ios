@@ -186,7 +186,7 @@
 					   [NSString stringWithFormat:@"3-8 %@", ___(@"volume_suffix")],
 					   ___(@"temperature_toplo"),
 					   ___(@"speed_hitro")],
-					 @[___(@"drinking_pred_spanjem"),
+					 @[___(@"drinking_pred_spanjem-1"),
 					   [NSString stringWithFormat:@"2 %@", ___(@"volume_suffix")],
 					   ___(@"temperature_mlacno"),
 					   ___(@"speed_razmeroma_hitro")]
@@ -267,7 +267,7 @@
 					   [NSString stringWithFormat:@"2 %@", ___(@"volume_suffix")],
 					   ___(@"temperature_mlacno"),
 					   ___(@"speed_pocasi")],
-					 @[___(@"drinking_pred_spanjem"),
+					 @[___(@"drinking_pred_spanjem-6"),
 					   [NSString stringWithFormat:@"2 %@", ___(@"volume_suffix")],
 					   ___(@"temperature_mlacno"),
 					   ___(@"speed_pocasi")]
