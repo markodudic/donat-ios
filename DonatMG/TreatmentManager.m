@@ -394,24 +394,6 @@
 	}
 }
 
-- (IndicationType)indicationForDate:(NSDate *)date {
-	CalendarHistoryEntry *entry = [self historyItemForDate:date];
-	if (entry)
-		return entry.indicationType;
-	else
-		return kUnknown;
-}
-
-- (CalendarHistoryEntry *)historyItemForDate:(NSDate *)date {
-//	DLog(@"Searching for %@", [NSDateFormatter localizedStringFromDate:date dateStyle:NSDateFormatterShortStyle timeStyle:NSDateFormatterFullStyle]);
-	for (CalendarHistoryEntry *entry in _calendarEntriesHistory) {
-		if ([date compare:entry.date] == NSOrderedSame) {
-			return entry;
-		}
-	}
-	return nil;
-}
-
 - (NSString *)imageForTimeOfDay:(TimeOfDayType)timeOfDay {
 	switch (timeOfDay) {
 		case todMedObroki:
@@ -498,6 +480,24 @@
 			return nil;
 			break;
 	}
+}
+
+- (IndicationType)indicationForDate:(NSDate *)date {
+	CalendarHistoryEntry *entry = [self historyItemForDate:date];
+	if (entry)
+		return entry.indicationType;
+	else
+		return kUnknown;
+}
+
+- (CalendarHistoryEntry *)historyItemForDate:(NSDate *)date {
+//	DLog(@"Searching for %@", [NSDateFormatter localizedStringFromDate:date dateStyle:NSDateFormatterShortStyle timeStyle:NSDateFormatterFullStyle]);
+	for (CalendarHistoryEntry *entry in _calendarEntriesHistory) {
+		if ([date compare:entry.date] == NSOrderedSame) {
+			return entry;
+		}
+	}
+	return nil;
 }
 
 - (NSArray *)calculateDrinkingDaysFromDate:(NSDate *)startDate tillDate:(NSDate *)endDate withDrinkDays:(NSInteger)drinkDays pauseDays:(NSInteger)pauseDays andCycles:(NSInteger)cycles {
