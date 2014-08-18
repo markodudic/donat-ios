@@ -91,7 +91,7 @@
 }
 
 - (void)createDummyData {
-	// the folowing preprocessor code will NEVER be true, remove second part to reenable
+// the folowing preprocessor code will NEVER be true, remove second part to reenable
 #if DEBUG == 1 && DEBUG == 0
 	DLog(@"Creating dummy data");
 
@@ -197,12 +197,10 @@
 			return @[
 					 @[___(@"drinking_na_tesce"),
 					   [self volumeStringFrom:3 toNumber:8],
-//					   [NSString stringWithFormat:@"3-8 %@", ___(@"volume_suffix")],
 					   ___(@"temperature_toplo"),
 					   ___(@"speed_hitro")],
 					 @[___(@"drinking_pred_spanjem-1"),
 					   [self volumeStringFrom:2 toNumber:0],
-//					   [NSString stringWithFormat:@"2 %@", ___(@"volume_suffix")],
 					   ___(@"temperature_mlacno"),
 					   ___(@"speed_razmeroma_hitro")]
                      ];
@@ -211,12 +209,10 @@
 			return @[
 					 @[___(@"drinking_20_min_pred"),
 					   [self volumeStringFrom:1 toNumber:0],
-//					   [NSString stringWithFormat:@"1 %@", ___(@"volume_suffix")],
 					   ___(@"temperature_sobna"),
 					   ___(@"speed_pocasi")],
 					 @[___(@"drinking_med_obroki"),
 					   [self volumeStringFrom:1 toNumber:0],
-//					   [NSString stringWithFormat:@"1 %@", ___(@"volume_suffix")],
 					   ___(@"temperature_sobna"),
 					   ___(@"speed_pocasi")]
 					 ];
@@ -225,17 +221,14 @@
 			return @[
 					 @[___(@"drinking_na_tesce"),
 					   [self volumeStringFrom:2 toNumber:0],
-//					   [NSString stringWithFormat:@"2 %@", ___(@"volume_suffix")],
 					   ___(@"temperature_hladno"),
 					   ___(@"speed_pocasi")],
 					 @[___(@"drinking_opoldne"),
 					   [self volumeStringFrom:1 toNumber:0],
-//					   [NSString stringWithFormat:@"1 %@", ___(@"volume_suffix")],
 					   ___(@"temperature_hladno"),
 					   ___(@"speed_pocasi")],
 					 @[___(@"drinking_zvecer"),
 					   [self volumeStringFrom:1 toNumber:0],
-//					   [NSString stringWithFormat:@"1 %@", ___(@"volume_suffix")],
 					   ___(@"temperature_hladno"),
 					   ___(@"speed_pocasi")]
 					 ];
@@ -244,17 +237,14 @@
 			return @[
 					 @[___(@"drinking_na_tesce"),
 					   [self volumeStringFrom:3 toNumber:0],
-//					   [NSString stringWithFormat:@"3 %@", ___(@"volume_suffix")],
 					   ___(@"temperature_toplo"),
 					   ___(@"speed_razmeroma_hitro")],
 					 @[___(@"drinking_pred_kosilom"),
 					   [self volumeStringFrom:1 toNumber:0],
-//					   [NSString stringWithFormat:@"1 %@", ___(@"volume_suffix")],
 					   ___(@"temperature_hladno"),
 					   ___(@"speed_pocasi")],
 					 @[___(@"drinking_pred_vecerjo"),
 					   [self volumeStringFrom:1 toNumber:0],
-//					   [NSString stringWithFormat:@"1 %@", ___(@"volume_suffix")],
 					   ___(@"temperature_hladno"),
 					   ___(@"speed_pocasi")]
 					 ];
@@ -263,17 +253,14 @@
 			return @[
 					 @[___(@"drinking_na_tesce"),
 					   [self volumeStringFrom:3 toNumber:5],
-//					   [NSString stringWithFormat:@"3-5 %@", ___(@"volume_suffix")],
 					   ___(@"temperature_mlacno"),
 					   ___(@"speed_pocasi")],
 					 @[___(@"drinking_pred_kosilom"),
 					   [self volumeStringFrom:2 toNumber:0],
-//					   [NSString stringWithFormat:@"2 %@", ___(@"volume_suffix")],
 					   ___(@"temperature_hladno"),
 					   ___(@"speed_pocasi")],
 					 @[___(@"drinking_pred_vecerjo"),
 					   [self volumeStringFrom:2 toNumber:0],
-//					   [NSString stringWithFormat:@"2 %@", ___(@"volume_suffix")],
 					   ___(@"temperature_mlacno"),
 					   ___(@"speed_pocasi")]
 					 ];
@@ -283,22 +270,18 @@
 					 // TODO: The first speed is not defined in the PDF
 					 @[___(@"drinking_na_tesce"),
 					   [self volumeStringFrom:2 toNumber:0],
-//					   [NSString stringWithFormat:@"2 %@", ___(@"volume_suffix")],
 					   ___(@"temperature_mlacno"),
 					   ___(@"speed_pocasi")],
 					 @[___(@"drinking_pred_kosilom"),
 					   [self volumeStringFrom:2 toNumber:0],
-//					   [NSString stringWithFormat:@"2 %@", ___(@"volume_suffix")],
 					   ___(@"temperature_mlacno"),
 					   ___(@"speed_pocasi")],
 					 @[___(@"drinking_pred_vecerjo"),
 					   [self volumeStringFrom:2 toNumber:0],
-//					   [NSString stringWithFormat:@"2 %@", ___(@"volume_suffix")],
 					   ___(@"temperature_mlacno"),
 					   ___(@"speed_pocasi")],
 					 @[___(@"drinking_pred_spanjem-6"),
 					   [self volumeStringFrom:2 toNumber:0],
-//					   [NSString stringWithFormat:@"2 %@", ___(@"volume_suffix")],
 					   ___(@"temperature_mlacno"),
 					   ___(@"speed_pocasi")]
 					 ];
@@ -307,12 +290,10 @@
 			return @[
 					 @[___(@"drinking_na_tesce"),
 					   [self volumeStringFrom:3 toNumber:5],
-//					   [NSString stringWithFormat:@"3-5 %@", ___(@"volume_suffix")],
 					   ___(@"temperature_toplo"),
 					   ___(@"speed_hitro")],
 					 @[___(@"drinking_obcutek_lakote"),
 					   [self volumeStringFrom:1 toNumber:0],
-//					   [NSString stringWithFormat:@"1 %@",___(@"volume_suffix")],
 					   ___(@"temperature_hladno"),
 					   ___(@"speed_pocasi")]
 					 ];
@@ -321,7 +302,6 @@
 			return @[
 					 @[___(@"drinking_3_4_dnevno"),
 					   [self volumeStringFrom:1 toNumber:0],
-//					   [NSString stringWithFormat:@"1 %@", ___(@"volume_suffix")],
 					   ___(@"temperature_sobna"),
 					   ___(@"speed_pocasi")]
 					 ];
@@ -330,12 +310,10 @@
 			return @[
 					 @[___(@"drinking_na_tesce"),
 					   [self volumeStringFrom:3 toNumber:0],
-//					   [NSString stringWithFormat:@"3 %@", ___(@"volume_suffix")],
 					   ___(@"temperature_hladno"),
 					   ___(@"speed_pocasi")],
 					 @[___(@"drinking_pred_spanjem"),
 					   [self volumeStringFrom:1 toNumber:2],
-//					   [NSString stringWithFormat:@"1-2 %@", ___(@"volume_suffix")],
 					   ___(@"temperature_hladno"),
 					   ___(@"speed_pocasi")]
 					 ];
@@ -344,7 +322,6 @@
 			return @[
 					 @[___(@"drinking_pred_jedjo"),
 					   [self volumeStringFrom:1 toNumber:2],
-//					   [NSString stringWithFormat:@"1-2 %@", ___(@"volume_suffix")],
 					   ___(@"temperature_hladno"),
 					   ___(@"speed_pocasi")]
 					 ];
@@ -526,7 +503,6 @@
 }
 
 - (CalendarHistoryEntry *)historyItemForDate:(NSDate *)date {
-//	DLog(@"Searching for %@", [NSDateFormatter localizedStringFromDate:date dateStyle:NSDateFormatterShortStyle timeStyle:NSDateFormatterFullStyle]);
 	for (CalendarHistoryEntry *entry in _calendarEntriesHistory) {
 		if ([date compare:entry.date] == NSOrderedSame) {
 			return entry;

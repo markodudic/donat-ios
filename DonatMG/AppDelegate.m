@@ -29,7 +29,8 @@
 	[Appirater setSignificantEventsUntilPrompt:3];
 	[Appirater setTimeBeforeReminding:2];
 
-#if DEBUG == 1
+// the folowing preprocessor code will NEVER be true, remove second part to reenable
+#if DEBUG == 1 && DEBUG == 0
 	[Appirater setDebug:YES];
 #else
 	[Appirater setDebug:NO];
