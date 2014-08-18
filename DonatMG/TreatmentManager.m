@@ -504,7 +504,8 @@
 
 - (CalendarHistoryEntry *)historyItemForDate:(NSDate *)date {
 	for (CalendarHistoryEntry *entry in _calendarEntriesHistory) {
-		if ([date compare:entry.date] == NSOrderedSame) {
+		NSTimeInterval timeInterval = fabs([date timeIntervalSinceDate:entry.date]);
+		if (timeInterval < 43200) {
 			return entry;
 		}
 	}
