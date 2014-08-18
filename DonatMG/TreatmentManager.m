@@ -268,7 +268,7 @@
 					 @[___(@"drinking_pred_kosilom"),
 					   [self volumeStringFrom:2 toNumber:0],
 //					   [NSString stringWithFormat:@"2 %@", ___(@"volume_suffix")],
-					   ___(@"temperature_toplo"),
+					   ___(@"temperature_hladno"),
 					   ___(@"speed_pocasi")],
 					 @[___(@"drinking_pred_vecerjo"),
 					   [self volumeStringFrom:2 toNumber:0],
