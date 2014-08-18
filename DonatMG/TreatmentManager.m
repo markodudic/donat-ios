@@ -91,7 +91,8 @@
 }
 
 - (void)createDummyData {
-#if DEBUG == 1
+	// the folowing preprocessor code will NEVER be true, remove second part to reenable
+#if DEBUG == 1 && DEBUG == 0
 	DLog(@"Creating dummy data");
 
 	_calendarEntriesHistory = [[NSMutableArray alloc] init];
@@ -318,7 +319,6 @@
 			break;
 	}
 }
-
 
 - (NSArray *)notificationIconsForIndication:(IndicationType)indication {
 	switch (indication) {
@@ -547,7 +547,6 @@
 }
 
 - (NSArray *)drinkingDatesForIndication:(IndicationType)indication fromDate:(NSDate *)startDate andTillDate:(NSDate *)endDate {
-
 	switch (indication) {
 		case kZaprtost:
 		case kSladkorna:
@@ -610,14 +609,13 @@
 	return [NSString stringWithFormat:@"%@ %@ %@ %@", body, [info objectForKey:@"temperature"], [info objectForKey:@"amount"], [info objectForKey:@"speed"]];
 }
 
-- (void)setNotificationAtTime:(NSDate *)time withBody:(NSString *)body andUserInfo:(NSDictionary *)userInfo {
+- (void)setNotificationAtDateTime:(NSDate *)time withBody:(NSString *)body andUserInfo:(NSDictionary *)userInfo {
 	if ([[NSDate date] compare:time] == NSOrderedAscending) {
-		DLog(@"Setting notification for time %@", [NSDateFormatter localizedStringFromDate:[NSDate date] dateStyle:NSDateFormatterShortStyle timeStyle:NSDateFormatterFullStyle]);
 		UILocalNotification *testNotifation = [[UILocalNotification alloc] init];
 		testNotifation.fireDate = time;
 		testNotifation.alertBody = [self createBodyStringWithAction:body andUserinfo:userInfo];
 		testNotifation.userInfo = userInfo;
-		testNotifation.applicationIconBadgeNumber = 1;
+		testNotifation.applicationIconBadgeNumber = 0;
 		testNotifation.soundName = UILocalNotificationDefaultSoundName;
 		[[UIApplication sharedApplication] scheduleLocalNotification:testNotifation];
 	}
@@ -626,61 +624,61 @@
 - (void)setNotificationPredZajtrkomForDate:(NSDate *)date withStrings:(NSArray *)strings timeOfDay:(NSInteger)time andIndication:(IndicationType)indication {
 	NSDate *notificationTime = [[self combineDate:date withTimeComponents:[[SettingsManager sharedManager] breakfastTime]] dateByAddingTimeInterval:(-5*60)];
 
-	[self setNotificationAtTime:notificationTime withBody:___(@"drinking_na_tesce") andUserInfo:[self createUserInfoForIndication:indication withStrings:strings actionString:___(@"drinking_na_tesce") andTimeOfDay:time]];
+	[self setNotificationAtDateTime:notificationTime withBody:___(@"drinking_na_tesce") andUserInfo:[self createUserInfoForIndication:indication withStrings:strings actionString:___(@"drinking_na_tesce") andTimeOfDay:time]];
 }
 
 - (void)setNotificationPredKosilomForDate:(NSDate *)date withStrings:(NSArray *)strings timeOfDay:(NSInteger)time andIndication:(IndicationType)indication {
 	NSDate *notificationTime = [[self combineDate:date withTimeComponents:[[SettingsManager sharedManager] lunchTime]] dateByAddingTimeInterval:(-5*60)];
 
-	[self setNotificationAtTime:notificationTime withBody:___(@"drinking_pred_kosilom") andUserInfo:[self createUserInfoForIndication:indication withStrings:strings actionString:___(@"drinking_pred_kosilom") andTimeOfDay:time]];
+	[self setNotificationAtDateTime:notificationTime withBody:___(@"drinking_pred_kosilom") andUserInfo:[self createUserInfoForIndication:indication withStrings:strings actionString:___(@"drinking_pred_kosilom") andTimeOfDay:time]];
 }
 
 - (void)setNotificationPredVecerjoForDate:(NSDate *)date withStrings:(NSArray *)strings timeOfDay:(NSInteger)time andIndication:(IndicationType)indication {
 	NSDate *notificationTime = [[self combineDate:date withTimeComponents:[[SettingsManager sharedManager] dinnerTime]] dateByAddingTimeInterval:(-5*60)];
 
-	[self setNotificationAtTime:notificationTime withBody:___(@"drinking_pred_vecerjo") andUserInfo:[self createUserInfoForIndication:indication withStrings:strings actionString:___(@"drinking_pred_vecerjo") andTimeOfDay:time]];
+	[self setNotificationAtDateTime:notificationTime withBody:___(@"drinking_pred_vecerjo") andUserInfo:[self createUserInfoForIndication:indication withStrings:strings actionString:___(@"drinking_pred_vecerjo") andTimeOfDay:time]];
 }
 
 - (void)setNotificationPredSpanjemForDate:(NSDate *)date withStrings:(NSArray *)strings timeOfDay:(NSInteger)time andIndication:(IndicationType)indication {
 	NSDate *notificationTime = [[self combineDate:date withTimeComponents:[[SettingsManager sharedManager] sleepingTime]] dateByAddingTimeInterval:(-5*60)];
 
-	[self setNotificationAtTime:notificationTime withBody:___(@"drinking_pred_spanjem") andUserInfo:[self createUserInfoForIndication:indication withStrings:strings actionString:___(@"drinking_pred_spanjem") andTimeOfDay:time]];
+	[self setNotificationAtDateTime:notificationTime withBody:___(@"drinking_pred_spanjem") andUserInfo:[self createUserInfoForIndication:indication withStrings:strings actionString:___(@"drinking_pred_spanjem") andTimeOfDay:time]];
 }
 
 - (void)setNotificationOpoldneForDate:(NSDate *)date withStrings:(NSArray *)strings timeOfDay:(NSInteger)time andIndication:(IndicationType)indication {
 	NSDate *notificationTime = [[self combineDate:date withTime:[self noonTime]] dateByAddingTimeInterval:(-5*60)];
 
-	[self setNotificationAtTime:notificationTime withBody:___(@"drinking_opoldne") andUserInfo:[self createUserInfoForIndication:indication withStrings:strings actionString:___(@"drinking_opoldne") andTimeOfDay:time]];
+	[self setNotificationAtDateTime:notificationTime withBody:___(@"drinking_opoldne") andUserInfo:[self createUserInfoForIndication:indication withStrings:strings actionString:___(@"drinking_opoldne") andTimeOfDay:time]];
 }
 
 - (void)setNotificationsForZgagaWithStrings:(NSArray *)strings onDate:(NSDate *)date {
 	// 20 min pred jedjo - 25 min pred vsakim obrokom
 
 	// pred zajtrkom
-	NSDate *notificationTime = [[self combineDate:date withTimeComponents:[[SettingsManager sharedManager] breakfastTime]] dateByAddingTimeInterval:(-30*60)];
-	[self setNotificationAtTime:notificationTime withBody:___(@"drinking_pred_jedjo") andUserInfo:[self createUserInfoForIndication:kZgaga withStrings:strings actionString:___(@"drinking_pred_jedjo") andTimeOfDay:2]];
+	NSDate *notificationTime = [[self combineDate:date withTimeComponents:[[SettingsManager sharedManager] breakfastTime]] dateByAddingTimeInterval:(-25*60)];
+	[self setNotificationAtDateTime:notificationTime withBody:___(@"drinking_pred_jedjo") andUserInfo:[self createUserInfoForIndication:kZgaga withStrings:strings actionString:___(@"drinking_pred_jedjo") andTimeOfDay:2]];
 
 	//pred kosilom
 	notificationTime = [[self combineDate:date withTimeComponents:[[SettingsManager sharedManager] lunchTime]] dateByAddingTimeInterval:(-25*60)];
-	[self setNotificationAtTime:notificationTime withBody:___(@"drinking_pred_jedjo") andUserInfo:[self createUserInfoForIndication:kZgaga withStrings:strings actionString:___(@"drinking_pred_jedjo") andTimeOfDay:2]];
+	[self setNotificationAtDateTime:notificationTime withBody:___(@"drinking_pred_jedjo") andUserInfo:[self createUserInfoForIndication:kZgaga withStrings:strings actionString:___(@"drinking_pred_jedjo") andTimeOfDay:2]];
 
 	// pred vecerjo
 	notificationTime = [[self combineDate:date withTimeComponents:[[SettingsManager sharedManager] dinnerTime]] dateByAddingTimeInterval:(-25*60)];
-	[self setNotificationAtTime:notificationTime withBody:___(@"drinking_pred_jedjo") andUserInfo:[self createUserInfoForIndication:kZgaga withStrings:strings actionString:___(@"drinking_pred_jedjo") andTimeOfDay:2]];
+	[self setNotificationAtDateTime:notificationTime withBody:___(@"drinking_pred_jedjo") andUserInfo:[self createUserInfoForIndication:kZgaga withStrings:strings actionString:___(@"drinking_pred_jedjo") andTimeOfDay:2]];
 
 	// Med obroki in 1-2 uri po jedi - 1:30h po obroku
 
 	// po zajtrku
 	notificationTime = [[self combineDate:date withTimeComponents:[[SettingsManager sharedManager] breakfastTime]] dateByAddingTimeInterval:(90*60)];
-	[self setNotificationAtTime:notificationTime withBody:___(@"drinking_med_obroki") andUserInfo:[self createUserInfoForIndication:kZgaga withStrings:strings actionString:___(@"drinking_med_obroki") andTimeOfDay:3]];
+	[self setNotificationAtDateTime:notificationTime withBody:___(@"drinking_med_obroki") andUserInfo:[self createUserInfoForIndication:kZgaga withStrings:strings actionString:___(@"drinking_med_obroki") andTimeOfDay:3]];
 
 	// po kosilu
 	notificationTime = [[self combineDate:date withTimeComponents:[[SettingsManager sharedManager] lunchTime]] dateByAddingTimeInterval:(90*60)];
-	[self setNotificationAtTime:notificationTime withBody:___(@"drinking_med_obroki") andUserInfo:[self createUserInfoForIndication:kZgaga withStrings:strings actionString:___(@"drinking_med_obroki") andTimeOfDay:3]];
+	[self setNotificationAtDateTime:notificationTime withBody:___(@"drinking_med_obroki") andUserInfo:[self createUserInfoForIndication:kZgaga withStrings:strings actionString:___(@"drinking_med_obroki") andTimeOfDay:3]];
 
 	// po vecerji
 	notificationTime = [[self combineDate:date withTimeComponents:[[SettingsManager sharedManager] dinnerTime]] dateByAddingTimeInterval:(90*60)];
-	[self setNotificationAtTime:notificationTime withBody:___(@"drinking_med_obroki") andUserInfo:[self createUserInfoForIndication:kZgaga withStrings:strings actionString:___(@"drinking_med_obroki") andTimeOfDay:3]];
+	[self setNotificationAtDateTime:notificationTime withBody:___(@"drinking_med_obroki") andUserInfo:[self createUserInfoForIndication:kZgaga withStrings:strings actionString:___(@"drinking_med_obroki") andTimeOfDay:3]];
 }
 
 - (void)setNotificationsForSrceOziljeWithStrings:(NSArray *)strings onDate:(NSDate *)date {
@@ -697,10 +695,10 @@
 	NSDate *first = [start dateByAddingTimeInterval:period];
 	NSDate *second = [first dateByAddingTimeInterval:period];
 
-	[self setNotificationAtTime:start withBody:___(@"drinking_veckrat_dnevno") andUserInfo:[self createUserInfoForIndication:kSrceOzilje withStrings:strings actionString:___(@"drinking_veckrat_dnevno") andTimeOfDay:1]];
-	[self setNotificationAtTime:first withBody:___(@"drinking_veckrat_dnevno") andUserInfo:[self createUserInfoForIndication:kSrceOzilje withStrings:strings actionString:___(@"drinking_veckrat_dnevno") andTimeOfDay:1]];
-	[self setNotificationAtTime:second withBody:___(@"drinking_veckrat_dnevno") andUserInfo:[self createUserInfoForIndication:kSrceOzilje withStrings:strings actionString:___(@"drinking_veckrat_dnevno") andTimeOfDay:1]];
-	[self setNotificationAtTime:end withBody:___(@"drinking_veckrat_dnevno") andUserInfo:[self createUserInfoForIndication:kSrceOzilje withStrings:strings actionString:___(@"drinking_veckrat_dnevno") andTimeOfDay:1]];
+	[self setNotificationAtDateTime:start withBody:___(@"drinking_veckrat_dnevno") andUserInfo:[self createUserInfoForIndication:kSrceOzilje withStrings:strings actionString:___(@"drinking_veckrat_dnevno") andTimeOfDay:1]];
+	[self setNotificationAtDateTime:first withBody:___(@"drinking_veckrat_dnevno") andUserInfo:[self createUserInfoForIndication:kSrceOzilje withStrings:strings actionString:___(@"drinking_veckrat_dnevno") andTimeOfDay:1]];
+	[self setNotificationAtDateTime:second withBody:___(@"drinking_veckrat_dnevno") andUserInfo:[self createUserInfoForIndication:kSrceOzilje withStrings:strings actionString:___(@"drinking_veckrat_dnevno") andTimeOfDay:1]];
+	[self setNotificationAtDateTime:end withBody:___(@"drinking_veckrat_dnevno") andUserInfo:[self createUserInfoForIndication:kSrceOzilje withStrings:strings actionString:___(@"drinking_veckrat_dnevno") andTimeOfDay:1]];
 }
 
 - (void)setNotificationsForDate:(NSDate *)date andIndication:(IndicationType)indication {
@@ -821,7 +819,8 @@
 
 	for (CalendarHistoryEntry *entry in _calendarEntriesHistory) {
 		NSTimeInterval timeInterval = [entry.date timeIntervalSinceNow];
-		if (timeInterval > 0 && timeInterval < kSetNotificationsForDays * 86400 && !entry.notificationsSet) {
+		// the "> - 86400" is a hack to include today in any case. past events today will be filtered out later
+		if (timeInterval > -86400 && timeInterval < kSetNotificationsForDays * 86400 && !entry.notificationsSet) {
 			[self setNotificationsForDate:entry.date andIndication:entry.indicationType];
 			entry.notificationsSet = YES;
 		}
