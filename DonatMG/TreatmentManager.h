@@ -25,15 +25,15 @@
 - (NSArray *)stringsForIndication:(IndicationType)indication;
 - (NSArray *)notificationIconsForIndication:(IndicationType)indication;
 
+- (NSString *)imageForTimeOfDay:(TimeOfDayType)timeOfDay;
+- (NSString *)textForTimeOfDay:(TimeOfDayType)timeOfDay;
+
 - (IndicationType)indicationForDate:(NSDate *)date;
 - (CalendarHistoryEntry *)historyItemForDate:(NSDate *)date;
 
 - (void)startTreatmentForIndication:(IndicationType)indication fromDate:(NSDate *)date;
 - (void)cancelActiveTreatment;
 - (void)recalculateTreatment;
-
-- (NSString *)imageForTimeOfDay:(TimeOfDayType)timeOfDay;
-- (NSString *)textForTimeOfDay:(TimeOfDayType)timeOfDay;
 
 - (void)checkForUnsetNotifications;
 

@@ -14,9 +14,6 @@
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-
-	[application setApplicationIconBadgeNumber:0];
-
 	[LanguageManager sharedManager];
 
 	[Appirater setCustomAlertTitle:___(@"rate_title")];
