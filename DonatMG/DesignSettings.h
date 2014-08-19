@@ -19,7 +19,7 @@
 
 #define kDateSelectFont [UIFont fontWithName:@"Roboto-Medium" size:22.0f]
 
-#define kSettingsLabelFont [UIFont fontWithName:@"Roboto-Light" size:20.0f]
+#define kSettingsLabelFont [UIFont fontWithName:@"Roboto-Light" size:16.0f]
 #define kSettingsTextFont [UIFont fontWithName:@"Roboto-Regular" size:14.0f]
 #define kSettingsButtonFont [UIFont fontWithName:@"Roboto-Medium" size:14.0f]
 

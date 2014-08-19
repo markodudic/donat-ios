@@ -65,7 +65,8 @@
 	self.saveButton.titleLabel.font = kSettingsButtonFont;
 	self.legalLabel.font = kLegalFont;
 	self.legalButton.titleLabel.font = kBoldTextFont;
-	self.rateButton.titleLabel.font = kBoldTextFont;
+	//self.rateButton.titleLabel.font = kBoldTextFont;
+    [self.rateButton.titleLabel setFont:[UIFont fontWithName:@"Roboto-Medium" size:12.0f]];
 
 	self.wakeLabel.font = kSettingsLabelFont;
 	self.breakfastLabel.font = kSettingsLabelFont;

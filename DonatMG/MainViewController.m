@@ -190,7 +190,7 @@
 
 	cell.active = [[TreatmentManager sharedManager] activeIndication] == cell.tag;
 
-	[cell.titleLabel setFont:[UIFont fontWithName:@"Roboto-Regular" size:15.0f]];
+	[cell.titleLabel setFont:[UIFont fontWithName:@"Roboto-Regular" size:14.0f]];
 
 	UIView * selectedBackgroundView = [[UIView alloc] initWithFrame:cell.frame];
 	[selectedBackgroundView setBackgroundColor:[UIColor colorWithRed:0.0f green:0.0f blue:0.0f alpha:0.2f]];
