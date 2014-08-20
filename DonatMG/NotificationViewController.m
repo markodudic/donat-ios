@@ -85,10 +85,10 @@
 		_timeOfDay = 0;
 
 	NSString *amountString = [_notification.userInfo objectForKey:@"amount"];
-	_labelUpLeft.text = amountString;
+	_labelUpRight.text = amountString;
 
 	NSString *temperatureString = [_notification.userInfo objectForKey:@"temperature"];
-	_labelUpRight.text = temperatureString;
+	_labelUpLeft.text = temperatureString;
 
 	NSString *speedString = [_notification.userInfo objectForKey:@"speed"];
 	_labelDown.text = speedString;
