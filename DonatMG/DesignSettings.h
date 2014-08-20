@@ -11,7 +11,7 @@
 #ifndef DonatMG_DesignSettings_h
 #define DonatMG_DesignSettings_h
 
-#define kTitlesFont [UIFont fontWithName:@"Roboto-Medium" size:15.0f]
+#define kTitlesFont [UIFont fontWithName:@"Roboto-Medium" size:14.0f]
 #define kSubtitlesFont [UIFont fontWithName:@"Roboto-Medium" size:14.0f]
 #define kTextFont [UIFont fontWithName:@"Roboto-Light" size:14.0f]
 #define kLegalFont [UIFont fontWithName:@"Roboto-Light" size:11.0f]
