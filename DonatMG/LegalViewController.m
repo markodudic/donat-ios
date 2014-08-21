@@ -67,16 +67,18 @@
 
 - (void)linkPushed:(DTLinkButton *)button {
 	NSURL *URL = button.URL;
-	if ([[UIApplication sharedApplication] canOpenURL:[URL absoluteURL]]) {
-		[[UIApplication sharedApplication] openURL:[URL absoluteURL]];
-	} else if ([[URL scheme] isEqual:@"mailto"]) {
+	if ([[URL scheme] isEqual:@"mailto"]) {
 		if ([MFMailComposeViewController canSendMail]) {
 			MFMailComposeViewController *mailViewController = [[MFMailComposeViewController alloc] init];
 			mailViewController.mailComposeDelegate = self;
 			[mailViewController setSubject:@""];
 			[mailViewController setToRecipients:@[[URL resourceSpecifier]]];
 			[self presentViewController:mailViewController animated:YES completion:nil];
+		} else if ([[UIApplication sharedApplication] canOpenURL:[URL absoluteURL]]) {
+			[[UIApplication sharedApplication] openURL:[URL absoluteURL]];
 		}
+	} else if ([[UIApplication sharedApplication] canOpenURL:[URL absoluteURL]]) {
+		[[UIApplication sharedApplication] openURL:[URL absoluteURL]];
 	} else {
 		if (![URL host] && ![URL path]) {
 			// possibly a local anchor link
