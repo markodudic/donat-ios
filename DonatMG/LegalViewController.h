@@ -7,8 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "DTCoreText.h"
+#import <MessageUI/MessageUI.h>
+#import <MessageUI/MFMailComposeViewController.h>
 
-@interface LegalViewController : UIViewController
+
+@interface LegalViewController : UIViewController <DTAttributedTextContentViewDelegate, MFMailComposeViewControllerDelegate> {
+	DTAttributedTextView *_textView;
+}
 
 @property (nonatomic, strong) IBOutlet UILabel *legalLabel;
 @property (nonatomic, strong) IBOutlet UIScrollView *scrollView;
