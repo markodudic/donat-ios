@@ -23,7 +23,7 @@
 	[Appirater setCustomAlertRateLaterButtonTitle:___(@"rate_later")];
 
 	// TODO: Change this to actual App ID when deploying!!!
-	[Appirater setAppId:@"ZRXA6J3Z77"];
+	[Appirater setAppId:@"912821903"];
 	[Appirater setDaysUntilPrompt:7];
 	[Appirater setUsesUntilPrompt:0];
 	[Appirater setSignificantEventsUntilPrompt:3];
