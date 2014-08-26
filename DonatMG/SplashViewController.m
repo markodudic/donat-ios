@@ -30,7 +30,7 @@
 }
 
 - (void)viewDidAppear:(BOOL)animated {
-	[self performSelector:@selector(showMainView) withObject:nil afterDelay:2.0f];
+	[self performSelector:@selector(showMainView) withObject:nil afterDelay:3.0f];
 
 	[[TreatmentManager sharedManager] checkForUnsetNotifications];
 }

@@ -157,14 +157,14 @@
 	switch (numberOfIcons) {
 		case 3:
 			iconLefts = @[
-						  [NSNumber numberWithFloat:50.0f],
-						  [NSNumber numberWithFloat:147.0f],
-						  [NSNumber numberWithFloat:243.0f]
+						  [NSNumber numberWithFloat:30.0f],
+						  [NSNumber numberWithFloat:127.0f],
+						  [NSNumber numberWithFloat:223.0f]
 						  ];
 			labelLefts = @[
-						   [NSNumber numberWithFloat:20.0f],
-						   [NSNumber numberWithFloat:117.0f],
-						   [NSNumber numberWithFloat:213.0f]
+						   [NSNumber numberWithFloat:0.0f],
+						   [NSNumber numberWithFloat:97.0f],
+						   [NSNumber numberWithFloat:193.0f]
 						   ];
 			labelWidths = @[
 							[NSNumber numberWithFloat:87.0f],
@@ -174,16 +174,16 @@
 			break;
 		case 4:
 			iconLefts = @[
-						  [NSNumber numberWithFloat:38.0f],
-						  [NSNumber numberWithFloat:110.5f],
-						  [NSNumber numberWithFloat:182.5f],
-						  [NSNumber numberWithFloat:255.0f]
+						  [NSNumber numberWithFloat:18.0f],
+						  [NSNumber numberWithFloat:90.5f],
+						  [NSNumber numberWithFloat:162.5f],
+						  [NSNumber numberWithFloat:235.0f]
 						  ];
 			labelLefts = @[
-						   [NSNumber numberWithFloat:20.0f],
-						   [NSNumber numberWithFloat:93.0f],
-						   [NSNumber numberWithFloat:165.0f],
-						   [NSNumber numberWithFloat:237.0f]
+						   [NSNumber numberWithFloat:0.0f],
+						   [NSNumber numberWithFloat:73.0f],
+						   [NSNumber numberWithFloat:145.0f],
+						   [NSNumber numberWithFloat:217.0f]
 						   ];
 			labelWidths = @[
 							[NSNumber numberWithFloat:63.0f],
@@ -196,12 +196,12 @@
 			// Just in case
 			numberOfIcons = 2;
 			iconLefts = @[
-						  [NSNumber numberWithFloat:74.0f],
-						  [NSNumber numberWithFloat:219.0f],
+						  [NSNumber numberWithFloat:54.0f],
+						  [NSNumber numberWithFloat:199.0f],
 						  ];
 			labelLefts = @[
-						   [NSNumber numberWithFloat:20.0f],
-						   [NSNumber numberWithFloat:165.0f]
+						   [NSNumber numberWithFloat:0.0f],
+						   [NSNumber numberWithFloat:145.0f]
 						   ];
 			labelWidths = @[
 							[NSNumber numberWithFloat:135.0f],
@@ -216,15 +216,15 @@
 		UIImageView *icon = [[UIImageView alloc] initWithImage:[UIImage imageNamed:[[TreatmentManager sharedManager] imageForTimeOfDay:tod]]];
 
 		CGRect frame = icon.frame;
-		frame.origin = CGPointMake([iconLefts[count] floatValue], 350.0f);
+		frame.origin = CGPointMake([iconLefts[count] floatValue], 75.0f);
 		icon.frame = frame;
 
 		if (count < _timeOfDay - 1)
 			icon.alpha = alphaValue;
 
-		[self.view addSubview:icon];
+		[_containerView addSubview:icon];
 
-		frame = CGRectMake([labelLefts[count] floatValue], 385.0f, [labelWidths[count] floatValue], 17.0f);
+		frame = CGRectMake([labelLefts[count] floatValue], 110.0f, [labelWidths[count] floatValue], 17.0f);
 		UILabel *label = [[UILabel alloc] initWithFrame:frame];
 		[label setFont:kNotificationLabelText];
 		[label setText:[[TreatmentManager sharedManager] textForTimeOfDay:tod]];
@@ -232,7 +232,7 @@
 		if (count < _timeOfDay - 1)
 			label.alpha = alphaValue;
 
-		[self.view addSubview:label];
+		[_containerView addSubview:label];
 	}
 }
 
