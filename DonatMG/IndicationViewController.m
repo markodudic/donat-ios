@@ -85,7 +85,7 @@
 		contentSize.height += startFrame.size.height;
 //	}
 //	_startPanel.hidden = _justShowInfo;
-	_bigButton.enabled = !_justShowInfo;
+//	_bigButton.enabled = !_justShowInfo;
 
 	void (^animationBlock)(void) = ^{
 		self.headerPanel.frame = headerFrame;
@@ -348,8 +348,8 @@
 }
 
 - (IBAction)activationPressed:(UIButton *)sender {
-	if (_justShowInfo)
-		return;
+	//if (_justShowInfo)
+	//	return;
 
 	if (_amActive) {
 		[[TreatmentManager sharedManager] cancelActiveTreatment];
@@ -370,8 +370,8 @@
 }
 
 - (IBAction)datePressed:(UIButton *)sender {
-	if (_justShowInfo)
-		return;
+	//if (_justShowInfo)
+	//	return;
 
 	[self.dummyField becomeFirstResponder];
 }

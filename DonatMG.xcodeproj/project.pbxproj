@@ -135,6 +135,8 @@
 		51C12911199296CF00E18149 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 51C12910199296CF00E18149 /* StoreKit.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		51D5E7D81966482000B7C3AF /* CalendarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 51D5E7D71966482000B7C3AF /* CalendarViewController.m */; };
 		51D5E7E41966483000B7C3AF /* IndicationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 51D5E7E31966483000B7C3AF /* IndicationViewController.m */; };
+		FE3CA30719AC847300388AE5 /* icon_add@x2.png in Resources */ = {isa = PBXBuildFile; fileRef = FE3CA30519AC847300388AE5 /* icon_add@x2.png */; };
+		FE3CA31219AC84D400388AE5 /* icon_add.png in Resources */ = {isa = PBXBuildFile; fileRef = FE3CA31119AC84D400388AE5 /* icon_add.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -358,6 +360,8 @@
 		51D5E7D71966482000B7C3AF /* CalendarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarViewController.m; sourceTree = "<group>"; };
 		51D5E7E21966483000B7C3AF /* IndicationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IndicationViewController.h; sourceTree = "<group>"; };
 		51D5E7E31966483000B7C3AF /* IndicationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IndicationViewController.m; sourceTree = "<group>"; };
+		FE3CA30519AC847300388AE5 /* icon_add@x2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_add@x2.png"; sourceTree = "<group>"; };
+		FE3CA31119AC84D400388AE5 /* icon_add.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_add.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -444,6 +448,8 @@
 		5101D0A519607C570030B6BB /* Icons */ = {
 			isa = PBXGroup;
 			children = (
+				FE3CA31119AC84D400388AE5 /* icon_add.png */,
+				FE3CA30519AC847300388AE5 /* icon_add@x2.png */,
 				51914C8D196942EE00EDED15 /* ikona-danes.png */,
 				51914C8E196942EE00EDED15 /* ikona-danes@2x.png */,
 				5101D0A619607C570030B6BB /* bg_datuma.png */,
@@ -717,7 +723,7 @@
 				ORGANIZATIONNAME = renderspace.si;
 				TargetAttributes = {
 					5115E8841960311C00A8CD07 = {
-						DevelopmentTeam = D7U357QS8D;
+						DevelopmentTeam = ZRXA6J3Z77;
 					};
 					5115E8A51960311C00A8CD07 = {
 						TestTargetID = 5115E8841960311C00A8CD07;
@@ -819,6 +825,7 @@
 				5101D10319607C570030B6BB /* icon_treatment@2x.png in Resources */,
 				51914C90196942EE00EDED15 /* ikona-danes@2x.png in Resources */,
 				5101D10519607C570030B6BB /* icon_ure@2x.png in Resources */,
+				FE3CA30719AC847300388AE5 /* icon_add@x2.png in Resources */,
 				5101D0ED19607C570030B6BB /* back-5@2x.png in Resources */,
 				5101D13119607C570030B6BB /* icon_zgaga@2x.png in Resources */,
 				5101D09019607C0C0030B6BB /* Roboto-Regular.ttf in Resources */,
@@ -891,6 +898,7 @@
 				5101D0F219607C570030B6BB /* calendar.png in Resources */,
 				5101D10119607C570030B6BB /* icon_pred_spanjem@2x.png in Resources */,
 				5101D12819607C570030B6BB /* icon_slinavka.png in Resources */,
+				FE3CA31219AC84D400388AE5 /* icon_add.png in Resources */,
 				5101D13019607C570030B6BB /* icon_zgaga.png in Resources */,
 				5101D13519607C570030B6BB /* settings.png in Resources */,
 				5101D11219607C570030B6BB /* ikona-puscica_dol_obroba.png in Resources */,
