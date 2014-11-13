@@ -238,6 +238,8 @@
 			select = 2;
 		} else if ([langId isEqualToString:@"hr"]) {
 			select = 3;
+        } else if ([langId isEqualToString:@"sl"]) {
+            select = 4;
 		}
 
 		[_picker reloadAllComponents];

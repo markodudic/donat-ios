@@ -31,7 +31,7 @@
 
 		NSString *setLanguage = [[SettingsManager sharedManager] appLanguage];
 		if (!setLanguage) {
-			NSArray *supportedLanguages = [NSArray arrayWithObjects:@"en", @"hr", @"it", @"ru", nil];
+			NSArray *supportedLanguages = [NSArray arrayWithObjects:@"en", @"hr", @"it", @"ru", @"sl", nil];
 			NSArray *preferredLanguages = [NSLocale preferredLanguages];
 			for (NSString *language in preferredLanguages) {
 				if (!setLanguage) {
@@ -43,7 +43,7 @@
 		[self setLanguageId:setLanguage ? setLanguage : kDefaultLanguage];
 	}
 
-	_languages = @[@"English", @"Italiano", @"Русский", @"Hrvatski"];
+	_languages = @[@"English", @"Italiano", @"Русский", @"Hrvatski", @"Slovensko"];
 
 	return self;
 }
@@ -71,6 +71,8 @@
 		return @"ru";
 	} else if ([language isEqualToString:@"Hrvatski"]) {
 		return @"hr";
+    } else if ([language isEqualToString:@"Slovensko"]) {
+        return @"sl";
 	} else
 		return nil;
 }
@@ -84,6 +86,8 @@
 		return @"Русский";
 	} else if ([langId isEqualToString:@"hr"]) {
 		return @"Hrvatski";
+    } else if ([langId isEqualToString:@"sl"]) {
+        return @"Slovensko";
 	} else
 		return nil;
 }

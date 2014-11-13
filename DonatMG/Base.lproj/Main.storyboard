@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="vXZ-lx-hvc">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
     </dependencies>
     <scenes>
         <!--Splash View Controller-->
@@ -246,7 +246,7 @@
             </objects>
             <point key="canvasLocation" x="1879" y="215"/>
         </scene>
-        <!--Main View Controller - Root View Controller-->
+        <!--Root View Controller-->
         <scene sceneID="kOL-K0-Mgi">
             <objects>
                 <tableViewController id="fHa-GF-g9p" customClass="MainViewController" sceneMemberID="viewController">
@@ -1064,7 +1064,6 @@
         <image name="ikona-puscica_koledar_desno.png" width="32" height="32"/>
         <image name="ikona-puscica_koledar_levo.png" width="32" height="32"/>
     </resources>
-    <color key="tintColor" red="0.0078431372550000003" green="0.23137254900000001" blue="0.18039215689999999" alpha="1" colorSpace="calibratedRGB"/>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
@@ -1074,4 +1073,5 @@
         <segue reference="hDt-6S-wAu"/>
         <segue reference="tvK-0p-GBK"/>
     </inferredMetricsTieBreakers>
+    <color key="tintColor" red="0.0078431372550000003" green="0.23137254900000001" blue="0.18039215689999999" alpha="1" colorSpace="calibratedRGB"/>
 </document>

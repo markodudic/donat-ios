@@ -135,6 +135,7 @@
 		51C12911199296CF00E18149 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 51C12910199296CF00E18149 /* StoreKit.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		51D5E7D81966482000B7C3AF /* CalendarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 51D5E7D71966482000B7C3AF /* CalendarViewController.m */; };
 		51D5E7E41966483000B7C3AF /* IndicationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 51D5E7E31966483000B7C3AF /* IndicationViewController.m */; };
+		FE183F7F1A14B8B500429991 /* rules_sl.html in Resources */ = {isa = PBXBuildFile; fileRef = FE183F7E1A14B8B400429991 /* rules_sl.html */; };
 		FE3CA30719AC847300388AE5 /* icon_add@x2.png in Resources */ = {isa = PBXBuildFile; fileRef = FE3CA30519AC847300388AE5 /* icon_add@x2.png */; };
 		FE3CA31219AC84D400388AE5 /* icon_add.png in Resources */ = {isa = PBXBuildFile; fileRef = FE3CA31119AC84D400388AE5 /* icon_add.png */; };
 /* End PBXBuildFile section */
@@ -360,6 +361,8 @@
 		51D5E7D71966482000B7C3AF /* CalendarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarViewController.m; sourceTree = "<group>"; };
 		51D5E7E21966483000B7C3AF /* IndicationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IndicationViewController.h; sourceTree = "<group>"; };
 		51D5E7E31966483000B7C3AF /* IndicationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IndicationViewController.m; sourceTree = "<group>"; };
+		FE183F7D1A13B3A000429991 /* sl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sl; path = sl.lproj/Localizable.strings; sourceTree = "<group>"; };
+		FE183F7E1A14B8B400429991 /* rules_sl.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = rules_sl.html; sourceTree = "<group>"; };
 		FE3CA30519AC847300388AE5 /* icon_add@x2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_add@x2.png"; sourceTree = "<group>"; };
 		FE3CA31119AC84D400388AE5 /* icon_add.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_add.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -415,6 +418,7 @@
 				5101D09419607C2A0030B6BB /* rules_hr.html */,
 				5101D09519607C2A0030B6BB /* rules_it.html */,
 				5101D09619607C2A0030B6BB /* rules_ru.html */,
+				FE183F7E1A14B8B400429991 /* rules_sl.html */,
 			);
 			path = "Legal HTML";
 			sourceTree = "<group>";
@@ -740,6 +744,7 @@
 				hr,
 				it,
 				ru,
+				sl,
 			);
 			mainGroup = 5115E87C1960311C00A8CD07;
 			productRefGroup = 5115E8861960311C00A8CD07 /* Products */;
@@ -848,6 +853,7 @@
 				5115E8A11960311C00A8CD07 /* Images.xcassets in Resources */,
 				5101D10819607C570030B6BB /* icon_zjutraj.png in Resources */,
 				517176D8196ACEB6005422B9 /* ikona-alarm.png in Resources */,
+				FE183F7F1A14B8B500429991 /* rules_sl.html in Resources */,
 				5101D11D19607C570030B6BB /* ikona-zapri@2x.png in Resources */,
 				5101D11119607C570030B6BB /* ikona-puscica_dol@2x.png in Resources */,
 				5101D10919607C570030B6BB /* icon_zjutraj@2x.png in Resources */,
@@ -998,6 +1004,7 @@
 				51B9B02F196624F7009080E2 /* hr */,
 				51B9B0301966252C009080E2 /* it */,
 				51B9B03119662535009080E2 /* ru */,
+				FE183F7D1A13B3A000429991 /* sl */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
@@ -1089,9 +1096,10 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "DonatMG/DonatMG-Prefix.pch";
 				INFOPLIST_FILE = "DonatMG/DonatMG-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -1106,9 +1114,10 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "DonatMG/DonatMG-Prefix.pch";
 				INFOPLIST_FILE = "DonatMG/DonatMG-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
