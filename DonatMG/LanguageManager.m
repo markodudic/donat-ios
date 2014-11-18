@@ -43,7 +43,7 @@
 		[self setLanguageId:setLanguage ? setLanguage : kDefaultLanguage];
 	}
 
-	_languages = @[@"English", @"Italiano", @"Русский", @"Hrvatski", @"Slovensko"];
+    _languages = @[@"English", @"Slovenščina", @"Русский", @"Hrvatski", @"Italiano"];
 
 	return self;
 }
@@ -71,7 +71,7 @@
 		return @"ru";
 	} else if ([language isEqualToString:@"Hrvatski"]) {
 		return @"hr";
-    } else if ([language isEqualToString:@"Slovensko"]) {
+    } else if ([language isEqualToString:@"Slovenščina"]) {
         return @"sl";
 	} else
 		return nil;
@@ -87,7 +87,7 @@
 	} else if ([langId isEqualToString:@"hr"]) {
 		return @"Hrvatski";
     } else if ([langId isEqualToString:@"sl"]) {
-        return @"Slovensko";
+        return @"Slovenščina";
 	} else
 		return nil;
 }

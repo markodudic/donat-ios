@@ -232,13 +232,13 @@
 		NSString *langId = [[LanguageManager sharedManager] currentLangId];
 		NSInteger select = 0;
 
-		if ([langId isEqualToString:@"it"]) {
+		if ([langId isEqualToString:@"sl"]) {
 			select = 1;
 		} else if ([langId isEqualToString:@"ru"]) {
 			select = 2;
 		} else if ([langId isEqualToString:@"hr"]) {
 			select = 3;
-        } else if ([langId isEqualToString:@"sl"]) {
+        } else if ([langId isEqualToString:@"it"]) {
             select = 4;
 		}
 
