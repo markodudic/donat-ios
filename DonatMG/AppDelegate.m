@@ -40,7 +40,11 @@
 		[[SettingsManager sharedManager] setNotificationFired:[launchOptions objectForKey:UIApplicationLaunchOptionsLocalNotificationKey]];
 	}
 
-	[Appirater appLaunched:YES];
+    if ([UIApplication instancesRespondToSelector:@selector(registerUserNotificationSettings:)]){
+        [[UIApplication sharedApplication] registerUserNotificationSettings:[UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeAlert|UIUserNotificationTypeBadge|UIUserNotificationTypeSound categories:nil]];
+    }
+    
+	[Appirater appLaunched:YES];	
 
 	return YES;
 }
