@@ -126,12 +126,24 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 10;
+    return 11;
 }
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSString *langId = [[LanguageManager sharedManager] currentLangId];
+    if (indexPath.row == 3 && ([langId isEqualToString:@"it"] || [langId isEqualToString:@"ru"])) {
+        return 0;
+    } else {
+        return [super tableView:tableView heightForRowAtIndexPath:indexPath];
+    }
+}
+
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
 	IndicationCell *cell = [tableView dequeueReusableCellWithIdentifier:@"indicationCell" forIndexPath:indexPath];
 
+    NSString *langId = [[LanguageManager sharedManager] currentLangId];
+    
 	// our indications start from 1
 	switch (indexPath.item + 1) {
 		case kZaprtost:
@@ -144,45 +156,56 @@
 			cell.imageView.image = [UIImage imageNamed:@"icon_zgaga.png"];
 			cell.titleLabel.text = ___(@"indication_2");
 			break;
-		case kMagnezij:
-			cell.tag = kMagnezij;
-			cell.imageView.image = [UIImage imageNamed:@"icon_mg.png"];
-			cell.titleLabel.text = ___(@"indication_3");
-			break;
+        case kMagnezij:
+            cell.tag = kMagnezij;
+            cell.imageView.image = [UIImage imageNamed:@"icon_mg.png"];
+            cell.titleLabel.text = ___(@"indication_3");
+            break;
+        case kDetox:
+            if ([langId isEqualToString:@"it"] || [langId isEqualToString:@"ru"]) {
+                cell.hidden = true;
+            }
+            else {
+                cell.hidden = false;
+            }
+            cell.tag = kDetox;
+            cell.imageView.image = [UIImage imageNamed:@"icon_detox.png"];
+            cell.titleLabel.text = ___(@"indication_4");
+            break;
 		case kSladkorna:
 			cell.tag = kSladkorna;
 			cell.imageView.image = [UIImage imageNamed:@"icon_sladkorna.png"];
-			cell.titleLabel.text = ___(@"indication_4");
+			cell.titleLabel.text = ___(@"indication_5");
 			break;
 		case kSlinavka:
 			cell.tag = kSlinavka;
 			cell.imageView.image = [UIImage imageNamed:@"icon_slinavka.png"];
-			cell.titleLabel.text = ___(@"indication_5");
+			cell.titleLabel.text = ___(@"indication_6");
 			break;
 		case kSecniKamni:
 			cell.tag = kSecniKamni;
 			cell.imageView.image = [UIImage imageNamed:@"icon_secni_kamni.png"];
-			cell.titleLabel.text = ___(@"indication_6");
+			cell.titleLabel.text = ___(@"indication_7");
 			break;
 		case kDebelost:
 			cell.tag = kDebelost;
 			cell.imageView.image = [UIImage imageNamed:@"icon_debelost.png"];
-			cell.titleLabel.text = ___(@"indication_7");
+			cell.titleLabel.text = ___(@"indication_8");
 			break;
 		case kSrceOzilje:
 			cell.tag = kSrceOzilje;
 			cell.imageView.image = [UIImage imageNamed:@"icon_srce_ozilje.png"];
-			cell.titleLabel.text = ___(@"indication_8");
+			cell.titleLabel.text = ___(@"indication_9");
 			break;
 		case kStres:
 			cell.tag = kStres;
 			cell.imageView.image = [UIImage imageNamed:@"icon_stres.png"];
-			cell.titleLabel.text = ___(@"indication_9");
+			cell.titleLabel.text = ___(@"indication_10");
 			break;
 		case kPocutje:
 			cell.tag = kPocutje;
 			cell.imageView.image = [UIImage imageNamed:@"icon_pocutje.png"];
-			cell.titleLabel.text = ___(@"indication_10");
+			cell.titleLabel.text = ___(@"indication_11");
 			break;
 		default:
 			break;

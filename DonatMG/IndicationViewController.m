@@ -211,7 +211,7 @@
 	[self.yearButton.titleLabel setFont:dateFont];
 	[self.bigButton.titleLabel setFont:titlesFont];
 
-	self.drinkTitle.text = ___(@"drinking");
+    self.drinkTitle.text = ___(@"drinking");
 	self.durationTitle.text = ___(@"interval");
 	self.startTitle.text = ___(@"start_date");
 
@@ -234,47 +234,53 @@
 			self.headerLabel.text = ___(@"indication_3_desc");
 			self.durationLabel.text = ___(@"indication_3_time");
 			break;
+        case kDetox:
+            self.headerIcon.image = [UIImage imageNamed:@"icon_detox.png"];
+            self.headerTitle.text = ___(@"indication_4");
+            self.headerLabel.text = ___(@"indication_4_desc");
+            self.durationLabel.text = ___(@"indication_4_time");
+            break;
 		case kSladkorna:
 			self.headerIcon.image = [UIImage imageNamed:@"icon_sladkorna.png"];
-			self.headerTitle.text = ___(@"indication_4");
-			self.headerLabel.text = ___(@"indication_4_desc");
-			self.durationLabel.text = ___(@"indication_4_time");
-			break;
-		case kSlinavka:
-			self.headerIcon.image = [UIImage imageNamed:@"icon_slinavka.png"];
 			self.headerTitle.text = ___(@"indication_5");
 			self.headerLabel.text = ___(@"indication_5_desc");
 			self.durationLabel.text = ___(@"indication_5_time");
 			break;
-		case kSecniKamni:
-			self.headerIcon.image = [UIImage imageNamed:@"icon_secni_kamni.png"];
+		case kSlinavka:
+			self.headerIcon.image = [UIImage imageNamed:@"icon_slinavka.png"];
 			self.headerTitle.text = ___(@"indication_6");
 			self.headerLabel.text = ___(@"indication_6_desc");
 			self.durationLabel.text = ___(@"indication_6_time");
 			break;
-		case kDebelost:
-			self.headerIcon.image = [UIImage imageNamed:@"icon_debelost.png"];
+		case kSecniKamni:
+			self.headerIcon.image = [UIImage imageNamed:@"icon_secni_kamni.png"];
 			self.headerTitle.text = ___(@"indication_7");
 			self.headerLabel.text = ___(@"indication_7_desc");
 			self.durationLabel.text = ___(@"indication_7_time");
 			break;
-		case kSrceOzilje:
-			self.headerIcon.image = [UIImage imageNamed:@"icon_srce_ozilje.png"];
+		case kDebelost:
+			self.headerIcon.image = [UIImage imageNamed:@"icon_debelost.png"];
 			self.headerTitle.text = ___(@"indication_8");
 			self.headerLabel.text = ___(@"indication_8_desc");
 			self.durationLabel.text = ___(@"indication_8_time");
 			break;
-		case kStres:
-			self.headerIcon.image = [UIImage imageNamed:@"icon_stres.png"];
+		case kSrceOzilje:
+			self.headerIcon.image = [UIImage imageNamed:@"icon_srce_ozilje.png"];
 			self.headerTitle.text = ___(@"indication_9");
 			self.headerLabel.text = ___(@"indication_9_desc");
 			self.durationLabel.text = ___(@"indication_9_time");
 			break;
-		case kPocutje:
-			self.headerIcon.image = [UIImage imageNamed:@"icon_pocutje.png"];
+		case kStres:
+			self.headerIcon.image = [UIImage imageNamed:@"icon_stres.png"];
 			self.headerTitle.text = ___(@"indication_10");
 			self.headerLabel.text = ___(@"indication_10_desc");
 			self.durationLabel.text = ___(@"indication_10_time");
+			break;
+		case kPocutje:
+			self.headerIcon.image = [UIImage imageNamed:@"icon_pocutje.png"];
+			self.headerTitle.text = ___(@"indication_11");
+			self.headerLabel.text = ___(@"indication_11_desc");
+			self.durationLabel.text = ___(@"indication_11_time");
 			break;
 		default:
 			break;

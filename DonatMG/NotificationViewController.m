@@ -109,33 +109,37 @@
 			_indicationIcon.image = [UIImage imageNamed:@"icon_mg.png"];
 			_indicationLabel.text = ___(@"indication_3");
 			break;
-		case kSladkorna:
+        case kDetox:
+            _indicationIcon.image = [UIImage imageNamed:@"icon_detox.png"];
+            _indicationLabel.text = ___(@"indication_4");
+            break;
+        case kSladkorna:
 			_indicationIcon.image = [UIImage imageNamed:@"icon_sladkorna.png"];
-			_indicationLabel.text = ___(@"indication_4");
+			_indicationLabel.text = ___(@"indication_5");
 			break;
 		case kSlinavka:
 			_indicationIcon.image = [UIImage imageNamed:@"icon_slinavka.png"];
-			_indicationLabel.text = ___(@"indication_5");
+			_indicationLabel.text = ___(@"indication_6");
 			break;
 		case kSecniKamni:
 			_indicationIcon.image = [UIImage imageNamed:@"icon_secni_kamni.png"];
-			_indicationLabel.text = ___(@"indication_6");
+			_indicationLabel.text = ___(@"indication_7");
 			break;
 		case kDebelost:
 			_indicationIcon.image = [UIImage imageNamed:@"icon_debelost.png"];
-			_indicationLabel.text = ___(@"indication_7");
+			_indicationLabel.text = ___(@"indication_8");
 			break;
 		case kSrceOzilje:
 			_indicationIcon.image = [UIImage imageNamed:@"icon_srce_ozilje.png"];
-			_indicationLabel.text = ___(@"indication_8");
+			_indicationLabel.text = ___(@"indication_9");
 			break;
 		case kStres:
 			_indicationIcon.image = [UIImage imageNamed:@"icon_stres.png"];
-			_indicationLabel.text = ___(@"indication_9");
+			_indicationLabel.text = ___(@"indication_10");
 			break;
 		case kPocutje:
 			_indicationIcon.image = [UIImage imageNamed:@"icon_pocutje.png"];
-			_indicationLabel.text = ___(@"indication_10");
+			_indicationLabel.text = ___(@"indication_11");
 			break;
 		default:
 			break;

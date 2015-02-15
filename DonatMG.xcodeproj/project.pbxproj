@@ -138,6 +138,8 @@
 		FE183F7F1A14B8B500429991 /* rules_sl.html in Resources */ = {isa = PBXBuildFile; fileRef = FE183F7E1A14B8B400429991 /* rules_sl.html */; };
 		FE3CA30719AC847300388AE5 /* icon_add@x2.png in Resources */ = {isa = PBXBuildFile; fileRef = FE3CA30519AC847300388AE5 /* icon_add@x2.png */; };
 		FE3CA31219AC84D400388AE5 /* icon_add.png in Resources */ = {isa = PBXBuildFile; fileRef = FE3CA31119AC84D400388AE5 /* icon_add.png */; };
+		FEC5ACCA1A913D53008A1F0E /* icon_detox.png in Resources */ = {isa = PBXBuildFile; fileRef = FEC5ACC81A913D53008A1F0E /* icon_detox.png */; };
+		FEC5ACCB1A913D53008A1F0E /* icon_detox@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FEC5ACC91A913D53008A1F0E /* icon_detox@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -365,6 +367,8 @@
 		FE183F7E1A14B8B400429991 /* rules_sl.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = rules_sl.html; sourceTree = "<group>"; };
 		FE3CA30519AC847300388AE5 /* icon_add@x2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_add@x2.png"; sourceTree = "<group>"; };
 		FE3CA31119AC84D400388AE5 /* icon_add.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_add.png; sourceTree = "<group>"; };
+		FEC5ACC81A913D53008A1F0E /* icon_detox.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_detox.png; sourceTree = "<group>"; };
+		FEC5ACC91A913D53008A1F0E /* icon_detox@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_detox@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -505,6 +509,8 @@
 		5101D0D019607C570030B6BB /* Indications */ = {
 			isa = PBXGroup;
 			children = (
+				FEC5ACC81A913D53008A1F0E /* icon_detox.png */,
+				FEC5ACC91A913D53008A1F0E /* icon_detox@2x.png */,
 				5101D0D119607C570030B6BB /* icon_debelost.png */,
 				5101D0D219607C570030B6BB /* icon_debelost@2x.png */,
 				5101D0D319607C570030B6BB /* icon_mg.png */,
@@ -840,6 +846,7 @@
 				5101D08F19607C0C0030B6BB /* Roboto-Medium.ttf in Resources */,
 				5101D11519607C570030B6BB /* ikona-puscica_gor_obroba@2x.png in Resources */,
 				5101D12719607C570030B6BB /* icon_sladkorna@2x.png in Resources */,
+				FEC5ACCB1A913D53008A1F0E /* icon_detox@2x.png in Resources */,
 				5101D0F419607C570030B6BB /* bg_datuma.png in Resources */,
 				5101D10F19607C570030B6BB /* ikona-puscica_desno@2x.png in Resources */,
 				5101D0EF19607C570030B6BB /* big_button@2x.png in Resources */,
@@ -872,6 +879,7 @@
 				5101D0EE19607C570030B6BB /* big_button.png in Resources */,
 				5101D09719607C2A0030B6BB /* default.css in Resources */,
 				5101D0F019607C570030B6BB /* calendar-active.png in Resources */,
+				FEC5ACCA1A913D53008A1F0E /* icon_detox.png in Resources */,
 				5101D10419607C570030B6BB /* icon_ure.png in Resources */,
 				5101D10A19607C570030B6BB /* icon_zvecer.png in Resources */,
 				5101D12219607C570030B6BB /* icon_pocutje.png in Resources */,

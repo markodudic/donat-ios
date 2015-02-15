@@ -27,6 +27,9 @@
 		case kMagnezij:
 			return @"kMagnezij";
 			break;
+        case kDetox:
+            return @"kDetox";
+            break;
 		case kSladkorna:
 			return @"kSladkorna";
 			break;
@@ -166,6 +169,7 @@
 			return 2;
 			break;
 		case kMagnezij:
+        case kDetox:
 		case kSladkorna:
 		case kSlinavka:
 			return 3;
@@ -233,6 +237,22 @@
 					   ___(@"speed_pocasi")]
 					 ];
 			break;
+        case kDetox:
+            return @[
+                     @[___(@"drinking_na_tesce"),
+                       [self volumeStringFrom:3 toNumber:5],
+                       ___(@"temperature_toplo"),
+                       ___(@"speed_pocasi")],
+                     @[___(@"drinking_obcutek_lakote"),
+                       [self volumeStringFrom:1 toNumber:0],
+                       ___(@"temperature_hladno"),
+                       ___(@"speed_hitro")],
+                     @[___(@"drinking_pred_spanjem-1"),
+                       [self volumeStringFrom:2 toNumber:0],
+                       ___(@"temperature_mlacno"),
+                       ___(@"speed_hitro")]
+                     ];
+            break;
 		case kSladkorna:
 			return @[
 					 @[___(@"drinking_na_tesce"),
@@ -353,6 +373,13 @@
 					 [NSNumber numberWithUnsignedInteger:todPredVecerjo]
 					 ];
 			break;
+        case kDetox:
+            return @[
+                     [NSNumber numberWithUnsignedInteger:todNaTesce],
+                     [NSNumber numberWithUnsignedInteger:todPredKosilom],
+                     [NSNumber numberWithUnsignedInteger:todPredSpanjem]
+                     ];
+            break;
 		case kSladkorna:
 			return @[
 					 [NSNumber numberWithUnsignedInteger:todNaTesce],
@@ -570,6 +597,9 @@
 		case kDebelost:
 			return [self calculateDrinkingDaysFromDate:startDate tillDate:endDate withDrinkDays:90 pauseDays:30 andCycles:3];
 			break;
+        case kDetox:
+            return [self calculateDrinkingDaysFromDate:startDate tillDate:endDate withDrinkDays:21 pauseDays:90 andCycles:3];
+            break;
 		case kSrceOzilje:
 		case kStres:
 			return [self calculateDrinkingDaysFromDate:startDate tillDate:endDate withDrinkDays:60 pauseDays:30 andCycles:3];
@@ -729,6 +759,11 @@
 			[self setNotificationOpoldneForDate:date withStrings:strings[1] timeOfDay:2 andIndication:indication];
 			[self setNotificationPredVecerjoForDate:date withStrings:strings[2] timeOfDay:3 andIndication:indication];
 			break;
+        case kDetox:
+            [self setNotificationPredZajtrkomForDate:date withStrings:strings[0] timeOfDay:1 andIndication:indication];
+            [self setNotificationOpoldneForDate:date withStrings:strings[1] timeOfDay:2 andIndication:indication];
+            [self setNotificationPredVecerjoForDate:date withStrings:strings[2] timeOfDay:3 andIndication:indication];
+            break;
 		case kSladkorna:
 			[self setNotificationPredZajtrkomForDate:date withStrings:strings[0] timeOfDay:1 andIndication:indication];
 			[self setNotificationPredKosilomForDate:date withStrings:strings[1] timeOfDay:2 andIndication:indication];
