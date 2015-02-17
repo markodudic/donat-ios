@@ -653,7 +653,7 @@
 
 - (void)setNotificationAtDateTime:(NSDate *)time withBody:(NSString *)body andUserInfo:(NSDictionary *)userInfo {
 	if ([[NSDate date] compare:time] == NSOrderedAscending) {
-		UILocalNotification *testNotifation = [[UILocalNotification alloc] init];
+        UILocalNotification *testNotifation = [[UILocalNotification alloc] init];
 		testNotifation.fireDate = time;
 		testNotifation.alertBody = [self createBodyStringWithAction:body andUserinfo:userInfo];
 		testNotifation.userInfo = userInfo;
@@ -762,7 +762,7 @@
         case kDetox:
             [self setNotificationPredZajtrkomForDate:date withStrings:strings[0] timeOfDay:1 andIndication:indication];
             [self setNotificationOpoldneForDate:date withStrings:strings[1] timeOfDay:2 andIndication:indication];
-            [self setNotificationPredVecerjoForDate:date withStrings:strings[2] timeOfDay:3 andIndication:indication];
+            [self setNotificationPredSpanjemForDate:date withStrings:strings[2] timeOfDay:3 andIndication:indication];
             break;
 		case kSladkorna:
 			[self setNotificationPredZajtrkomForDate:date withStrings:strings[0] timeOfDay:1 andIndication:indication];
@@ -807,8 +807,9 @@
 
 	NSArray *daysToDrink = [self drinkingDatesForIndication:indication fromDate:date andTillDate:[date dateByAddingTimeInterval:(60*60*24*365)]];
 
-	for (NSDate *entryDate in daysToDrink)
+	for (NSDate *entryDate in daysToDrink) {
 		[_calendarEntriesHistory addObject:[CalendarHistoryEntry entryWithDate:entryDate startDate:date andIndicationType:indication]];
+    }
 
 	[self writeOutHistory];
 
@@ -869,6 +870,7 @@
 		// the "> - 86400" is a hack to include today in any case. past events today will be filtered out later
 		if (timeInterval > -86400 && timeInterval < kSetNotificationsForDays * 86400 && !entry.notificationsSet) {
 			[self setNotificationsForDate:entry.date andIndication:entry.indicationType];
+           
 			entry.notificationsSet = YES;
 		}
 	}
