@@ -171,6 +171,10 @@
             cell.tag = kDetox;
             cell.imageView.image = [UIImage imageNamed:@"icon_detox.png"];
             cell.titleLabel.text = ___(@"indication_4");
+            [cell.imageView setFrame:CGRectMake(cell.imageView.frame.origin.x,
+                                                cell.imageView.frame.origin.y,
+                                                cell.imageView.frame.size.width,
+                                                cell.imageView.frame.size.width)];
             break;
 		case kSladkorna:
 			cell.tag = kSladkorna;

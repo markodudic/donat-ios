@@ -72,9 +72,14 @@
 	CGFloat drinkAngle = _openDrink ? M_PI : 0.0f;
 	CGFloat durationAngle = _openDuration ? M_PI : 0.0f;
 
-	CGRect headerFrame = CGRectMake(.0f, 2.0f, 320.0f, _openHeader ? _desiredHeaderHeight : 117.0f);
-	self.headerLabel.numberOfLines = _openHeader ? 0 : 3;
-	self.headerLabel.lineBreakMode = _openHeader ? NSLineBreakByWordWrapping : NSLineBreakByTruncatingTail;
+	CGRect headerFrame = CGRectMake(.0f, 2.0f, 320.0f, _openHeader ? _desiredHeaderHeight : 110.0f);
+    CGRect textViewFrame= self.headerLabel.frame;
+    textViewFrame.size.height = _openHeader ? 100 * self.headerLabel.font.lineHeight : 4 * self.headerLabel.font.lineHeight;
+    [self.headerLabel setFrame:textViewFrame];
+    self.headerLabel.textContainer.lineBreakMode = _openHeader ? NSLineBreakByWordWrapping : NSLineBreakByTruncatingTail;
+    
+	//self.headerLabel.numberOfLines = _openHeader ? 0 : 3;
+	//self.headerLabel.lineBreakMode = _openHeader ? NSLineBreakByWordWrapping : NSLineBreakByTruncatingTail;
 	CGRect drinkFrame = CGRectMake(.0f, headerFrame.origin.y + headerFrame.size.height, 320.0f, _openDrink ? _desiredDrinkHeight : 44.0f);
 	CGRect durationFrame = CGRectMake(.0f, drinkFrame.origin.y + drinkFrame.size.height, 320.0f, _openDuration ? _desiredDurationHeight : 44.0f);
 
@@ -286,12 +291,10 @@
 			break;
 	}
 
-
 	CGRect headerLabelFrame = [self.headerLabel.text boundingRectWithSize:CGSizeMake(self.headerLabel.frame.size.width, 1000.0f) options:NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading attributes:@{NSFontAttributeName:self.headerLabel.font} context:nil];
 
-	_desiredHeaderHeight = self.headerLabel.frame.origin.y + headerLabelFrame.size.height + 20.0f;
-
-
+	_desiredHeaderHeight = self.headerLabel.frame.origin.y + headerLabelFrame.size.height + 30.0f;
+    
 	CGRect durationLabelFrame = [self.durationLabel.text boundingRectWithSize:CGSizeMake(self.durationLabel.frame.size.width, 1000.0f) options:NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading attributes:@{NSFontAttributeName:self.headerLabel.font} context:nil];
 	[self.durationLabel setFrame:CGRectMake(self.durationLabel.frame.origin.x, self.durationLabel.frame.origin.y, durationLabelFrame.size.width, durationLabelFrame.size.height)];
 

@@ -38,7 +38,7 @@
 @property (nonatomic, strong) IBOutlet UIButton *headerButton;
 @property (nonatomic, strong) IBOutlet UILabel *headerTitle;
 @property (nonatomic, strong) IBOutlet UIImageView *headerIcon;
-@property (nonatomic, strong) IBOutlet UILabel *headerLabel;
+@property (nonatomic, strong) IBOutlet UITextView *headerLabel;
 
 @property (nonatomic, strong) IBOutlet UIView *drinkPanel;
 @property (nonatomic, strong) IBOutlet UIButton *drinkButton;
