@@ -26,5 +26,5 @@
 	_active = active;
 	_activeIcon.hidden = !_active;
 }
-
+ 
 @end
