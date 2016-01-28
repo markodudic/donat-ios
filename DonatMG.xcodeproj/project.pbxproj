@@ -139,6 +139,8 @@
 		FE3CA30719AC847300388AE5 /* icon_add@x2.png in Resources */ = {isa = PBXBuildFile; fileRef = FE3CA30519AC847300388AE5 /* icon_add@x2.png */; };
 		FE3CA31219AC84D400388AE5 /* icon_add.png in Resources */ = {isa = PBXBuildFile; fileRef = FE3CA31119AC84D400388AE5 /* icon_add.png */; };
 		FE939BF11C5A5C28008F0A45 /* rules_de.html in Resources */ = {isa = PBXBuildFile; fileRef = FE939BF01C5A5C28008F0A45 /* rules_de.html */; };
+		FE939BF41C5A65B4008F0A45 /* splash_de-5@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FE939BF21C5A65B4008F0A45 /* splash_de-5@2x.png */; };
+		FE939BF51C5A65B4008F0A45 /* splash_de-4@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FE939BF31C5A65B4008F0A45 /* splash_de-4@2x.png */; };
 		FEC5ACCA1A913D53008A1F0E /* icon_detox.png in Resources */ = {isa = PBXBuildFile; fileRef = FEC5ACC81A913D53008A1F0E /* icon_detox.png */; };
 		FEC5ACCB1A913D53008A1F0E /* icon_detox@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FEC5ACC91A913D53008A1F0E /* icon_detox@2x.png */; };
 /* End PBXBuildFile section */
@@ -370,6 +372,8 @@
 		FE3CA31119AC84D400388AE5 /* icon_add.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_add.png; sourceTree = "<group>"; };
 		FE939BEF1C5A5900008F0A45 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
 		FE939BF01C5A5C28008F0A45 /* rules_de.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = rules_de.html; sourceTree = "<group>"; };
+		FE939BF21C5A65B4008F0A45 /* splash_de-5@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "splash_de-5@2x.png"; sourceTree = "<group>"; };
+		FE939BF31C5A65B4008F0A45 /* splash_de-4@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "splash_de-4@2x.png"; sourceTree = "<group>"; };
 		FEC5ACC81A913D53008A1F0E /* icon_detox.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_detox.png; sourceTree = "<group>"; };
 		FEC5ACC91A913D53008A1F0E /* icon_detox@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_detox@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -434,6 +438,8 @@
 		5101D09C19607C570030B6BB /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				FE939BF21C5A65B4008F0A45 /* splash_de-5@2x.png */,
+				FE939BF31C5A65B4008F0A45 /* splash_de-4@2x.png */,
 				517176D6196ACEB6005422B9 /* ikona-alarm.png */,
 				517176D7196ACEB6005422B9 /* ikona-alarm@2x.png */,
 				5101D09D19607C570030B6BB /* back-4@2x.png */,
@@ -885,6 +891,7 @@
 				5101D09719607C2A0030B6BB /* default.css in Resources */,
 				5101D0F019607C570030B6BB /* calendar-active.png in Resources */,
 				FEC5ACCA1A913D53008A1F0E /* icon_detox.png in Resources */,
+				FE939BF51C5A65B4008F0A45 /* splash_de-4@2x.png in Resources */,
 				5101D10419607C570030B6BB /* icon_ure.png in Resources */,
 				5101D10A19607C570030B6BB /* icon_zvecer.png in Resources */,
 				5101D12219607C570030B6BB /* icon_pocutje.png in Resources */,
@@ -907,6 +914,7 @@
 				5101D11F19607C570030B6BB /* icon_debelost@2x.png in Resources */,
 				5101D12F19607C570030B6BB /* icon_zaprtost@2x.png in Resources */,
 				5101D10D19607C570030B6BB /* ikona-kozarec@2x.png in Resources */,
+				FE939BF41C5A65B4008F0A45 /* splash_de-5@2x.png in Resources */,
 				5101D13219607C570030B6BB /* moments-title@2x.png in Resources */,
 				5101D13719607C570030B6BB /* splash-4@2x.png in Resources */,
 				5101D10B19607C570030B6BB /* icon_zvecer@2x.png in Resources */,
@@ -1105,7 +1113,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -1123,7 +1130,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;

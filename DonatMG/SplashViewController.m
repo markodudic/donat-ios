@@ -26,7 +26,14 @@
 - (void)viewDidLoad {
 	[super viewDidLoad];
 
-	[self.view insertSubview:[[UIImageView alloc] initWithImage:[UIImage imageNamed:IS_IPHONE_5 ? @"splash-5.png" : @"splash-4.png"]] atIndex:0];
+	NSString *langId = [[LanguageManager sharedManager] currentLangId];
+    
+    if ([langId isEqualToString:@"de"]) {
+        [self.view insertSubview:[[UIImageView alloc] initWithImage:[UIImage imageNamed:IS_IPHONE_5 ? @"splash_de-5.png" : @"splash_de-4.png"]] atIndex:0];
+    }
+    else {
+        [self.view insertSubview:[[UIImageView alloc] initWithImage:[UIImage imageNamed:IS_IPHONE_5 ? @"splash-5.png" : @"splash-4.png"]] atIndex:0];
+    }
 }
 
 - (void)viewDidAppear:(BOOL)animated {

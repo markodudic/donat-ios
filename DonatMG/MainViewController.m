@@ -162,7 +162,7 @@
             cell.titleLabel.text = ___(@"indication_3");
             break;
         case kDetox:
-            if ([langId isEqualToString:@"it"] || [langId isEqualToString:@"ru"]) {
+            if ([langId isEqualToString:@"it"] || [langId isEqualToString:@"ru"] || [langId isEqualToString:@"de"]) {
                 cell.hidden = true;
             }
             else {
