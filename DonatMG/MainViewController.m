@@ -131,7 +131,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     NSString *langId = [[LanguageManager sharedManager] currentLangId];
-    if (indexPath.row == 3 && ([langId isEqualToString:@"it"] || [langId isEqualToString:@"ru"])) {
+    if (indexPath.row == 3 && ([langId isEqualToString:@"it"] || [langId isEqualToString:@"ru"] || [langId isEqualToString:@"de"])) {
         return 0;
     } else {
         return [super tableView:tableView heightForRowAtIndexPath:indexPath];
