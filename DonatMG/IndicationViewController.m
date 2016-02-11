@@ -296,6 +296,8 @@
     NSString *langId = [[LanguageManager sharedManager] currentLangId];
     if ([langId isEqualToString:@"hr"] && _indicationType == kDetox) {
         _desiredHeaderHeight = self.headerLabel.frame.origin.y + headerLabelFrame.size.height + 60.0f;
+    } else if ([langId isEqualToString:@"de"] && _indicationType == kMagnezij) {
+            _desiredHeaderHeight = self.headerLabel.frame.origin.y + headerLabelFrame.size.height + 60.0f;
     } else {
        _desiredHeaderHeight = self.headerLabel.frame.origin.y + headerLabelFrame.size.height + 30.0f;
     }
