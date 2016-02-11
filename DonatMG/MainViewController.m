@@ -126,16 +126,15 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    NSString *langId = [[LanguageManager sharedManager] currentLangId];
+    if ([langId isEqualToString:@"it"] || [langId isEqualToString:@"ru"] || [langId isEqualToString:@"de"]) {
+        return 10;
+    }
     return 11;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSString *langId = [[LanguageManager sharedManager] currentLangId];
-    if (indexPath.row == 3 && ([langId isEqualToString:@"it"] || [langId isEqualToString:@"ru"] || [langId isEqualToString:@"de"])) {
-        return 0;
-    } else {
-        return [super tableView:tableView heightForRowAtIndexPath:indexPath];
-    }
+    return [super tableView:tableView heightForRowAtIndexPath:indexPath];
 }
 
 
@@ -143,9 +142,14 @@
 	IndicationCell *cell = [tableView dequeueReusableCellWithIdentifier:@"indicationCell" forIndexPath:indexPath];
 
     NSString *langId = [[LanguageManager sharedManager] currentLangId];
+
+    NSInteger cnt = indexPath.item;
+    if (indexPath.item >= 3 && ([langId isEqualToString:@"it"] || [langId isEqualToString:@"ru"] || [langId isEqualToString:@"de"])) {
+        cnt = indexPath.item + 1;
+    }
     
 	// our indications start from 1
-	switch (indexPath.item + 1) {
+	switch (cnt + 1) {
 		case kZaprtost:
 			cell.tag = kZaprtost;
 			cell.imageView.image = [UIImage imageNamed:@"icon_zaprtost.png"];
@@ -168,6 +172,7 @@
             else {
                 cell.hidden = false;
             }
+
             cell.tag = kDetox;
             cell.imageView.image = [UIImage imageNamed:@"icon_detox.png"];
             cell.titleLabel.text = ___(@"indication_4");
@@ -214,8 +219,7 @@
 		default:
 			break;
 	}
-
-	cell.active = [[TreatmentManager sharedManager] activeIndication] == cell.tag;
+    cell.active = [[TreatmentManager sharedManager] activeIndication] == cell.tag;
 
 	[cell.titleLabel setFont:[UIFont fontWithName:@"Roboto-Regular" size:14.0f]];
 
