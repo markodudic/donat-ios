@@ -240,6 +240,8 @@
 			select = 3;
         } else if ([langId isEqualToString:@"it"]) {
             select = 4;
+        } else if ([langId isEqualToString:@"de"]) {
+            select = 5;
 		}
 
 		[_picker reloadAllComponents];

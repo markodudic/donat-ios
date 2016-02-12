@@ -19,7 +19,7 @@
 #endif
 
 
-#define kDefaultLanguage @"it"
+#define kDefaultLanguage @"en"
 
 
 #if DEBUG == 1
