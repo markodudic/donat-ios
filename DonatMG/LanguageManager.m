@@ -30,17 +30,23 @@
 		self.i18nTable = [NSMutableDictionary dictionary];
 
 		NSString *setLanguage = [[SettingsManager sharedManager] appLanguage];
+        
 		if (!setLanguage) {
 			NSArray *supportedLanguages = [NSArray arrayWithObjects:@"en", @"hr", @"it", @"ru", @"sl", @"de", nil];
-			NSArray *preferredLanguages = [NSLocale preferredLanguages];
-			for (NSString *language in preferredLanguages) {
-				if (!setLanguage) {
-					if ([supportedLanguages containsObject:language])
-						setLanguage = language;
-				}
-			}
+            
+			// Format is Lang - Region
+            NSString *fullString = [[NSLocale preferredLanguages] firstObject];
+            NSMutableArray *langAndRegion = [NSMutableArray arrayWithArray:[fullString componentsSeparatedByString:@"-"]];
+            // We remove region
+            [langAndRegion removeLastObject];
+            // We recreate array with the lang
+            NSString *language = [langAndRegion componentsJoinedByString:@"-"];
+            if (!setLanguage) {
+                if ([supportedLanguages containsObject:language])
+                    setLanguage = language;
+            }
 		}
-		[self setLanguageId:setLanguage ? setLanguage : kDefaultLanguage];
+        [self setLanguageId:setLanguage ? setLanguage : kDefaultLanguage];
 	}
 
     _languages = @[@"English", @"Slovenščina", @"Русский", @"Hrvatski", @"Italiano", @"Deutsch"];
@@ -50,7 +56,7 @@
 
 - (void)setLanguageId:(NSString *)langId {
 	NSString *path = [[NSBundle mainBundle] pathForResource:@"Localizable.strings" ofType:@"" inDirectory:[NSString stringWithFormat:@"%@.lproj",langId]];
-	self.i18nTable = [NSDictionary dictionaryWithContentsOfFile:path];
+    self.i18nTable = [NSDictionary dictionaryWithContentsOfFile:path];
 	self.currentLangId = langId;
 }
 
