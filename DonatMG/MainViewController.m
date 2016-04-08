@@ -44,6 +44,11 @@
 	self.navigationItem.rightBarButtonItems = buttonsArray;
 
 	UIImage *image = [[UIImage imageNamed:@"moments-title.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    NSString *langId = [[LanguageManager sharedManager] currentLangId];
+    if ([langId isEqualToString:@"de"]) {
+        image = [[UIImage imageNamed:@"moments-title_de.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    }
+    
 	UIBarButtonItem *barButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:nil action:nil];
 	barButton.customView = [[UIImageView alloc] initWithImage:image];
 	self.navigationItem.leftBarButtonItem = barButton;

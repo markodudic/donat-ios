@@ -185,7 +185,7 @@
 
 // Pass 0 (or less than first) as second parameter and only the first will be used
 - (NSString *)volumeStringFrom:(NSInteger)first toNumber:(NSInteger)second {
-	if ([[[LanguageManager sharedManager] currentLangId] isEqual:@"ru"]) {
+	if ([[[LanguageManager sharedManager] currentLangId] isEqual:@"ru"] || [[[LanguageManager sharedManager] currentLangId] isEqual:@"de"]) {
 		first *= 100;
 		second *= 100;
 	}
