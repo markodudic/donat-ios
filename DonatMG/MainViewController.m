@@ -43,7 +43,7 @@
 	NSArray *buttonsArray = @[settingsItem, calendarItem];
 	self.navigationItem.rightBarButtonItems = buttonsArray;
 
-	UIImage *image = [[UIImage imageNamed:@"moments-title.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+	/*UIImage *image = [[UIImage imageNamed:@"moments-title.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     NSString *langId = [[LanguageManager sharedManager] currentLangId];
     if ([langId isEqualToString:@"de"]) {
         image = [[UIImage imageNamed:@"moments-title_de.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
@@ -51,7 +51,7 @@
     
 	UIBarButtonItem *barButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:nil action:nil];
 	barButton.customView = [[UIImageView alloc] initWithImage:image];
-	self.navigationItem.leftBarButtonItem = barButton;
+	self.navigationItem.leftBarButtonItem = barButton;*/
 
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didReceiveNotification:) name:kApplicationDidReceiveNotification object:nil];
 
@@ -94,6 +94,16 @@
 - (void)viewWillAppear:(BOOL)animated {
 	[self.headerLabel setFont:kTextFont];
 	[self.headerLabel setText:___(@"home_screen_title")];
+    
+    UIImage *image = [[UIImage imageNamed:@"moments-title.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    NSString *langId = [[LanguageManager sharedManager] currentLangId];
+    if ([langId isEqualToString:@"de"]) {
+        image = [[UIImage imageNamed:@"moments-title_de.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    }
+    
+    UIBarButtonItem *barButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:nil action:nil];
+    barButton.customView = [[UIImageView alloc] initWithImage:image];
+    self.navigationItem.leftBarButtonItem = barButton;
 
 	CGSize maxSize = CGSizeMake(self.headerView.frame.size.width - 40.0f, MAXFLOAT);
 	CGRect labelRect = [self.headerLabel.text boundingRectWithSize:maxSize options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:self.headerLabel.font} context:nil];
